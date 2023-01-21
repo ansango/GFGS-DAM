@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Esta clase representa la tabla Empleados, como se puede ver cada uno 
+de los campos de la tabla se ven representados aquí por una property, de la cual
+se deben setear el tipo y la longitud -->
+<hibernate-mapping>
+    <class name="Empleados" table="empleados" catalog="empresa">
+        <id name="numeroemple" type="short">
+            <column name="Numeroemple" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellidoemple" type="string">
+            <column name="Apellidoemple" length="10" />
+        </property>
+        <property name="oficioemple" type="string">
+            <column name="Oficioemple" length="10" />
+        </property>
+        <property name="diremple" type="java.lang.Short">
+            <column name="Diremple" />
+        </property>
+        <property name="altaemple" type="date">
+            <column name="Altaemple" length="10" />
+        </property>
+        <property name="salarioemple" type="java.lang.Float">
+            <column name="Salarioemple" precision="6" />
+        </property>
+        <property name="comisionemple" type="java.lang.Float">
+            <column name="Comisionemple" precision="6" />
+        </property>
+        <property name="numerodep" type="byte">
+            <column name="Numerodep" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
