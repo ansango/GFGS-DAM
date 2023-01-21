@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+ <xs:element name='Libro'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='xs:Titulo'/>
+    <xs:element ref='xs:Contenido'/>
+    <xs:element ref='xs:Copyright'/>
+   </xs:sequence>
+   <xs:attribute name='xmlns' type='string' use='required'/>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Titulo'>
+  <xs:complexType mixed='true'>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Contenido'>
+  <xs:complexType>
+   <xs:sequence maxOccurs='unbounded'>
+    <xs:element ref='xs:Capitulo' maxOccurs='unbounded'/>
+    <xs:element ref='xs:Separacion' minOccurs='0' maxOccurs='1'/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Capitulo'>
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element ref='xs:Tema'/>
+    <xs:element ref='xs:Seccion' maxOccurs='unbounded'/>
+   </xs:sequence>
+   <xs:attribute name='materia' use='default' value='Java'>
+    <xs:simpleType>
+     <xs:restriction base='string'>
+      <xs:enumeration value='XML'/>
+      <xs:enumeration value='Java'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Tema'>
+  <xs:complexType mixed='true'>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Seccion'>
+  <xs:complexType mixed='true'>
+   <xs:attribute name='apartados' type='string' use='required'/>
+   <xs:attribute name='dificil' use='default' value='no'>
+    <xs:simpleType>
+     <xs:restriction base='string'>
+      <xs:enumeration value='si'/>
+      <xs:enumeration value='no'/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:attribute>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name='Separacion'>
+  <xs:complexType/>
+ </xs:element>
+
+ <xs:element name='Copyright'>
+  <xs:complexType mixed='true'>
+  </xs:complexType>
+ </xs:element>

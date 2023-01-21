@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<curriculo numero="1">
+  <datos_personales>
+    <nombre>Ana</nombre>
+    <apellidos>Pérez López</apellidos>
+    <fecha>2015-10-10</fecha>
+    <lugar_nacimiento>Madrid</lugar_nacimiento>
+    <nacionalidad>Española</nacionalidad>
+    <id>01541456-J</id>
+    <foto>Ana.jpg</foto>
+  </datos_personales>
+  <datos_contacto>
+    <tipo_via>calle</tipo_via>
+    <nombre_via>El alto</nombre_via>
+    <numero>5</numero>
+    <portal>B</portal>
+    <piso>4</piso>
+    <puerta>A</puerta>
+    <cp>28003</cp>
+    <pais>España</pais>
+    <email>anaperez@gmail.com</email>
+    <telf-movil>654329845</telf-movil>
+  </datos_contacto>
+  <datos_contacto_ad>
+    <pag_web>www.anaperez.es</pag_web>
+    <redes_sociales>Facebook Twitter</redes_sociales>
+  </datos_contacto_ad>
+  <formacion>
+    <estiduios numero="1">
+      <nom_curso>DAM</nom_curso>
+      <lugar>Madrid</lugar>
+      <fecha_ini>2012-05-09</fecha_ini>
+      <fecha_fin>2014-10-05</fecha_fin>
+    </estiduios>
+  </formacion>
+  <idiomas>
+    <lengua numero="1" materno="Si">
+      <nom_idioma>Español</nom_idioma>
+      <nivel>Alto</nivel>
+    </lengua>
+    <lengua numero="2" materno="No">
+      <nom_idioma>Ingles</nom_idioma>
+      <nivel>Alto</nivel>
+      <Oral>Alto</Oral>
+    </lengua>
+  </idiomas>
+  <exp_laboral>
+    <trabajo numero="1">
+      <lugar>Telefonica, s.a</lugar>
+      <puesto>Informatico</puesto>
+      <ini>2015-02-01</ini>
+      <fin>2015-08-01</fin>
+    </trabajo>
+  </exp_laboral>
+  <competencias>
+    <comp numero="1">
+      <nombre_comp>liderazgo</nombre_comp>
+      <nivel>5</nivel>
+    </comp>
+    <comp numero="2">
+      <nombre_comp>iniciativa</nombre_comp>
+      <nivel>4</nivel>
+    </comp>
+  </competencias>
+  <datos_adicionales>
+    <aficiones>Deporte Cine</aficiones>
+    <disp_viajar>Si</disp_viajar>
+    <Vehiculo>Si</Vehiculo>
+    <carnets>A1 B1</carnets>
+  </datos_adicionales>
+</curriculo>

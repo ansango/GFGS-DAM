@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ticket codigo="t00037">
+    <datos_ticket>
+        <fecha>18-03-2017</fecha>
+        <hora>18:00</hora>
+        <precio_total>
+            <precio_sin_IVA_total>100</precio_sin_IVA_total>
+            <cantidad_IVA>21</cantidad_IVA>
+            <PVP_total>121</PVP_total>
+            <moneda>€</moneda>
+        </precio_total>
+        <forma_pago metodo="tarjeta">
+            <tarjeta tipo="mastercard" numtarjeta="************1234">
+                <nombre_cliente>Aníbal Santos</nombre_cliente>
+            </tarjeta>
+        </forma_pago>
+    </datos_ticket>
+    <datos_comercio>
+        <nombre>TGB</nombre>
+        <direccion>Plaza del Corrillo, 36. 37001 Salamanca</direccion>
+        <CIF>897456312S</CIF>
+        <telefono>923456781</telefono>
+    </datos_comercio>
+    <datos_compra>
+        <lineas_compra>
+            <linea_compra>
+                <nombre_articulo>Hamburguesa TGB</nombre_articulo>
+                <cantidad>2</cantidad>
+                <precio_unitario>3.00</precio_unitario>
+                <IVA>21%</IVA>
+                <PVP>3.63</PVP>
+            </linea_compra>
+            <linea_compra>
+                <nombre_articulo>Patatas fritas</nombre_articulo>
+                <cantidad>2</cantidad>
+                <precio_unitario>2.00</precio_unitario>
+                <IVA>21%</IVA>
+                <PVP>2.42</PVP>
+            </linea_compra>
+        </lineas_compra>
+    </datos_compra>
+</ticket>
+
+
+
+
+
+
+
+
+*   0 
+?
++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

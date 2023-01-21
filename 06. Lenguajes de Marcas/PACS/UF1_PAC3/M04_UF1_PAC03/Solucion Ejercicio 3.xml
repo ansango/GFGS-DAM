@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<xs:element name="Libro" type="TipoLibro"/>
+
+<xs:complexType name="TipoLibro">
+  <xs:sequence>
+    <xs:element name="Titulo" type="xs:string"/>
+    <xs:element name="Contenido" type="TipoContenido"/>
+    <xs:element name="Copyright" type="xs:string"/>    
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="TipoContenido">
+  <xs:sequence maxOccurs="unbounded">
+    <xs:element name="Capitulo" type="TipoCapitulo" maxOccurs="unbounded"/>
+    <xs:element name="Separacion" type="TipoVacio" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="TipoCapitulo">
+  <xs:sequence>
+    <xs:element name="Tema" type="xs:string"/>
+    <xs:element name="Seccion" type="TipoSeccion" maxOccurs="unbounded"/>
+  </xs:sequence>
+  <xs:attribute name="materia" type="TipoMateria" default="Java"/>
+</xs:complexType>
+
+<xs:complexType name="TipoSeccion">
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="apartados" type="xs:nonNegativeInteger" use="required"/>
+      <xs:attribute name="dificil" type="xs:boolean" default="false"/>      
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="TipoMateria">
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Java"/>
+    <xs:enumeration value="XML"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="TipoVacio"/>
+
+</xs:schema>

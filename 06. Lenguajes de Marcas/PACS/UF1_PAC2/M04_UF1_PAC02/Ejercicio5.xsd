@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="temporada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="jornada" maxOccurs="5"/>
+      </xs:sequence>
+      <xs:attribute name="año" type="xs:gYear" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="jornada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="partido" maxOccurs="3"/>
+      </xs:sequence>
+      <xs:attribute name="numero" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <xs:element name="partido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fecha" type="xs:date"/>
+        <xs:element ref="estadio"/>
+        <xs:element name="local" type="NombresEquipos"/>
+        <xs:element name="visitante" type="NombresEquipos"/>
+        <xs:choice>
+            <xs:element ref="resultado"/>
+            <xs:element name="aplazado"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="numero" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+     
+   <xs:element name="estadio">
+    <xs:complexType>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+               <xs:attribute name="espectadores" type="asistentes" default="0"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+   
+  <xs:element name="resultado">
+    <xs:complexType>
+      <xs:attribute name="local" type="xs:string" use="required"/>
+      <xs:attribute name="visitante" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="asistentes">
+      <xs:restriction base="xs:nonNegativeInteger">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="80000"/>
+      </xs:restriction>      
+  </xs:simpleType>
+  
+  <xs:simpleType name="NombresEquipos">
+      <xs:restriction base="xs:token">
+          <xs:enumeration value="Escocia"/>
+          <xs:enumeration value="Francia"/>
+          <xs:enumeration value="Gales"/>
+          <xs:enumeration value="Inglaterra"/>
+          <xs:enumeration value="Irlanda"/>
+          <xs:enumeration value="Italia"/>
+      </xs:restriction>
+  </xs:simpleType>
+    
+</xs:schema>

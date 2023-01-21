@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    
+    <channel>  
+        <title>ansango 4</title>
+        <link>http://ansango.esy.es</link>
+        <description>This is a newsletter about photo adventures around the world </description>
+        
+        <item>
+          <title>News</title>
+          <author>Aníbal Santos</author>
+          <link>http://ansango.esy.es/news.html</link>
+          <description>
+           Es probable que consideres que nuestro repertorio de juegos es aún escueto, pero estaremos ampliando nuestra modesta sección en breve. Existen numerosos títulos que añadiremos, clásicos de oro de la epoca de maquinas recreativas (sí, esas donde te fundias los cuartos que te daban tus padres), juegos adaptados a mac, emuladores de consolas viejunas donde podrás rememorar la época de tu primer insert coin.
+
+            Por ello hemos creado el siguiente formulario, para que nos des algunas pistas de aquello que quisieras ver pronto en esta página y darnos un nuevo reto de adaptación multiplataforma. Por ello y por mucho más no dudes es suscribirte.
+            Y por supuesto te incluiremos en nuestro boletín de noticias, donde te mandaremos futuras actualizaciones, mejoras, ofertas y descuentos.
+                       
+          </description>
+          <link>
+            http://ansango.esy.es/news.html
+          </link>
+          <guid isPermaLink="true">
+            http://ansango.esy.es/news.html
+          </guid>
+          <category>Juegos y Diversión</category>
+          <pubDate>Mon, 02 May 2017 16:00:00 +0100</pubDate>
+        </item>
+        
+        
+        <item>
+          <title>Nosotros</title>
+          <author>Aníbal Santos</author>
+          <link>http://ansango.esy.es/index.html</link>
+          <description>
+           NK GMS nace de la ilusión y el empeño de dos jóvenes apasionados de lo retro. Esta idea de 8 bits nace en el año 2012 cuando Mario redescubre la pasión de la fotografía analógica e inculca a Luigi el arte de lo pausado, lo químico y sobre todo la nostalgia de épocas mejores.
+           
+           Con todo el placer y el disfrute del mundo, este sitio web está pensado para todos esos amantes raros e incondicionales del abandonware. Esos juegos que pese a encontrarse en la cuneta tecnológica siguen teniendo un espacio en nuestros corazones. Espermos que disfruteis de todos y cada uno de los títulos que aquí se recogen y de las plataformas disponibles.
+            
+            No queremos darte más la chapa, solo agradecerte que nos visites y que si has disfrutado de alguno de nuestros productos, apreciaremos una donación para continuar con este proyecto.             
+          </description>
+          <link>
+            http://ansango.esy.es/index.html
+          </link>
+          <guid isPermaLink="true">
+            http://ansango.esy.es/index.html
+          </guid>
+          <category>Juegos y Diversión</category>
+          <pubDate>Mon, 02 May 2017 15:58:00 +0100</pubDate>
+        </item>
+        
+        <item>
+            <title>Items</title>
+            <author>Aníbal Santos</author>
+            <link>http://ansango.esy.es/items.html</link>
+            <description>
+              En esta sección encontrarás nuestra biblioteca de videojuegos disponibles que conforme pase el tiempo iremos actualizando. Disfrutarás de la mejor sección gamer, arcade y abandonware traducdia a castellano, probablemente más ambiciosa del panorama web. Si quieres estar al tanto de todas nuestras novedades, puedes rellenar nuestro formulario en la sección "News" indicada en nuestro sitio web. </description>
+            <link>
+            http://ansango.esy.es/items.html
+          </link>
+          <guid isPermaLink="true">
+            http://ansango.esy.es/items.html
+          </guid>
+          <category>Juegos y Diversión</category>
+          <pubDate>Mon, 01 May 2017 16:00:00 +0100</pubDate>
+        </item>
+            
+          <item>
+            <title>Under News</title>
+            <author>Aníbal Santos</author>
+            <link>http://ansango.esy.es/under%20news.html</link>
+            <description>
+              Esta sección perteneciente a "news" será nuestro apartado para suscriptores que solo tendrá lugar en rss feed. Para todos los que aquellos que quereis esar más cerca de nosotros, aquí y solo para vosotros iremos contando las novedades y progresos minuto a minuto de los juegos que acondicionaremos para nuestras maquinas y vuestro disfrute.
+            </description>
+            <link>
+            http://ansango.esy.es/under%20news.html
+          </link>
+          <guid isPermaLink="true">
+            http://ansango.esy.es/under%20news.html
+          </guid>
+          <category>Juegos y Diversión</category>
+          <pubDate>Mon, 03 May 2017 16:00:00 +0100</pubDate>
+        </item>  
+    </channel>
+    
+</rss>

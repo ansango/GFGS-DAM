@@ -1,0 +1,32 @@
+<!--Ejercicio 2 Pag 259-->
+<!ELEMENT tiket (datos_tiket, datos_comercio, datos_compra)>
+<!ATTLIST tiket
+          codigo ID #REQUIRED>
+<!ELEMENT datos_tiket (fecha, hora, precio_total, forma_pago)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT precio_total (cantidad_sin_iva, cantidad_iva, cantidad_con_iva)>
+<!ATTLIST precio_total
+          moneda NMTOKEN #REQUIRED>
+<!ELEMENT cantidad_sin_iva (#PCDATA)>
+<!ELEMENT cantidad_iva (#PCDATA)>
+<!ELEMENT cantidad_con_iva (#PCDATA)>
+<!ELEMENT forma_pago (efectivo | tarjeta)>
+<!ELEMENT efectivo EMPTY>
+<!ELEMENT tarjeta (cliente)>
+<!ATTLIST tarjeta
+                      tipo CDATA #REQUIRED
+                      numero CDATA #REQUIRED>
+<!ELEMENT cliente (#PCDATA)>
+<!ELEMENT datos_comercio (nombre, direccion, cif, telefono)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT cif (#PCDATA)>
+<!ELEMENT telefono (#PCDATA)>
+<!ELEMENT datos_compra (lineas_compra)>
+<!ELEMENT lineas_compra (nombre_articulo, cantidad, precio_und_sin_iva, iva, pvp)>
+<!ELEMENT nombre_articulo (#PCDATA)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT precio_und_sin_iva (#PCDATA)>
+<!ELEMENT iva (#PCDATA)>
+<!ELEMENT pvp (#PCDATA)>

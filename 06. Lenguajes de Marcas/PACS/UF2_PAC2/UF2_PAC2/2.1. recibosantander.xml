@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<recibosBanco>
+  <recibo>
+    <banco>
+      <nombre>Santander</nombre>
+      <sucursal>Calle Toro</sucursal>
+      <logo>http://siagconsulting.es/wp-content/uploads/santander.jpg</logo>
+    </banco>
+
+    <cuenta>
+      <numero>1234678901234567890</numero>    
+      <moneda>euro</moneda>
+    </cuenta>
+  
+    <titular>
+      <nombre>Anibal Santos</nombre>
+      <direccion>Puerta Zamora, S/N</direccion>
+      <codigoPostal>37001</codigoPostal>
+      <ciudad>Salamanca</ciudad>
+    </titular>
+
+    <fecha>16-05-2017</fecha>
+  
+    <total>20</total>
+
+    <entidadOrdenante>eBay</entidadOrdenante>
+    
+    <conceptos>
+      <concepto>
+        <descripcion>Compra eBay teclado</descripcion>
+        <importe>13</importe>
+      </concepto>
+
+      <concepto>
+        <descripcion>Compra eBay ratón</descripcion>
+        <importe>7</importe>
+      </concepto>
+    </conceptos>
+
+  </recibo>
+
+</recibosBanco>

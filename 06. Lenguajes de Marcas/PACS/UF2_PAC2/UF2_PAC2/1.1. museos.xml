@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<museos>
+  <museo>
+    <nombre>Louvre</nombre>
+    <ciudad>París</ciudad>
+    <pais>Francia</pais>
+  </museo>
+
+  <museo>
+    <nombre>Británico</nombre>
+    <ciudad>Londres</ciudad>
+    <pais>Reino Unido</pais>
+  </museo>
+
+  <contenidoRelleno descripcion="Letras griegas">
+    <elementos>
+      <elemento>Alfa</elemento>
+      <elemento>Beta</elemento>
+      <elemento>Gamma</elemento>
+      <elemento>Delta</elemento>
+    </elementos>
+  </contenidoRelleno>
+
+  <museo>
+    <nombre>Hermitage</nombre>
+    <ciudad>San Petersburgo</ciudad>
+    <pais>Rusia</pais>
+  </museo>
+
+  <museo>
+    <nombre>Pérgamo</nombre>
+    <ciudad>Berlín</ciudad>
+    <pais>Alemania</pais>
+  </museo>
+
+  <museo>
+    <nombre>Prado</nombre>
+    <ciudad>Madrid</ciudad>
+    <pais>España</pais>
+  </museo>
+
+</museos>

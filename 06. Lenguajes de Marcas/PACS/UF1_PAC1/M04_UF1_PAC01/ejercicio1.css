@@ -1,0 +1,113 @@
+@charset "utf-8";
+@import url("ejercicio1.css");
+body, html {
+	height: 100%;
+	width: 100%;
+	background-color:#969;
+}
+table {
+	
+	height: 99%;
+	width: 99%;
+	border-color:#FF0;
+	background-color: #FFFFFF;
+	font-family:Verdana, Geneva, sans-serif;
+}
+td {
+	text-align: center;
+}
+h1{ 
+	font-size:xx-large;
+	text-align:center;
+	}
+h2{
+	font-size:x-large;
+	text-align:center;
+}
+h3{
+	font-size:large;
+}
+ul {
+	list-style:none;
+}
+li{
+	height:50px;
+	text-align:center;
+	font-family:Verdana;
+	font-size:medium;
+	font-weight:bold;
+	padding-bottom:15px;
+	padding-right:30px;
+}
+#Celda1 {
+	height: 20%;
+	background-color:#0C0;
+	border-color:#000;
+	border:solid thin;
+	
+}
+#Celda2 {
+	width: 20%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+}
+#Celda3 {
+	height: 10%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+	
+}
+#Celda4 {
+	width: 15%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+}
+#Celda5 {
+	height: 10%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+}
+#Celda6 {
+	height: 44%;
+	border-color:#000;
+	border:solid thin;
+	text-align:justify;
+	padding:20px;
+	background-color:#FFFFFF;
+}
+#Celda7 {
+	height: 16%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+}
+#Celda8 {
+	width: 15%;
+	border-color:#000;
+	border:solid thin;
+	background-color:#FFFFFF;
+}
+#direccion {
+	text-align: right;
+	vertical-align: middle;
+	background-color:#FFFFFF;
+	
+}
+#tablForm td {
+	border-color: #000;
+	border: solid thin;
+	text-align: left;
+	background-color:#FFFFFF;
+}
+fieldset {
+	border-style: none;
+	font-size: small;
+	background-color:#FFFFFF;
+}
+.centrat{
+	text-align:center;
+}

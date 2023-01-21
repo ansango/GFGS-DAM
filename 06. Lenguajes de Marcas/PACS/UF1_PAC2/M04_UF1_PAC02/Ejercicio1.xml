@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<!--Ejercicio 1 Pag 258-->
+<!--DOCTYPE tiket SYSTEM "Ejercicio2.dtd"-->
+<tiket xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="Ejercicio3.xsd" codigo="t00040">
+  <datos_tiket>
+      <fecha>2015-10-15</fecha>
+      <hora>16:00:00</hora>
+      <precio_total moneda="euro">
+          <cantidad_sin_iva>25.20</cantidad_sin_iva>
+          <cantidad_iva>5.30</cantidad_iva>
+          <cantidad_con_iva>30.50</cantidad_con_iva>
+      </precio_total>
+      <forma_pago>
+          <tarjeta tipo="Visa" numero="************1234">
+              <cliente>Pedro Gomez</cliente>
+          </tarjeta>
+      </forma_pago>
+  </datos_tiket>
+  <datos_comercio>
+    <nombre>Mercadona</nombre>
+    <direccion>C/ El alto, 32</direccion>
+    <cif>A-12458789M</cif>
+    <telefono>914569632</telefono>
+  </datos_comercio>
+  <datos_compra>
+      <lineas_compra>
+          <nombre_articulo>Entrecot</nombre_articulo>
+          <cantidad>4</cantidad>
+          <precio_und_sin_iva>6.30</precio_und_sin_iva>
+          <iva>1.32</iva>
+          <pvp>7.62</pvp>
+      </lineas_compra>
+  </datos_compra>
+</tiket>

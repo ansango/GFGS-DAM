@@ -1,0 +1,23 @@
+<!DOCTYPE Pedido SYSTEM "Pedido.dtd">
+
+...
+
+<!ELEMENT Pedido (Destino, Ordenante, Observaciones, Contenido)>
+<!ATTLIST Pedido
+  xmlns CDATA #REQUIRED
+  fecha CDATA #REQUIRED
+>
+<!ELEMENT Destino (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Ordenante (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Direccion (#PCDATA)>
+<!ELEMENT Ciudad (#PCDATA)>
+<!ELEMENT CodPostal (#PCDATA)>
+<!ELEMENT Observaciones (#PCDATA)>
+<!ELEMENT Contenido (Producto+)>
+<!ELEMENT Producto (Nombre, Cantidad, Precio, Observaciones?)>
+<!ATTLIST Producto
+  codigo CDATA #REQUIRED
+>
+<!ELEMENT Cantidad (#PCDATA)>
+<!ELEMENT Precio (#PCDATA)>

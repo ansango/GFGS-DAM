@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<!--<!DOCTYPE temporada SYSTEM "Ejercicio4.dtd">-->
+
+<temporada año="2000" xsi:noNamespaceSchemaLocation="Ejercicio5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jornada numero="1">
+        <partido numero="1">
+            <fecha>2000-02-02</fecha>
+            <estadio espectadores="49000">Lansdowne Road</estadio>
+            <local>Francia</local>
+            <visitante>Inglaterra</visitante>
+            <resultado local="17" visitante="6"/>
+        </partido>
+        <partido numero="2">
+            <fecha>2000-02-03</fecha>
+            <estadio>El parque de los príncipes</estadio>
+            <local>Francia</local>
+            <visitante>Gales</visitante>
+            <aplazado/>
+        </partido>
+    </jornada>
+</temporada>

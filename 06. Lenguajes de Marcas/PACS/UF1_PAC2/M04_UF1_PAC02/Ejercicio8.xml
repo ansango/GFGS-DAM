@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mensaje SYSTEM "correo.dtd">
+
+<mensaje>
+    <email respuesta="si">
+      <cabecera>
+        <emisor>Pedro</emisor>
+        <receptor>Maria</receptor>
+        <receptor>Roberto</receptor>
+        <receptor>Luis</receptor>
+        <fecha>2015-10-05</fecha>
+      </cabecera>
+      <texto>Esta información es muy útil, no la pases por alto</texto>
+      <texto><saludo>Un abrazo.</saludo></texto>
+    </email>
+</mensaje>
+

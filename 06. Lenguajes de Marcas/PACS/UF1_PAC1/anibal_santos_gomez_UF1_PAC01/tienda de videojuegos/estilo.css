@@ -1,0 +1,50 @@
+        * {
+        margin:0px;
+        padding:0px;
+        }
+		             
+		body {
+			font-size: 25px;
+			font-family: arial, sans-serif;
+			
+		}
+		table {
+			width: 100%;
+		}
+		table, tr, td {border: px solid #000;}
+		td {
+			padding: 1em;
+		}
+		tr {
+			margin: 3m;
+		}
+		#cabecera {
+			font-size: 1em;
+		}
+		.impar {
+			background: #FFF; color: #000;
+			
+		}
+		.par {
+			background: #FFF; color: #000;
+			
+		}	
+		#mititulo {
+			font-family: 'Muli', sans-serif;
+		}
+		
+        #cuadro {
+			width: 20px;
+			height: 100px;
+		
+		}
+
+        #formulario {
+			font-size: 18px;
+			
+		}
+
+#menu {
+    
+    padding: 5%;
+}

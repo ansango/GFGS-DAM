@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pedido fecha="2016-04-03">
+    <Cliente>
+        <Nombre>Albert</Nombre>
+        <Apellidos>Guardia</Apellidos>
+        <Direccion>General Ricardos, 56</Direccion>
+        <Ciudad>Huesca</Ciudad>
+        <CPostal>22002</CPostal>
+    </Cliente>
+    <Destinatario>
+        <Nombre>Adrián</Nombre>
+        <Apellidos>Torres</Apellidos>
+        <Direccion>Av. Doctor Fleming, 15</Direccion>
+        <Ciudad>Lleida</Ciudad>
+        <CPostal>25006</CPostal>
+    </Destinatario>
+    <Paquete>
+        <Producto cod="872-AA">
+            <Descripcion>Cortadora Cesped</Descripcion>
+            <Precio>148.95 €</Precio>
+            <Unidades>1</Unidades>
+            <Notas>Anotar si es eléctrica</Notas>
+        </Producto>
+        <Producto>
+            <Descripcion>Podadora manual seto</Descripcion>
+            <Precio>7.98 €</Precio>
+            <Unidades>3</Unidades>
+            <Notas>Sin observaciones</Notas>
+        </Producto>
+    </Paquete>
+    <Notas>Envío urgente</Notas>
+</Pedido>

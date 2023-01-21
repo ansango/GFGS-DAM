@@ -1,0 +1,15 @@
+<?xml version="1.0" encodind="UTF-8"?>
+<!DOCTYPE mensaje SYSTEM "doc.dtd"
+
+<mensaje>
+    <email respuesta="si">
+        <cabecera>
+        <emisor>Aníbal</emisor>
+        <receptor>Raquel</receptor>
+        <fecha>30-01-2017</fecha>
+        </cabecera>
+        <asunto>URGENTE RESPUESTA </asunto>
+        <texto>Responde cuanto antes </texto>
+        <texto>Ya sabes donde encontrarme.</texto>
+    </email>
+</mensaje>

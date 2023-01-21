@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>news</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+<table>
+	<tr>
+		<td id="cabecera" class="impar" colspan="4">
+			<div align="center">
+				<img src="imagenes/nukegames.png" height="250px" width="800px">
+			</div>
+		</td>
+	</tr>
+		<td class="par" rowspan="4"> 
+		
+			<ul>
+				<br><br><br><br>
+				<li><a href="Index.html"><img src="imagenes/guindillanosotros.png" height="30px" href="inicio" alt="boton inicio"></li><br><br>
+				<li><a href="items.html"><img src="imagenes/mandoitems.png" height="30px" href="items" alt="boton items"></li><br><br>
+				<li><a href="news.html"><img src="imagenes/ojonews.png" height="30px" href="news" alt="boton news"></li>
+			</ul>
+		
+		</td>
+		<td class="impar" colspan="2">
+		
+			<div align="left">
+				<img src="imagenes/news.png" height="45px" width="235px">
+			</div>
+			
+		</td>
+		<td class="par" rowspan="3">	
+		</td>
+	<tr>
+		<td class="par" rowspan="2">	
+		</td>
+		<td class="par">
+		<h5> Es probable que consideres que nuestro repertorio de juegos es aún escueto, pero estaremos ampliando nuestra modesta sección en breve. Existen numerosos títulos que añadiremos, clásicos de oro de la epoca de maquinas recreativas (sí, esas donde te fundias los cuartos que te daban tus padres), juegos adaptados a mac, emuladores de consolas viejunas donde podrás rememorar la época de tu primer insert coin. <br><br>
+		
+		Por ello hemos creado el siguiente formulario, para que nos des algunas pistas de aquello que quisieras ver pronto en esta página y darnos un nuevo reto de adaptación multiplataforma. Por ello y por mucho más no dudes es suscribirte. <br><br> 
+		
+		Y por supuesto te incluiremos en nuestro boletín de noticias, donde te mandaremos futuras actualizaciones, mejoras, ofertas y descuentos. </h5>
+		
+			<form action="registro.html" method="post" id="formulario">
+			<fieldset>
+				<legend>news·letter</legend>
+				<table>
+				<tr>
+					<td colspan="2"> <label for="iduser"> nickname:  </label> <input type="text" id="iduser" value="">
+					</td>
+				</tr>
+				<tr>
+					<td><label for="nombre">nombre:  </label><input type="text" id="nombre" name="nombre"></td>					
+					<td><label for="apellidos">apellidos: </label><input type="text" id="apellidos" name="apellidos"</td>
+				</tr>
+				<tr>
+					<td><label for="pass">contraseña: </label><input type="text" id="pass" name="pass"></td>
+					<td><label for="cpass">confirmar contraseña: </label><input type="text" id="cpass" name="cpass"</td>
+				</tr>
+				<tr>				
+					<td colspan="2"><label for="email">email: </label><input type="text" id="email" name="email"></td>
+				</tr>
+				<tr>
+					<td>elige tus plataformas favoritas: </td>
+					<td><input type="checkbox" id="winOS" name="winOS" ><label for="winOS"> winOS</label>
+						<input type="checkbox" id="macOS" name="macOS" ><label for="macOS"> macOS</label>
+						<input type="checkbox" id="linuxOS" name="linuxOS" ><label for="linuxOS"> linuxOS</label><br>
+						<input type="checkbox" id="playstation" name="playstation" ><label for="playstation"> playstation</label>
+						<input type="checkbox" id="nintendo" name="nintendo" ><label for="nintendo"> nintendo</label>
+						<input type="checkbox" id="xbox" name="xbox" ><label for="xbox"> xbox</label><br>
+						<input type="checkbox" id="android" name="android" ><label for="android"> android</label>
+						<input type="checkbox" id="iOS" name="iOS" ><label for="iOS"> iOS</label>
+				</tr>
+				<tr>
+					<td>elige tus géneros favoritos: </td>
+					<td><input type="checkbox" id="accion" name="accion" ><label for="accion"> acción</label>
+						<input type="checkbox" id="shooter" name="shooter" ><label for="shooter"> shooter</label>
+						<input type="checkbox" id="estrategia" name="estrategia" ><label for="estrategia"> estrategia</label><br>
+						<input type="checkbox" id="simulacion" name="simulacion" ><label for="simulacion"> simulación</label>
+						<input type="checkbox" id="deportes" name="deportes" ><label for="deportes"> deportes</label>
+						<input type="checkbox" id="carreras" name="carreras" ><label for="carreras"> carreras</label><br>
+						<input type="checkbox" id="aventura" name="aventura" ><label for="aventura"> aventura</label>
+						<input type="checkbox" id="rol" name="rol" ><label for="rol"> rol</label>
+						<input type="checkbox" id="sandbox" name="sandbox" ><label for="sandbox"> sandbox</label><br>
+						<input type="checkbox" id="musical" name="musical" ><label for="musical"> musical</label>
+						<input type="checkbox" id="puzzle" name="puzzle" ><label for="puzzle"> puzzle</label>
+						<input type="checkbox" id="partygames" name="partygames" ><label for="partygames"> party games</label><br>
+						<input type="checkbox" id="educacion" name="educacion" ><label for="educacion"> educación</label>
+						<input type="checkbox" id="online" name="online" ><label for="online"> online</label>
+						<input type="checkbox" id="multijugador" name="multijugador" ><label for="multijugador"> multijugador</label>						
+				</tr>
+				<tr>
+					<td><label for="rango">edad: </label></td>
+					<td><select id="rango" name="edad">
+						<option value="blank"> </option>
+						<option value="infantil">menos de 12 años</option>
+						<option value="adolescente">de 12 a 15 años</option>
+						<option value="adolescente2">de 16 a 18 años</option>
+						<option value="juvenil">de 19 a 25 años</option>
+						<option value="adulto">de 26 a 30 años</option>
+						<option value="adulto2">de 31 a 40 años</option>
+						<option value="maduro">de 41 a 50 años</option>
+						<option value="senior">mayor de 51 años</option>
+				</tr>
+				<tr>
+					<td><label for="modojuego">modo de juego: </label></td>
+					<td><select id="modojuego" name="modojuego" multiple="si" size="3">
+						<option value="solo" selected="selected">sólo</option>
+						<option value="multijudador">multijugador</option>
+						<option value="online" selected="selected"> online</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="avatar">sube tu avatar:</label></td>
+					<td><input type="file" id="avatar" accept=".gif, .jpg, .png"></td>
+				</tr>
+				<tr>
+					<td><label for="comentarios">recomiéndanos algo: </label></td>
+					<td><textarea id="comentarios" name="comentarios" rows="5" cols="35"></textarea></td>
+				</tr>
+				<tr>
+					<td class="centro"><button type="reset">empezar de nuevo</button></td>
+					<td class="centro"><button type="submit">enviar</button></td>
+				</tr>
+				<tr>
+					<td class="centro" colspan="2"><button type="button" disabled="disabled">modifica tus datos</button></td>
+				</tr>
+				</table>
+			
+			</fieldset>	
+			</form>
+		
+		</td>
+	</tr>
+		<td class="impar" id="mititulo">
+			<img src="imagenes/banerdown.png" height="50px">
+		</td>
+	<tr>
+		<td align="middle" class= "impar" colspan="3"><br>
+			<h6> todos los derechos reservados <br> &#169 2016 </h6>
+			
+		</td>
+	</tr>
+	
+	<tr>
+		
+	</tr>
+	
+	<tr>
+	
+	</tr>
+	
+	
+</table>
+
+</body>
+</html>

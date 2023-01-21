@@ -1,0 +1,20 @@
+<!ELEMENT temporada (jornada)>
+<!ATTLIST temporada
+          año CDATA #REQUIRED>
+<!ELEMENT jornada (partido+)>
+<!ATTLIST jornada
+          numero CDATA #REQUIRED>
+<!ELEMENT partido (fecha, estadio, local, visitante,(resultado| aplazado))>
+<!ATTLIST partido
+          numero CDATA #REQUIRED>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT estadio (#PCDATA)>
+<!ATTLIST estadio
+          espectadores CDATA #IMPLIED>
+<!ELEMENT local (#PCDATA)>
+<!ELEMENT visitante (#PCDATA)>
+<!ELEMENT resultado (#PCDATA)>
+<!ATTLIST resultado
+          local CDATA #REQUIRED
+          visitante CDATA #REQUIRED>
+<!ELEMENT aplazado EMPTY>

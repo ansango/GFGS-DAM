@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- inicio de pàgina-->
+<head height:100%><!-- cabecera del documento-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tienda Videojuegos IMPACTGAME</title>
+<link href="ejercicio1.css" rel="stylesheet" type="text/css" />
+</head><!-- final de cabecera del documento-->
+
+<body>
+<table>
+           <tr>
+                 <td id="Celda1" colspan="4">
+
+					<img src="img/logo_header.png" width="1329" height="130" alt="Logo Cabecera" />
+                </td>
+             </tr>
+            <tr>
+                <td id="Celda2" rowspan="5" >
+                	<ul>
+                    	<li><a href="index.html"><img src="img/boton_inicio.png"  href="inicio.html" alt="Boton Inicio" /></a></li>
+                        <li><a href="productos.html"><img src="img/boton_productos.png"  href="productos.html" alt="Boton Inicio" /></a></li>
+                        <li><a href="formulario.html"><img src="img/boton_formulario.png"  href="formulario.html" alt="Boton Inicio" /></a></li>
+                    </ul>
+                        
+                </td>
+            </tr>
+            <tr >
+                <td id="Celda3" colspan="2"><h3>Nuevos usuarios</h3></td>
+                <td id="Celda8" rowspan="3"><table>
+                		<tr>	
+                        	<td class="tdPubli">Publicidad - Empresa A</td>
+                		</tr>
+                        <tr>
+                        	<td class="tdPubli"> Publicidad - Empresa B</td>
+                        </tr>
+                        <tr>
+                        	<td class="tdPubli"> Publicidad - Empresa C</td>
+                        </tr>
+                   </table>	
+                </td>
+            </tr> 
+            <tr>
+              <td id="Celda4" rowspan="2">
+                	<p><img src="img/imagen_goku.png" width="176" height="250" alt="Baul antiguo" /></p>
+                	<p><img src="img/imagen_Sonic.png" width="141" height="225" alt="Silla isabelina" /></p>
+                	
+                </td>
+                
+                <td id="Celda6">
+                	<form action="registro.html" method="post"> 
+                	<fieldset>
+                    	<legend> Formulario de alta de usuario </legend>
+                    	<table id="tablForm">		
+                  		<tr> 
+                        	<td class="centrat" colspan="2">  <label for ="iduser">Identificador de nuevo usuario:</label> <input type="text" id="iduser" name="user" value="usu_012345" > </td>
+                        </tr>
+                        <tr>
+                        	<td class="esq"> <label for ="Nom">Nombre:</label> <input type="text" id="Nom" name="nombre"></td>
+                            <td> <label for ="Cognom">Apellido:</label> <input type="text" id="Cognom" name="apellido"></td>
+                        </tr>
+                        <tr>
+                        	 <td> <label for ="passw">Contraseña:</label> <input type="password" id="passw" name="contraseña"></td>
+                             <td> <label for ="confPass">Confirmar contraseña:</label> <input type="password" id="confPass" name="confirmContraseña"></td>
+                        </tr>
+                        <tr> 
+                        	<td class="centrat"colspan="2">  <label for ="email">Email:</label> <input type="text" id="email" name="email"> </td>
+                        </tr>
+                        <tr>
+                        	 <td> Sexo:</td>
+                             <td> 
+                             	<input type="radio" id="varon" name="genero" ><label for="varon">Varón</label>
+                             	<input type="radio" id="mujer" name="genero" checked ><label for="mujer">Mujer</label>
+                             </td>
+                        </tr>
+ 						<tr>
+                        	 <td> Aficiones</td>
+                             <td> 
+                             	<input type="checkbox" id="deporte" name="Aficiones" ><label for="deporte">Deporte</label>
+                             	<input type="checkbox" id="lectura" name="Aficiones" checked><label for="lectura">Lectura</label>
+                                <input type="checkbox" id="cine" name="Aficiones" ><label for="cine">Cine</label>
+                             </td>
+                        </tr>
+                        <tr> 
+                        	<td>  <label for ="pais">País:</label></td>
+                        	<td>
+                            	<select id="pais" name="pais">
+                            	<option value="Francia">Francia</option>
+                                <option value="España">España</option>
+                                <option value="Italia">Italia </option>
+                                <option value="Bélgica">Bélgica</option>
+                            	</select>
+                            </td>
+                        </tr>
+                         <tr> 
+                        	<td>  <label for ="colores">Colores favoritos:</label></td>
+                        	<td>
+                            	<select id="colores" name="colores" multiple="si" sizxe="4">
+                            	<option value="rojo" selected="selected">Rojo</option>
+                                <option value="verde">Verde</option>
+                                <option value="azul" selected="selected">Azul </option>
+                                </select>
+                            </td>
+                        </tr>
+                         <tr>
+                        	 <td> <label for ="foto">Subir su foto:</label></td>
+                             <td> 
+                             	<input type="file" id="foto" name="foto" accept=".gif, .jpg, .png">
+                             </td>
+                        </tr>
+                        <tr>
+                        	 <td> <label for ="comentarios">Comentarios personales:</label></td>
+                             <td> 
+                             	<textarea id="comentarios" name="comentarios" rows="4" cols="30"></textarea>
+                             </td>
+                        </tr>
+                        <tr>
+                        	 <td class="centrat"> <button type="reset">Resetear</button> </td>
+                             <td class="centrat"> <button type="submit">Enviar</button> </td>
+                        </tr>
+                         <tr>
+                        	 <td class="centrat" colspan="2"  > <button type="button" disabled="disabled">Modificar datos del usuario</button> </td>
+                         </tr>
+                        </table>
+                    </fieldset>    
+                	</form>
+                    </td>
+            </tr> 
+            <tr>
+                <td id="Celda7">Registrese para recibir nuestros boletines informativos</td>
+                
+            </tr>           
+            <tr>
+              <td id= "Celda5" colspan="3"> 
+             <p>Central: IMPACTGAME SAN FERNANDO DE HENARES 
+C/ Jose Alix Alix, 16-2 (San Fernando De Henares)<br>
+TELF: 91 669 61 38 <br>
+IMPACTGAME SABADELL <br>
+C.C. EL PADDOCK Avd. Francesc Macià, 46 Planta -1, local 23<br>
+TELF:93 724 32 19</p>
+             </td>
+            </tr> 
+</table>
+
+
+
+</body><!-- final de cuerpo del documento-->
+</html><!-- final de pàgina-->

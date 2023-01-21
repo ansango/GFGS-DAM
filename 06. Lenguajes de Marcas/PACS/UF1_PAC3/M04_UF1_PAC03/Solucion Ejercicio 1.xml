@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Pedido xmlns="http://www.Ilernafponline.com"
+        fecha="2016-04-01">
+  <Destino>
+    <Nombre>Adrián Torres</Nombre>
+    <Direccion> Avenida Doctor Fleming 15</Direccion>
+    <Ciudad>Lleida</Ciudad>
+    <CodPostal>25006</CodPostal>
+  </Destino>
+  <Ordenante>
+    <Nombre>Albert Guardia</Nombre>
+    <Direccion>General Ricardos 56</Direccion>
+    <Ciudad>Huesca</Ciudad>
+    <CodPostal>28055</CodPostal>
+  </Ordenante>
+  <Observaciones>Es urgente, el césped está muy alto</Observaciones>
+  <Contenido>
+    <Producto codigo="872-AA">
+      <Nombre>Cortadora de cesped</Nombre>
+      <Cantidad>1</Cantidad>
+      <Precio>148.95</Precio>
+      <Observaciones>Confirmar que es eléctrica</Observaciones>
+    </Producto>
+    <Producto codigo="926-FH">
+      <Nombre>Podadora</Nombre>
+      <Cantidad>3</Cantidad>
+      <Precio>7.98</Precio>
+    </Producto>
+  </Contenido>
+</Pedido>

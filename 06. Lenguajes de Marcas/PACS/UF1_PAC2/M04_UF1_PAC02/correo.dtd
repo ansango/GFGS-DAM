@@ -1,0 +1,13 @@
+<!ELEMENT mensaje (email | carta)>
+<!ELEMENT email (cabecera, asunto? ,texto+)>
+<!ATTLIST email respuesta (si| no) "no">
+<!ELEMENT carta (encabezado, texto)>
+<!ATTLIST carta respuesta (si| no) "no">
+<!ELEMENT cabecera (emisor, receptor*, fecha?)>
+<!ELEMENT asunto (#PCDATA)>
+<!ELEMENT texto (#PCDATA| saludo)*>
+<!ELEMENT encabezado (emisor, receptor*, fecha)>
+<!ELEMENT emisor (#PCDATA)>
+<!ELEMENT receptor (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT saludo (#PCDATA)>

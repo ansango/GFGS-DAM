@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="tiket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="datos_tiket"/>
+        <xs:element ref="datos_comercio"/>
+        <xs:element ref="datos_compra"/>
+      </xs:sequence>
+      <xs:attribute name="codigo" type="xs:ID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="datos_tiket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fecha"/>
+        <xs:element ref="hora"/>
+        <xs:element ref="precio_total"/>
+        <xs:element ref="forma_pago"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="datos_comercio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nombre"/>
+        <xs:element ref="direccion"/>
+        <xs:element ref="cif"/>
+        <xs:element ref="telefono"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="datos_compra">
+    <xs:complexType>
+        <xs:sequence>
+          <xs:element ref="lineas_compra"/>
+        </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="fecha" type="xs:date"/>
+
+  <xs:element name="hora" type="xs:time"/>
+
+  <xs:element name="precio_total">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cantidad_sin_iva"/>
+        <xs:element ref="cantidad_iva"/>
+        <xs:element ref="cantidad_con_iva"/>
+      </xs:sequence>
+      <xs:attribute name="moneda" type="xs:NMTOKEN" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="forma_pago">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="tarjeta"/>
+        <xs:element ref="efectivo"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="cantidad_sin_iva" type="xs:double"/>
+
+  <xs:element name="cantidad_iva" type="xs:double"/>
+
+  <xs:element name="cantidad_con_iva" type="xs:double"/>
+
+  <xs:element name="efectivo">
+    <xs:complexType/>
+  </xs:element>
+  
+    <xs:element name="tarjeta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cliente"/>
+      </xs:sequence>
+        <xs:attribute name="tipo" type="xs:string" use="required"/>
+        <xs:attribute name="numero" use="required">
+          <xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:pattern value="\*{12}\d{4}"/>
+              </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="cliente" type="xs:string"/>
+
+  <xs:element name="nombre" type="xs:string"/>
+
+  <xs:element name="direccion" type="xs:string"/>
+
+  <xs:element name="cif" type="xs:string"/>
+
+  <xs:element name="telefono" type="xs:string"/>
+
+  <xs:element name="lineas_compra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nombre_articulo"/>
+        <xs:element ref="cantidad"/>
+        <xs:element ref="precio_und_sin_iva"/>
+        <xs:element ref="iva"/>
+        <xs:element ref="pvp"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="nombre_articulo" type="xs:string"/>
+
+  <xs:element name="cantidad" type="xs:int"/>
+
+  <xs:element name="precio_und_sin_iva" type="xs:double"/>
+
+  <xs:element name="iva" type="xs:double"/>
+
+  <xs:element name="pvp" type="xs:double"/>
+  
+  
+
+</xs:schema>

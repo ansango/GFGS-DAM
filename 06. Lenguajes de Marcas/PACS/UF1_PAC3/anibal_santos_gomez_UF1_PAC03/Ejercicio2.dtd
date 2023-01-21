@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Pedido SYSTEM "Pedido.dtd">
+
+<!ELEMENT Pedido (Cliente, Destinatario, Paquete, Notacion)>
+<!ATTLIST Pedido fecha CDATA #REQUIRED>
+
+<!ELEMENT Cliente (Nombre, Apellidos+, Direccion, Ciudad, CPostal)>
+<!ELEMENT Destinatario (Nombre, Apellidos+, Direccion, Ciudad, CPostal)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Apellidos (#PCDATA)>
+<!ELEMENT Direccion (#PCDATA)>
+<!ELEMENT Ciudad (#PCDATA)>
+<!ELEMENT CPostal (#PCDATA)>
+<!ELEMENT Paquete (Producto+)>
+<!ELEMENT Producto (Descripcion, Precio, Unidades, Notas)>
+<ATTLIST Producto cod CDATA #REQUIRED>
+<!ELEMENT Descripcion (#PCDATA)>
+<!ELEMENT Precio (#PCDATA)>
+<!ELEMENT Unidades (#PCDATA)>
+<!ELEMENT Notas (#PCDATA)>

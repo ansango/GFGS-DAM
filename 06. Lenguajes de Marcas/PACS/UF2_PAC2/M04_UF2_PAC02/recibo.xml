@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recibo fecha="01/05/2016" total="205">
+	<banco>
+		<nombre>Banco "Corralito"</nombre>
+		<sucursal>1358</sucursal>
+		<ciudad>Algún lugar</ciudad>
+		<logo>logo.jpg</logo>
+	</banco>
+	<emisor>
+			<nombre>Suministros Carillos</nombre>
+			<cif>G-25362541</cif>
+	</emisor>
+	<cuenta moneda="Euro">
+		<numero>32514863590015248760</numero>
+		<titular>Armando Siempre Libros</titular>
+	</cuenta>
+	<detalles>
+		<detalle>
+			<concepto>15 cajas Folios</concepto>
+			<cantidad>20</cantidad>
+		</detalle>
+		<detalle>
+			<concepto>3 Toner B/N</concepto>
+			<cantidad>-160</cantidad>
+		</detalle>
+		<detalle>
+			<concepto>2 Carpetas Con Anillas</concepto>
+			<cantidad>25</cantidad>
+		</detalle>
+	</detalles>
+</recibo>

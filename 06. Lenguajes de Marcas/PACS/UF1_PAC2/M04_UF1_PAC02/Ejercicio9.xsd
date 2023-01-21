@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="mensaje">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="email"/>
+        <xs:element ref="carta"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="email">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cabecera"/>
+          <xs:sequence minOccurs="0">
+            <xs:element ref="asunto"/>
+          </xs:sequence>
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element ref="texto"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="respuesta" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="si"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="carta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="encabezado"/>
+        <xs:element ref="texto"/>
+      </xs:sequence>
+      <xs:attribute name="respuesta" default="no">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="si"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="cabecera">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="emisor"/>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="receptor"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="fecha"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="asunto" type="xs:string"/>
+
+  <xs:element name="texto">
+    <xs:complexType mixed="true">
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:choice>
+          <xs:element ref="saludo"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="encabezado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="emisor"/>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="receptor"/>
+        </xs:sequence>
+        <xs:element ref="fecha"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="emisor" type="xs:string"/>
+
+  <xs:element name="receptor" type="xs:string"/>
+
+  <xs:element name="fecha" type="xs:date"/>
+
+  <xs:element name="saludo" type="xs:string"/>
+
+</xs:schema>

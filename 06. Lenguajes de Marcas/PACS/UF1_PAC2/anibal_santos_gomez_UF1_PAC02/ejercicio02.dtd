@@ -1,0 +1,70 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT ticket (datos_ticket,datos_comercio,datos_compra)>
+<!ATTLIST ticket xmlns CDATA #FIXED '' codigo NMTOKEN #REQUIRED>
+
+<!ELEMENT datos_ticket (fecha,hora,precio_total,forma_pago)>
+<!ATTLIST datos_ticket xmlns CDATA #FIXED ''>
+
+<!ELEMENT datos_comercio (nombre,direccion,CIF,telefono)>
+<!ATTLIST datos_comercio xmlns CDATA #FIXED ''>
+
+<!ELEMENT datos_compra (lineas_compra)>
+<!ATTLIST datos_compra xmlns CDATA #FIXED ''>
+
+<!ELEMENT fecha (#PCDATA)>
+<!ATTLIST fecha xmlns CDATA #FIXED ''>
+
+<!ELEMENT hora (#PCDATA)>
+<!ATTLIST hora xmlns CDATA #FIXED ''>
+
+<!ELEMENT precio_total (precio_sin_IVA_total,cantidad_IVA,PVP_total,moneda)>
+<!ATTLIST precio_total xmlns CDATA #FIXED ''>
+
+<!ELEMENT forma_pago EMPTY>
+<!ATTLIST forma_pago xmlns CDATA #FIXED '' metodo NMTOKEN #REQUIRED>
+
+<!ELEMENT nombre (#PCDATA)>
+<!ATTLIST nombre xmlns CDATA #FIXED ''>
+
+<!ELEMENT direccion (#PCDATA)>
+<!ATTLIST direccion xmlns CDATA #FIXED ''>
+
+<!ELEMENT CIF (#PCDATA)>
+<!ATTLIST CIF xmlns CDATA #FIXED ''>
+
+<!ELEMENT telefono (#PCDATA)>
+<!ATTLIST telefono xmlns CDATA #FIXED ''>
+
+<!ELEMENT lineas_compra (linea_compra)+>
+<!ATTLIST lineas_compra xmlns CDATA #FIXED ''>
+
+<!ELEMENT precio_sin_IVA_total (#PCDATA)>
+<!ATTLIST precio_sin_IVA_total xmlns CDATA #FIXED ''>
+
+<!ELEMENT cantidad_IVA (#PCDATA)>
+<!ATTLIST cantidad_IVA xmlns CDATA #FIXED ''>
+
+<!ELEMENT PVP_total (#PCDATA)>
+<!ATTLIST PVP_total xmlns CDATA #FIXED ''>
+
+<!ELEMENT moneda (#PCDATA)>
+<!ATTLIST moneda xmlns CDATA #FIXED ''>
+
+<!ELEMENT linea_compra (nombre_articulo,cantidad,precio_unitario,IVA,PVP)>
+<!ATTLIST linea_compra xmlns CDATA #FIXED ''>
+
+<!ELEMENT nombre_articulo (#PCDATA)>
+<!ATTLIST nombre_articulo xmlns CDATA #FIXED ''>
+
+<!ELEMENT cantidad (#PCDATA)>
+<!ATTLIST cantidad xmlns CDATA #FIXED ''>
+
+<!ELEMENT precio_unitario (#PCDATA)>
+<!ATTLIST precio_unitario xmlns CDATA #FIXED ''>
+
+<!ELEMENT IVA (#PCDATA)>
+<!ATTLIST IVA xmlns CDATA #FIXED ''>
+
+<!ELEMENT PVP (#PCDATA)>
+<!ATTLIST PVP xmlns CDATA #FIXED ''>
