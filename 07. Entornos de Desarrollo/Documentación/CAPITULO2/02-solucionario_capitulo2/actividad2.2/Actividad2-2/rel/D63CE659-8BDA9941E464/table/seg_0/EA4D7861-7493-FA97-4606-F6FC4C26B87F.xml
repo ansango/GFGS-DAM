@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EA4D7861-7493-FA97-4606-F6FC4C26B87F" name="ASIGNATURAS">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>422A088C-1856-2A42-8CF0-6ECC1062B48A</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NUM_ASI" id="8E4A4AA3-841D-4001-C665-46FC751CB964">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>A846FF96-ECF8-388D-0992-70F853BD3FB1</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="FFF6D325-E808-6677-D7D0-D5ABAD8808F6">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>A52ADEC0-65DC-6B88-7962-7F5C753F55BC</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6DD7A9D8-78CA-3797-CDC2-389BF814CD1C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PROFESORES_NUM_PROF" id="0E46681E-FCF6-85E2-5452-1374E5372CFB">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>D57DBDE1-2CB9-FD14-AA56-98FA549EF4EB</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>9E816189-E662-6EAE-2673-B3F577FB9F64</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2DB1909C-9363-FBAC-35E8-7C3D540CC2A6" referredColumn="9E816189-E662-6EAE-2673-B3F577FB9F64"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CD0E2C33-615B-4789-9F4C-EE63FB234DF7" name="ASIGNATURAS_PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>2FB0DAD8-AB73-249C-BFAA-291D61A9B800</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E4A4AA3-841D-4001-C665-46FC751CB964"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09D35314-2E60-4B7C-6010-4B6F4D7433F2" name="ASIGNATURAS_PROFESORES_FK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>8B13E889-4975-ABB5-9134-B00560DC3114</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E46681E-FCF6-85E2-5452-1374E5372CFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="REALIZAN" directorySegmentName="seg_0" id="5D15FD70-F582-EB7D-1E3C-39FBC253D829">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:43:34 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>89552430-3158-32BC-FA90-E1A0CB555868</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8F3178CC-0D02-728D-8C53-A8AAFF91780C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="NOTA" id="4BE1377F-09C1-0E2F-4DCD-C75A842BB26C">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:43:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>1D730391-21ED-5BA8-8B38-47BB15B53BA9</domain>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>10</endValue>
+</rangeDef>
+</listOfRanges>
+</attribute>
+<attribute name="FECHA" id="F6A1FD10-A1D2-1F89-F0C4-692B362001DA">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:44:05 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</attribute>
+</attributes>
+</Relation>

@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" id="1B0A9720-A4BD-B34E-8935-DC0862D25C2A" directorySegmentName="seg_0" name="PRODUCTOS">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:23:50 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<pkName>PRODUCTOS PK</pkName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<fonts>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Título</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Atributo</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Tipo de Dato</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Primaria</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Ajena</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Única</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>No Nulo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Clave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<attributes>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="COD_PROD" id="B021BB58-DB1F-4A19-5A4D-81A3E89D8C8F">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:23:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+</Attribute>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="PVP" id="54D08F6F-6FD0-18EA-67D9-B0FA8D53A982">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:24:25 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+</Attribute>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="NOMBRE" id="04467A02-5548-DFB2-FE5D-4E10F2CA22FB">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:24:43 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+</Attribute>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="STOCK" id="B1ACD756-0D1F-7A1A-3291-312A48CD7D11">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:24:55 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+</Attribute>
+</attributes>
+<identifiers>
+<identifier class="oracle.dbtools.crest.model.design.logical.CandidateKey" id="D8341050-90D3-8EFD-9E53-C55B05AB475F" name="PRODUCTOS PK">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:24:10 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B021BB58-DB1F-4A19-5A4D-81A3E89D8C8F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

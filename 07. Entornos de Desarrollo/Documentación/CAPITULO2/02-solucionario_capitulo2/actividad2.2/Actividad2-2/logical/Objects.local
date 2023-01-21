@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="89552430-3158-32BC-FA90-E1A0CB555868" name="ALUMNOS" seqName="seg_0"/>
+   <object objectType="Entity" objectID="422A088C-1856-2A42-8CF0-6ECC1062B48A" name="ASIGNATURAS" seqName="seg_0"/>
+   <object objectType="Entity" objectID="F7D0467E-DA38-1648-BA98-8A4778DAA3FD" name="EXAMENES" seqName="seg_0"/>
+   <object objectType="Entity" objectID="8F3178CC-0D02-728D-8C53-A8AAFF91780C" name="PRACTICAS" seqName="seg_0"/>
+   <object objectType="Entity" objectID="FC615F4A-7697-D5FF-B463-97EB3232C1D3" name="PROFESORES" seqName="seg_0"/>
+   <object objectType="Relation" objectID="7947B7DD-F2B1-7E02-51F1-165F43DAE4C3" name="CURSAN" seqName="seg_0"/>
+   <object objectType="Relation" objectID="550CCE0F-7D08-3AD3-D639-F6F2EFB7236E" name="ELABORAN" seqName="seg_0"/>
+   <object objectType="Relation" objectID="E945FC8E-BD3A-3F5F-223A-2DE84730424A" name="HACEN" seqName="seg_0"/>
+   <object objectType="Relation" objectID="8B13E889-4975-ABB5-9134-B00560DC3114" name="IMPARTEN" seqName="seg_0"/>
+   <object objectType="Relation" objectID="5D15FD70-F582-EB7D-1E3C-39FBC253D829" name="REALIZAN" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

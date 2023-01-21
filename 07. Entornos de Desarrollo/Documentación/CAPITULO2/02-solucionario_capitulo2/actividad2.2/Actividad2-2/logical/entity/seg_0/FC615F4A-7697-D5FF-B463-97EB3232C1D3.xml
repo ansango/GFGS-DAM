@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FC615F4A-7697-D5FF-B463-97EB3232C1D3" name="PROFESORES">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:39:33 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NUM_PROF" id="34F39978-76B8-2699-64EF-2D0C7B563C35">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:39:39 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+</Attribute>
+<Attribute name="NOMBRE" id="DC212942-E76D-767B-0396-FE3AF948A687">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:39:53 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6DD7A9D8-78CA-3797-CDC2-389BF814CD1C</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="ACCB84DE-2E2D-859B-CC81-27B4FAE0DB5E" name="PROFESORES PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:40:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>34F39978-76B8-2699-64EF-2D0C7B563C35</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

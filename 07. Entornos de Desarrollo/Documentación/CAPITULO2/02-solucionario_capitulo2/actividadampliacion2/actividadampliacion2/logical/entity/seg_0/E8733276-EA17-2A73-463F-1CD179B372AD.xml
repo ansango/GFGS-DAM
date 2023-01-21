@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" id="E8733276-EA17-2A73-463F-1CD179B372AD" directorySegmentName="seg_0" name="OFICINAS">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:25:26 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<pkName>OFICINA PK</pkName>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<fonts>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Título</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Atributo</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Tipo de Dato</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Primaria</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Ajena</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Única</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>No Nulo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Clave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<attributes>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="COD_OFI" id="D965423C-D6A2-0DF1-7262-AD58996A051B">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:25:41 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+</Attribute>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="NOMBRE" id="D5F802E7-5F3F-5A64-8A9F-AFD67A943763">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:25:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+</Attribute>
+<Attribute class="oracle.dbtools.crest.model.design.logical.Attribute" name="CIUDAD" id="F28AB3A0-12A1-6720-B170-F3FF3E91E7C7">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:26:27 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+</Attribute>
+</attributes>
+<identifiers>
+<identifier class="oracle.dbtools.crest.model.design.logical.CandidateKey" id="09589C50-E467-981A-25D3-E67B3066BF7F" name="OFICINA PK">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:25:53 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D965423C-D6A2-0DF1-7262-AD58996A051B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

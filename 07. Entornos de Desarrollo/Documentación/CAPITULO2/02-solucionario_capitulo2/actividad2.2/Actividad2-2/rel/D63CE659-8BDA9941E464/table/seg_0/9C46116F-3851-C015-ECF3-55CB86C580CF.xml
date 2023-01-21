@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9C46116F-3851-C015-ECF3-55CB86C580CF" name="HACEN">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ALUMNOS_NUM_ALU" id="99888BFC-8378-88F7-1176-21C0A59799E6">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>6E06C3A4-B30D-C97C-3F97-2C1703565B02</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="53AB3155-AA81-4DF6-E6E2-550ADA64B01C" referredColumn="6E06C3A4-B30D-C97C-3F97-2C1703565B02"/>
+</associations>
+</Column>
+<Column name="EXAMENES_NUM_EXA" id="CAF97C4B-CE72-6288-EB65-11F10AE972E2">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>E25FD278-9AC8-1C88-2632-90D8DAFCD661</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB361E38-7DAD-8DA1-44CE-6BF298B86AE9" referredColumn="E25FD278-9AC8-1C88-2632-90D8DAFCD661"/>
+</associations>
+</Column>
+<Column name="NOTA" id="AD6BA8D4-1BA3-79ED-C823-0933B90E00A8">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>2DE646E4-ED6E-3B24-6151-3901CAC8300B</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>1D730391-21ED-5BA8-8B38-47BB15B53BA9</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>10</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="718868DE-4CCD-1284-BF57-3BC8D90C0157" name="HACEN__IDX">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99888BFC-8378-88F7-1176-21C0A59799E6"/>
+<colUsage columnID="CAF97C4B-CE72-6288-EB65-11F10AE972E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B4C5EA07-8C88-2CC0-A048-B66CB890BE7C" name="FK_ASS_14">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>E945FC8E-BD3A-3F5F-223A-2DE84730424A</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99888BFC-8378-88F7-1176-21C0A59799E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBBA68A2-818D-8091-1512-AC399072D811" name="FK_ASS_15">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>E945FC8E-BD3A-3F5F-223A-2DE84730424A</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CAF97C4B-CE72-6288-EB65-11F10AE972E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

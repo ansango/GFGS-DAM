@@ -1,0 +1,217 @@
+-- Generado por Oracle SQL Developer Data Modeler 3.1.3.706
+--   en:        2014-07-20 01:44:02 CEST
+--   sitio:      Oracle Database 11g
+--   tipo:      Oracle Database 11g
+
+
+
+CREATE TABLE CLIENTES 
+    ( 
+     COD_CLI NUMBER (6)  NOT NULL , 
+     NOMBRE VARCHAR2 (30) , 
+     DIRECCION VARCHAR2 (30) , 
+     COD_EMPLE NUMBER (6)  NOT NULL 
+    ) 
+;
+
+
+
+ALTER TABLE CLIENTES 
+    ADD CONSTRAINT "CLIENTES PK" PRIMARY KEY ( COD_CLI ) ;
+
+
+
+CREATE TABLE EMPLEADOS 
+    ( 
+     COD_EMPLE NUMBER (6)  NOT NULL , 
+     NOMBRE VARCHAR2 (30) , 
+     DIRECCION VARCHAR2 (30) , 
+     COD_EMPLE1 NUMBER (6)  NOT NULL , 
+     COD_OFI NUMBER (5)  NOT NULL 
+    ) 
+;
+
+
+
+ALTER TABLE EMPLEADOS 
+    ADD CONSTRAINT "EMPLEADOS PK" PRIMARY KEY ( COD_EMPLE ) ;
+
+
+
+CREATE TABLE OFICINAS 
+    ( 
+     COD_OFI NUMBER (5)  NOT NULL , 
+     NOMBRE VARCHAR2 (30) , 
+     CIUDAD VARCHAR2 (30) , 
+     UBICACION VARCHAR2 (30) , 
+     PRESUPUESTO NUMBER (8,2) , 
+     NUM_PUESTOS NUMBER (5) , 
+     TIPO_OFI VARCHAR2 (8) 
+    ) 
+;
+
+
+
+ALTER TABLE OFICINAS 
+    ADD CONSTRAINT "OFICINA PK" PRIMARY KEY ( COD_OFI ) ;
+
+
+
+CREATE TABLE PEDIDOS 
+    ( 
+     COD_PED NUMBER (5)  NOT NULL , 
+     FECHA DATE , 
+     COD_CLI NUMBER (6)  NOT NULL 
+    ) 
+;
+
+
+
+ALTER TABLE PEDIDOS 
+    ADD CONSTRAINT "PEDIDOS PK" PRIMARY KEY ( COD_PED ) ;
+
+
+
+CREATE TABLE PRODUCTOS 
+    ( 
+     COD_PROD NUMBER (5)  NOT NULL , 
+     PVP NUMBER (6,2) , 
+     NOMBRE VARCHAR2 (30) , 
+     STOCK NUMBER (5) 
+    ) 
+;
+
+
+
+ALTER TABLE PRODUCTOS 
+    ADD CONSTRAINT "PRODUCTOS PK" PRIMARY KEY ( COD_PROD ) ;
+
+
+
+CREATE TABLE SE_COMPONEN 
+    ( 
+     PEDIDOS_COD_PED NUMBER (5)  NOT NULL , 
+     PRODUCTOS_COD_PROD NUMBER (5)  NOT NULL , 
+     UNIDADES NUMBER (5) , 
+     NUM_ORDEN NUMBER (5) 
+    ) 
+;
+
+
+
+ALTER TABLE SE_COMPONEN 
+    ADD CONSTRAINT SE_COMPONEN__IDX PRIMARY KEY ( PEDIDOS_COD_PED, PRODUCTOS_COD_PROD ) ;
+
+
+
+
+ALTER TABLE SE_COMPONEN 
+    ADD CONSTRAINT FK_ASS_4 FOREIGN KEY 
+    ( 
+     PEDIDOS_COD_PED
+    ) 
+    REFERENCES PEDIDOS 
+    ( 
+     COD_PED
+    ) 
+    ON DELETE CASCADE 
+;
+
+
+ALTER TABLE SE_COMPONEN 
+    ADD CONSTRAINT FK_ASS_5 FOREIGN KEY 
+    ( 
+     PRODUCTOS_COD_PROD
+    ) 
+    REFERENCES PRODUCTOS 
+    ( 
+     COD_PROD
+    ) 
+    ON DELETE CASCADE 
+;
+
+
+ALTER TABLE EMPLEADOS 
+    ADD CONSTRAINT JEFEDE FOREIGN KEY 
+    ( 
+     COD_EMPLE1
+    ) 
+    REFERENCES EMPLEADOS 
+    ( 
+     COD_EMPLE
+    ) 
+;
+
+
+ALTER TABLE EMPLEADOS 
+    ADD CONSTRAINT PERTENECEN FOREIGN KEY 
+    ( 
+     COD_OFI
+    ) 
+    REFERENCES OFICINAS 
+    ( 
+     COD_OFI
+    ) 
+    ON DELETE CASCADE 
+;
+
+
+ALTER TABLE PEDIDOS 
+    ADD CONSTRAINT REALIZAN FOREIGN KEY 
+    ( 
+     COD_CLI
+    ) 
+    REFERENCES CLIENTES 
+    ( 
+     COD_CLI
+    ) 
+    ON DELETE CASCADE 
+;
+
+
+ALTER TABLE CLIENTES 
+    ADD CONSTRAINT TIENEN FOREIGN KEY 
+    ( 
+     COD_EMPLE
+    ) 
+    REFERENCES EMPLEADOS 
+    ( 
+     COD_EMPLE
+    ) 
+;
+
+
+
+-- Informe de Resumen de Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                             6
+-- CREATE INDEX                             0
+-- ALTER TABLE                             12
+-- CREATE VIEW                              0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0

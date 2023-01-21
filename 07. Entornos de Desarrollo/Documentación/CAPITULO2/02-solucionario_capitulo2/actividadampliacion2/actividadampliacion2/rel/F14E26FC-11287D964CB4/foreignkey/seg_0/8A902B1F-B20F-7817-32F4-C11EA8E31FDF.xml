@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" id="8A902B1F-B20F-7817-32F4-C11EA8E31FDF" directorySegmentName="seg_0" name="REALIZAN">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>1ABD9D27-8B86-1ADB-7F4B-58B39129A55A</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<containerWithKeyObject>4243E1D8-48A1-2756-A451-CBF9F90103C5</containerWithKeyObject>
+<deleteRule>CASCADE</deleteRule>
+<localFKIndex>5155B845-E764-1CD7-714A-6198B2FB74D3</localFKIndex>
+<keyObject>6932C160-D157-2A9A-9C91-D5B3AC8ED984</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+</FKIndexAssociation>

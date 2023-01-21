@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="defaultdomains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NOTA" id="1D730391-21ED-5BA8-8B38-47BB15B53BA9">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:29:21 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>2</dataTypePrecision>
+         <dataTypeSize>2</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <listOfRanges>
+            <rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+               <beginValue>0</beginValue>
+               <endValue>10</endValue>
+            </rangeDef>
+         </listOfRanges>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="CLAVES" id="249A9BFB-1E96-FF5F-3C46-C9D168730345">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:28:34 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>5</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>5</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="TRIMESTRE" id="2D3B337D-DDE0-E1F2-1183-9AFE686F9F54">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:30:47 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>1</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>1</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <listOfValues>
+            <valueDef value="1" description=""/>
+            <valueDef value="2" description=""/>
+            <valueDef value="3" description=""/>
+            <valueDef value="4" description=""/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_8" id="4AE1A3AF-BB16-E4EB-CAFA-4C25EE2CB420">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:26:09 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>8 BYTE</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_30" id="6DD7A9D8-78CA-3797-CDC2-389BF814CD1C">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:25:26 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>30 BYTE</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NIVEL" id="95EE345D-E18B-0D93-4060-E07A880B1A57">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:27:20 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>1 BYTE</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <listOfValues>
+            <valueDef value="A" description=""/>
+            <valueDef value="B" description=""/>
+            <valueDef value="C" description=""/>
+            <valueDef value="D" description=""/>
+            <valueDef value="E" description=""/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Unknown" id="DOM3000004">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-01-21 00:34:29 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT017</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NPREGUNTAS" id="E6ED7CFC-6382-F588-243B-8071B538874C">
+         <createdBy>alicia</createdBy>
+         <createdTime>2014-07-17 14:30:02 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>Sistema</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>3</dataTypePrecision>
+         <dataTypeSize>3</dataTypeSize>
+         <fileName>defaultdomains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <listOfRanges>
+            <rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+               <beginValue>1</beginValue>
+               <endValue>500</endValue>
+            </rangeDef>
+         </listOfRanges>
+      </Domain>
+   </domains>
+</DomainFile>

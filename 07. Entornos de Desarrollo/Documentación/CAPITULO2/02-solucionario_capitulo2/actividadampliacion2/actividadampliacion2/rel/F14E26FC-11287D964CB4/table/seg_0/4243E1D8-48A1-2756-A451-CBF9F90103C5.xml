@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="4243E1D8-48A1-2756-A451-CBF9F90103C5" directorySegmentName="seg_0" name="PEDIDOS">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>804C299C-C2F5-31FB-9B5F-5E6CB4E0F60C</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<pkName>PEDIDOS PK</pkName>
+<fonts>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Título</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Columna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Tipo de Dato</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Primaria</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Ajena</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Única</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>No Nulo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Clave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="COD_PED" id="F1EA3BA3-1918-E8B8-BD56-FE69B7EFABBE">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>0F04C454-ED0F-56E0-D260-D6581E20C3B3</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="FECHA" id="D8D90580-1849-B32E-B531-5FCBE2A4871D">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>F99CAAF5-7C1C-300B-2823-A9D1F6DED91C</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="COD_CLI" id="5521F890-7913-6EF0-D6D4-B2FE0177B7F8">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>E940D6F9-04D5-9B0E-8FD6-8F29E050F8EB</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>4AB24113-BAF3-FB05-D098-AF91B761BE98</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8A902B1F-B20F-7817-32F4-C11EA8E31FDF" referredColumn="4AB24113-BAF3-FB05-D098-AF91B761BE98"/>
+</associations>
+</Column>
+</columns>
+<indexes>
+<ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="9B87D985-9341-ED2D-F972-3BB2005E322B" name="PEDIDOS PK">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>6F181168-93C8-6214-2346-16F6C7DC2757</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="F1EA3BA3-1918-E8B8-BD56-FE69B7EFABBE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="5155B845-E764-1CD7-714A-6198B2FB74D3" name="REALIZAN">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>1ABD9D27-8B86-1ADB-7F4B-58B39129A55A</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="5521F890-7913-6EF0-D6D4-B2FE0177B7F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

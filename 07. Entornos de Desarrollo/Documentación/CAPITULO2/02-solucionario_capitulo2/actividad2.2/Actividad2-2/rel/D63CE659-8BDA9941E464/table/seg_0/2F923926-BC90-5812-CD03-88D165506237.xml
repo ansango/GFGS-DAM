@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2F923926-BC90-5812-CD03-88D165506237" name="ALUMNOS">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>89552430-3158-32BC-FA90-E1A0CB555868</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NUM_ALU" id="6E06C3A4-B30D-C97C-3F97-2C1703565B02">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>41324896-4224-5E7D-3FE2-0C9174F2882E</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="B82FF8DA-A8F1-A8F3-AF95-83E3C1F7624B">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>5AA70C35-A309-A1A9-0594-EB5F7D85A30E</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6DD7A9D8-78CA-3797-CDC2-389BF814CD1C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GRUPO" id="64D5C2A3-0479-90E4-E048-645F45C5DE4C">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>97E513CE-51DF-B53B-17BF-C854228FF0C4</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4AE1A3AF-BB16-E4EB-CAFA-4C25EE2CB420</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="05B81979-7C47-9931-CD8E-1C794438C022" name="ALUMNOS_PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>2DAAB7C5-0331-0B1F-F976-3465A62F638E</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E06C3A4-B30D-C97C-3F97-2C1703565B02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="IMPARTEN" directorySegmentName="seg_0" id="8B13E889-4975-ABB5-9134-B00560DC3114">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:46:15 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<sourcePk>ACCB84DE-2E2D-859B-CC81-27B4FAE0DB5E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FC615F4A-7697-D5FF-B463-97EB3232C1D3</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>422A088C-1856-2A42-8CF0-6ECC1062B48A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

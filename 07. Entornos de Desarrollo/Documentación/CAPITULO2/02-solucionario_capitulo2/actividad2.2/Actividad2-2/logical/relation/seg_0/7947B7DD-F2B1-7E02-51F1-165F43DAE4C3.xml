@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CURSAN" directorySegmentName="seg_0" id="7947B7DD-F2B1-7E02-51F1-165F43DAE4C3">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:42:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>89552430-3158-32BC-FA90-E1A0CB555868</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>422A088C-1856-2A42-8CF0-6ECC1062B48A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="TRIMESTRE" id="A329FC0E-C382-E77D-A321-A8827E5F9B59">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:42:53 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2D3B337D-DDE0-E1F2-1183-9AFE686F9F54</domain>
+</attribute>
+</attributes>
+</Relation>

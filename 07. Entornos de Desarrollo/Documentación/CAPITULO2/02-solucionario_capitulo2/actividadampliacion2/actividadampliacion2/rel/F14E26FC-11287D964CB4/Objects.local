@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="EFD7D457-3541-8872-374B-DB81BC349E17" name="CLIENTES" seqName="seg_0"/>
+   <object objectType="Table" objectID="A6DE6C6D-2319-FF55-C7C4-D1AF474B4CD2" name="EMPLEADOS" seqName="seg_0"/>
+   <object objectType="Table" objectID="B2675DAF-3ECF-1A1F-B739-1A929BCEF387" name="OFICINAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="4243E1D8-48A1-2756-A451-CBF9F90103C5" name="PEDIDOS" seqName="seg_0"/>
+   <object objectType="Table" objectID="CCD31D65-5C96-D934-A80B-7DF9F826F6CF" name="PRODUCTOS" seqName="seg_0"/>
+   <object objectType="Table" objectID="E0713E1B-FA04-2FA7-1028-7D89C6EC204A" name="SE_COMPONEN" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="BCD21C42-57FA-F3F0-07CB-14319A7FAA0C" name="FK_ASS_4" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="476D011F-C24A-F241-E8BB-31C85EC979E0" name="FK_ASS_5" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F26C09EB-3E6A-BAFD-DCC1-7BF168C018CB" name="JEFEDE" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0ADD7FEF-BB8A-A143-5212-60C2B134BEDD" name="PERTENECEN" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="8A902B1F-B20F-7817-32F4-C11EA8E31FDF" name="REALIZAN" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0D534C88-7191-23F7-003F-0E618D85CDF6" name="TIENEN" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

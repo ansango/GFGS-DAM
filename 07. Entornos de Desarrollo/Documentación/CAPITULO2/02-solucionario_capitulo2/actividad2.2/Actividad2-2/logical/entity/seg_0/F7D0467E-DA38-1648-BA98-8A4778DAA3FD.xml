@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F7D0467E-DA38-1648-BA98-8A4778DAA3FD" name="EXAMENES">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NUM_EXA" id="C4C68173-95DC-C54E-B5BD-DBB3FA2AC2F7">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:37:03 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+</Attribute>
+<Attribute name="NPREGUNTAS" id="E2560705-746E-8A1E-0C54-E36BFDCE37FB">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:37:12 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>E6ED7CFC-6382-F588-243B-8071B538874C</domain>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>500</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="FECHA" id="B0C3091C-8634-CB11-2E0C-F912D3013EBD">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:37:23 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="58487E62-7688-9D2E-E5E6-11ADD7CDF879" name="EXAMENES PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:37:10 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C4C68173-95DC-C54E-B5BD-DBB3FA2AC2F7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

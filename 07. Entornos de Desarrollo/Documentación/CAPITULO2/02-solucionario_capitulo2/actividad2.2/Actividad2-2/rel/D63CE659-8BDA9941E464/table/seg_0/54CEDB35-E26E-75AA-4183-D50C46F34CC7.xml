@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="54CEDB35-E26E-75AA-4183-D50C46F34CC7" name="PRACTICAS">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>8F3178CC-0D02-728D-8C53-A8AAFF91780C</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COD_PRACTICA" id="3516B8D7-57F6-405F-F2DA-25755108A960">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>5A04AC41-06C8-A9A3-AC2A-4C8A0821F489</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITULO" id="ECDEA5C6-D2C9-174B-6F46-241CDDDA8815">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>8E0D8F8E-804F-515D-1AF2-B684053EB30C</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6DD7A9D8-78CA-3797-CDC2-389BF814CD1C</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NIVEL" id="DA36AF6A-C0B8-A64C-6835-4E6BC5B214DF">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>29DE45E5-5F10-807C-EC7A-E2E9BC8693C1</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>95EE345D-E18B-0D93-4060-E07A880B1A57</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="71DEC7C7-B313-412C-818A-E8DFDF040F89" name="PRACTICAS_PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>A0D94375-8CED-0D3A-EF2A-9723498F7A96</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3516B8D7-57F6-405F-F2DA-25755108A960"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

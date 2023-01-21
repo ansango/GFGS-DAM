@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="A6DE6C6D-2319-FF55-C7C4-D1AF474B4CD2" directorySegmentName="seg_0" name="EMPLEADOS">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>1D887D6A-DEA6-AC3A-5E15-748E18F9F643</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<pkName>EMPLEADOS PK</pkName>
+<fonts>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Título</foType>
+<fontStyle>1</fontStyle>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Columna</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Tipo de Dato</foType>
+<colorRGB>-16744448</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Primaria</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Ajena</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Elemento de Clave Única</foType>
+<colorRGB>-16776961</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>No Nulo</foType>
+<colorRGB>-65536</colorRGB>
+</FontObject>
+<FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+<foType>Clave</foType>
+<colorRGB>-16777216</colorRGB>
+</FontObject>
+</fonts>
+<columns>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="COD_EMPLE" id="10CB6FA7-DA54-3638-D98B-964B4B3E5F2B">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>9A468EC3-D767-1DF1-9CA5-1AAEB13DC4E0</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="NOMBRE" id="403F0070-2C99-57D0-3F0E-235A6E775C0B">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>42064F4C-62EF-E847-1A6B-7B91A3484EDB</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="DIRECCION" id="9B6EAEC6-8E81-820B-A246-76C926FDF288">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>5C137DCE-A172-9955-DDED-D19748F2A37A</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="COD_EMPLE1" id="CEFD2BFB-DB05-9EA0-A024-5E36771353F0">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>3841B23C-BB92-3417-6B8A-AF984C453298</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>10CB6FA7-DA54-3638-D98B-964B4B3E5F2B</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F26C09EB-3E6A-BAFD-DCC1-7BF168C018CB" referredColumn="10CB6FA7-DA54-3638-D98B-964B4B3E5F2B"/>
+</associations>
+</Column>
+<Column class="oracle.dbtools.crest.model.design.relational.Column" name="COD_OFI" id="A9F7110F-8705-76B2-543B-DAE4E95BBF16">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>12C8341F-F7AA-5B60-91EE-4D15FD5E7ECC</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<delegate>BAF1AF41-9D1A-6474-930C-02B871F9E108</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0ADD7FEF-BB8A-A143-5212-60C2B134BEDD" referredColumn="BAF1AF41-9D1A-6474-930C-02B871F9E108"/>
+</associations>
+</Column>
+</columns>
+<indexes>
+<ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="7DE6B32E-DBB6-C85E-F878-BE184153FB3D" name="EMPLEADOS PK">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>48CFD03A-40BB-213D-6CA4-DEDFB6BBEA44</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="10CB6FA7-DA54-3638-D98B-964B4B3E5F2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="E0E849DB-0563-B142-4389-DE164A9F6CCD" name="JEFEDE">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>CEA0A08A-6BE4-B577-0F71-BF78CD830E18</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="CEFD2BFB-DB05-9EA0-A024-5E36771353F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="83A82362-C0B5-7312-C85D-9535B3FD1767" name="PERTENECEN">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:35:25 UTC</createdTime>
+<generatorID>28738AD5-5F1E-265F-449E-386ED3546394</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<indexColumnUsage>
+<colUsage columnID="A9F7110F-8705-76B2-543B-DAE4E95BBF16"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

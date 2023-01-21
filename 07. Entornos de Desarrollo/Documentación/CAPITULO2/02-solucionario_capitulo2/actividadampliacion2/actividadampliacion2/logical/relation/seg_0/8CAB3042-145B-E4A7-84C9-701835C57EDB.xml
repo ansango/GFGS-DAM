@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TIENEN" id="8CAB3042-145B-E4A7-84C9-701835C57EDB" directorySegmentName="seg_0">
+<createdBy>ARM</createdBy>
+<createdTime>2014-07-19 23:30:42 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>ActividadAmpliacion2</ownerDesignName>
+<engineerTo>
+<item key="F14E26FC-B6E8-1F24-C9CA-11287D964CB4" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1D887D6A-DEA6-AC3A-5E15-748E18F9F643</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>20B7EA4A-4ECA-80F9-C97D-62C0180EF58C</targetEntity>
+<transferable>true</transferable>
+</Relation>

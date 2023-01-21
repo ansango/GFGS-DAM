@@ -1,0 +1,60 @@
+"Physical Name","Logical Name","Type","Description"
+"city","CITY","varchar(30)","A not null column that shows city where an office, warehouse, or
+production site of a company is located. "
+"CITY","CITY","varchar(30)","A not null column that shows city where an office, warehouse, or
+production site of a company is located. "
+"COMMISSION_PCT","COMMISSION_PCT","decimal(2,2)","Commission percentage of the employee; Only employees in sales
+department elgible for commission percentage"
+"commission_pct","COMMISSION_PCT","decimal(2,2)","Commission percentage of the employee; Only employees in sales
+department elgible for commission percentage"
+"COUNTRY_ID","COUNTRY_ID","char(2)","Primary key of countries table."
+"country_id","COUNTRY_ID","char(2)","Primary key of countries table."
+"COUNTRY_NAME","COUNTRY_NAME","varchar(40)","Country name"
+"country_name","COUNTRY_NAME","varchar(40)","Country name"
+"DEPARTMENT_ID","DEPARTMENT_ID","decimal(4,0)","Primary key column of departments table."
+"department_id","DEPARTMENT_ID","decimal(4,0)","Primary key column of departments table."
+"department_name","DEPARTMENT_NAME","varchar(30)","A not null column that shows name of a department. Administration,
+Marketing, Purchasing, Human Resources, Shipping, IT, Executive, Public
+Relations, Sales, Finance, and Accounting. "
+"DEPARTMENT_NAME","DEPARTMENT_NAME","varchar(30)","A not null column that shows name of a department. Administration,
+Marketing, Purchasing, Human Resources, Shipping, IT, Executive, Public
+Relations, Sales, Finance, and Accounting. "
+"EMAIL","EMAIL","varchar(25)","Email id of the employee"
+"EMPLOYEE_ID","EMPLOYEE_ID","decimal(6,0)","Primary key of employees table."
+"employee_id","EMPLOYEE_ID","decimal(6,0)","Primary key of employees table."
+"END_DATE","END_DATE","date","Last day of the employee in this job role. A not null column. Must be
+greater than the start_date of the job_history table.
+(enforced by constraint jhist_date_interval)"
+"first_name","FIRST_NAME","varchar(20)","First name of the employee. A not null column."
+"FIRST_NAME","FIRST_NAME","varchar(20)","First name of the employee. A not null column."
+"HIRE_DATE","HIRE_DATE","date","Date when the employee started on this job. A not null column."
+"job_id","JOB_ID","varchar(10)","Primary key of jobs table."
+"JOB_ID","JOB_ID","varchar(10)","Primary key of jobs table."
+"job_title","JOB_TITLE","varchar(35)","A not null column that shows job title, e.g. AD_VP, FI_ACCOUNTANT"
+"JOB_TITLE","JOB_TITLE","varchar(35)","A not null column that shows job title, e.g. AD_VP, FI_ACCOUNTANT"
+"LAST_NAME","LAST_NAME","varchar(25)","Last name of the employee. A not null column."
+"last_name","LAST_NAME","varchar(25)","Last name of the employee. A not null column."
+"LOCATION_ID","LOCATION_ID","decimal(4,0)","Primary key of locations table"
+"location_id","LOCATION_ID","decimal(4,0)","Primary key of locations table"
+"manager_id","EMPLOYEE_ID","decimal(6,0)","Primary key of employees table."
+"MAX_SALARY","MAX_SALARY","decimal(6,0)","Maximum salary for a job title"
+"MIN_SALARY","MIN_SALARY","decimal(6,0)","Minimum salary for a job title."
+"PHONE_NUMBER","PHONE_NUMBER","varchar(20)","Phone number of the employee; includes country code and area code"
+"POSTAL_CODE","POSTAL_CODE","varchar(12)","Postal code of the location of an office, warehouse, or production site
+of a company. "
+"REGION_ID","REGION_ID","decimal",""
+"REGION_NAME","REGION_NAME","varchar(25)",""
+"region_name","REGION_NAME","varchar(25)",""
+"salary","SALARY","decimal(8,2)","Monthly salary of the employee. Must be greater
+than zero (enforced by constraint emp_salary_min)"
+"SALARY","SALARY","decimal(8,2)","Monthly salary of the employee. Must be greater
+than zero (enforced by constraint emp_salary_min)"
+"START_DATE","START_DATE","date","A not null column in the complex primary key employee_id+start_date.
+Must be less than the end_date of the job_history table. (enforced by
+constraint jhist_date_interval)"
+"state_province","STATE_PROVINCE","varchar(25)","State or Province where an office, warehouse, or production site of a
+company is located."
+"STATE_PROVINCE","STATE_PROVINCE","varchar(25)","State or Province where an office, warehouse, or production site of a
+company is located."
+"STREET_ADDRESS","STREET_ADDRESS","varchar(40)","Street address of an office, warehouse, or production site of a company.
+Contains building number and street name"

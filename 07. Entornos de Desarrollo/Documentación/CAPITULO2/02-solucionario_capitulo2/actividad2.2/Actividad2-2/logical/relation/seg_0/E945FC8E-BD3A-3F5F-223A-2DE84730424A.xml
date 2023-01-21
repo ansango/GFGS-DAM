@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HACEN" directorySegmentName="seg_0" id="E945FC8E-BD3A-3F5F-223A-2DE84730424A">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:41:11 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>89552430-3158-32BC-FA90-E1A0CB555868</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F7D0467E-DA38-1648-BA98-8A4778DAA3FD</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="NOTA" id="2DE646E4-ED6E-3B24-6151-3901CAC8300B">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:41:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>1D730391-21ED-5BA8-8B38-47BB15B53BA9</domain>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>10</endValue>
+</rangeDef>
+</listOfRanges>
+</attribute>
+</attributes>
+</Relation>

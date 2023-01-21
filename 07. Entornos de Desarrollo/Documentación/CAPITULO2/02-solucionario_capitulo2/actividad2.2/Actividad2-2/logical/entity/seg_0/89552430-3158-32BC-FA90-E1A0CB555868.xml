@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="89552430-3158-32BC-FA90-E1A0CB555868" name="ALUMNOS">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:23 UTC</createdTime>
+<generatorID>440BCE3B-EA35-22B6-B9A5-BC3FB08972D3</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NUM ALU" id="41324896-4224-5E7D-3FE2-0C9174F2882E">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:23 UTC</createdTime>
+<generatorID>94F948BF-22D4-8C01-5353-F553E572D9D1</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+</Attribute>
+<Attribute name="NOMBRE" id="5AA70C35-A309-A1A9-0594-EB5F7D85A30E">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:23 UTC</createdTime>
+<generatorID>BCB9A8EE-AB8B-9C8A-65AD-2E5A050BA68F</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6DD7A9D8-78CA-3797-CDC2-389BF814CD1C</domain>
+</Attribute>
+<Attribute name="GRUPO" id="97E513CE-51DF-B53B-17BF-C854228FF0C4">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:23 UTC</createdTime>
+<generatorID>59491057-78D4-8871-DED1-FB5A7305C4A1</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>4AE1A3AF-BB16-E4EB-CAFA-4C25EE2CB420</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2DAAB7C5-0331-0B1F-F976-3465A62F638E" name="ALUMNOS PK">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:36:23 UTC</createdTime>
+<generatorID>D290C1D0-0D37-54DD-4B30-03DF89F4501F</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>41324896-4224-5E7D-3FE2-0C9174F2882E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_t0u7MBcAEeSwxIJCK8PySQ" name="NewModel">
+  <packageImport xmi:id="_iGwbsBcBEeSwxIJCK8PySQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_49RV4BcAEeSwxIJCK8PySQ" name="Entidad">
+    <packagedElement xmi:type="uml:Class" xmi:id="_L63oUBcBEeSwxIJCK8PySQ" name="Curso">
+      <ownedAttribute xmi:id="_c_wFoBcBEeSwxIJCK8PySQ" name="codcurso">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_vwDi8BcBEeSwxIJCK8PySQ" name="denominacion">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xoHQwBcBEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xoHQwRcBEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_t2NscBcBEeSwxIJCK8PySQ" name="horas">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vQXWQBcBEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vQXWQRcBEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_wSRfMBcBEeSwxIJCK8PySQ" name="precio">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yk96kBcBEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ylHEgBcBEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PntGcBcBEeSwxIJCK8PySQ" name="Matricula">
+      <ownedAttribute xmi:id="_9kEFYBcBEeSwxIJCK8PySQ" name="numero">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-jStwBcBEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-jStwRcBEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="__R3D8BcBEeSwxIJCK8PySQ" name="fecha">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Date"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_R2hucBcBEeSwxIJCK8PySQ" name="Alumno">
+      <ownedAttribute xmi:id="_D_IEUBcCEeSwxIJCK8PySQ" name="codigo">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D_IEURcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_D_IEUhcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_D_R1UBcCEeSwxIJCK8PySQ" name="nivel">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gzb_ABcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gzb_ARcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_D_R1URcCEeSwxIJCK8PySQ" name="nombre">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D_R1UhcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_D_R1UxcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UGipQBcBEeSwxIJCK8PySQ" name="Idioma">
+      <generalization xmi:id="_UZK04BcCEeSwxIJCK8PySQ" general="_L63oUBcBEeSwxIJCK8PySQ"/>
+      <ownedAttribute xmi:id="_KdKewBcCEeSwxIJCK8PySQ" name="especialidad">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KdKewRcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KdKewhcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_MUCg0BcCEeSwxIJCK8PySQ" name="laboratorio">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MUCg0RcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MUCg0hcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_VS3ScBcBEeSwxIJCK8PySQ" name="Tecnologia">
+      <generalization xmi:id="_VDHw0BcCEeSwxIJCK8PySQ" general="_L63oUBcBEeSwxIJCK8PySQ"/>
+      <ownedAttribute xmi:id="_Ohq2ABcCEeSwxIJCK8PySQ" name="equipamiento">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ohq2ARcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ohq2AhcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_RHGnMBcCEeSwxIJCK8PySQ" name="presupuesto">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RHGnMRcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RHGnMhcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_W2a6cBcCEeSwxIJCK8PySQ" name="cursosToMatriculas" memberEnd="_W2a6cRcCEeSwxIJCK8PySQ _W2a6dBcCEeSwxIJCK8PySQ" navigableOwnedEnd="_W2a6cRcCEeSwxIJCK8PySQ _W2a6dBcCEeSwxIJCK8PySQ">
+      <ownedEnd xmi:id="_W2a6cRcCEeSwxIJCK8PySQ" name="cursos" type="_L63oUBcBEeSwxIJCK8PySQ" association="_W2a6cBcCEeSwxIJCK8PySQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W2a6chcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W2a6cxcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_W2a6dBcCEeSwxIJCK8PySQ" name="matriculas" type="_PntGcBcBEeSwxIJCK8PySQ" association="_W2a6cBcCEeSwxIJCK8PySQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W2a6dRcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W2a6dhcCEeSwxIJCK8PySQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_YbSmgBcCEeSwxIJCK8PySQ" name="alumnosToMatriculas" memberEnd="_YbSmgRcCEeSwxIJCK8PySQ _YbSmhBcCEeSwxIJCK8PySQ" navigableOwnedEnd="_YbSmgRcCEeSwxIJCK8PySQ _YbSmhBcCEeSwxIJCK8PySQ">
+      <ownedEnd xmi:id="_YbSmgRcCEeSwxIJCK8PySQ" name="alumnos" type="_R2hucBcBEeSwxIJCK8PySQ" association="_YbSmgBcCEeSwxIJCK8PySQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YbSmghcCEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YbSmgxcCEeSwxIJCK8PySQ" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_YbSmhBcCEeSwxIJCK8PySQ" name="matriculas" type="_PntGcBcBEeSwxIJCK8PySQ" association="_YbSmgBcCEeSwxIJCK8PySQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YbSmhRcCEeSwxIJCK8PySQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YbSmhhcCEeSwxIJCK8PySQ" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_CWhkQBcBEeSwxIJCK8PySQ" name="Interfaz">
+    <packageImport xmi:id="_hpMOkBcEEeSwxIJCK8PySQ" importedPackage="_8JTNABcAEeSwxIJCK8PySQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_gn_swBcDEeSwxIJCK8PySQ" name="VentanaPrincipal">
+      <ownedOperation xmi:id="_iVDEcBcDEeSwxIJCK8PySQ" name="AbrirGestionCursos"/>
+      <ownedOperation xmi:id="_lQpS4BcDEeSwxIJCK8PySQ" name="AbrirGestionMatricula"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sMS2YBcDEeSwxIJCK8PySQ" name="VentanaGestionCursos">
+      <generalization xmi:id="_7m9NkBcDEeSwxIJCK8PySQ" general="_gn_swBcDEeSwxIJCK8PySQ"/>
+      <ownedOperation xmi:id="__cbqUBcDEeSwxIJCK8PySQ" name="altas"/>
+      <ownedOperation xmi:id="_ALAAgBcEEeSwxIJCK8PySQ" name="bajas"/>
+      <ownedOperation xmi:id="_A_hNsBcEEeSwxIJCK8PySQ" name="modificaciones"/>
+      <ownedOperation xmi:id="_CE13ABcEEeSwxIJCK8PySQ" name="consultas"/>
+      <ownedOperation xmi:id="_EIETABcEEeSwxIJCK8PySQ" name="listadocursos"/>
+      <ownedOperation xmi:id="_FILsMBcEEeSwxIJCK8PySQ" name="listadoalumnos"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_uDKRYBcDEeSwxIJCK8PySQ" name="Ventana GestionMatricula">
+      <generalization xmi:id="_8I4O4BcDEeSwxIJCK8PySQ" general="_gn_swBcDEeSwxIJCK8PySQ"/>
+      <ownedOperation xmi:id="_I-2bwBcEEeSwxIJCK8PySQ" name="altas"/>
+      <ownedOperation xmi:id="_I-2bwRcEEeSwxIJCK8PySQ" name="consultar"/>
+      <ownedOperation xmi:id="_I-2bwhcEEeSwxIJCK8PySQ" name="bajas"/>
+      <ownedOperation xmi:id="_I-2bwxcEEeSwxIJCK8PySQ" name="modificacioner"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_8JTNABcAEeSwxIJCK8PySQ" name="Control">
+    <packageImport xmi:id="_ids0sBcEEeSwxIJCK8PySQ" importedPackage="_49RV4BcAEeSwxIJCK8PySQ"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Dy37kBcDEeSwxIJCK8PySQ" name="GestionCursos">
+      <ownedOperation xmi:id="_Gbb5QBcDEeSwxIJCK8PySQ" name="crear"/>
+      <ownedOperation xmi:id="_HNbW4BcDEeSwxIJCK8PySQ" name="eliminar"/>
+      <ownedOperation xmi:id="_H3rNwBcDEeSwxIJCK8PySQ" name="consultar"/>
+      <ownedOperation xmi:id="_KoH8IBcDEeSwxIJCK8PySQ" name="modificar"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WmCfoBcDEeSwxIJCK8PySQ" name="GestionAlumnos">
+      <ownedOperation xmi:id="_bfNOABcDEeSwxIJCK8PySQ" name="modificar"/>
+      <ownedOperation xmi:id="_bfNOARcDEeSwxIJCK8PySQ" name="consultar"/>
+      <ownedOperation xmi:id="_bfNOAhcDEeSwxIJCK8PySQ" name="crear"/>
+      <ownedOperation xmi:id="_bfNOAxcDEeSwxIJCK8PySQ" name="eliminar"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_YRJ9oBcDEeSwxIJCK8PySQ" name="GestionMatricula">
+      <ownedOperation xmi:id="_cQAY0BcDEeSwxIJCK8PySQ" name="modificar"/>
+      <ownedOperation xmi:id="_cQAY0RcDEeSwxIJCK8PySQ" name="consultar"/>
+      <ownedOperation xmi:id="_cQAY0hcDEeSwxIJCK8PySQ" name="crear"/>
+      <ownedOperation xmi:id="_cQAY0xcDEeSwxIJCK8PySQ" name="eliminar"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

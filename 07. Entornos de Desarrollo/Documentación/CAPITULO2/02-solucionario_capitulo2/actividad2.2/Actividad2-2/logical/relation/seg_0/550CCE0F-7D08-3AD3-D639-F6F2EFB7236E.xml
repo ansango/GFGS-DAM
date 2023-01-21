@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ELABORAN" directorySegmentName="seg_0" id="550CCE0F-7D08-3AD3-D639-F6F2EFB7236E">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:44:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<sourcePk>A0D94375-8CED-0D3A-EF2A-9723498F7A96</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8F3178CC-0D02-728D-8C53-A8AAFF91780C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>FC615F4A-7697-D5FF-B463-97EB3232C1D3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="FECHA" id="F9DD9835-DB22-4804-C886-E048408B4D1D">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:45:02 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<engineerTo>
+<item key="D63CE659-08E7-66F3-76CC-8BDA9941E464" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</attribute>
+</attributes>
+</Relation>

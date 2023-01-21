@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="2F923926-BC90-5812-CD03-88D165506237" name="ALUMNOS" seqName="seg_0"/>
+   <object objectType="Table" objectID="EA4D7861-7493-FA97-4606-F6FC4C26B87F" name="ASIGNATURAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="7C3443CE-4124-CCC3-F50F-62C7110EA740" name="CURSAN" seqName="seg_0"/>
+   <object objectType="Table" objectID="C39330CE-74CC-4347-5F5F-9AEAC112DE34" name="ELABORAN" seqName="seg_0"/>
+   <object objectType="Table" objectID="6B5E2C88-68D3-ACD1-3B33-1D8698F2D5DC" name="EXAMENES" seqName="seg_0"/>
+   <object objectType="Table" objectID="9C46116F-3851-C015-ECF3-55CB86C580CF" name="HACEN" seqName="seg_0"/>
+   <object objectType="Table" objectID="54CEDB35-E26E-75AA-4183-D50C46F34CC7" name="PRACTICAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="571413A7-5BA1-712F-8A28-7B6E3A5D718F" name="PROFESORES" seqName="seg_0"/>
+   <object objectType="Table" objectID="BDD8B3F5-7A3B-15B6-52E5-CD4712B2D0AA" name="REALIZAN" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="2DB1909C-9363-FBAC-35E8-7C3D540CC2A6" name="ASIGNATURAS_PROFESORES_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="16682AD4-1401-0F21-3B2B-004D7A3DF669" name="FK_ASS_10" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6AE61741-ADE5-8DB7-3D58-DC6E3D7C9D28" name="FK_ASS_11" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6393C191-3D06-4BDC-D0D6-1E73F5367E4D" name="FK_ASS_12" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="36BB82EE-8797-9896-2FBB-43AE82C992B1" name="FK_ASS_13" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="53AB3155-AA81-4DF6-E6E2-550ADA64B01C" name="FK_ASS_14" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="EB361E38-7DAD-8DA1-44CE-6BF298B86AE9" name="FK_ASS_15" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A5A79ED6-0AB3-F12C-3767-EA6D8C68FF89" name="FK_ASS_17" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7D99F995-A952-ADFE-3083-5A6F96B1D367" name="FK_ASS_18" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

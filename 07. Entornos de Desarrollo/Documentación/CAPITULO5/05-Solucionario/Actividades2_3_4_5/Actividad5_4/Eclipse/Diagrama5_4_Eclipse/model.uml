@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_ayu3oBcFEeSwxIJCK8PySQ" name="NewModel">
+  <packageImport xmi:id="_hUCogBcFEeSwxIJCK8PySQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_nZFUIBcFEeSwxIJCK8PySQ" name="Plantilla">
+    <ownedOperation xmi:id="_aoaLEBcSEeSwxIJCK8PySQ" name="contratarempeado">
+      <ownedParameter xmi:id="_hNr18BcSEeSwxIJCK8PySQ" name="emple" type="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_HhwN0BcTEeSwxIJCK8PySQ" name="buscarempleado">
+      <ownedParameter xmi:id="_IXRgkBcTEeSwxIJCK8PySQ" name="emple">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_T5dKUBcTEeSwxIJCK8PySQ" name="despedirempleado">
+      <ownedParameter xmi:id="_T5dKURcTEeSwxIJCK8PySQ" name="emple" type="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_o5yR4BcFEeSwxIJCK8PySQ" name="Limpiador">
+    <generalization xmi:id="_--1dcBcFEeSwxIJCK8PySQ" general="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    <ownedAttribute xmi:id="_ThudRhcHEeSwxIJCK8PySQ" name="horas">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHBEgBcHEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHBEgRcHEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_ThudQBcHEeSwxIJCK8PySQ" name="Calcularextra">
+      <ownedParameter xmi:id="_ThudQRcHEeSwxIJCK8PySQ" name="suel" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YCy0sBcHEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YCy0sRcHEeSwxIJCK8PySQ" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ThudQhcHEeSwxIJCK8PySQ" name="CrearLimpiador"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rbDUwBcFEeSwxIJCK8PySQ" name="Administrativo">
+    <generalization xmi:id="_8wdhYBcFEeSwxIJCK8PySQ" general="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    <ownedAttribute xmi:id="_gDn3lRcHEeSwxIJCK8PySQ" name="pulsaciones">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gDn3lhcHEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gDn3lxcHEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9b9UBcHEeSwxIJCK8PySQ" name="categoria">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kDEIoBcHEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kDEIoRcHEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_gDn3kBcHEeSwxIJCK8PySQ" name="CrearAdministrativo"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tCArgBcFEeSwxIJCK8PySQ" name="Encargado">
+    <generalization xmi:id="__1lfQBcFEeSwxIJCK8PySQ" general="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    <ownedAttribute xmi:id="_RqcWEBcIEeSwxIJCK8PySQ" name="empleadosasucargo">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RqcWERcIEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RqcWEhcIEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_RqcWExcIEeSwxIJCK8PySQ" name="oficinatrabajo">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RqcWFBcIEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RqcWFRcIEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_YTMLsBcIEeSwxIJCK8PySQ" name="Calcularsubida">
+      <ownedParameter xmi:id="_YTMLsRcIEeSwxIJCK8PySQ" name="subi" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YTMLshcIEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YTMLsxcIEeSwxIJCK8PySQ" value="1"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_YTMLtBcIEeSwxIJCK8PySQ" name="numemple">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_kCzNcBcIEeSwxIJCK8PySQ" name="CrearEncargado"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_uWNeUBcFEeSwxIJCK8PySQ" name="Comercial">
+    <generalization xmi:id="_9WPvABcFEeSwxIJCK8PySQ" general="_xYgxsBcFEeSwxIJCK8PySQ"/>
+    <ownedAttribute xmi:id="_q2XocBcHEeSwxIJCK8PySQ" name="contratosrealizados">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_q2XocRcHEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q2XochcHEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_wBPx4BcHEeSwxIJCK8PySQ" name="nombrezona">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wBPx4RcHEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wBPx4hcHEeSwxIJCK8PySQ" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_17SHYBcHEeSwxIJCK8PySQ" name="Calcularprimazona">
+      <ownedParameter xmi:id="_17SHYRcHEeSwxIJCK8PySQ" name="prima" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4UNtoBcHEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4UNtoRcHEeSwxIJCK8PySQ" value="1"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_KON1EBcIEeSwxIJCK8PySQ" name="zona">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_5SjlMBcHEeSwxIJCK8PySQ" name="Calcularzonatrabajo">
+      <ownedParameter xmi:id="_5SjlMRcHEeSwxIJCK8PySQ" name="zona" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5SjlMhcHEeSwxIJCK8PySQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5SjlMxcHEeSwxIJCK8PySQ" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_rwixsBcHEeSwxIJCK8PySQ" name="CrearComercial"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xYgxsBcFEeSwxIJCK8PySQ" name="Empleado">
+    <ownedAttribute xmi:id="_lB9PQBcGEeSwxIJCK8PySQ" name="dni">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_n8qs4BcGEeSwxIJCK8PySQ" name="nombre">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qsX0YBcGEeSwxIJCK8PySQ" name="direccion">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_wbQCwBcGEeSwxIJCK8PySQ" name="Calcularsueldo">
+      <ownedParameter xmi:id="_zPRCgBcGEeSwxIJCK8PySQ" name="suel" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_8OtpwBcGEeSwxIJCK8PySQ" name="CrearEmpleado">
+      <ownedParameter xmi:id="_ASLfMBcHEeSwxIJCK8PySQ" name="dni">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_HPUQcBcHEeSwxIJCK8PySQ" name="nom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Mk5OABcHEeSwxIJCK8PySQ" name="dire">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4A9sYBcFEeSwxIJCK8PySQ" name="plantillasToEncargados" memberEnd="_4A9sYRcFEeSwxIJCK8PySQ _4A9sZBcFEeSwxIJCK8PySQ" navigableOwnedEnd="_4A9sZBcFEeSwxIJCK8PySQ">
+    <ownedEnd xmi:id="_4A9sYRcFEeSwxIJCK8PySQ" name="plantillas" type="_nZFUIBcFEeSwxIJCK8PySQ" aggregation="composite" association="_4A9sYBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4A9sYhcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4A9sYxcFEeSwxIJCK8PySQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_4A9sZBcFEeSwxIJCK8PySQ" name="encargados" type="_tCArgBcFEeSwxIJCK8PySQ" association="_4A9sYBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4A9sZRcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4A9sZhcFEeSwxIJCK8PySQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_5AfPsBcFEeSwxIJCK8PySQ" name="plantillasToAdministrativos" memberEnd="_5AfPsRcFEeSwxIJCK8PySQ _5AfPtBcFEeSwxIJCK8PySQ" navigableOwnedEnd="_5AfPtBcFEeSwxIJCK8PySQ">
+    <ownedEnd xmi:id="_5AfPsRcFEeSwxIJCK8PySQ" name="plantillas" type="_nZFUIBcFEeSwxIJCK8PySQ" aggregation="composite" association="_5AfPsBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5AfPshcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5AfPsxcFEeSwxIJCK8PySQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_5AfPtBcFEeSwxIJCK8PySQ" name="administrativos" type="_rbDUwBcFEeSwxIJCK8PySQ" association="_5AfPsBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5AfPtRcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5AfPthcFEeSwxIJCK8PySQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_5jcy0BcFEeSwxIJCK8PySQ" name="plantillasToComercials" memberEnd="_5jcy0RcFEeSwxIJCK8PySQ _5jcy1BcFEeSwxIJCK8PySQ" navigableOwnedEnd="_5jcy1BcFEeSwxIJCK8PySQ">
+    <ownedEnd xmi:id="_5jcy0RcFEeSwxIJCK8PySQ" name="plantillas" type="_nZFUIBcFEeSwxIJCK8PySQ" aggregation="composite" association="_5jcy0BcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5jcy0hcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5jcy0xcFEeSwxIJCK8PySQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_5jcy1BcFEeSwxIJCK8PySQ" name="comercials" type="_uWNeUBcFEeSwxIJCK8PySQ" association="_5jcy0BcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5jcy1RcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5jcy1hcFEeSwxIJCK8PySQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6C2EkBcFEeSwxIJCK8PySQ" name="plantillasToLimpiadors" memberEnd="_6C2EkRcFEeSwxIJCK8PySQ _6C2ElBcFEeSwxIJCK8PySQ" navigableOwnedEnd="_6C2ElBcFEeSwxIJCK8PySQ">
+    <ownedEnd xmi:id="_6C2EkRcFEeSwxIJCK8PySQ" name="plantillas" type="_nZFUIBcFEeSwxIJCK8PySQ" aggregation="composite" association="_6C2EkBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6C2EkhcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6C2EkxcFEeSwxIJCK8PySQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_6C2ElBcFEeSwxIJCK8PySQ" name="limpiadors" type="_o5yR4BcFEeSwxIJCK8PySQ" association="_6C2EkBcFEeSwxIJCK8PySQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6C2ElRcFEeSwxIJCK8PySQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6C2ElhcFEeSwxIJCK8PySQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

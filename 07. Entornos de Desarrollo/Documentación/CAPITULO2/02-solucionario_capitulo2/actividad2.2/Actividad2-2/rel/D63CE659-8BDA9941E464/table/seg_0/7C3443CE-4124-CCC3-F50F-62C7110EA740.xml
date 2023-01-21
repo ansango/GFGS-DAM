@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7C3443CE-4124-CCC3-F50F-62C7110EA740" name="CURSAN">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ALUMNOS_NUM_ALU" id="DAD2F110-024A-7F67-005C-0060515247AD">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>6E06C3A4-B30D-C97C-3F97-2C1703565B02</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16682AD4-1401-0F21-3B2B-004D7A3DF669" referredColumn="6E06C3A4-B30D-C97C-3F97-2C1703565B02"/>
+</associations>
+</Column>
+<Column name="ASIGNATURAS_NUM_ASI" id="DAEE7684-7075-40E9-3CFB-0E47FF1BADE9">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>8E4A4AA3-841D-4001-C665-46FC751CB964</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6AE61741-ADE5-8DB7-3D58-DC6E3D7C9D28" referredColumn="8E4A4AA3-841D-4001-C665-46FC751CB964"/>
+</associations>
+</Column>
+<Column name="TRIMESTRE" id="C0910F76-D3C4-8A17-1F13-534DD9F232FF">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>A329FC0E-C382-E77D-A321-A8827E5F9B59</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2D3B337D-DDE0-E1F2-1183-9AFE686F9F54</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="87CA8BF2-DAB4-33E6-1792-6789ED100271" name="CURSAN__IDX">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAD2F110-024A-7F67-005C-0060515247AD"/>
+<colUsage columnID="DAEE7684-7075-40E9-3CFB-0E47FF1BADE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E34C313F-5B82-304C-B5C0-DCF0E4ACE89F" name="FK_ASS_10">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>7947B7DD-F2B1-7E02-51F1-165F43DAE4C3</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAD2F110-024A-7F67-005C-0060515247AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E2FB9F0-7061-364A-2F94-EFD4FF4915E0" name="FK_ASS_11">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>7947B7DD-F2B1-7E02-51F1-165F43DAE4C3</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAEE7684-7075-40E9-3CFB-0E47FF1BADE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

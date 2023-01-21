@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BDD8B3F5-7A3B-15B6-52E5-CD4712B2D0AA" name="REALIZAN">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ALUMNOS_NUM_ALU" id="F1D8B004-D404-7FF6-D00C-9371EBD732AA">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>6E06C3A4-B30D-C97C-3F97-2C1703565B02</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A5A79ED6-0AB3-F12C-3767-EA6D8C68FF89" referredColumn="6E06C3A4-B30D-C97C-3F97-2C1703565B02"/>
+</associations>
+</Column>
+<Column name="PRACTICAS_COD_PRACTICA" id="18E76E57-90EE-562E-2D8D-A7F56BC912E0">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>249A9BFB-1E96-FF5F-3C46-C9D168730345</domain>
+<delegate>3516B8D7-57F6-405F-F2DA-25755108A960</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7D99F995-A952-ADFE-3083-5A6F96B1D367" referredColumn="3516B8D7-57F6-405F-F2DA-25755108A960"/>
+</associations>
+</Column>
+<Column name="NOTA" id="0234CDE6-6650-28A1-EB8A-D28340492D82">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>4BE1377F-09C1-0E2F-4DCD-C75A842BB26C</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>1D730391-21ED-5BA8-8B38-47BB15B53BA9</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>10</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="FECHA" id="3423CCA7-0DAB-3A0F-C071-8775843E4344">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>F6A1FD10-A1D2-1F89-F0C4-692B362001DA</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E897095E-985D-2C3E-50D3-405893AACF01" name="REALIZAN__IDX">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1D8B004-D404-7FF6-D00C-9371EBD732AA"/>
+<colUsage columnID="18E76E57-90EE-562E-2D8D-A7F56BC912E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA8530B1-71CD-5678-8D65-285207850423" name="FK_ASS_17">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>5D15FD70-F582-EB7D-1E3C-39FBC253D829</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1D8B004-D404-7FF6-D00C-9371EBD732AA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="62F58109-0893-9034-2BFD-BC6BAE62D0A4" name="FK_ASS_18">
+<createdBy>alicia</createdBy>
+<createdTime>2014-07-17 14:51:31 UTC</createdTime>
+<generatorID>5D15FD70-F582-EB7D-1E3C-39FBC253D829</generatorID>
+<ownerDesignName>Actividad2-2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18E76E57-90EE-562E-2D8D-A7F56BC912E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
