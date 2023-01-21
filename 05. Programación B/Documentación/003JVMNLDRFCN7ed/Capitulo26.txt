@@ -1,0 +1,433 @@
+Número 1
+// Un ejemplo simple de objetos de tipo Semaphore
+import java.util.concurrent.*; 
+class SemDemo {
+public static void main(String args[]) { 
+Semaphore sem = new Semaphore(1);
+new IncThread(sem, "A");
+new DecThread(sem, "B");
+// Un recurso compartido 
+class Shared {
+static int count = 0;
+}
+// Un hilo de ejecución que incrementa count. 
+class IncThread implements Runnable {
+String name;
+Semaphore sem;
+IncThread(Semaphore s, String n) { 
+sem = s; 
+name = n; 
+new Thread (this).start( );
+}
+public void run( ) {
+System.out.println ("Comenzando " + name);
+try {
+// Primero, obtiene el permiso
+System.out.println (name + " está esperando por permiso ")
+sem.acquire ( );
+System.out.println (name + " obtiene permiso.");
+// Ahora, accede al recurso compartido 
+for (int i=0; i < 5; i++) {
+Shared.count++;
+System.out.println (name + ": " + Shared.count);
+// Ahora, permite un cambio de contexto - si es posible. 
+Thread.sleep (10);
+}
+} catch (InterruptedException exc) { 
+System.out.println (exc);
+}
+// Libera el permiso
+System.out.println (name + " libera el permiso.");
+sem.release ( );
+}
+}
+// Un hilo de ejecución que decrementa count. 
+class DecThread implements Runnable {
+String name;
+Semaphore sem;
+DecThread (Semaphore s, String n) { 
+sem = s; 
+name = n; 
+new Thread (this).start( );
+}
+public void run ( ) {
+System.out.println ( "Comenzando " + name);
+try {
+// Primero obtiene el permiso.
+System.out.println (name + " está esperando permiso.")
+sem.acquire ( );
+System.out.println (name + "obtiene permiso");
+// Ahora, accede al recurso compartido 
+for (int i=0; i < 5; i++) {
+Shared.count -- ;
+System.out.println (name + ": " + Shared.count );
+// Ahora, permite un cambio de contexto - si es posible 
+Thread.sleep (10);
+}
+} catch (InterruptedException exc) { 
+System.out.println(exc);
+}
+// Libera el permiso
+System.out.println(name + " libera el permiso.")
+sem.release( );
+}
+}
+
+Número 2
+// Una implementación de un productor y consumidor 
+// que utiliza semáforos para controlar la sincronización 
+import java.util.concurrent.Semaphore;
+class Q { 
+int n;
+// Comienza con el semáforo no disponible para el consumidor 
+static Semaphore semCon = new Semaphore (0); 
+static Semaphore semProd = new Semaphore (1);
+void get ( ) { 
+try {
+semCon.acquire ( ); 
+} catch (InterruptedException e) {
+System.out.println (" Se generó una InterruptedException");
+}
+System.out.println ( "Obtiene : " + n); 
+semProd. release ( );
+}
+void put (int n) { 
+try {
+semProd.acquire ( ); 
+} catch( InterruptedException e) {
+System.out.println ("Se generó un InterruptedException");
+}
+this.n = n;
+System.out.println ( "Pone : " + n);
+semCon.release ( );
+}
+}
+class Producer implements Runnable { 
+Q q;
+Producer(Q q) { 
+this.q = q;
+new Thread(this,"Productor").start( )
+ }
+public void run( ) {
+for(int i=0; i < 20; i++) q.put(i);
+ }
+}
+class Consumer implements Runnable { 
+Q q;
+Consumer(Q q) { 
+this.q = q; 
+new Thread(this, "Consumidor").start( );
+}
+public void run( ){
+for(int i=0; i < 20; i++) q.get( );
+}
+}
+class ProdCon {
+public static void main(String args[]) { 
+Q q = new Q ( ); 
+new Consumer (q); 
+new Producer (q);
+}
+}
+
+Número 3
+//Un ejemplo de CountDownLatch
+import java.util.concurrent.CountDownLatch;
+class CDLDemo {
+public static void main (String args[]) {
+CoundDownLatch cdl = new CountDownLatch(5);
+System.out.println("Comenzando");
+new MyThread(cdl);
+try {
+cdl.await ( ); 
+} catch (InterruptedException exc) {
+System.out.println (exc);
+}
+System.out.println ("Hecho");
+}
+}
+class MyThread implements Runnable { 
+CountDownLatch latch;
+MyThread (CountDownLatch c) { 
+latch = c; 
+new Thread (this).start( );
+}
+public void run( ) {
+for(int i = 0 ; i<5; i++) { 
+System.out.println (i);
+ latch.countDown ( ); // decrementa count
+}
+}
+}
+
+Número 4
+// Ejemplo de CyclicBarrier. 
+import.java.util.concurrent.*;
+class BarDemo {
+public static void main(String args[]) {
+CyclicBarrier cb = new CyclicBarrier(3, new BarAction( ));
+System.out.println("Comenzando");
+new MyThread(cb, "A"); 
+new MyThread(cb, "B"); 
+new MyThread(cb, "C");
+}
+}
+//Un hilo de ejecución que utiliza un CyclicBarrier
+class MyThread implements Runnable { 
+CyclicBarrier cbar; 
+String name;
+MyThread (CyclicBarrier c, String n) { 
+cbar = c; 
+name = n; 
+new Thread(this).start( );
+}
+public void run ( ) {
+System.out.println(name);
+try {
+cbar await ( ); 
+} catch (BrokenBarrierException exc) {
+System.out.println (exc); 
+} catch (InterruptedException exc) {
+System.out.println (exc);
+}
+}
+}
+// Un objeto de esta clase es llamada cuando el
+// CyclicBarrier termina.
+class BarAction implements Runnable { 
+public void run ( ) {
+System.out.println("Límite Alcanzado.");
+}
+}
+
+Número 5
+// Ejemplo de Exchanger.
+import java.util.concurrent.Exchanger;
+class ExgrDemo {
+public static void main (String args [] ) {
+Exchanger<String> exgr = new Exchanger<String> ( ) ;
+new UseString (exgr); 
+new MakeString (exgr);
+}
+}
+// Un hilo que construye una cadena. 
+class MakeString implements Runnable {
+Exchanger<String> ex;
+String str;
+MakeString (Exchanger<String> c) { 
+ex = c; 
+str = new String( );
+new Thread (this).start( );
+}
+public void run( ) { 
+char ch = 'A' ;
+for (int i = 0; i < 3 ; i ++) {
+// Llena el Bufer 
+for (int j = 0; j < 5; j++) 
+str += ch++;
+try {
+// Intercambia un bufer lleno por uno vacío.
+str = ex. exchange (str); 
+} catch (InterruptedException exc) {
+System.out.println (exc);
+}
+}
+}
+}
+// Un hilo que utiliza una cadena
+class UseString implements Runnable {
+Exchanger<String> ex;
+String str;
+UseString(Exchanger <String> c) {
+ex = c;
+new Thread(this).start( );
+}
+public void run( ) {
+for (int i = 0; i < 3; i++) {
+try {
+//Intercambia un bufer vacío por uno lleno
+str = ex.exchange(new String( ));
+System.out.println("Obtiene:" +str);
+} catch (InterruptedException exc) {
+System.out.println(exc);
+}
+}
+}
+}
+
+Número 6
+// Un ejemplo sencillo que utilice un objeto Executor. 
+import java.útil.concurrent .*;
+class SimpExec {
+public static void main(String args[]) {
+CountDownLatch cdl = new CountDownLatch(5); 
+CountDownLatch cdl2 = new CountDownLatch(5); 
+CountDownLatch cdl3 = new CountDownLatch(5); 
+CountDownLatch cdl4 = new CountDownLatch(5); 
+ExecutorService es = Executors.newFixedThreadPool(2);
+System.out.println("Comenzando");
+// Comienza el hilo. 
+es.execute(new MyThread (cdl, "A")); 
+es.execute(new MyThread(cdl2, "B")); 
+es.execute(new MyThread(cdl3, "C")); 
+es.execute(new MyThread(cdl4, "D"));
+try {
+cdl.await( );
+cdl2.await( ); 
+cdl3.await( ); 
+cdl4.await( );
+} catch (InterruptedException exc) {
+System.out.println(exc);
+}
+es.shutdown( );
+System.out.println("Hecho");
+}
+}
+class MyThread implements Runnable { 
+String name; 
+CountDownLatch latch;
+MyThread(CountDownLatch c, String n) { 
+latch = c; 
+name = n;
+new Thread(this);
+}
+public void run( ) {
+for(int i = 0; i < 5; i++) {
+System.out.println(name + ": " + i) 
+latch.countDown( );
+}
+}
+}
+
+Número 7
+// Un ejemplo que utiliza la interfaz Callable. 
+import java.util.concurrent.*;
+class CallableDemo {
+public static void main(String args[]) {
+ExecutorService es = Executors.newFixedThreadPool(3); 
+Future<Integer> f; 
+Future<Double> f2; 
+Future<Integer> f3;
+System.out.println("Comenzando");
+f = es.submit(new Sum(10));
+f2 = es.submit (new Hypot(3, 4));
+f3 = es.submit(new Factorial(5));
+try {
+System.out.println(f.get( ));
+System.out.println(f2.get( ));
+System.out.println(f3.get ( ));
+} catch (InterruptedException exc) {
+System.out.println(exc);
+}
+catch (ExecutionException exc) {
+System.out.println(exc);
+}
+es.shutdown ( );
+System.out.println ( "Hecho");
+}
+}
+// A continuación están los tres hilos 
+class Sum implements Callable<Integer> { 
+int stop;
+Sum(int v) { stop = v; }
+public Integer call( ) { 
+int sum = 0 ;
+for (int i = 1; i <= stop; i++){
+sum += i;
+}
+return sum;
+}
+}
+class Hypot implements Callable<Double> { 
+double sidel, side2;
+Hypot (double si, double s2) { 
+sidel = si; 
+side2 = s2;
+}
+public Double call( ) {
+return Math.sqrt ((sidel*sidel) + (side2*side2));
+}
+}
+class Factorial implements Callable<Integer> { 
+int stop;
+Factorial (int v) { stop = v; }
+public Integer call( ) { 
+int fact = 1;
+for(int i = 2; i <= stop; i++) { 
+fact *= i;
+}
+return fact;
+}
+}
+
+Número 8
+//Un ejemplo simple de candado
+import java.util.concurrent.locks.*;
+class LockDemo {
+public static void main(String args[]) {
+ReentrantLock lock = new ReentrantLock( );
+new LockThread(lock, "A");
+new LockThread(lock, "B");
+}
+}
+// Un recurso compartido. 
+class Shared {
+static int count = 0;
+}
+//Un hilo de ejecución que incrementa count. 
+class LockThread implements Runnable {
+String name;
+ReentrantLock lock;
+LockThread (ReentrantLock lk, String n) { 
+lock = lk; 
+name = n; 
+new Thread (this).start( );
+}
+public void run ( ) {
+System.out.println ("Comenzando" + name);
+try {
+// Primer candado en acción.
+System.out.println (name + "está esperando por el candado");
+lock.lock ( );
+System.out.println (name + " tiene el candado.");
+Shared .count++;
+System.out.println (name + ": " + Shared.count);
+// Ahora, se permite el cambio de contexto - si es posible
+System.out.println (name + " está durmiendo");
+Thread.sleep (1000); 
+} catch (InterruptedException exc) {
+System.out.println (exc);
+} finally {
+// Desbloqueo
+System.out.println (name + " está desbloqueando count.");
+lock.unlock ( );
+}
+}
+}
+
+Número 9
+//Un ejemplo simple de Atomic
+import java.util.concurrent.atomic.*;
+class AtomicDemo{
+public static void main(String args[]) {
+new AtomThread("A");
+new AtomThread("B");
+new AtomThread("C");
+}
+}
+class Shared {
+static AtomicInteger ai = new AtomicInteger(0);
+}
+//Un hilo de ejecución 
+class AtomThread implements Runnable {
+String name;
+AtomThread(String n) {
+name = n;
+new Thread(this).start( );
+}
+public void run( ) {
+System.out.println("Comenzando"+name);
+for (int i=1; i <= 3; i++)
+System.out.println(name + "obtiene:" + Shared.ai.getAndSet(i));
+}
+}

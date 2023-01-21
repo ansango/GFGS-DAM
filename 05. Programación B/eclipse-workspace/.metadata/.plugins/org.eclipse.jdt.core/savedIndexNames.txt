@@ -1,0 +1,11 @@
+INDEX VERSION 1.130+/Volumes/anDisk2/Documentos/Informática/Desarrollo de Aplicaciones Multiplataforma/5. Programación B/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+845889328.index
+1008924234.index
+1246427915.index
+1884943789.index
+2152511647.index
+2656539777.index
+2868734585.index
+3966840796.index
+857277279.index
+3100117053.index

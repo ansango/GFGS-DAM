@@ -1,0 +1,259 @@
+Número 1
+// Ejemplo de la gestión de eventos de ratón.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code = "MouseEvent" width=300 height=100>
+</applet>
+*/
+public c1ass MouseEvents extends Applet
+implements MouseListener, MouseMotionListener {
+String msg ="";
+int mouseX = 0, mouseY = 0; // coordenadas del ratón
+public void init() {
+addMouseListener(this);
+addMouseMotionListener(this); 
+}
+// Gestiona los clics del ratón.
+public void mouseClicked(MouseEvent me) {
+// Guarda coordenadas
+mouseX = 0;
+mouseY = 10;
+msg = "Clic del ratón";
+repaint ();
+}
+// Gestiona entradas del ratón
+public void mouseEntered(MouseEvent me) {
+// Guarda coordenadas
+mouseX = 0;
+mouseY = 10;
+msg = "El ratón ha entrado.";
+repaint ();
+}
+// Gestiona salidas del ratón
+public void mouseExited(MouseEvent me) {
+// Guarda las coordenadas
+mouseX = 0;
+mouseY = 10;
+msg = "El ratón ha salido.";
+repaint () ;
+}
+// Gestiona presionar los botones.
+public void mousePressed(MouseEvent me) {
+// Guarda las coordenadas
+mouseX = me.getX();
+mouseY= me.getY() ;
+msg = "Abajo";
+repaint () ;
+}
+// Gestiona la liberación de botones.
+public void mouseReleased(MouseEvent me) {
+// Guarda las coordenadas
+mouseX = me.getX () ;
+mouseY = me.getY();
+msg = "Arriba";
+repaint();
+}
+// Gestiona el arrastre del ratón
+public void mouseDragged(MouseEvent me) {
+// Guarda las coordenadas
+mouseX = me.getX () ;
+mouseY = me.getY();
+msg = "*" ;
+showStatus ("Arrastrando el ratón en " + mouseX + ", " + mouseY);
+repaint ();
+}
+// Gestiona los movimientos del ratón.
+public void mouseMoved(MouseEvent me) {
+// Muestra el estatus
+showStatus ("Moviendo el ratón en " + me.getX () + ", " + me.getY());
+// Muestra msg en la ventana del applet en la actual posición
+public void paint(Graphics g) {
+g.drawString(msg, mouseX, mouseY);
+}
+}
+
+Número 2
+// Ejemplo de los manejadores de eventos de teclado.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="SimpleKey" width=300 height=l00>
+</applet>
+*/
+public class SimpleKey extends Applet
+implements KeyListener {
+String msg = "";
+int X = 10, y = 20; // Salida de las coordenadas
+public void init() {
+addKeyListener(this);
+}
+public void keyPressed(KeyEvent ke) {
+showStatus("Tecla Abajo");
+}
+public void keyReleased(KeyEvent ke) {
+showStatus("Tecla Arriba");
+}
+public void keyTyped(KeyEvent ke) {
+msg += ke.getKeyChar();
+repaint();
+// Muestra la pulsación de las teclas.
+public void paint(Graphics g) {
+g.drawString (msg, X, Y);
+}
+}
+
+Número 3
+// Ejemplo de algunos códigos de tecla virtuales.
+import java.awt.*;
+import java.awt.event .*;
+import java.applet.*;
+/*
+<applet code="KeyEvents" width=300 height=l00>
+</applet>
+*/
+public class KeyEvents extends Applet
+implements KeyListener {
+String msg = "";
+int X = 10, Y = 20; // coordenadas de la salida
+public void init() {
+addKeyListener(this);
+}
+public void keyPressed(KeyEvent ke) {
+showStatus ("Tecla Abajo");
+int key = ke.getKeyCode();
+switch (key) {
+case KeyEvent.VK_Fl:
+msg += "<Fl>";
+break;
+case KeyEvent.VK_F2:
+msg += "<F2>";
+break;
+case KeyEvent.VK_F3:
+msg += "<F3>";
+break;
+case KeyEvent.VK_PAGE_DOWN:
+msg += "<PgDn>";
+break;
+case KeyEvent.VK_PAGE_UP:
+msg += "<PgUp>" ;
+break;
+case KeyEvent.VK_LEFT:
+msg += "<Flecha Izquierda>" ;
+break;
+case .KeyEvent.VK_RIGHT:
+msg += "<Flecha Derecha>" ;
+break;
+}
+repaint();
+}
+public void keyReleased(KeyEvent ke) {
+showStatus("Tecla Arriba");
+}
+public void keyTyped(KeyEvent ke) {
+msg += ke.getKeyChar();
+repaint();
+}
+// Muestra la pulsación de teclas.
+public void paint(Graphics g) {
+g.drawString(msg, X, Y};
+}
+}
+
+Número 4
+// Ejemplo de un adaptador.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="AdapterDemo" width=300 height=l00>
+</applet>
+*/ 
+public class AdapterDemo extends Applet {
+public void init() {
+addMouseListener(new MyMouseAdapter(this));
+addMouseMotionListener(new MyMouseMotionAdapter(this));
+}
+}
+class MyMouseAdapter extends MouseAdapter {
+AdapterDemo adapterDemo;
+public MyMouseAdapter(AdapterDemo adapterDemo) {
+this.adapterDemo = adapterDemo;
+}
+// Gestiona los clics del ratón.
+public void mouseClicked(MouseEvent me) {
+adapterDemo.showStatus ("El ratón tuvo un clic");
+}
+}
+class MyMouseMotionAdapter extends MouseMotionAdapter {
+AdapterDemo adapterDemo;
+public MyMouseMotionAdapter(AdapterDemo adapterDemo) {
+this.adapterDemo = adapterDemo;
+}
+// Gestiona el arrastre del ratón.
+public void mouseDragged(MouseEvent me) {
+adapterDemo.showStatus("Ratón arrastrado");
+}
+}
+
+Número 5
+// Este applet NO utiliza una clase interna.
+import java.applet.*;
+import java.awt.event.*;
+/*
+<applet code="MousePressedDemo" width=200 height=100>
+</applet>
+*/
+public class MousePressedDemo extends Applet {
+public void init() {
+addMouseListener(new MyMouseAdapter(this));
+}
+}
+class MyMouseAdapter extends MouseAdapter {
+MousePressedDemo mousepressedDemo;
+public MyMouseAdapter(MousePressedDemo mousePressedDemo) {
+this.mousePressedDemo = mousepressedDemo;
+}
+public void mousePressed(MouseEvent me) {
+mousePressedDemo.showStatus ("Se ha presionado el ratón.");
+}
+}
+
+Número 6
+// Ejemplo de una clase interna.
+import java.applet.*;
+import java.awt.event.*;
+/*
+<applet code="InnerClassDemo" width=200 height=100>
+</applet>
+*/
+public class InnerClassDemo extends Applet {
+public void init() {
+addMouseListener(new MyMouseAdapter());
+}
+}
+class MyMouseAdapter extends MouseAdapter {
+public void mousePressed(MouseEvent me) {
+showStatus("Se ha presionado el ratón");
+}
+}
+
+Número 7
+// Ejemplo de una clase interna anónima.
+import java.applet.*;
+import java.awt.event.*;
+/*
+<applet code="AnonymousInnerClassDemo" width=200 height=l00>
+</applet>
+*/
+public class AnonymousInnerClassDemo extends Applet {
+public void init() {
+addMouseListener(new MouseAdapter() {
+public void mousePressed(MouseEvent me) {
+showStatus("Se ha presionado el ratón");
+}
+});
+}
+}

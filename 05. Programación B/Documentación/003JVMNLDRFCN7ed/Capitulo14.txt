@@ -1,0 +1,772 @@
+Número 1
+// Un ejemplo de clase genérica
+// Donde, T es un parámetro de tipo que 
+// será reemplazado por un tipo real 
+// cuando un objeto de tipo Gen sea creando
+class Gen<T> {
+T ob; // declara un objeto de tipo T 
+// Pasa al constructor una referencia a 
+// un objeto de tipo T 
+Gen(T o) { 
+ob = o;
+} 
+// Devuelve ob. 
+T getob( ) { 
+return ob; 
+}
+// Muestra el tipo de T. 
+void showType( ) { 
+System.out.println("Tipo de T es" + ob.getClass( ).getName( )); 
+}
+}
+// Esta clase utiliza a la clase con tipos parametrizados. 
+class GenDemo { 
+public static void main(String args[]) { 
+// Crea una referencia a Gen para objetos Integer. 
+Gen<Integer> iOb; 
+// Crea un objeto Gen<Integer> y asigna su 
+// referencia a iOb. Nótese el uso de autoboxing 
+// para encapsular el valor 88 dentro de un objeto Integer
+iOb = new Gen<Integer> (88); 
+// Muestra el tipo de datos utilizado por iOb. 
+iOb.showType ( ); 
+// Obtiene el valor en iOb. Nótese que 
+// no se necesita hacer la conversión explícita de tipos
+int v = iOb.getob( ); 
+System.out.println("valor: " + v); 
+System.out.println( ); 
+// Crea un objeto Gen para valores de tipo String
+Gen<String> strOb = new Gen<String> ("Prueba de Tipos Parametrizados"); 
+// Muestra el tipo de dato utilizado por strOb. 
+strOb.showType( ); 
+// Obtiene el valor de strOb. De nuevo, nótese
+// que no se necesita hacer la conversión explícita de tipos
+String str = strOb.getob( ); 
+System.out.println("valor: " + str); 
+}
+}
+
+Número 2
+// La funcionalidad de la clase NoGen es equivalente a la de la clase Gen 
+// pero no utiliza tipos parametrizados 
+class NoGen { 
+Object ob; // ob es ahora de tipo Object 
+// Pasa al constructor una referencia a 
+// un object de tipo Object 
+NoGen(Object o) { 
+ob = o; 
+}
+// Devuelve un valor de tipo Object. 
+Object getob( ) { 
+return ob;
+}
+// Muestra el tipo de ob. 
+void showType( ) { 
+System.out.println("El tipo de ob es " + ob.getClass( ).getName( )); 
+}
+}
+// Utilizando la clase no genérica
+class NoGenDemo { 
+public static void main (String args[]) {
+ NoGen iOb;
+// Crea un objeto NoGen y almacena 
+// un valor de tipo Integer en él. El autoboxing ocurre igual que antes.
+iOb = new NoGen(88); 
+// Muestra el tipo de dato utilizado por iOb. 
+iOb.showType ( ); 
+// Obtiene el valor de iOb. 
+// En este momento, es necesario hacer conversión de tipos
+int v = (Integer) iOb.getob( );
+System.out.println("valor: " + v); 
+System.out.println( ) ; 
+// Crea otro objeto NoGen y
+ // almacena un String en él
+NoGen strOb = new NoGen("Prueba con tipos no parametrizados"); 
+// Muestra el tipo de datos usados por strOb. 
+strOb.showType( ) ; 
+// Obtiene el valor de strOb. 
+// De nuevo, note que un conversión de tipos es necesaria. 
+String str = (String) strOb.getob( ); 
+System.out.println("valor: " + str); 
+// Este programa compila, pero es conceptualmente incorrecto 
+iOb = strOb;. 
+v = (Integer) iOb.getob( ); // error en tiempo de ejecución
+}
+}
+
+Número 3
+// Una clase simple con tipos parametrizados
+// con dos parámetros de tipo: T y V. 
+class DosGen<T, V> { 
+T ob1; 
+V ob2; 
+// Pasa al constructor como referencia 
+// un objeto de tipo T y un objeto de tipo V. 
+DosGen(T o1, V o2) { 
+ob1 = o1; 
+ob2 = o2; 
+}
+// Muestra los tipos de T y V. 	
+void showTypes( ) { 
+System.out.println("Tipo de T es" + obl.getClass( ).getName( )); 
+System.out.println("Tipo de V es" + ob2.getClass( ).getName( )); 
+T getobl( ) { 
+return obl; 
+}
+V getob2( ) { 
+return ob2; 
+}
+}
+// Ejemplo de uso de DosGen. 
+class SimpGen { 
+public static void main(String args[]) {
+DosGen<Integer, String> tgObj = new DosGen<Integer, String> (88, "Tipos Parametrizados"); 
+// Muestra los tipos 
+tgObj.showTypes( ); 
+// Obtiene y muestra los valores. 
+int v = tgObj.getobl( ); 
+System.out.println ( "valor: " + v); 
+String str = tgObj.getob2( ); 
+System.out.println("valor: " + str); 
+}
+}
+
+Número 4
+// La clase Stats intenta (sin éxito) 
+// crear una clase con tipos parametrizados que puede calcular 
+// el promedio de un arreglo de números de 
+// cualquier tipo dado
+// 
+// La clase contiene un error. 
+class Stats<T> { 
+T[] nums; 	// nums es un arreglo de tipo T 
+// Pasa al constructor una referencia a 
+// un arreglo de tipo T. 
+Stats (T [] o) { 
+nums = o; 
+}
+// Devuelve tipo double en todos los casos 
+double average( ) { 
+double sum = 0.0; 
+for(int i=0; i < nums.length; i++)
+sum += nums[i].doubleValue( ); //Error
+return sum / nums.length; 
+}
+}
+
+Número 5
+// En esta versión de Stats, el argumento de tipo para 
+// T debe ser Number, o una clase derivada
+// de Number. 
+class Stats<T extends Number> { 
+T[] nums; // arreglo de elementos de tipo Number o subclases de Number
+// Pasa al constructor una referencia a 
+// un arreglo de valores de tipo Number o subclases de Number
+Stats (T [] o) { 
+nums = o; 
+}
+// Devuelve un valor de tipo double en todos los casos. 
+double average( ) { 
+double sum = 0.0; 
+for(int i=0; i < nums.length; i++) 
+sum += nums[i].doubleValue( ); 
+return sum / nums.length; 
+}
+}
+// Muestra el uso de la clase Stats. 
+class BoundsDemo { 
+public static void main(String args[]) {
+Integer inums[] = { 1, 2, 3, 4, 5 }; 
+Stats<Integer> iob = new Stats<Integer> (inums); 
+double v = iob.average( ); 
+System.out.println("El promedio es" + v); 
+Double dnums[] = { 1.1, 2.2, 3.3, 4.4, 5.5 }; 
+Stats<Double> dob = new Stats<Double>(dnums); 
+double w = dob.average( ); 
+System.out.println("Promedio es:" + w); 
+// Esto no compilará porque String no es una 
+// subclase de Number. 
+// String strs[] = { "1", "2", "3", "4", "5" }; 
+// Stats<String> strob = new Stats<String>(strs); 
+// double x = strob.average( ); 
+// System.out.println("El promedio es" + v); 
+}
+}
+
+Número 6
+// Uso de comodines 
+class Stats<T extends Number> { 
+T[] nums; // arreglo de valores Number o de alguna subclase de Number
+// Pasa al constructor una referencia a
+// un arreglo de tipo Number o subclase de Number
+Stats (T [] o) { 
+nums = o; 
+}
+// Devuelve un valor de tipo double en todos los casos. 
+double average( ) { 
+double sum = 0.0; 
+for(int i=0; i < nums.length; i++) 
+sum += nums[i].doubleValue( ); 
+return sum / nums.length;
+}
+// Determina si dos promedios son los mismos
+// Note el uso de comodines 
+boolean SameAvg(Stats<?> ob) { 
+if(average( ) = = ob.average( )) 
+return true; 
+return false;
+}
+} 
+// Demuestra el uso de comodines
+class ComodinDemo { 
+public static void main(String args[]) { 
+Integer inums[] = { 1, 2, 3, 4, 5 }; 
+Stats<Integer> iob = new Stats<Integer>(inums); 
+double v = iob.average( ); 
+System.out.println("El promedio de iob es" + v);
+Double dnums [] = {1.1, 2.2, 3.3, 4.4, 5.5}; 
+Stats<Double> dob = new Stats<Double>(dnums); 
+double w = dob.average( ); 
+System.out.println("El promedio de dob es" + w); 
+Float fnums [] = { 1.0F, 2.0F, 3.0F, 4.0F, 5.0F }; 
+Stats<Float> fob = new Stats<Float> (fnums); 
+double x = fob.average( ); 
+System.out.println("El promedio de fob es " + x) ; 
+// Revisa cuál de los arreglos tiene el mismo promedio
+System.out.print ("El promedio de iob y dob"); 
+if(iob.sameAvg(dob)) 
+System.out.println("son iguales."); 
+else 
+System.out.println ("son diferentes "); 
+System.out.print("El promedio de iob y fob "); 
+if(iob.sameAvg(fob)) 
+System.out.println("son iguales."); 
+else 
+System.out.println("son diferentes.");
+}
+}
+
+Número 7
+// Argumentos con comodines delimitados
+// Coordenadas bidimensionales
+class DosD { 
+int x, y; 
+DosD (int a, int b) {
+x = a;
+y = b; 
+}
+}
+// Coordenadas tridimensionales. 
+class TresD extends DosD {
+int z; 
+TresD(int a, int b, int c) {
+super(a, b); 
+z = c; 
+}
+}
+// Coordenadas en cuarta dimensión. 
+class CuatroD extends TresD {
+int t; 
+CuatroD(int a, int b, int c, int d) {
+super (a, b, c); 
+t = d; 
+}
+}
+// Esta clase contiene un arreglo de objetos para coordenadas. 
+class Coords<T extends DosD> { 
+T[] coords; 
+Coords(T[] o) { coords = o; } 
+}
+// Demuestra el uso de comodines delimitados. 
+class ComodinDelimitado { 
+static void showXY(Coords<?> c) { 
+System.out.println("Coordenadas XY:");
+for(int i=0; i < c.coords.length; i++) 
+System.out.println(c.coords[i).x + " 	" + c.coords[i).y);
+System.out.println( ); 
+}
+static void showXYZ(Coords<? extends TresD> c) { 
+System.out.println("Coordenadas XYZ: "); 
+for(int i=0; i < c.coords.length; i++) 
+System.out.println(c.coords[i].x + " 	" + c.coords[i).y + " 	" + c.coords [i].z); 
+System.out.println( ); 
+}
+static void showAll(Coords<? extends CuatroD> c) {
+System.out.println("Coordenadas XYZT:"); 
+for(int i=0; i < c.coords.length; i++) 
+System.out.println(c.coords[i).x + " 	" + c.coords[i].y + " 	" + c.coords [i].z + " " + c.coords [i].t); 
+System.out.println( ) ; 
+}
+public static void main(String args[]) {
+DosD td[] = {
+new DosD (0, 0), 
+new DosD(7, 9), 
+new DosD (18, 4), 
+new DosD(-l, -23) 
+}
+Coords<DosD> tdlocs = new Coords<DosD>(td); 
+System.out.println("Contenido de tdlocs."); 
+showXY(tdlocs); 	// bien, es un DosD 
+// showXYZ(tdlocs); 	// Error, no es un TresD 
+// showAll(tdlocs); 	// Error, no es un CuatroD 
+// Ahora, creamos algunos objetos CuatroD 
+CuatroD fd[] = { 
+new CuatroD(l, 2, 3, 4), 
+new CuatroD(6, 8, 14, 8), 
+new CuatroD(22, 9, 4, 9), 
+new CuatroD(3, -2, -23, 17) 
+}; 
+Coords<CuatroD> fdlocs = new Coords<CuatroD> (fd) ; 
+System.out.println("Contenido de fdlocs."); 
+// Todos estos están correctos.
+showXY(fdlocs); 
+showXYZ (fdlocs); 
+showAll(fdlocs); 
+}
+}
+
+Número 8
+// Ejemplo de método con tipos parametrizados
+class GenMethDemo{
+//Determina si un objeto está en un arreglo
+static <T, V extends T> boolean estaEn(T x, V[] y){
+for (int i=0; i < y.length; i++) 
+if (x.equals(y[i])) return true; 
+return false; 
+}
+public static void main(String args[]) {
+// Utiliza estaEn( ) sobre Integers. 
+Integer nums[] = { 1, 2, 3, 4, 5 }; 
+if (estaEn(2, nums)) 
+System.out.println("2 está en nums"); 
+if (!estaEn(7, nums)) 
+System.out.println("7 no está en nums"); 
+System.out.println( ) ; 
+// Usa estaEn( ) sobre Strings. 
+String strs[] = { "uno", "dos", "tres" , "cuatro", "cinco" }; 
+if (estaEn("dos", strs)) 
+System.out.println{"dos está en strs"); 
+if (!estaEn("siete", strs)) 
+System.out.println{"siete no está en strs"); 
+// ¡ups, no compilará! Los tipos deben ser compatibles. 
+// if (estaEn("dos", nums)) 
+// System.out.println("dos está en strs"); 
+} 
+}
+
+Número 9
+// Uso de constructores con tipos parametrizados. 
+class GenCons { 
+private double val; 
+<T extends Number> GenCons(T arg) { 
+val = arg.doubleValue( ); 
+}
+void showval( ) { 
+System.out.println ("valor: " + val); 
+}
+}
+class GenConsDemo { 
+public static void main(String args[]) {
+GenCons test = new GenCons(l00);
+GenCons test2 = new GenCons(123.5F); 
+test.showval( ); 
+test2.showval( ); 
+}
+}
+
+Número 10
+// Un ejemplo de interfaz con tipos parametrizados
+// La interfaz MinMax 
+interface MinMax<T extends Comparable<T>> { 
+T min( ); 
+T max( ); 
+}
+// Ahora, una implementación de MinMax 
+class MiClase<T extends Comparable<T>> implements MinMax<T> { 
+T[] vals; 
+MiClase(T[] o) { vals = o; } 
+// Devuelve el valor mínimo en vals. 
+public T min ( ) { 
+T v = vals[0]; 
+for(int i=l; i < vals.length; i++) 
+if(vals[i].compareTo(v) < 0) v = vals[i]; 
+return v; 
+}
+// Devuelve el valor máximo en vals. 
+public T max ( ) { 
+T v = vals [0]; 
+for(int i=l; i < vals.length; i++) 
+if (vals [i].compareTo(v) > 0) v = vals[i];
+return v; 
+}
+}
+class GenIFDemo { 
+public static void main(String args[]) {
+Integer inums[] = {3, 6, 2, 8, 6 }; 
+Character chs [] = {'b', 'r', 'p', 'w'}; 
+MiClase<Integer> iob = new MiClase<Integer> (inums); 
+MiClase<Character> cob = new MiClase<Character>(chs); 
+System.out.println("Valor máximo en inums: " + iob.max( )); 
+System.out.println("Valor mínimo en inums: " + iob.min( )); 
+System.out.println("Valor máximo en chs: " + cob.max( )); 
+System.out.println("Valor mínimo en chs: " + cob.min{)); 
+}
+}
+
+Número 11
+// Uso de un tipo en bruto
+class Gen<T> {
+T ob; 	// declara un objeto de tipo T 
+// Pasa al constructor una referencia a 
+// un objeto de tipo T. 
+Gen(T o} { 
+ob = o; 
+}
+// Devuelve ob. 
+T getob ( ) { 
+return ob; 
+}
+}
+// Uso del tipo en bruto. 
+class RawDemo { 
+public static void main(String args[]) {
+// Crea un objeto de tipo Gen para Integer. 
+Gen<Integer> iOb = new Gen<Integer> (88);
+// Crea un objeto Gen para String.
+Gen<String> strOb : new Gen<String> ("Prueba de tipos parametrizados"}; 
+// Crea un objeto Gen con tipo en bruto y le asigna
+// un valor Double
+Gen raw = new Gen(new Double(98.6)); 
+// Es necesario hacer una conversión de tipos aquí, dado que el tipo es desconocido
+double d = (Double) raw.getob( ); 
+System.out.println ("valor: " + d); 
+// El uso de un tipo en bruto puede generar una excepción en tiempo 
+// de ejecución. Aquí tenemos algunos ejemplos.
+// La siguiente conversión causa un error en tiempo de ejecución 
+//int i = (Integer) raw.getob( ); // error en tiempo de ejecución 
+// Esta asignación pasa por alto la seguridad de tipos
+strOb = raw; // es correcto, pero potencialmente erróneo
+//String str = strOb.getob( ); // error en tiempo de ejecución
+// Esta asignación también pasa por alto la seguridad de tipos
+raw = iOb; // es correcto, pero potencialmente erróneo
+// d = (Double) raw.getob( ); // error en tiempo de ejecución 
+} 
+}
+
+Número 12
+// Una jerarquía de clases simples con tipos parametrizados
+class Gen<T> { 
+T ob; 
+Gen(T o) { 
+ob = o; 
+}
+// Devuelve ob. 
+T getob ( ) { 
+return ob; 
+}
+}
+// Una subclase de Gen. 
+class Gen2<T> extends Gen<T> { 
+Gen2(T o) { 
+super (o) ; 
+}
+}
+
+Número 13
+// Una subclase puede agregar sus propios parámetros de tipo
+class Gen<T> { 
+T ob; // declara un objeto de tipo T 
+// Pasa al constructor una referencia a 
+// un objeto de tipo T. 
+Gen(T o) { 
+ob = o; 
+}
+// Devuelve ob. 
+T getob ( ) { 
+return ob; 
+}
+}
+// Una subclase de Gen que define un segundo
+// tipo de parámetro, llamado V. 
+class Gen2<T, V> extends Gen<T> { 
+V ob2; 
+Gen2(T o, V o2) { 
+super (o) ; 
+ob2 = o2; 
+}
+V getob2( ) { 
+return ob2; 
+}
+}
+// Crea un objeto de tipo Gen2. 
+class JerarquiaDemo {
+public static void main(String args[]) {
+// Crea un objeto Gen2 para String e Integer. 
+Gen2<String, Integer> x = new Gen2<String, Integer>("El valor es: ", 99); 
+System.out.print(x.getob( )); 
+System.out.println(x.getob2( )); 
+}
+}
+
+Número 14
+// Una clase sin tipos parametrizados puede ser una superclase 
+// de una subclase con tipos parametrizados
+// Una clase sin tipos parametrizados
+class NoGen {
+int num; 
+NoGen(int i) { 
+num = i; 
+}
+int getnum( ) { 
+return num; 
+}
+}
+// Una subclase con tipos parametrizados
+class Gen<T> extends NoGen { 
+T ob; 	// declara un objeto de tipo T 
+// Pasa al constructor una referencia a
+// un objeto de tipo T. 
+Gen(T o, int i) { 
+super(i) ; 
+ob = o; 
+}
+// Devuelve ob. 
+T getob( ) { 
+return ob; 
+}
+}
+// Crea un objeto de tipo Gen
+class JerarquiaDemo2 { 
+public static void main(String args[]) {
+// Crea un objeto Gen para String. 
+Gen<String> w = new Gen<String> ("Hola", 47); 
+System.out.print(w.getob( ) + " "); 
+System.out.println(w.getnum( )) ; 
+}
+}
+
+Número 15
+// Uso del operador instanceof con una jerarquía de clases con tipos parametrizados
+class Gen<T> {
+T ob; 
+Gen(T o) { 
+ob = o; 
+}
+// Devuelve ob. 
+T getob ( ) { 
+return ob; 
+}
+}
+// Una subclase de Gen. 
+class Gen2<T> extends Gen<T> { 
+Gen2 (T o) { 
+super (o); 
+}
+}
+// Implicaciones de los tipos parametrizados en jerarquía de clases
+// con el operador instanceof
+class JerarquiaDemo3 { 
+public static void main(String args[]) {
+// Crea un objeto Gen para objetos Integer. 
+Gen<Integer> iOb = new Gen<Integer> (88); 
+// Crea un objeto Gen2 para objetos Integer. 
+Gen2<Integer> iOb2 = new Gen2<Integer> (99); 
+// Crea un objeto Gen2 para objetos String. 
+Gen2<String> strOb2 = new Gen2<String> ("Prueba de tipos parametrizados"); 
+// Ve si iOb2 tiene alguna forma de Gen2. 
+if (iOb2 instanceof Gen2<?>) 
+System.out.println("iOb2 es instancia de Gen2"); 
+// Ve si iOb2 tiene alguna forma de Gen
+if (iOb2 instanceof Gen<?>)
+System.out.println("iOb2 es instancia de Gen"); 
+System.out.println( ); 
+// Ve si strOb2 es un Gen2. 
+if (strOb2 instanceof Gen2<?>)
+System.out.println("strOb2 es instancia de Gen2"); 
+// Ve si strOb2 es un Gen. 
+if(strOb2 instanceof Gen<?>)
+System.out.println("strOb2 es instancia de Gen"); 
+System.out.println( ); 
+// Ve si iOb es una instancia de Gen2. No lo es.
+if(iOb instanceof Gen2<?>)
+System.out.println("iOb es instancia de Gen2"); 
+// Ve si iOb es una instancia de Gen. Si lo es.
+if (iOb instanceof Gen<?>)
+System.out.println("iOb es instancia de Gen");
+// Lo siguiente no puede ser compilado porque
+// la información de tipos parametrizados no existe en tiempo de ejecución 
+// if(iOb2 instanceof Gen2<Integer>) 
+// System.out.println("iOb2 es instancia de Gen2<Integer>"); 
+} 
+}
+
+Número 16
+// Sobrescribe un método con tipos parametrizados en una clase con tipos parametrizados
+class Gen<T> { 
+T ob; 	// declara un objeto de tipo T 
+// Pasa al constructor una referencia a 
+// un objeto de tipo T. 
+Gen(T o) { 
+ob = o; 
+}
+// Devuelve ob. 
+T getob ( ) { 
+System.out.print("Llamada al método getob( ) de Gen: "); 
+return ob; 
+}
+}
+// Una subclase de Gen que sobrescribe getob( ). 
+class Gen2<T> extends Gen<T> { 
+Gen2(T o) { 
+super(o); 
+}
+// Sobrescribe getob( ). 
+T getob ( ) { 
+System.out.print("El método getob( ) de Gen2: "); 
+return ob; 
+}
+}
+// Sobreescritura de un método con tipos parametrizados
+class SobrescrturaDemo { 
+public static void main(String args[]) {
+// Crea un objeto Gen para Integer. 
+Gen<Integer> iOb = new Gen<Integer> (88); 
+// Crea un objeto Gen2 para Integer.
+Gen2<Integer> iOb2 = new Gen2<Integer>(99); 
+// Crea un objeto Gen2 para String. 
+Gen2<String> strOb2 = new Gen2<String> ("Prueba de tipos parametrizados"); 
+System.out.println(iOb.getob( )); 
+System.out.println(iOb2.getob( )); 
+System.out.println(strOb2.getob( )); 
+}
+}
+
+Número 17
+// Aquí, por omisión T es reemplazada por Object
+class Gen<T> {
+T ob; 	// aquí, T será reemplazada por Object
+Gen(T o) {
+ob = o;
+}
+// Devuelve ob.
+T getob ( ) {
+return ob;
+}
+}
+// Aquí, T es delimitado por String.
+class GenStr<T extends String> {
+T str; // aquí, T será reemplazada por String
+GenStr(T o) {
+str = o;
+}
+T getstr( ) { return str; }
+}
+
+Número 18
+class GenTypeDemo {
+public static void main(String args[]) {
+Gen<Integer> iOb = new Gen<Integer> (99);
+Gen<Float> fOb = new Gen<Float>(102.2F);
+System.out.println(iOb.getClass( ).getName( ));
+System.out.println(fOb.getClass( ).getName( ));
+}
+}
+
+Número 19
+// Una situación en que se crea un método puente
+class Gen<T> {
+T ob; 	// declara un objeto de tipo T
+// Pasa al constructor una referencia a 
+// un objeto de tipo T.
+Gen(T o) {
+ob = o;
+}
+// Devuelve ob.
+T getob ( ) {
+return ob;
+}
+}
+// Una subclase de Gen.
+class Gen2 extends Gen<String> {
+Gen2(String o) {
+super (o);
+}
+// Sobreescritura de getob( ).
+String getob( ) {
+System.out.print("Se llama al método String getob( ): ");
+return ob;
+}
+}
+// Demuestra la situación que requiere un método puente.
+class BridgeDemo {
+public static void main(String args[]) {
+// Crea un objeto Gen2 para String
+Gen2 strOb2 = new Gen2("Prueba de tipos parametrizados");
+System.out.println(strOb2ogetob( )) ;
+}
+}
+
+Número 20
+// Ambigüedad causada por la técnica de la cancelación aplicada a
+// métodos sobrecargados
+class MyGenClass<T, V> {
+T obl;
+V ob2;
+// . . .
+// Estos dos métodos sobrecargados son ambiguos
+// y no compilarán.
+void set(T o) {
+obl = o;
+}
+void set(V o) {
+ob2 = o;
+}
+}
+
+Número 21
+//No se puede crear una instancia de T
+class Gen<T> {
+T ob;
+Gen( ) {
+ob = new T( ); // error
+}
+}
+
+Número 22
+class Wrong<T>{
+//Error, no puede haber variables estáticas de tipo T.
+static T ob;
+//Error, no puede haber métodos estáticos de tipo T.
+static T getob( ) {
+return ob;
+}
+// Error, no puede haber métodos estáticos que accedan a objetos
+// de tipo T.
+static void showob( ) {
+System.out.println(ob) ;
+}
+}
+
+Número 23
+// Tipos parametrizados y arreglos
+class Gen<T extends Number> {
+T ob;
+T vals[]; // correcto
+Gen(T o, T[] nums) {
+ob = o;
+// Esta sentencia es incorrecta
+// vals = new T[10]; //no se puede crear un arreglo de T 
+// Pero, esta sentencia es correcta.
+vals = nums; // es correcto asignar una referencia a un arreglo existente 
+}
+}
+class GenArrays {
+public static void main(String args[]) {
+Integer n[] = { 1, 2, 3, 4, 5 };
+Gen<Integer> iOb = new Gen<Integer> (50, n);
+// No se puede crear un arreglo con una referencia a un tipo parametrizado específico
+// Gen<Integer> gens[] = new Gen<Integer> [10]; // error
+// Esto es correcto
+Gen<?> gens[] = new Gen<?> [10]; // correcto
+}
+}

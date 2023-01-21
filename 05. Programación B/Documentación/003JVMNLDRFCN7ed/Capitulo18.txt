@@ -1,0 +1,627 @@
+Número 1
+// Ejemplo de StringTokenizer.
+import java.util.StringTokenizer;
+class STDemo {
+static String in = "título=Java: La Referencia Completa;" +
+"autor=Schildt;" +
+"editorial= McGraw-Hill;" +
+"copyright=2007";
+public static void main(String args[]) {
+StringTokenizer st = new StringTokenizer(in, "=;");
+while(st.hasMoreTokens()) (
+String clave =st.nextToken();
+String val = st.nextToken();
+System.out.println(clave + "\t" + val);
+}
+}
+}
+
+Número 2
+// Ejemplo con BitSet.
+import java.util.BitSet;
+class BitSetDemo {
+public static void main(String args[]) {
+BitSet bitsl = new BitSet(l6);
+BitSet bits2 =new BitSet(16);
+// dar valor a algunos bits
+for(int i=0; i<l6; i++) {
+if((i%2) == 0) bitsl.set(i);
+if((i%5) != 0) bits2.set(i);
+}
+System.out.println("Patrón inicial en bitsl: ");
+System.out.println(bitsl);
+System.out.println("\nPatrón inicial en bits2: ");
+System.out.println(bits2);
+// operación AND entre bits1 y bits2
+bits2.and(bitsl);
+System.out.println("\nbits2 AND bitsl: ");
+System.out.println(bits2);
+// operación OR entre bits1 y bits2
+bits2.or (bitsl);
+System.out.println("\nbits2 OR bitsl: ");
+System.out.println(bits2);
+// operación XOR entre bits1 y bits2
+bits2.xor(bitsl);
+System.out.println("\nbits2 XOR bitsl: ");
+System.out.println(bits2);
+}
+}
+
+Número 3
+// Mostrar fecha y hora utilizando sólo métodos de la clase Date.
+import java.util.Date;
+class DateDemo {
+public static void main(String args[]) {
+// Instanciar un objeto Date
+Date date =new Date();
+// mostrar fecha y hora usando toString()
+System.out.println(date);
+// Mostrar el número de milisegundos desde medianoche del 01/01/1970 GMT
+long msec = date.getTime();
+System.out.println("Milisegundos desde 01/01/1970 GMT=" + msec);
+}
+}
+
+Número 4
+// Ejemplos de métodos de la clase Calendar
+import java.util.Calendar;
+class CalendarDemo {
+public static void main(String args[)) {
+String months [] = {
+"Ene", "Feb", "Mar","Abr",
+"May", "Jun", "Jul","Ago",
+"Sep", "Oct", "Nov","Dic"};
+// Crear un calendario inicializado con la
+// fecha y la hora actuales en el ámbito de
+// localidad y zona horaria por omisión.
+Calendar calendar =Calendar.getlnstance();
+// Mostrar información de fecha y hora actuales.
+System.out.print("Fecha: ");
+System.out.print(months[calendar.get(Calendar.MONTH)]);
+System.out.print(" " + calendar.get(Calendar.DATE) + " ");
+System.out.println(calendar.get(Calendar.YEAR));
+System.out.print("Hora: ");
+System.out.print(calendar.get(Calendar.HOUR) + ":");
+System.out.print (calendar.get (Calendar.MINUTE) + ":");
+System.out.println(calendar.get(Calendar.SECOND));
+// Establecer la información de fecha y hora y mostrarla.
+calendar.set (Calendar.HOUR, 10);
+calendar.set (Calendar.MINUTE, 29);
+calendar.set(Calendar.SECOND, 22);
+System.out.print("Hora actualizada: ");
+System.out.print(calendar.get(Calendar.HOUR) + ":");
+System.out.print(calendar.get(Calendar.MINUTE) + ":");
+System.out.println(calendar.get(Calendar.SECOND));
+}
+}
+
+Número 5
+// Ejemplo de GregorianCalendar
+import java.util.*;
+class GregorianCalendarDemo {
+public static void main(String args[]) {
+String months[] ={
+"Ene", "Feb", "Mar","Abr",
+"May", "Jun", "Jul","Ago",
+"Sep", "Qct", "Nov","Dic"};
+int año;
+// Crear un calendario gregoriano inicializado
+// con la fecha y hora actuales en la
+// localidad y zona horaria por omisión.
+GregorianCalendar gcalendar = new GregorianCalendar();
+// Mostrar fecha y hora actuales.
+System.out.print("Fecha: "),
+System.out.print(months[gcalendar.get(Calendar.MONTH)]);
+System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");
+System.out.println(año =gcalendar.get(Calendar.YEAR));
+System.out.print("Hora: ");
+System.out.print(gcalendar.get(Calendar.HOUR) + ":");
+System.out.print (gcalendar.get (Calendar.MINUTE) + ":");
+System.out.println(gcalendar.get(Calendar.SECOND)); ,
+// Comprobar si el año actual es bisiesto
+if(gcalendar.isLeapYear(año)) {
+System.out.println("El año actual es bisiesto"),
+} else {
+System.out.println("El año actual no es bisiesto");
+}
+}
+}
+
+Número 6
+// Ejemplo con valores aleatorios gaussianos.
+import java.util.Random;
+class RandDemo {
+public static void main(String args[]) {
+Random r = new Random () ;
+double val;
+double sum = 0;
+int campana[] = new int[l0];
+for(int i=0; i<l00; i++) {
+val = r.nextGaussian();
+sum += val;
+double t = -2;
+for(int x=0; x<10; x++, t += 0.5)
+if(va1 < t) {
+campana [x] ++;
+break;
+}
+}
+System.out.println("Media de los valores: " + (sum/100));
+// mostrar la campana en forma de barras horizontales
+for(int i=0; i<10; i++) {
+for(int x = campana[i]; x>0; x--)
+System.out.print("*");
+System.out.println( );
+}
+}
+}
+
+Número 7
+/* Ejemplo de la interfaz Observer y
+una clase observada.
+*/
+import java.util.*;
+// Esta es la clase observadora.
+class Mirador implements Observer {
+public void update(Observable obj, Object arg) {
+System.out.println("update() llamado; la cuenta está en " + ((Integer)arg).intValue());
+}
+}
+// Esta es la clase observada.
+class Sujeto extends Observable {
+void contador(int period) {
+for( ; period >=0; period--) {
+setChanged();
+notifyObservers(new Integer(period));
+try {
+Thread.sleep(l00);
+} catch(InterruptedException e) {
+System.out.println("despertó el hilo");
+}
+}
+}
+}
+class ObserverDemo{
+public static void main(String args[]) {
+Sujeto observado =new Sujeto() ;
+Mirador observando = new Mirador();
+/* Añadir observando a la lista de observadores
+para el objeto observado. */
+observado.addObserver(observando);
+observado. contador (l0) ;
+}
+}
+
+Número 8
+/* Un objeto puede ser observado por dos o más
+observadores.
+*/
+import java.util.*;
+// Ésta es la primera clase observadora.
+class Miradorl implements Observer {
+public void update(Observable obj, Object arg) {
+System.out.println("update() llamado; la cuenta está en " + ((Integer)arg) .intValue());
+}
+}
+// Ésta es la segunda clase observadora.
+class Mirador2 implements Observer {
+public void update(Observable obj, Object arg) {
+// Hacer sonar la campana al terminar
+if(((Integer)arg) .intValue() == 0)
+System.out.println("Hecho" + '\7');
+}
+}
+// Ésta es la clase observada.
+class Sujeto extends Observable {
+void contador(int period) {
+for( ; period >=0; period--) {
+setChanged ( ) ;
+notifyObservers (new Integer (period) ) ;
+try{
+Thread.sleep(l00);
+} catch(InterruptedException e) {
+System.out.println("despertó el hilo");
+}
+}
+}
+}
+class DosObservadores {
+public static void main(String args[]) {
+Sujeto observado =new Sujeto();
+Miradorl observandol = new Miradorl ();
+Mirador2 observando2 = new Mirador2();
+// añadir ambos observadores
+observado.addObserver(observandol);
+observado. addObserver (observando2) ;
+observado.contador(l0);
+}
+}
+
+Número 9
+// Ejemplo con Timer y TimerTask.
+import java.util.*;
+class MiTimerTask extends TimerTask {
+public void run() {
+System.out.println("Tarea programada ejecutada.");
+}
+}
+class TTest {
+public static void main(String args[]) {
+MiTimerTask miTask = new MiTimerTask();
+Timer miTimer = new Timer();
+/* Establecer una espera inicial de 1 segundo,
+y luego repetir cada medio segundo.
+*/
+miTimer.schedule(miTask, 1000, 500);
+try {
+Thread.sleep(5000);
+} catch (InterruptedException exc) {}
+miTimer.cancel();
+}
+}
+
+Número 10
+// Ejemplo de Currency
+import java.util.*;
+class CurDemo{
+public static void main(String args[]) {
+Currency c;
+c = Currency.getInstance(Locale.US)
+System.out.println("Símbolo:" + c.getSymbol());
+System.out.println("Dígitos fraccionarios por omisión: " + c.getDefaultFractionDigits());
+}
+}
+
+Número 11
+// Un ejemplo simple que utiliza objetos Formatter
+import java.util.*;
+class FormatDemo{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+fmt.format("Dar formato %s es fácil %d %f", "con Java", 10, 98.6);
+System.out.println(fmt);
+}
+}
+
+Número 12
+// Ejemplo del especificador de formato %g
+import java.util.*;
+class FormatDemo2{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+for (double i = 1000; i < 1.0e+10; i *=100) {
+fmt.format("%g", i);
+System.out.println(fmt);
+}
+}
+}
+
+Número 13
+// Ejemplo del formatos para fecha y hora
+import java.util.*;
+class TimeDateFormat{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+Calendar cal = Calendar.getInstance();
+// Visualiza un formato de estándar a 12 horas
+fmt.format("%tr", cal);
+System.out.println(fmt);
+// Visualiza la información completa de hora y fecha
+fmt = new Formatter();
+fmt.format("%tc", cal);
+System.out.println(fmt);
+// Visualiza sólo la información de horas y minutos
+fmt = new Formatter();
+fmt.format("%tl:%tM", cal, cal);
+System.out.println(fmt);
+// Visualiza el nombre y número de mes
+fmt = new Formatter();
+fmt.format("%tB %tb %tm", cal, cal, cal);
+System.out.println(fmt);
+}
+}
+
+Número 14
+// Ejemplo de los especificadores de formato %n y %%
+import java.util.*;
+class FormatDemo3{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+fmt.format("Copiando archivo%nTransferencia %d%% completa", 88);
+System.out.println(fmt);
+}
+}
+
+Número 15
+// Ejemplo del especificado de tamaño mínimo
+import java.util.*;
+class FormatDemo4{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+fmt.format("|%f|%n|%12f|%n|%012f|", 10.12345, 10.12345, 10.12345);
+System.out.println(fmt);
+}
+}
+
+Número 16
+// Crea una tabla de cuadrados y cubos.
+import java.util.*;
+class FieldWidthDemo{
+public static void main(String args[]) {
+Formatter fmt;
+for (int i = 1; i <=10; i++) {
+fmt = new Formatter();
+fmt.format("%4d %4d %4d", i, i*i, i*i*i );
+System.out.println(fmt);
+}
+}
+}
+
+Número 17
+// Ejemplo del especificador de precisión
+import java.util.*;
+class PresicionDemo{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+// Formato con 4 lugares decimales
+fmt.format("%.4f", 123.1234567);
+System.out.println(fmt);
+// Formato con 2 lugares decimales en un campo de 16 caracteres
+fmt = new Formatter( );
+fmt.format("%16.2e", 123.1234567);
+System.out.println(fmt);
+// Mostrar como máximo 15 caracteres en una cadena
+fmt = new Formatter( );
+fmt.format("%15s", "Dar formato con Java es fácil.");
+System.out.println(fmt);
+}
+}
+
+Número 18
+// Ejemplo de justificación a la izquierda
+import java.util.*;
+class LeftJustify{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+// Justificación a la derecha por omisión
+fmt.format("|%10.2f|", 123.123);
+System.out.println(fmt);
+// Ahora, justificación a la izquierda
+fmt = new Formatter( );
+fmt.format("|%-10.2f|", 123.123);
+System.out.println(fmt);
+}
+}
+
+Número 19
+//Ejemplo de especificadores de formato para espacio
+import java.util.*;
+class FormatDemo5{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+fmt.format("% d", -100);
+System.out.println(fmt);
+fmt = new Formatter( );
+fmt.format("% d", 100);
+System.out.println(fmt);
+fmt = new Formatter( );
+fmt.format("% d", -200);
+System.out.println(fmt);
+fmt = new Formatter( );
+fmt.format("% d", 200);
+System.out.println(fmt);
+}
+}
+
+Número 20
+// Uso de índices relativos para simplificar
+// la creación de formatos personalizados para fecha y hora
+import java.util.*;
+class FormatDemo6{
+public static void main(String args[]) {
+Formatter fmt = new Formatter( );
+Calendar cal = Calendar.getInstance( );
+fmt.format("Hoy es el día %te de %<tB, %<tY", cal);
+System.out.println(fmt);
+}
+}
+
+Número 21
+// Uso de la clase Scanner para calcular un promedio de valores
+import java.util.*;
+class Promedio{
+public static void main(String args[]) {
+Scanner conin = new Scanner (System.in);
+int count = 0;
+double sum = 0.0;
+System.out.println("Escriba los números a promediar.");
+// Leer y sumar los números
+while (conin.hasNext( ) ) {
+if (conin.hasNextDouble( ) ) {
+sum += conin.nextDouble( );
+count++;
+} else {
+String str= conin.next( );
+if (str.equals("fin")) break;
+else {
+System.out.println("Error de formato de dato.");
+return;
+}
+}
+}
+System.out.println("El promedio es " + sum / count);
+}
+}
+
+Número 22
+// Uso de la clase Scanner para calcular el promedio de valores contenidos en un archivo
+import java.util.*;
+import java.io.*;
+class PromedioArchivo{
+public static void main(String args[]) throws IOException{
+int count = 0;
+double sum = 0.0;
+// Escribir la salida en un archivo
+FileWriter fout = new FileWriter("test.txt");
+fout.write("2 3.4 5 6 7.4 9.1 10.5 fin");
+fout.close( );
+FileReader fin = new FileReader("test.txt");
+Scanner src = new Scanner (fin);
+// Leer y sumar los números
+while (src.hasNext( ) ) {
+if (src.hasNextDouble( ) ) {
+sum += src.nextDouble( );
+count++;
+} else {
+String str= src.next( );
+if (str.equals("fin")) break;
+else {
+System.out.println("Error de formato de dato.");
+return;
+}
+}
+}
+fin.close( );
+System.out.println("El promedio es " + sum / count);
+}
+}
+
+Número 23
+// Uso de Scanner para leer varios tipos de datos desde un archivo
+import java.util.*;
+import java.io.*;
+class ScanMezclado{
+public static void main(String args[]) throws IOException{
+int i;
+double d;
+boolean b;
+String str;
+// Escribir la salida en un archivo
+FileWriter fout = new FileWriter("test.txt");
+fout.write("Probando la clase Scanner 10 12.2 uno true dos false");
+fout.close( );
+FileReader fin = new FileReader("test.txt");
+Scanner src = new Scanner (fin);
+// Leer
+while (src.hasNext( ) ) {
+if (src.hasNextInt( ) ) {
+i = src.nextInt( );
+System.out.println("int: " + i);
+} else if (src.hasNextDouble( ) ) {
+d = src.nextDouble( );
+System.out.println("double: " + d);
+} else if (src.hasNextBoolean( ) ) {
+b = src.nextBoolean( );
+System.out.println("boolean: " + b);
+} else {
+str = src.next( );
+System.out.println("String: " + str);
+}
+}
+fin.close( );
+}
+}
+
+Número 24
+// Uso de Scanner para calcular el promedio de una lista de
+// valores separados por comas
+import java.util.*;
+import java.io.*;
+class DelimitadoresPropios{
+public static void main(String args[]) throws IOException{
+int count = 0;
+double sum = 0.0;
+// Escribir la salida en un archivo
+FileWriter fout = new FileWriter("test.txt");
+// Ahora los valores se almacenan separador por comas
+fout.write("2, 3.4,     5, 6, 7.4,   9.1,   10.5,  fin");
+fout.close( );
+FileReader fin = new FileReader("test.txt");
+Scanner src = new Scanner (fin);
+// Establecer la coma y el espacio como delimitadores
+src.useDelimiter(", *");
+// Leer y sumar los números
+while (src.hasNext( ) ) {
+if (src.hasNextDouble( ) ) {
+sum += src.nextDouble( );
+count++;
+} else {
+String str= src.next( );
+if (str.equals("fin")) break;
+else {
+System.out.println("Error de formato de dato.");
+return;
+}
+}
+}
+fin.close( );
+System.out.println("El promedio es " + sum / count);
+}
+}
+
+Número 25
+// Ejemplo de findInLine( )
+import java.util.*;
+class FindInLineDemo{
+public static void main(String args[]) {
+String instruccion = "Nombre: Javier Edad: 32 ID: 75";
+Scanner conin = new Scanner (instruccion);
+// Ubicar y desplegar la edad
+conin.findInLine("Edad:"); //encontrar Edad
+if (conin.hasNext())
+System.out.println(conin.next());
+else
+System.out.println("Error.");
+}
+}
+
+Número 26
+import java.util.*;
+class EjemploRB extends ListResourceBundle{
+protected Object[][] getContents() {
+protected Object[ ][ ] resources = new Object [3][2];
+resources[0][0] = "title";
+resources[0][1] = "My Program";
+resources[1][0] = "StopText";
+resources[1][1] = "Stop";
+resources[2][0] = "StartText";
+resources[2][1] = "Start";
+return resources;
+}
+}
+
+Número 27
+import java.util.*;
+// versión en alemán
+class EjemploRB_de extends ListResourceBundle{
+protected Object[][] getContents() {
+protected Object[ ][ ] resources = new Object [3][2];
+resources[0][0] = "title";
+resources[0][1] = "Mein Programm";
+resources[1][0] = "StopText";
+resources[1][1] = "Anschlag";
+resources[2][0] = "StartText";
+resources[2][1] = "Anfang";
+return resources;
+}
+}
+
+Número 28
+// Ejemplo de legajos de recursos
+import java.util.*;
+class LRBDemo{
+public static void main(String args[]) {
+// cargar los recursos por omisión
+ResourceBundle rd = ResourceBundle.getBundle("EjemploRB");
+System.out.println("Versión en Inglés: ");
+System.out.println("Texto asociado a la clave title: " + rd.getString("title"));
+System.out.println("Texto asociado a la clave StopText: " + rd.getString("StopText"));
+System.out.println("Texto asociado a la clave StartText: " + rd.getString("StartText"));
+// cargar los recursos en alemán 
+ResourceBundle rd = ResourceBundle.getBundle("EjemploRB", Locale.GERMAN);
+System.out.println("\nVersión en Alemán: ");
+System.out.println("Texto asociado a la clave title: " + rd.getString("title"));
+System.out.println("Texto asociado a la clave StopText: " + rd.getString("StopText"));
+System.out.println("Texto asociado a la clave StartText: " + rd.getString("StartText"));
+}
+}

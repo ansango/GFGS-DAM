@@ -1,0 +1,288 @@
+Número 1
+c1ass Caja {
+double ancho;
+double alto;
+double largo;
+}
+
+Número 2
+/* Un programa que utiliza la clase Caja .
+El nombre de este archivo es CajaDemo.java
+*/
+class Caja {
+double ancho;
+double alto;
+double largo;
+}
+// Esta clase declara un objeto de la clase Caja.
+class CajaDemo {
+public static void main (String args[]) {
+Caja miCaja = new Caja();
+double vol;
+// asignación de valores a las variables del objeto miCaja
+miCaja.ancho = 10;
+miCaja.alto = 20;
+miCaja.largo =15;
+// Se calcula el volumen de la caja
+vol = miCaja.ancho * miCaja.alto * miCaja.largo;
+System.out.println ("El volumen es " + vol);
+}
+}
+
+Número 3
+// Este programa declara dos objetos Caja.
+class Caja {
+double ancho;
+double alto;
+double largo;
+}
+class CajaDemo2{
+public static void main (String args[]) {
+Caja miCajal = new Caja();
+Caja miCaja2 = new Caja();
+double vol; 
+// asignación de valores a las variables de la instancia miCaja1
+miCaja1.ancho =10;
+miCaja1.alto =20;
+miCaja1.largo = 15;
+/* asignación de valores diferentes a las variables de la instancia miCaja2
+*/
+miCaja2.ancho = 3;
+miCaja2.alto = 6;
+miCaja2.1argo =9;
+// calcula el volumen de la primera caja
+vol =miCaja1.ancho * miCaja1.alto * miCaja1.largo;
+System.out.println("E1 volumen es " + vol); 
+// calcula el volumen de la segunda caja
+vol =miCaja2.ancho * miCaja2.alto * miCaja2.largo;
+System.out.println("E1 volumen es " + vol); 
+}
+}
+
+Número 4
+// Este programa incluye un método en la clase Caja.
+class Caja {
+double ancho;
+double alto;
+double largo;
+/ / presenta el volumen de una caja
+void volumen () {
+System.out.print ("El volumen es ");
+System.out.println (ancho * alto * largo);
+}
+}
+class CajaDemo3 {
+public static void main (String args[]) {
+Caja miCaja1 = new Caja();
+Caja miCaja2 =new Caja();
+// Se asignan valores a las variables del objeto miCaja1
+miCaja1.ancho = 10;
+miCaja1.alto = 20;
+miCaja1.largo = 15;
+/* asigna diferentes valores a las variables del objeto de miCaja2 */
+miCaja2.ancho = 3;
+miCaja2.alto = 6;
+miCaja2.largo = 9;
+// muestra el volumen de la primera caja
+miCaja1.volumen ();
+// muestra el volumen de la segunda caja
+miCaja2.volumen ();
+}
+}
+
+Número 5
+// Ahora volumen() devuelve el volumen de una caja.
+class Caja {
+double ancho;
+double alto;
+double largo;
+// cálculo y devolución del valor
+double volumen() {
+return ancho * alto * largo;
+}
+}
+class CajaDemo4 {
+public static void main (String args[]) {
+Caja miCajal = new Caja();
+Caja miCaja2 =new Caja();
+double vol;
+// se asigna valores a las variables de instancia de miCaja1
+miCaja1.ancho = 10;
+miCaja1.alto = 20;
+miCaja1.largo = 15;
+/* se asigna diferentes valores a las variables de instancia de miCaja2 */
+miCaja2.ancho = 3;
+miCaja2.alto = 6;
+miCaja2.largo = 9;
+// se obtiene el volumen de la primera caja
+vol = miCajal. volumen ();
+System.out.println ("El volumen es " + vol);
+// se obtiene el volumen de la segunda caja
+vol = miCaja2 .volumen ();
+System.out.println ("El volumen es " + vol);
+}
+}
+
+Número 6
+// Este programa usa un método parametrizado.
+class Caja {
+double ancho;
+double alto;
+double largo;
+// cálculo y devolución del volumen 
+double volumen () {
+return ancho * alto * largo;
+}
+// establece las dimensiones de la caja
+void setDim (double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+}
+class CajaDemo5 {
+public static void main (String args[]) {
+Caja miCajal = new Caja();
+Caja miCaja2 = new Caja();
+double vol;
+// inicializa cada caja
+miCaja1.setDim (10, 20, 15);
+miCaja2.setDim (3, 6, 9);
+// calcula el volumen de la primera caja
+vol = miCaja1.volumen ();
+System.out.println ("El volumen es " + vol);
+// calcula el volumen de la segunda caja
+vol =miCaja2.volumen ();
+System.out.println ("El volumen es " + vol);
+}
+}
+
+Número 7
+/* La clase Caja usa un constructor para inicializar las
+dimensiones de las caja.
+*/
+class Caja {
+double ancho;
+double alto;
+double largo;
+// Este es el constructor para Caja.
+Caja() {
+System.out.println("Constructor de Caja");
+ancho = 10;
+alto = 10;
+largo = 10;
+}
+// calcula y devuelve el volumen
+doub1e volumen () {
+return ancho * alto * largo;
+}
+}
+c1ass CajaDemo6 {
+pub1ic static void main (String args[]) {
+// declara, reserva memoria, e inicial iza objetos de tipo Caja
+Caja miCajal = new Caja();
+Caja miCaja2 = new Caja();
+doub1e vol;
+// obtiene el volumen de la primera caja
+vol = miCajal.volumen () ;
+System.out.println ("E1 volumen es " + vol);
+// obtiene el volumen de la segunda caja
+vol = miCaja2.vo1umen ();
+System.out.println ("El volumen es " + vol);
+}
+}
+
+Número 8
+/* Aquí, Caja usa un constructor parametrizado para 
+inicializar las dimensiones de una caja.
+*/ 
+class Caja {
+double ancho;
+double alto;
+double largo;
+// Este es el constructor de Caja.
+Caja (double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// calcula y devuelve el volumen
+double volumen () {
+return ancho * alto * largo;
+}
+}
+class CajaDemo7 {
+public static void main(String args[]) {
+// declara, reserva memoria, e inicializa los objetos de Caja
+Caja miCajal = new Caja(10, 20, 15);
+Caja miCaja2 = new Caja(3, 6, 9);
+double vol;
+// obtiene el volumen de la primera caja
+vol = miCaja1.volumen();
+System.out.println ("El volumen es " + vol);
+/ / obtiene el volumen de la segunda caja
+vol = miCaja2.volumen();
+System.out.println ("El volumen es " + vol);
+}
+}
+
+Número 9
+/ / Un uso redundante de this.
+Caja (double w, double h, double d) {
+this.ancho = w;
+this.alto = h;
+this .largo =d;
+}
+
+Número 10
+// Uso de this para resolver colisiones en el espacio de nombres
+Caja (double ancho, double alto, double largo) {
+this.ancho = ancho;
+this.alto = alto;
+this.largo = largo;
+}
+
+Número 11
+// Esta clase define un pila de enteros que puede almacenar hasta 10 valores.
+c1ass Stack {
+int stck[] = new int[10];
+int tos;
+// Inicializa el índice del elementos superior en la pila
+Stack () {
+tos = -1;
+}
+// Coloca un dato en la pila
+void push (int item) {
+if (tos == 9)
+System.out.println("La pila está llena.");
+else
+stck[++tos] = item;
+}
+/ / Retira un dato de la pila
+int pop () {
+if (tos < 0) {
+System.out.println("La pila está vacía.");
+return 0;
+}
+else
+return stck [tos--];
+}
+}
+
+Número 12
+class TestStack {
+public static void main (String args[]) {
+Stack miPilal = new Stack();
+Stack miPila2= new Stack();
+// pone algunos números en la pila
+for (int i=0; i<l0; i++) miPilal.push(i);
+for(int i=l0; i<20; i++) miPila2.push(i);
+// retira esos números de la pila
+System.out.println ("Contenido de miPilal:");
+for (int i=0; i<l0; i++)
+System.out.println ( miPilal.pop() );
+System.out.println ("contenido de miPila2:");
+for (int i=0; i<l0; i++)
+System.out.println ( miPila2.pop() );
+}
+}

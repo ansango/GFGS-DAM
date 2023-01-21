@@ -1,0 +1,607 @@
+Número 1
+// Control del hilo principal.
+class DemoHiloActual {
+public static void main (String args[]) {
+Thread t = Thread.currentThread();
+System.out.println ("Hilo actual: " + t);
+/ / Cambio del nombre del hilo
+t.setName ("Mi Hilo");
+System.out.println ("Después del cambio de nombre: " + t);
+try {
+for (int n = 5; n > 0; n--) {
+System.out.println (n);
+Thread.sleep(l000);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+}
+}
+
+Número 2
+// Creación de un segundo hilo.
+class NewThread implements Runnable {
+Thread t;
+NewThread () {
+//Crea el segundo hilo
+t = new Thread (this, "Hilo demo");
+System.out.println ("Hilo hijo: " + t);
+t.start(); // Comienzo del hilo
+}
+// Este es el punto de entrada para el segundo hilo.
+public void run() {
+try {
+for (int i = 5; i > 0; i--) {
+System.out.println ("Hilo hijo: " + i);
+Thread.sleep(500);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo hijo. ");
+}
+System.out.println ("Salida del hilo hijo.");
+}
+}
+class DemoHilo {
+public static void main (String args[]) {
+new NewThread (); 	// creación de un nuevo hilo
+try {
+for (int i = 5; i > 0; i--) {
+System.out.println ("Hilo principal: " + i);
+Thread.sleep(l000);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal.");
+}
+System.out.println ("Salida del hilo principal.");
+}
+}
+
+Número 3
+// Creación de un segundo hilo extendiendo la clase Thread
+class NewThread extends Thread {
+NewThread() {
+// Creación de un nuevo hilo
+super ("Hilo demo");
+Systern.out.println ("Hilo hijo: " + this);
+start(); 	 // Comienza el hilo
+}
+// Este es el punto de entrada para el segundo hilo.
+public void run () {
+try {
+for (int i = 5; i > 0; i--) {
+Systern.out.println ("Hilo hijo: " + i);
+Thread.sleep(500);
+}
+} catch (InterruptedException e) {
+Systern.out.println ("Interrupción del hilo hijo.");
+}
+System.out.println ("Salida del hilo hijo.");
+}
+}
+class ExtendThread {
+public static void main (String args[]) {
+new NewThread(); // Creación de un nuevo hilo
+try {
+for (int i = 5; i > 0; i--) {
+Systern.oút.println ("Hilo principal: " + i);
+Thread.sleep(l000);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal.");
+}
+System.out.println ("Salida del hilo principal");
+}
+}
+
+Número 4
+// Creación de múltiples hilos.
+class NewThread implements Runnable {
+String name; // nombre del hilo
+Thread t;
+NewThread (String threadname) {
+name = threadname;
+t = new Thread(this, name);
+System.out.println ("Nuevo hilo: " + t);
+t.start(); // Comienza el hilo
+}
+// Este es el punto de entrada del hilo.
+public void run() {
+try {
+for (int i = 5; i > 0; i-) {
+System.out.println (name + ":" + i);
+Thread.sleep(l000);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo" + name);
+}
+System.out.println (" Salida del hilo" + name);
+}
+}
+class MultiThreadDemo {
+public static void main (String args[]) {
+new NewThread ("Uno"); // comienzo de los hilos
+new NewThread ("Dos");
+new NewThread ("Tres");
+try {
+// Espera a que los otros hilos terminen
+Thread.sleep(l0000);
+} catch (InterruptedException e) {
+System.out.println("Interrupción del hilo principal");
+}
+System.out.println ("Salida del hilo principal");
+}
+}
+
+Número 5
+// Uso de join() para esperar a que los hilos terminen.
+class NewThread implements Runnable {
+String name; 	// nombre del hilo
+Thread t;
+NewThread (String threadname) {
+name = threadname;
+t = new Thread(this, name);
+System.out.println ("Nuevo hilo: " + t);
+t.start(); // comienzo del hilo
+}
+// Este es el punto de entrada del hilo.
+public void run() {
+try {
+for (int i = 5; i > 0; i--) {
+System.out.println(name + ": " + i);
+Thread.sleep(l000);
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo" + name);
+}
+System.out.println("Salida del hilo" + name);
+}
+}
+class DemoJoin {
+public static void main (String args[]) {
+NewThread obl = new NewThread ("Uno");
+NewThread ob2 = new NewThread ("Dos");
+NewThread ob3 = new NewThread ("Tres");
+System.out.println ("El hilo Uno está vivo: " + obl.t.isAlive());
+System.out.println ("El hilo Dos está vivo: " + ob2.t.isAlive());
+System.out.println ("El hilo Tres está vivo: " + ob3.t.isAlive());
+//Espera a que los otros hilos terminen
+try {
+System.out.println ("Espera la finalización de los otros hilos.");
+obl.t.join ();
+ob2.t.join();
+ob3.t.join() ;
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+System.out.println ("El hilo Uno está vivo: " + obl.t.isAlive());
+System.out.println("El hilo Dos está vivo: " + ob2.t.isAlive());
+System.out.println("El hilo Tres está vivo: " + ob3.t.isAlive());
+System.out.println("Salida del hilo principal.");
+}
+}
+
+Número 6
+// Ejemplo de prioridades de los hilos.
+class Clicker implements Runnable {
+long click = 0;
+Thread t;
+private volatile boolean running = true;
+public clicker(int p) {
+t = new Thread(this);
+t.setPriority(p);
+}
+public void run () {
+while (running) {
+click++;
+}
+}
+public void stop () {
+running = false;
+}
+public void start () {
+t.start();
+}
+}
+class HiLoPri {
+public static void main (String args []) {
+Thread.currentThread().setPriority(Thread.MAX_PRIORITY) ;
+clicker hi = new clicker(Thread.NORM_PRIORITY + 2);
+clicker lo = new clicker(Thread.NORM_PRIORITY - 2);
+lo.start ();
+hi.start ();
+try {
+Thread.sleep(l0000) ;
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal.");
+lo.stop();
+hi.stop();
+// Espera a que terminen los hilos hijos.
+try {
+hi.t.join();
+lo.t.join();
+}catch (InterruptedException e) {
+System.out.println ("Captura de la excepción InterruptedException");
+}
+System.out.println ("Hilo de prioridad baja: " + lo.click);
+System.out.println ("Hilo de prioridad alta: " + hi.click);
+}
+}
+
+Número 7
+// Este programa no está sincronizado.
+class Callme {
+void call (String msg) {
+System.out.print ("[" + msg);
+try {
+Thread.sleep (l000);
+} catch (InterruptedException e) {
+System.out.println ("Interrumpido");
+}
+System.out.println ("]");
+}
+}
+class Caller implements Runnable {
+String msg;
+Callme target;
+Thread t;
+public Caller (Callme targ, String s) {
+target = targ;
+msg =s;
+t = new Thread(this);
+t.start() ;
+}
+public void run() {
+target.call(msg);
+}
+}
+class Synch {
+public static void main (String args[]) {
+Callme target = new Callme();
+Caller obl =new Caller (target, "Hola");
+Caller ob2 = new Caller (target, "Sincronizado");
+Caller ob3 = new Caller (target, "Mundo".) ;
+// espera a que terminen los hilos
+try {
+obl.t.join();
+ob2.t.join();
+ob3.t.join() ;
+}catch (InterruptedException e) {
+System.out.println ("Interrumpido.);
+}
+}
+}
+
+Número 8
+// Este programa utiliza un bloque sincronizado.
+class Callme {
+void call (String msg) {
+System.out.print ("[" + msg);
+try {
+Thread.sleep (l000);
+}catch (InterruptedException e) {
+System.out.println ("Interrumpido");
+}
+System.out.println ("]");
+}
+}
+class Caller implements Runnable {
+String msg;
+Callme target;
+Thread t;
+public Caller (Callme targ, String s) {
+target = targ;
+msg =s;
+t = new Thread (this);
+t.start();
+}
+// Sincronización de las llamadas a call()
+public void run() {
+synchronized (target) { // Bloque sincronizado
+target.call (msg);
+}
+}
+}
+class Synchl {
+public static void main (String args[]) {
+Callme target = new Callme();
+Caller obl = new Caller (target, "Hola") ;
+Caller ob2 = new Caller (target, "Sincronizado");
+Caller ob3 = new Caller (target, "Mundo");
+// Espera a que los hilos terminen
+try{
+obl.t.join();
+ob2.t.join();
+ob3.t.joinO;
+} catch(InterruptedException e) {
+System.out.println ("Interrumpido');
+}
+}
+}
+
+Número 9
+// Una implementación incorrecta del problema de productor / consumidor.
+class Q {
+int n;
+synchronized int get() {
+System.out.println ("Consume: " + n);
+return n;
+}
+synchronized void put (int n) {
+this.n = n;
+System.out.println ("Produce: " + n);
+}
+}
+class Producer implements Runnable {
+Q q;
+Producer(Q q) {
+this.q = q;
+new Thread (this, "Productor").start();
+}
+public void run(){
+int i = 0;
+while (true) {
+q.put (i++) ;
+}
+}
+}
+class Consumer implements Runnable {
+Q q;
+Consumer (Q q) {
+this.q = q;
+new Thread(this, "Consumidor").start();
+}
+public void run() {
+while(true) {
+q.get() ;
+}
+}
+}
+class PC {
+public static void main (String args[]) {
+Q q = new Q();
+new Producer(q);
+new Consumer(q);
+System.out.println ("Pulse Control+C para finalizar.");
+}
+}
+
+Número 10
+// una implementación correcta del problema productor / consumidor.
+class Q {
+int n;
+boolean valueSet = false;
+synchronized int get() {
+while ( !valueSet)
+try {
+wait () ;
+}catch (InterruptedException e) {
+System.out.println ("Captura de la excepción InterruptedException");
+}
+System.out.println ("Consume: " + n);
+valueSet = false;
+notify () ;
+return n;
+}
+synchronized void put (int n) {
+while (valueSet)
+try {
+wait ();
+} catch(InterruptedException e) {
+System.out.println ("Captura de la excepción de InterruptedException");
+}
+this.n = n;
+valueSet = true;
+System.out.println ("Produce: " + n);
+notify();
+}
+}
+class Producer implements Runnable {
+Q q;
+Producer (Q q) {
+this.q = q;
+new Thread (this, "Productor").start();
+}
+public void run(){
+int i = 0;
+while (true) {
+q.put (i++);
+}
+}
+}
+class Consumer implements Runnable {
+Q q;
+Consumer (Q q) {
+this.q = q;
+new Thread (this, "Consumidor").start();
+}
+public void run()
+while (true) {
+q.get();
+}
+}
+}
+class PCFixed {
+public static void main (String args[]){
+Q q = new Q();
+new Producer(q);
+new Consumer(q);
+System.out.println ("Pulse Control+C para finalizar.");
+}
+}
+
+Número 11
+// Un ejemplo de bloqueo.
+class A {
+synchronized void foo(B b) {
+String name = Thread.currentThread().getName();
+System.out.println (name + "entra en A.foo");
+try{
+Thread.sleep (l000);
+} catch (Exception e) {
+System.out.println ("Se interrumpe A");
+}
+System.out.println (name + " intenta llamar al método B.last()");
+b.last();
+}
+synchronized void last() {
+System.out.println ("Dentro de A.last");
+}
+}
+class B {
+synchronized void bar (A a) {
+String name = Thread.currentThread().getName();
+System.out.println (name + " entra en B.bar") ;
+try {
+Thread.sleep(l000);
+}catch(Exception e) {
+System.out.println ("Se interrumpe B");
+}
+System.out.println (name + " intenta llamar a A.last()");
+a.last ();
+}
+synchronized void last() {
+System.out.println ("Dentro de A.last");
+}
+}
+class Deadlock implements Runnable {
+A a = new A();
+B b = new B();
+Deadlock() {
+Thread.currentThread().setName("Hilo Principal");
+Thread t = new Thread(this, "Hilo hijo");
+t.start();
+a.foo(b); // Este hilo se bloquea en a.
+System.out.println ("Regresa al hilo principal");
+}
+public void run() {
+b.bar(a); // Este hilo se bloquea en b.
+System.out.println ("Regresa al otro hilo");
+}
+public static void main (String args[]){
+new Deadlock () ;
+}
+}
+
+Número 12
+/ / Uso de suspend() y resume().
+class NewThread implements Runnable {
+String name; 	// nombre del hilo
+Thread t;
+NewThread (String threadname) {
+name = threadname;
+t = new Thread (this, name);
+System.out.println ("Nuevo hilo: " + t);
+t.start(); // Comienzo del hilo
+}
+// Este es el punto de entrada del hilo.
+public void run() {
+try {
+for (int i = 15; i > 0; i--) {
+System.out.println (name + ": " + i);
+Thread.sleep(200);
+}
+}catch (InterruptedException e) {
+System.out.println (" Interrupción del hilo" + name);
+}
+System.out.println (" Salida del hilo" + name);
+}
+}
+class SuspendResume {
+public static void main (String args[]) {
+NewThread obl = new NewThread ("Uno");
+NewThread ob2 = new NewThread ("Dos");
+try {
+Thread.sleep(l000);
+obl.t.suspend() ;
+System.out.println ("Suspensión del hilo Uno");
+Thread.sleep(l000);
+obl.t.resume() ;
+System.out.println ("Reanudación del hilo Uno");
+ob2.t.suspend() ;
+System.out.println ("Suspensión del hilo Dos ");
+Thread.sleep(l000);
+ob2.t.resume();
+System.out.println ("Reanudación del hilo Dos ");
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+// Espera a que terminen los otros hilos
+try {
+System.out.println ("Espera la finalización de los otros hilos.");
+ob1.t .join();
+ob2.t.join() ;
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+System.out.println ("Salida del hilo principal.");
+}
+}
+
+Número 13
+// Versión moderna de suspensión y reanudación de un hilo 
+class NewThread implements Runnable {
+String name; 	// nombre del hilo
+Thread t;
+boolean suspendFlag;
+NewThread (String threadname) {
+name = threadname;
+t = new Thread(this, name);
+System.out.println ("Nuevo hilo: " + t);
+suspendFlag = false;
+t.start(); // Comienzo del hilo
+}
+// Este es el punto de entrada del hilo.
+public void run() {
+try {
+for (int i = 15; i > 0; i--) {
+System.out.println (name + ": " + i);
+Thread.sleep (200);
+synchronized (this) {
+while (suspendFlag) {
+wait() ;
+}
+}
+}
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo" + name);
+}
+System.out.println ("Salida del hilo" + name);
+}
+void mysuspend () {
+suspendFlag = true;
+}
+synchronized void myresume()
+suspendFlag = false;
+notify ();
+}
+}
+class SuspendResume {
+public static void main (String args[]) {
+NewThread obl = new NewThread("Uno");
+NewThread ob2 = new NewThread( "Dos") ;
+try {
+Thread.sleep (l000);
+obl.mysuspend ();
+System.out.println ("Suspensión del hilo Uno");
+Thread.sleep (l000);
+obl.myresume();
+System.out.println ("Reanudación del hilo Uno");
+ob2.mysuspend() ;
+System.out.println ("Suspensión del hilo Dos");
+Thread.sleep(l000);
+ob2.myresume();
+System.out.println ("Reanudación del hilo Dos");
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+// espera a que los otros hilos terminen
+try {
+System.out.println ("Espera la finalización de los otros hilos.");
+obl.t.join () ;
+ob2.t.join();
+} catch (InterruptedException e) {
+System.out.println ("Interrupción del hilo principal");
+}
+System.out.println ("Salida del hilo principal.");
+}
+}

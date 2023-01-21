@@ -1,0 +1,609 @@
+Número 1
+// Ejemplo de JLabel e ImageIcon
+import java.awt.*;
+import javax.swing.*;
+/*
+<applet code="JLabelDemo" width=250 height=150>
+</applet>
+*/
+public class JLabelDemo extends JApplet {
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait (
+new Runnable( ) {
+public void run( ) {
+makeGUI( ) ;
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Se crea un icono
+ImageIcon ii = new ImageIcon("francia.gif");
+// Se crea la etiqueta
+JLabel jl = new JLabel ("Francia", ii, JLabel.CENTER);
+// Agrega la etiqueta 
+add(jl) ;
+}
+}
+
+Número 2
+// Ejemplo de JTextField.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+<applet code="JTextFieldDemo" width=300 height=50>
+</applet>
+*/
+public class JTextFieldDemo extends JApplet {
+JTextField jtf;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait (
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+});
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia el organizador a FlowLayout.
+setLayout(new FlowLayout( ));
+// Agrega el campo de texto al contenedor principal
+jtf = new JTextField(15);
+add(jtf);
+jtf.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+// Muestra el texto cuando el usuario presiona ENTER.
+showStatus(jtf.getText( ));
+}
+});
+}
+}
+
+Número 3
+// Ejemplo de botones con iconos.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*; 
+/*
+<applet code="JButtonDemo" width=250 height=450>
+</applet>
+*/
+public class JButtonDemo extends JApplet
+implements ActionListener {
+JLabel jlab;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Agrega los botones
+ImageIcon francia = new ImageIcon("francia.gif");
+JButton jb = new JButton(francia);
+jb.setActionCommand ("Francia");
+jb.addActionListener (this);
+add(jb) ;
+ImageIcon alemania = new ImageIcon("alemania.gif");
+jb = new JButton(alemania);
+jb.setActionCommand ("Alemania");
+jb.addActionListener (this);
+add(jb);
+ImageIcon italia = new ImageIcon("italia.gif");
+jb = new JButton(italia);
+jb.setActionCommand("Italia");
+jb.addActionListener (this);
+add(jb);
+ImageIcon japon = new ImageIcon("japon.gif");
+jb = new JButton(japon);
+jb.setActionCommand("Japón");
+jb.addActionListener (this);
+add(jb);
+//Crea y agrega la etiqueta
+jlab = new JLabel ("Seleccione una bandera");
+add(jlab);
+}
+//Gestiona los eventos de los botones
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Seleccionó" + ae.getActionCommand( ));
+}
+}
+
+Número 4
+// Ejemplo de JToggleButton.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+<applet code="JToggleButtonDemo" width=200 height=80>
+</applet>
+*/
+public class JToggleButtonDemo extends JApplet {
+JLabel jlab;
+JToggleButton jtbn;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( ) ;
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Crea una etiqueta.
+jlab = new JLabel("El botón está apagado");
+// Crea un botón interruptor.
+jtbn = new JToggleButton("Encendido/Apagado");
+// Agrega un ItemListener al botón interruptor
+jtbn.addItemListener(new ItemListener( ) {
+public void itemStateChanged(ItemEvent ie) {
+if(jtbn.isSelected( ))
+jlab.setText("El botón está encendido .");
+else
+jlab.setText("El botón está apagado");
+}
+});
+// Agrega el botón interruptor y la etiqueta
+add(jtbn);
+add(jlab);
+}
+}
+
+Número 5
+// Ejemplo de JCheckbox.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+<applet code="JCheckBoxDemo" width=270 height=50>
+</applet>
+*/
+public class JCheckBoxDemo extends JApplet 
+implements ItemListener {
+JLabel jlab;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Agrega los checkbox
+JCheckBox cb = new JCheckBox("C");
+cb.addItemListener (this);
+add(cb) ;
+cb = new JCheckBox("C++");
+cb.addItemListener(this);
+add(cb);
+cb = new JCheckBox (" Java ");
+cb.addItemListener (this);
+add(cb);
+cb = new JCheckBox("Perl") ;
+cb.addItemListener(this);
+add(cb);
+// Crea la etiqueta y la agrega
+jlab = new JLabel("Seleccione lenguajes");
+add(jlab);
+}
+// Gestor de eventos
+public void itemStateChanged(ItemEvent ie) {
+JCheckBox cb = (JCheckBox)ie.getItem( );
+if(cb.isSelected( ))
+jlab.setText (cb.getText ( ) + " está seleccionado");
+else
+jlab.setText(cb.getText( ) + " no está seleccionado")
+}
+}
+
+Número 6
+// Ejemplo de JRadioButton
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+<applet code="JRadioButtonDemo" width=300 height=50>
+</applet>
+*/
+public class JRadioButtonDemo extends JApplet
+implements ActionListener {
+JLabel jlab;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable ( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Crea los botones radio y los agrega
+JRadioButton bl = new JRadioButton ("A");
+bl.addActionListener(this);
+add(b1);
+JRadioButton b2 = new JRadioButton("B");
+b2.addActionListener(this);
+add(b2);
+JRadioButton b3 = new JRadioButton("C") ;
+b3.addActionListener(this);
+add(b3);
+// Define un grupo de botones
+ButtonGroup bg = new ButtonGroup( ) ;
+bg.add(bl);
+bg.add(b2);
+bg.add(b3);
+// Crea una etiqueta y la agrega.
+jlab = new JLabel("Seleccione uno");
+add(jlab);
+}
+// Gestiona la selección de botones.
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Ha seleccionado " + ae.getActionCornmand( ));
+}
+}
+
+Número 7
+// Ejemplo de JTabbedPane.
+import javax.swing.*;
+/*
+<applet code="JTabbedPaneDemo" width=400 height=l00>
+</applet>
+*/
+public class JTabbedPaneDemo extends JApplet {
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+JTabbedPane jtp = new JTabbedPane( );
+jtp.addTab("Ciudades", new PanelCiudades( ));
+jtp.addTab("Colores", new PanelColores( ));
+jtp.addTab("Sabores", new PanelSabores( ));
+add(jtp) ;
+}
+}
+// Crea los paneles que serán agregados al cuadro tabulado.
+class PanelCiudades extends JPanel {
+public PanelCiudades( ) {
+JButton bl = new JButton("Nueva York");
+add(bl);
+JButton b2 = new JButton("Londres") ;
+add(b2);
+JButton b3 = new JButton("Hong Kong");
+add(b3);
+JButton b4 = new JButton ("Tokio");
+add(b4);
+}
+}
+class PanelColores extends JPanel {
+public PanelColores( ) {
+JCheckBox cbl = new JCheckBox ("Rojo");
+add(cbl);
+JCheckBox cb2 = new JCheckBox("Verde");
+add(cb2);
+JCheckBox cb3 = new JCheckBox("Azul") ;
+add(cb3);
+}
+}
+class PanelSabores extends JPanel {
+public PanelSabores( ) {
+JComboBox jcb = new JComboBox( ) ;
+jcb.addItem("Vainilla");
+jcb.addItem ("Chocolate");
+jcb.addItem ("Fresa");
+add(jcb);
+}
+}
+
+Número 8
+// Ejemplo de JScrollPane.
+import java.awt.*;
+import javax.swing.*;
+/*
+<applet code="JScrollPaneDemo" width=300 height=250>
+</applet>
+*/
+public class JScrollPaneDemo extends JApplet {
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Agrega 400 botones al panel
+JPanel jp = new JPanel( );
+jp.setLayout(new GridLayout(20,20));
+int b = 0;
+for (int i = 0; i<20; i++){
+for (int j = 0; j<20; j++){
+jp.add (new JButton ("Botón" + b));
+++b;
+}
+}
+// Crea el JScrollPane
+JScrollPane jsp = new JScrollPane(jp);
+//Agrega el JScrollPane al contenedor principal
+// Se utiliza el organizador de diseño por omisión: BorderLayout.
+// El JScrollPane es agregado al centro.
+add(jsp, BorderLayout.CENTER);
+}
+}
+
+Número 9
+// Ejemplo de JList.
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+<applet code="JListDemo" width=200 height=120>
+</applet>
+*/
+public class JListDemo, extends JApplet {
+JList jlst;
+JLabel jlab;
+JScrollPane jscrlp;
+// Crea un arreglo de ciudades.
+String cuidades[] = { "Nueva York", "Chicago", "Houston",
+"Denver", "Los Ángeles", "Seattle",
+"Londres", "París", "Nueva Delhi",
+"Hong Kong", "Tokio", "Sydney"};
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable ( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Crea una JList.
+jlst = new JList(ciudades);
+// Define el modo de selección de la lista a modo simple
+jlst.setSeleetionMode(ListSeleetionModel.SINGLE_SELECTION);
+// Agrega la lista a un JScrollPane.
+jscrlp = new JScrollPane(jlst);
+// Define el tamaño preferido del JScrollPane.
+jscrlp.setPreferredSize(new Dimension(120, 90));
+// Crea una etiqueta que muestra la selección.
+jlab = new JLabel("Seleccione una ciudad");
+// Agrega un listener de selección a la lista
+jlst.addListSelectionListener(new ListSelectionListener( ) {
+public void valueChanged(ListSelectionEvent le) {
+// Obtiene el índice del elemento modificado.
+int idx = jlst.getSelectedIndex( );
+// Muestra la selección si el elemento fue seleccionado.
+if (idx != -1)
+jlab.setText("Selección Actual: " + ciudades[idx]);
+else // en caso contrario, preguntar la ciudad.
+jlab.setText("Seleccione una ciudad");
+}
+});
+// Agrega la lista y una etiqueta al contenedor principal
+add(jscrlp);
+add(jlab);
+}
+}
+
+Número 10
+// Ejemplo de JComboBox.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*
+<applet code="JComboBoxDemo" width=300 height=100>
+</applet>
+*/
+public class JComboBoxDemo extends JApplet {
+JLabel jlab;
+ImageIcon francia, alemania, italia, japon;
+JComboBox jcb;
+String banderas [] = {"Francia", "Alemania", "Italia", "Japón" };
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Cambia a FlowLayout.
+setLayout(new FlowLayout( ));
+// Crea un JComboBox y lo agrega al contenedor principal
+jcb = new JComboBox(banderas);
+add(jcb);
+// Gestiona las selecciones.
+jcb.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+String s = (String) jcb.getSelectedItem( );
+jlab.setIcon(new ImageIcon(s + ".gif"));
+}
+});
+// Crea una etiqueta y la agrega al contenedor principal
+jlab = new JLabel(new ImageIcon("Francia.gif"));
+add(jlab);
+}
+}
+
+Número 11
+// Ejemplo de JTree.
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.*;
+import javax.swing.tree.*;
+/*
+<applet code="JTreeDemo" width=400 height=200>"
+</applet>
+*/
+public class JTreeDemo extends JApplet {
+JTree arbol;
+JLabel jlab;
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable ( ) {
+public void run( ) {
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Crea el nodo superior del árbol
+DefaultMutableTreeNode top = new DefaultMutableTreeNode("Opciones");
+// Crea un subárbol "A".
+DefaultMutableTreeNode a = new DefaultMutableTreeNode("A");
+top.add(a);
+DefaultMutableTreeNode al = new DefaultMutableTreeNode("Al");
+a.add(al);
+DefaultMutableTreeNode a2 = new DefaultMutableTreeNode("A2");
+a.add(a2);
+// Crea un subárbol "B".
+DefaultMutableTreeNode b = new DefaultMutableTreeNode("B");
+top.add(b);
+DefaultMutableTreeNode bl = new DefaultMutableTreeNode("Bl");
+b.add(bl);
+DefaultMutableTreeNode b2 = new DefaultMutableTreeNode("B2");
+b.add(b2);
+DefaultMutableTreeNode b3 = new DefaultMutableTreeNode("B3");
+b.add(b3);
+// Crea el árbol
+arbol = new JTree(top);
+// Agrega el árbol a un JScrollPane.
+JScrollPane jsp = new JScrollPane(arbol);
+// Agrega el JScrollPane al contenedor principal
+add(jsp);
+// Agrega la etiqueta al contenedor principal
+jlab = new JLabel( );
+add(jlab, BorderLayout.SOUTH);
+// Gestiona los eventos de selección en el árbol.
+tree.addTreeSeleetionListener(new TreeSeleetionListener( )
+public void valueChanged(TreeSeleetionEvent tse)
+jlab.setText("La selección es " + tse.getPath( ));
+}
+});
+}
+}
+
+Número 12
+// Ejemplo de JTable.
+import java.awt.*;
+import javax.swing.*;
+/*
+<applet code="JTableDemo" width=400 height=200>
+</applet>
+*/
+public class JTableDemo extends JApplet {
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait(
+new Runnable( ) {
+public void run( )
+makeGUI( );
+}
+}
+);
+} catch (Exception exc) {
+System.out.println("No se puede crear la aplicación debido a: " + exc);
+}
+}
+private void makeGUI( ) {
+// Inicializa los encabezados de las columnas
+String [] encabezadosColumna = { "Nombre", "Extensión", "ID" };
+// inicializa el arreglo dato.
+Obj ect [][J dato = {
+{"Javier" , "4567", "865" },
+{"Helen", "7566", "555"},
+{"Rosana", "5634", "587"},
+{"Adriana", "7345", "922"},
+{"Ana", "1237", "333"},
+{"José", "5656", "314"},
+{"Mario", "5672", "217"},
+{"Clara", "6741", "444"},
+{"Ernesto, "9023"1 J1519"},
+{"Ken", "1134", "532"},
+{"Teresa", "5689", "112"},
+{"Elizabeth", "9030", "133"},
+{"Arturo", "6751", "145"}
+};
+//Crea la tabla
+JTable table = new JTable(dato, encabezadosColumna);
+// Agrega la tabla al JScrollPane
+JScrollPane jsp = new JScrollPane (table);
+//Agrega el JScrollPane al contenedor principal
+add(jsp);
+}
+}

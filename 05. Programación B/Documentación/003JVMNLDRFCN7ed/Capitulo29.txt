@@ -1,0 +1,205 @@
+Número 1
+// Una aplicación sencilla con Swing
+import javax.swing.*;
+class SwingDemo {
+SwingDemo( ) {
+// crear un nuevo contenedor JFrame
+JFrame jfrm = new JFrame ("Una aplicación simple en Swing");
+// definir un tamaño inicial
+jfrm.setSize(275, 100);
+// finalizar la ejecución del programa cuando el usuario cierra la aplicación
+jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// crear una etiqueta con texto
+JLabel jlab = new JLabel ("Swing permite crear excelente interfaces gráficas");
+// añadir la etiqueta al content pane
+jfrm.add(jlab);
+// desplegar el contenedor
+jfrm.setVisible(true);
+}
+public static void main(String args[]) {
+// crear el contenedor y el hilo de gestión de eventos
+SwingUtilities.invokeLater(new Runnable() {
+public void run( ) {
+new SwingDemo( );
+}
+});
+}
+}
+
+Número 2
+// Gestión de eventos en un programa con Swing
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+class EventDemo {
+JLabel jlab;
+EventDemo( ) {
+// crear un nuevo contenedor JFrame
+JFrame jfrm = new JFrame ("Ejemplo con eventos");
+// especificar FlowLayout como el administrador de diseño
+jfrm.setLayout(new FlowLayout());
+// definir un tamaño inicial
+jfrm.setSize(220, 90);
+// finalizar la ejecución del programa cuando el usuario cierra la aplicación
+jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// construir dos botones
+JButton jbtnAlfa = new JButton("Alfa");
+JButton jbtnBeta = new JButton("Beta");
+// añade listener al botón alfa
+jbtnAlfa.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Alfa fue presionado.");
+}
+});
+// añade listener al botón beta
+jbtnAlfa.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Beta fue presionado.");
+}
+});
+// añade los botones al content pane
+jfrm.add(jbtnAlfa);
+jfrm.add(jbtnBeta);
+// crea una etiqueta con texto
+jlab = new JLabel("Presione un botón");
+// añade la etiqueta al content pane
+jfrm.add(jlab);
+// desplegar el contenedor
+jfrm.setVisible(true);
+}
+public static void main(String args[]) {
+// crear el contenedor y el hilo de gestión de eventos
+SwingUtilities.invokeLater(new Runnable() {
+public void run( ) {
+new EventDemo( );
+}
+});
+}
+}
+
+Número 3
+// Un applet sencillo con Swing
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+Este es el código HTML necesario para ejecutar al applet:
+<object code="MySwingApplet" width=220 height=90>
+</object>
+*/
+public class MySwingApplet extends JApplet {
+JButton jbtnAlfa;
+JButton jbtnBeta;
+JLabel jlab;
+// inicializar al applet
+public void init( ) {
+try {
+SwingUtilities.invokeAndWait (new Runnable() {
+public void run( ) {
+makeGUI( ); //inicializa la interfaz gráfica
+}
+});
+} catch (Exception exc) {
+System.out.println("No es posible inicializar al applet debido a " + exc);
+}
+}
+// este applet no requiere sobrescribir start(), stop() o destroy()
+// inicializar la interfaz gráfica
+private void makeGUI( ) {
+// coloca un FlowLayout en el applet
+setLayout(new FlowLayout());
+// construir dos botones
+JButton jbtnAlfa = new JButton("Alfa");
+JButton jbtnBeta = new JButton("Beta");
+// añade listener al botón alfa
+jbtnAlfa.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Alfa fue presionado.");
+}
+});
+// añade listener al botón beta
+jbtnAlfa.addActionListener(new ActionListener( ) {
+public void actionPerformed(ActionEvent ae) {
+jlab.setText("Beta fue presionado.");
+}
+});
+// añade los botones al content pane
+jfrm.add(jbtnAlfa);
+jfrm.add(jbtnBeta);
+// crea una etiqueta con texto
+jlab = new JLabel("Presione un botón");
+// añade la etiqueta al content pane
+jfrm.add(jlab);
+}
+}
+
+Número 4
+// dibujar líneas en un panel
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
+// esta clase hereda de JPanel. La clase sobrescribe
+// al método paintComponent( ) para que se dibujen
+// líneas aleatorias en el panel
+class PaintPanel extends JPanel {
+Insets ins; // almacena la dimensión de los bordes
+Random rand; // se utiliza para generar números aleatorios
+// crea un panel
+PaintPanel( ) {
+// coloca un borde alrededor del panel
+setBorder(BorderFactory.createLineBorder(Color.RED, 5));
+rand = new Random( );
+}
+// sobrescribe el método paintComponent( )
+protected void paintComponent(Graphics g) {
+// siempre se debe llamar al método de la superclase
+super.paintComponent(g);
+int x, y, x2, y2;
+// se obtiene el largo y ancho del componente
+int alto = getHeight( );
+int ancho = getWidth( );
+// obtener los valores de los bordes
+ins = getInsets( );
+// dibujar diez líneas cuyos extremos son generados aleatoriamente
+for(int i=0; i<10; i++) {
+// obtener valores aleatorios para definir
+// los extremos de cada línea
+x = rand.nextInt(ancho - ins.left);
+y = rand.nextInt(alto - ins.bottom);
+x2 = rand.nextInt(ancho - ins.left);
+y2 = rand.nextInt(alto - ins.bottom);
+// dibujar la línea
+g.drawLine(x, y, x2, y2);
+}
+}
+}
+// ejemplo de dibujo en un panel
+class paintDemo {
+Jlabel jlab;
+PaintPanel pp;
+PaintDemo() {
+// crea un nuevo contenedor
+JFrame jfrm = new JFrame("Ejemplo de dibujo en componentes");
+// establecer el tamaño inicial
+jfrm.setSize(200, 150);
+// el programa termina cuando el usuario cierra la aplicación
+jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// crea el panel donde se va a dibujar
+pp = new PaintPanel( );
+// añade el panel al content pane. Debido a que se utiliza el administrador
+// de diseño por omisión (border), el panel se coloca automáticamente al
+// centro del contenedor
+jfrm.add(pp);
+// muestra el contenedor
+jfrm.setVisible(true);
+}
+public static void main(String args[]) {
+// crea el contenedor y el hilo de gestión de eventos
+SwingUtilities.invokeLater(new Runnable() {
+public void run( ) {
+new PaintDemo( );
+}
+});
+}
+}

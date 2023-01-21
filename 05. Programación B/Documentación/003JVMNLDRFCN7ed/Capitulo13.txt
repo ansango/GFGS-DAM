@@ -1,0 +1,409 @@
+Número 1
+// Uso de un BufferedReader para leer caracteres de la consola.
+import java.io.*;
+class BRRead {
+public static void main(String args[])
+throws IOException
+{
+char c;
+BufferedReader br = new 
+BufferedReader(new InputStrearnReader(System.in));
+System.out.println("Introduzca caracteres, pulse 'q' para salir.");
+// lectura de caracteres
+do{
+c = (char) br.read();
+System.out.println(c);
+} while (c!= 'q');
+}
+}
+
+Número 2
+// Lectura de una cadena desde la consola utilizando la clase BufferedReader.
+import java.io.*;
+class BRReadLines {
+public static void main(String args[])
+throws IOException
+{
+// Se crea un objeto BufferedReader usando System.in
+BufferedReader br =new BufferedReader(new
+InputStreamReader(System.in));
+String str;
+System.out.println("Introduzca las líneas de texto.");
+System.out.println("Introduzca 'stop' para salir.");
+do{
+str = br.readLine();
+System.out.println(str);
+} while(!str.equals("stop"));
+}
+}
+
+Número 3
+// Un pequeño editor.
+import java.io.*;
+class PequeñoEditor {
+public static void main(String args[])
+throws IOException
+{
+// se crea un BufferedReader usando System.in
+BufferedReader br =new BufferedReader(new
+InputStreamReader(System.in));
+String str[] = new String[l00];
+System.out.println("Introduzca las líneas de texto.");
+System.out.println("Introduzca 'stop' para salir.");
+for(int i=0; i<l00; i++) {
+str[i] = br.readLine();
+if(str[i] .equals("stop")) break;
+}
+System.out.println("\nEste es su archivo:");
+// presenta las líneas
+for(int i=0; i<l00; i++) {
+if(str[i].equals("stop")) break;
+System.out.println(str[i]);
+}
+}
+}
+
+Número 4
+// Ejemplo de System.out.write().
+class WriteDemo {
+public static void main(String args[]) {
+int b;
+b = 'A';
+System.out.write(b);
+System.out.write(' \n') ;
+}
+}
+
+Número 5
+// Ejemplo de PrintWriter
+import java.io.*;
+public class printWriterDemo {
+public static void main(String args[]) {
+PrintWriter pw =new PrintWriter (System.out, true);
+pw.println("Esto es una cadena");
+int i = -7;
+pw.println(i) ;
+double d = 4.5e-7;
+pw.println(d);
+}
+}
+
+Número 6
+/* Muestra un archivo de texto.
+Para usar este programa, hay que especificar
+el nombre del archivo que se desee ver.
+Por ejemplo, para ver un archivo llamado TEST.TXT,
+utilice la siguiente línea de comandos.
+java ShowFile TEST.TXT
+*/
+import java.io.*;
+class ShowFile {
+pub1ic static void main(String args[])
+throws IOException
+{
+int i;
+Fi1elnputStream fin;
+try {
+fin =new Fi1elnputStream(args[0]);
+} catch (Fi1eNotFoundException e) {
+System.out.print1n("Archivo no encontrado");
+return;
+} catch (ArraylndexOutOfBoundsException e) {
+System.out.print1n("Para utilizar el programa escriba: ShowFi1e Archivo");
+return;
+}
+// Lee caracteres hasta que se encuentra el fin del archivo
+do {
+i = fin.read();
+if(i != -1) System.out.print((char) i);
+}while(i != -1);
+fin.close ();
+}
+}
+
+Número 7
+/* Copia de un archivo de texto.
+Para usar este programa, se debe especificar el nombre 
+del archivo fuente y del archivo destino.
+Por ejemplo, para copiar un archivo llamado PRIMER.TXT 
+en un archivo llamado SEGUNDO.TXT, use la siguiente 
+línea de comandos.
+java CopyFile PRIMER.TXT SEGUNDO.TXT
+*/
+import java.io.*;
+class CopyFile {
+public static void main(String args[])
+throws IOException
+{
+int i;
+FilelnputStream fin;
+FileOutputStream fout;
+try {
+// abre el archivo de entrada
+try {
+fin =new FilelnputStream(args[0]);
+} catch(FileNotFoundException e) {
+System.out.println("Archivo de entrada no encontrado");
+return;
+}
+// Se abre el archivo de salida
+try {
+fout =new FileOutputStream(args[1]);
+} catch(FileNotFoundException e) {
+System.out.println("Error al abrir el archivo de salida");
+return;
+}
+} catch(ArraylndexOutOfBoundsException e) {
+System.out.println("Para utilizar el programa escriba: CopyFile origen destino");
+return;
+}
+// copia el archivo
+try {
+do {
+i = fin.read () ;
+if(i != -1) fout.write(i);
+} while(i!= -1);
+}catch(IOException e) {
+System.out.println("Error");
+}
+fin.close ();
+fout.close ();
+}
+}
+
+Número 8
+import java.awt.*;
+import java.applet.*;
+public class SimpleApplet extends Applet {
+public void paint(Graphics g) {
+g.drawString("Un applet sencillo", 20, 20);
+}
+}
+
+Número 9
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="SimpleApplet" width=200 height=60>
+</applet>
+*/
+public class SimpleApplet extends Applet {
+public void paint(Graphics g) {
+g.drawString("Un applet sencillo", 20, 20);
+}
+}
+
+Número 10
+// Ejemplo del operador instanceof.
+c1ass A {
+int i, j;
+}
+c1ass B {
+int i, j;
+}
+class C extends A {
+int k;
+}
+class D extends A {
+int k;
+}
+class InstanceOf {
+public static void main(String args[]) {
+A a = new A();
+B b = new B();
+C c = new C();
+D d = new D();
+if(a instanceof A)
+System.out.print1n("a es una instancia de A");
+if(b instanceof B)
+System.out.println("b es una instancia de B");
+if{c instanceof C)
+System.out.print1n{"c es una instancia de C");
+if(e instanceof A)
+System.out.println("c se puede convertir a A");
+if(a instanceof C)
+System.out.println{"a se puede convertir a C");
+System.out.print1n();
+// Comparar los tipos de tipos derivados
+A ob;
+ob = d; // una referencia a d de tipo A
+System.out.println("ob hace referencia a d");
+if(ob instanceof D)
+System.out.println("ob es una instancia de D");
+System.out.println();
+ob = c; // una referencia a c de tipo A
+System.out.println("ob hace referencia a c");
+if(ob instanceof D)
+System.out.println("ob se puede convertir a D");
+else
+System.out.println("ob no se puede convertir a D");
+if(ob instanceof A)
+System.out.println("ob se puede convertir a A");
+System.out.println();
+// todos los objetos se pueden convertir en Object
+if(a instanceof Object)
+System.out.println("a se puede convertir a Object");
+if(b instanceof Object)
+System.out.println("b se puede convertir a Object");
+if(c instanceof Object)
+System.out.println("c se puede convertir a Object");
+if(d instanceof Object)
+System.out.println("d se puede convertir a Object");
+}
+}
+
+Número 11
+// Un ejemplo sencillo que utiliza métodos nativos.
+public class NativeDemo {
+int i;
+public static void main(String args[]) {
+NativeDemo ob = new NativeDemo();
+ob.i =10;
+System.out.println("Esto es ob.i antes del método nativo:" +
+ob.i) ;
+ob.test(); // llamada a un método nativo
+System.out.println("Esto es ob.i después del método nativo:" +
+ob.i);
+}
+// Declaración del método nativo
+public native void test();
+// carga la DLL que contiene el método estático
+static{
+System.loadLibrary("NativeDemo");
+}
+}
+
+Número 12
+/* Este archivo contiene la versión C
+del método test().
+*/
+#include <jni.h>
+#include "NativeDemo.h"
+#include <stdio.h>
+JINIEXPORT void JNlCALL Java_NativeDemo_test(JNIEnv *env, jobject obj)
+{
+jclass cls;
+jfieldID fid;
+jint i;
+printf("Comienzo del método nativo.\n");
+cls = (*env)->GetObjectClass(env, obj);
+fid = (*env)->GetFieldID(env, cls, "i", "I");
+if(fid == 0) {
+printf ("No se puede obtener el id del campo. \n");
+return;
+}
+i = (*env)->GetIntField(env, obj, fid);
+printf("i = %d\n" , i);
+(*env)->SetIntField(env, obj, fid, 2*i);
+printf("Final del método nativo.\n");
+}
+
+Número 13
+// Ejemplo de assert
+class AssertDemo {
+static int val = 3;
+// el método regresa un valor entero
+static int getnum() {
+return val--;
+}
+public static void main(String args[])
+{
+int n;
+for(int i=0; i < 10; i++) {
+n = getnum();
+assert n > 0; // fallará cuando n tenga el valor 0
+System.out.println("n es " + n);
+}
+}
+}
+
+Número 14
+// Una manera equivocada de utilizar assert
+class AssertDemo {
+// generador de números aleatorios
+static int val = 3;
+// regresa un entero
+static int getnum() {
+return val--;
+}
+public static void main(String args[])
+{
+int n = 0;
+for(int i=0; i < 10; i++) {
+assert (n = getnum()) > 0; // ¡ésta no es una buena idea!
+System.out.println("n es " + n);
+}
+}
+}
+
+Número 15
+class Hypot {
+public static void main(String args[]) {
+double sidel, side2;
+double hypot;
+sidel = 3.0;
+side2 = 4.0;
+// observe como sqrt() y pow() deben estar
+// precedidos por el nombre de la clase Math
+hypot = Math.sqrt(Math.pow(sidel, 2) +
+Math.pow(side2, 2));
+System.out.println("Con catetos de longitud " + sidel + " y " + side2 + " la hipotenusa es " + hypot) ;
+}
+}
+
+Número 16
+// Ejemplo de importación estática con los métodos pow y sqrt
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
+// Calcular la hipotenusa de un triángulo rectángulo
+class Hypot {
+public static void main(String args[]) {
+double sidel, side2;
+double hypot;
+// Aquí son llamados los métodos sqrt() y pow() 
+// sin necesitad de anteponer el nombre de la clase Math
+hypot = sqrt(pow(sidel, 2) + pow(side2, 2));
+System.out.println("Con catetos de longitud " + sidel + " y " + side2 +  " la hipotenusa es " + hypot) ;
+}
+}
+
+Número 17
+class MyClass
+int a;
+int b;
+// inicializa a y b individualmente
+MyClass(int i, int j) {
+a = i;
+b = j;
+}
+// inicializa a y b con el mismo valor
+MyClass(int i) {
+a = i;
+b = i;
+}
+// inicializa a y b con el valor cero
+MyClass( ) {
+a = 0;
+b = 0;
+}
+}
+
+Número 18
+class MyClass {
+int a;
+int b;
+// inicializar a y b individualmente
+MyClass(int i, int j) {
+a = i;
+b = j;
+}
+// inicializar a y b con el mismo valor
+MyClass(int i) {
+this(i, i); // llama a MyClass(i, i)
+}
+// inicializa a y b con el valor cero
+MyClass( ) {
+this(0); // llama a MyClass(0);
+}
+}
+

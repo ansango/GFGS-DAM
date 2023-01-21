@@ -1,0 +1,78 @@
+Número 1
+/*
+Este es un programa simple en Java.
+Este archivo se llama "Ejemplo.java".
+*/
+class Ejemplo {
+/ / El programa comienza con una llamada a main ().
+public static void main(String args []) {
+System.out.println("Este es un programa simple en Java."); 
+}
+}
+
+Número 2
+/*
+Este es otro ejemplo breve.
+Este archivo se llama "Ejemplo2.java".
+*/
+class Ejemplo2 {
+public static void main(String args[]) {
+int num; // declara una variable llamada num
+num = 100; // asigna a num el valor 100
+System.out.println("Este es num: " + num);
+num = num * 2;
+System.out.print{"El valor de num * 2 es ");
+System.out.println(num);
+}
+}
+
+Número 3
+/*
+Demostración de la sentencia if.
+Este archivo se llama "EjemploIf.java".
+*/
+class EjemploIf {
+public static void main(String args[]) {
+int x, y;
+x = 10;
+y = 20;
+if(x < y) System.out.println ("x es menor que y");
+x = x * 2;
+if(x == y) System.out.println("x es ahora igual que y");
+x = x * 2;
+if(x > y) System.out.println ("x es ahora mayor que y");
+// Esto no desplegará nada
+if(x == y) System.out.println ("esto no se verá");
+}
+}
+
+Número 4
+/*
+Demostración del ciclo for.
+Este archivo se llama "ForPrueba.java".
+*/
+class ForPrueba {
+public static void main(String args[]) {
+int x;
+for(x = 0; x<l0; x =x+l)
+System.out.println ("Esta es x: "+ x);
+}
+}
+
+Número 5
+/*
+Demostración de un bloque de código.
+Este archivo se llama "PruebaBloque.java"
+*/
+class PruebaBloque {
+public static void main(String args[]) {
+int x, y;
+y = 20;
+// el cuerpo de este ciclo es un bloque
+for(x = 0; x<l0; x++} {
+System.out.println ("Esta es x: " + x);
+System.out.println("Esta es y: " + y);
+y = y - 2;
+}
+}
+}

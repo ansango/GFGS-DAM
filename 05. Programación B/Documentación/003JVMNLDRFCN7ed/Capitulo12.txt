@@ -1,0 +1,475 @@
+Número 1
+// Una enumeración de tipos de manzanas
+enum Manzana {
+Jonathan, GoldenDel, RedDel, Winesap, Cortland
+}
+class EnumDemo {
+public static void main(String args[])
+{
+Manzana ap;
+ap = Apple.RedDel;
+// mostrar en pantalla un valor de tipo enum
+System.out.println("Valor de ap: "+ ap);
+System.out.println();
+ap = Manzana.GoldenDel;
+// comparar dos valores de tipo enum
+if(ap == Apple.GoldenDel)
+System.out.println("ap contiene GoldenDel.\n");
+// uso de una variable enum en una sentencia switch
+switch (ap) {
+case Jonathan:
+System.out.println ("La manzana Jonathan es roja.");
+break;
+case GoldenDel:
+System.out.println("La manzana Golden Delicious es amarilla.");
+break;
+case RedDel:
+System.out.println("La manzana Red Delicious es roja.");
+break;
+case Winesap:
+System.out.println(" La manzana Winesap es roja.");
+break;
+case Cortland:
+System.out.println("La manzana Cortland es roja.");
+break;
+}
+}
+}
+
+Número 2
+// Uso de los métodos predefinidos para las enumeraciones
+// Una enumeración de tipos de manzana.
+enum Manzana {
+Jonathan, GoldenDel, RedDel, Winesap, Cortland
+}
+class EnumDemo2 {
+public static void main(String args[])
+{
+Manzana ap;
+System.out.println("Estas son todas las constantes de tipo Manzana:");
+// usando el método values()
+Manzana allapples[] = Manzana.values();
+for(Manzana a : allapples)
+System.out.println(a) ;
+System.out.println();
+// usando el método valueOf ()
+ap = Manzana.valueOf ("Winesap") ;
+System.out.println("ap contiene " + ap);
+}
+}
+
+Número 3
+//Uso de constructores, variables y métodos en una enumeración.
+enum Manzana {
+Jonathan(l0), GoldenDel(9), RedDel(12), Winesap(15), Cortland(8);
+private int price; // precio de cada Manzana
+// constructor
+Manzana (int p) { price = p; }
+int getPrice () { return price; }
+}
+class EnumDemo3 {
+public static void main (String args[])
+{
+Manzana ap;
+// mostrar el precio de Winesap
+System.out.println("Winesap cuesta " + Manzana.Winesap.getPrice() + " centavos.\n");
+// mostrar todos los tipos de manzana y su precio.
+System.out.println( "Todas las manzanas y sus precios: ");
+for(Manzana a : Manzana.values())
+System.out.println(a+ " cuesta " + a.getPrice() + " centavos.");
+}
+}
+
+Número 4
+// Uso de constructores en enumeraciones
+enum Manzana {
+Jonathan(l0), GoldenDel (9), RedDel, Winesap (15), Cortland (8) ;
+private int price; // precio de cada manzana
+// constructor
+Manzana (int p) { price = p; }
+// constructor sobrecargado
+Manzana () { price = -1; }
+int getPrice () { return price; }
+}
+
+Número 5
+// Ejemplo de los métodos ordinal(), compareTo(), y equals().
+// Una enumeración de variedades de manzana
+enum Manzana {
+Jonathan, GoldenDel, RedDel, Winesap, Cortland
+}
+class EnumDemo4 {
+public static void main(String args[])
+{
+Manzana ap, ap2, ap3;
+// Obtener todos los valores ordinales utilizando el método ordinal().
+System.out.println("Estas son todas las constantes manzana" +
+"y sus valores ordinales: ");
+for(Manzana a : Manzana.values())
+System.out.println(a+ " " + a.ordinal());
+ap = Apple.RedDel;
+ap2 = Apple.GoldenDel;
+ap3 = Apple.RedDel; 
+// uso de los métodos compareTo() y equals()
+if(ap.compareTo(ap2) < 0)
+System.out.println(ap + " va antes de " + ap2);
+if(ap.compareTo(ap2) > 0)
+System.out.println(ap2 + "va antes de " + ap);
+if(ap.compareTo(ap3) == 0)
+System.out.println(ap + " es igual a " + ap3);
+System.out.println() ;
+if(ap.equals(ap2))
+System.out.println("¡Error!") ;
+if(ap.equals(ap3))
+System.out.println(ap + " es igual a " + ap3);
+if (ap == ap3)
+System.out.println(ap + " == " + ap3);
+}
+}
+
+Número 6
+// Una versión mejorada del programa de "Toma de Decisiones"
+// escrito en el capítulo 9. Esta versión utiliza una
+// enumeración, en vez de variables de interfaz para
+// representar los valores de las respuestas.
+import java.util.Random;
+// Una enumeración de posibles respuestas.
+enum Respuestas {
+NO, SI, QUIZAS, DESPUES, PRONTO, NUNCA
+}
+class Question {
+Random rand = new Random();
+Respuestas ask ( ) {
+int prob = (int) (100 * rand.nextDouble());
+if (prob < 15)
+return Respuestas.QUIZAS; // 15%
+else if (prob < 30)
+return Respuestas.NO; // 15%
+else if (prob < 60)
+return Respuestas.SI; // 30%
+else if (prob < 75)
+return Respuestas.DESPUES; // 15%
+else if (prob < 98)
+return Respuestas.PRONTO; // 13%
+else
+return Respuestas.NUNCA; // 2%
+}
+}
+class AskMe {
+static void answer(Respuestas result) {
+switch (result) {
+case NO:
+System.out.println("No") ;
+break;
+case SI:
+System.out.println("Si") ;
+break;
+case QUIZAS:
+System.out.println("Quizás") ;
+break;
+case DESPUES:
+System.out.println("Después") ;
+break;
+case PRONTO:
+System.out.println("Pronto");
+break;
+case NUNCA:
+System.out.println("Nunca") ;
+break;
+}
+}
+public static void main(String args[]) {
+Question q = new Question() ;
+answer(q.ask()) ;
+answer(q.ask()) ;
+answer(q.ask()) ;
+answer(q.ask()) ;
+}
+}
+
+Número 7
+// demostración de envoltura de tipos
+class Wrap {
+public static void main(String args[]) {
+Integer iOb = new Integer(l00);
+int i = iOb.intValue();
+System.out.println(i + " " + iOb); // muestra 100 100
+}
+}
+
+Número 8
+// Ejemplo de autoboxing / unboxing
+class AutoBox {
+public static void main (String args []) {
+Integer iOb = 100; / / autoboxing un valor de tipo int
+int i = iOb; // auto-unboxing
+System.out.println(i+ " " + iOb); // muestra 100 100
+}
+}
+
+Número 9
+// autoboxing y auto-unboxing ocurren cuando
+// un método recibe argumentos o devuelve valores
+class AutoBox2 {
+// este método recibe un argumento del tipo Integer y regresa
+// un valor del tipo primitivo int
+static int m (Integer v) {
+return v ; // auto-unboxing el objeto v a un valor int
+}
+pub1ic static void main(String args[]) {
+// Se envía un valor de tipo int al método m() y asigna el valor a un objeto Integer.
+// El argumento 100 sufre autoboxing,
+// al igual que el valor regresado por el método
+Integer iOb = m(100);
+System.out.println(iOb) ;
+}
+}
+
+Número 10
+// autoboxing y auto-unboxing ocurren en las expresiones.
+class AutoBox3 {
+pub1ic static void main(String args[]) {
+Integer iOb, iOb2;
+int i;
+iOb = 100;
+System.out.println("Valor original de iOb: " + iOb);
+// El código siguiente aplica automáticamente unboxing a iOb,
+// realiza un incremento y luego aplica autoboxing nuevamente
+// para colocar el resultado en iOb
+++iOb;
+System.out.println("Después de ++iOb: " + iOb);
+// La expresión se evalúa después de que a iOb se le aplica unboxing,
+// al resultado se le aplica autoboxing y luego se almacena en iOb2.
+iOb2 = iOb + (iOb / 3);
+System.out.println("iOb2 después de evaluar la expresión es: " + iOb2);
+// La misma expresión se evalúa ahora sin que sea necesario
+// aplicar autoboxing al resultado
+i = iOb + (iOb / 3);
+System.out.println ("i después de evaluar la expresión es: " + i);
+}
+}
+
+Número 11
+c1ass AutoBox4 {
+pub1ic static void main(String args[])
+// autoboxing y auto-unboxing dentro de expresiones
+Integer iOb = 100;
+Doub1e dOb = 98.6;
+dOb = dOb + iOb;
+System.out.println("dOb después de la expresión: " + dOb);
+}
+}
+
+Número 12
+// Autoboxing y unboxing de objetos Boolean y Character.
+class AutoBox5 {
+public static void main(String args[]) {
+// autoboxing y unboxing aplicado a un valor boolean.
+Boolean b = true;
+// b pasa por auto-unboxing cuando es utilizada
+// en una expresión condicional
+if(b) System.out.println("b es true");
+// autoboxing y unboxing aplicado a un valor char.
+Character ch = 'x'; // autoboxing un char
+char ch2 = ch; // unboxing un char
+System.out.println("ch2 es " + ch2);
+}
+}
+
+Número 13
+// Aquí se produce un error debido al unboxing manual
+class UnboxingError {
+public static void main(String args []) {
+Integer iOb = 1000; // autoboxing del valor 1000
+int i = iOb.byteValue(); // ¡unboxing manual como tipo byte !
+System.out.println(i); // ¡esto NO desplegará 1000!
+}
+}
+
+Número 14
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+// Declaración de un tipo de anotación
+@Retention(RetentionPolicy.RUNTIME)
+@interface MiAnotacion {
+String str();
+int val () ;
+}
+class Meta {
+// colocar una anotación a un método
+@MiAnotacion(str = "Anotación de Ejemplo", val = 100)
+public static void miMetodo() {
+Meta ob = new Meta();
+// Obtener la anotación del método
+// y desplegar los valores de sus miembros.
+try {
+// Primero, se obtiene un objeto de tipo Class que representa
+// a la clase
+Class c = ob.getClass ();
+// Ahora, se obtiene un objeto de tipo Method que representa
+// a este método
+Method m = c.getMethod ("miMetodo") ;
+// Luego, se obtiene la anotación
+MiAnotacion a = m.getAnnotation(MiAnotacion.class);
+/ / Finalmente, se muestran los valores
+System.out.println(a.str() + " " + a.val ());
+} catch (NoSuchMethodException exc) {
+System.out.println ("método no encontrado.");
+}
+}
+public static void main (String args []) {
+miMetodo () ;
+}
+}
+
+Número 15
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+@Retention(RetentionPolicy.RUNTIME)
+@interface MiAnotacion {
+String str();
+int val () ;
+}
+class Meta {
+// miMetodo ahora tiene dos argumentos
+@MiAnotacion(str = "Dos parámetros", val = 19)
+public static void miMetodo(String str, int i)
+{
+Meta ob = new Meta() ;
+try {
+Class c = ob.getClass();
+// Aquí se especifican los tipos de los parámetros
+Method m = c.getMethod("miMetodo",String.class, int.class);
+MiAnotacion a = m.getAnnotation(MiAnotacion.class);
+System.out.println(a.str()+" "+ a.val());
+} catch (NoSuchMethodException exc) {
+System.out.println("método no encontrado.");
+}
+}
+public static void main(String args[]) {
+miMetodo("prueba", 10);
+}
+}
+
+Número 16
+// Mostrar todas las anotaciones de una clase y un método
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+@Retention(RetentionPolicy.RUNTIME)
+@interface MiAnotacion {
+String str();
+int val();
+}
+@Retention(RetentionPolicy.RUNTIME)
+@interface What {
+String description();
+}
+@What(description = "Una prueba de anotación para clase")
+@MiAnotacion(str = "Meta2", val = 99)
+class Meta2 {
+@What(description = "Una prueba de anotación en método")
+@MiAnotacion(str = "Probando", val = 100)
+public static void miMetodo() {
+Meta2 ob = new Meta2();
+try {
+Annotation annos[] = ob.getClass() .getAnnotations();
+// Mostrar todas las anotaciones para Meta2.
+System.out.println("Todas las anotaciones para Meta2:");
+for(Annotation a : annos)
+System.out.println(a);
+System.out.println();
+// Mostrar todas las anotaciones para miMetodo.
+Method m = ob.getClass( ).getMethod("miMetodo");
+annos = m.getAnnotations();
+System.out.println("Todas las anotaciones para miMetodo:");
+for(Annotation a : annos)
+System.out.println(a) ;
+} catch (NoSuchMethodException exc) {
+System.out.println("método no encontrado");
+}
+}
+public static void main(String args[]) {
+miMetodo () ;
+}
+}
+
+Número 17
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+// Una declaración de tipo de anotación con valores por omisión en sus miembros
+@Retention(RetentionPolicy.RUNTIME)
+@interface MiAnotacion {
+String str () default "Probando";
+int val() default 9000;
+}
+class Meta3 {
+// Aplicando una anotación con valores por omisión a un método
+@MiAnotacion ()
+public static void miMetodo() {
+Meta3 ob = new Meta3();
+// Obtener las anotaciones asociadas al método
+// y desplegar los valores de sus miembros
+try {
+Class c = ob.getClass();
+Method m = c.getMethod("miMetodo");
+MiAnotacion a = m.getAnnotation(MiAnotacion.class);
+System.out.println (a.str () + " " + a.val ());
+} catch (NoSuchMethodException exc) {
+System.out.println("método no encontrado");
+}
+}
+public static void main(String args[]) {
+miMetodo() ;
+}
+
+Número 18
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+// Una anotación de marcado
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyMarker { }
+class Marker {
+// Aplicamos la anotación anterior sobre un método
+// Observe que los paréntesis no son necesarios
+@MyMarker
+public static void miMetodo() {
+Marker ob = new Marker() ;
+try {
+Method m = ob. getClass ().getMethod ("miMetodo") ;
+// Se determina si la anotación está presente
+if(m.isAnnotationPresent(MyMarker.class))
+System.out.println("La anotación de marcado está presente");
+} catch (NoSuchMethodException exc) {
+System.out.println("método no encontrado");
+}
+}
+public static void main(String args[]) {
+miMetodo() ;
+}
+}
+
+Número 19
+import java.lang.annotation.*;
+import java.lang.reflect.*;
+// Una anotación de un solo miembro
+@Retention(RetentionPolicy.RUNTIME)
+@interface MySingle {
+int value(); // el nombre de esta variable debe ser value
+}
+class Single {
+// Se aplica la anotación anterior sobre un método.
+@MySingle(l00)
+public static void miMetodo() {
+Single ob = new Single();
+try {
+Method m = ob.getClass() .getMethod("miMetodo");
+MySingle anno = m.getAnnotation(MySingle.class);
+System.out.println(anno.value()); // mostrará 100
+} catch (NoSuchMethodException exc) {
+System.out.println("método no encontrado");
+}
+}
+public static void main(String args[]) {
+miMetodo();
+}
+}

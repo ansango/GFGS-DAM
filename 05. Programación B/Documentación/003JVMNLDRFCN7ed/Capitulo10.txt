@@ -1,0 +1,305 @@
+Número 1
+class Exc0 {
+public static void main(String args[]) {
+int d = 0;
+int a = 42 / d;
+}
+}
+
+Número 2
+class Exc1 {
+static void subroutine() {
+int d = 0;
+int a = 10 / d;
+}
+public static void main(String args[]) {
+Excl.subroutine();
+}
+}
+
+Número 3
+class Exc2 {
+public static void main (String args[]) {
+int d, a;
+try { // monitoreo de un bloque de código.
+d = 0;
+a = 42 / d;
+System.out.println("Esto no se imprimirá.");
+} catch (ArithmeticException e) { // captura el error de la división entre cero
+System.out.println("División entre cero.");
+}
+System.out.println("Después de la sentencia catch.");
+}
+}
+
+Número 4
+// Gestión de una excepción
+import java.util.Random;
+class HandleError {
+public static void main(String args[]) {
+int a=0, b=0, c=0;
+Random r = new Random() ;
+for(int i=0; i<32000; i++) {
+try {
+b = r.nextInt();
+c = r.nextInt();
+a = 12345 / (b/c);
+} catch (ArithmeticException e) {
+System.out.println("División entre cero.");
+a = 0; // se asigna cero a la variable a y se continúa
+}
+System.out.println("a: " + a);
+}
+}
+}
+
+Número 5
+catch (ArithmeticException e) {
+System.out.println("Excepción: " + e);
+a = 0; // se asigna cero a la variable a y se continúa
+}
+
+Número 6
+// Demostración de múltiples sentencias catch.
+classMultiCatch {
+public static void main(String args[]){
+try {
+int a = args.length;
+System.out.println("a = " + a);
+int b = 42 / a;
+int c [] = { 1 };
+c[42] = 99;
+} catch(ArithmeticException e) {
+System.out.println("División entre 0: " + e);
+} catch(ArraylndexOutOfBoundsException e) {
+System.out.println("Índice del arreglo fuera de rango: " + e);
+}
+System.out.println("Después de los bloques try/catch.");
+}
+}
+
+Número 7
+/* Este programa contiene un error.
+Una subclases debe ir delante de su superclase
+en una serie sentencias catch. Si no,
+se creará código inalcanzable y eso
+resultará en un error en tiempo de compilación.
+*/
+class SuperSubCatch {
+public static void main(String args[]) {
+try {
+int a = 0;
+int b = 42 / a;
+} catch(Exception e) {
+System.out.println("Capturando una excepción genérica.");
+}
+/* Este catch nunca se alcanzará porque la excepción de tipo
+ArithmeticException es una subclase de la clase Exception. */
+catch(ArithmeticException e) { // ERROR - esto no se ejecuta
+System.out.println( "Esto nunca se ejecuta.");
+}
+}
+}
+
+Número 8
+// Ejemplo de sentencias try anidadas
+class NestTry {
+public static void main(String args[]) {
+try {
+int a =args.length;
+/* Si no se utiliza ningún argumento en la línea
+de comandos, la siguiente sentencia generará una
+excepción de división entre cero. */
+int b = 42 / a;
+System.out.println("a = " + a);
+try { // bloque try anidado
+/* Si se utiliza un argumento en la línea de ordenes
+entonces se genera una excepción de división entre cero
+en el siguiente código */
+if(a==l) a = a/(a-a); // división entre cero
+/* Si se utilizan dos argumentos en la línea de ordenes
+entonces se genera una excepción de índice de arreglo fuera de rango */
+if (a==2) {
+int c [] = { 1 };
+c[42] = 99; // genera una excepción por el índice de arreglo fuera de rango
+}
+} catch(ArraylndexOutOfBoundsException e) {
+System.out.println("Índice del arreglo fuera de rango: " + e);
+}
+} catch(ArithmeticException e) {
+System.out.println("División entre 0: " + e);
+}
+}
+}
+
+Número 9
+/* La sentencia try puede estar anidada implícitamente
+vía llamadas a métodos */
+class MethNestTry {
+static void nesttry (int a) {
+try ( // bloque try anidado
+/* Si se utiliza un argumento en la línea de ordenes,
+se generará una excepción de división entre cero
+en el siguiente código. */
+if (a==l) a = a / (a - a); // división entre cero
+/* Si se utilizan dos argumentos en la línea de ordenes
+entonces se genera una excepción de índice de arreglo fuera de rango */
+if (a==2) {
+int c [] = { 1 };
+c[42] = 99; // genera una excepción por el índice de arreglo fuera de rango
+}
+} catch(ArraylndexOutOfBoundsException e) {
+System.out.println("Índice del arreglo fuera de rango: " + e);
+}
+}
+public static void main (String args []) {
+try {
+int a = args.length;
+/* Si no se utiliza ningún argumento en la línea
+de comandos, la siguiente sentencia generará una
+excepción de división entre cero. */
+int b = 42 / a;
+System.out.println("a = " + a);
+nesttry (a) ;
+} catch(ArithmeticException e) (
+System.out.println("División entre 0: " + e);
+}
+}
+}
+
+Número 10
+// Ejemplo de la sentencia throw.
+class ThrowDemo {
+static void demoproc() {
+try {
+throw new NullPointerException("demo");
+} catch(NullPointerException e) {
+System.out.println("!Capturada dentro de demoproc.");
+throw e; // se relanza la excepción
+}
+}
+public static void main(String args[]) {
+try {
+demoproc () ;
+} catch(NullPointerException e) {
+System.out.println("Recapturada: " + e);
+}
+}
+}
+
+Número 11
+// Este programa contiene un error y no compilará.
+class ThrowsDemo {
+static void throwOne() {
+System.out.println("Dentro de throwOne.");
+throw new IllegalAccessException("demo"):
+}
+public static void main(String args[] ) {
+throwOne():
+}
+}
+
+Número 12
+// Ahora es correcto.
+class ThrowsDemo {
+static void throwOne() throws IllegalAccessException {
+System.out.println("Dentro de throwOne.");
+throw new IllegalAccessException("demo"):
+}
+public static void main(String args[]) {
+try {
+throwOne ();
+} catch (IllegalAccessException e) {
+System.out.println("Capturada" + e);
+}
+}
+}
+
+Número 13
+// Demostración de finally.
+class FinallyDemo {
+// A través de una excepción exterior al método.
+static void procA() {
+try {
+System.out.println("Dentro de procA");
+throw new RuntimeException("demo");
+} finally {
+System.out.println("finally de procA ");
+}
+}
+// Se devuelve el control desde un bloque.
+static void procB() {
+try {
+System.out.println("Dentro de procB");
+return;
+} finally {
+System.out.println("finally de procB ");
+}
+}
+// Ejecución normal de un bloque try.
+static void procC() {
+try {
+System.out.println("Dentro de procC");
+} finally {
+System.out.println("finally de procC");
+}
+}
+public static void main(String args[]) {
+try {
+procA () ;
+} catch (Exception e) {
+System.out.println("Excepción capturada");
+}
+procB () ;
+procC () ;
+}
+}
+
+Número 14
+// Este programa crea un tipo de excepción propio.
+class MiExcepcion extends Exception {
+private int detalle;
+MiExcepcion (int a) {
+detalle = a;
+}
+public String toString() {
+return " MiExcepcion [" + detalle + "]";
+}
+}
+class ExcepcionDemo {
+static void compute(int a) throws MiExcepcion {
+System.out.println("Ejecuta compute(" + a + ")");
+if(a > 10)
+throw new MiExcepcion(a);
+System.out.println("Finalización normal");
+public static void main(String args[]) {
+try {
+compute (1);
+compute (20) ;
+} catch (MiExcepcion e) {
+System.out.println("Captura de: " + e);
+}
+}
+}
+
+Número 15
+// Ejemplo de excepciones encadenadas
+class ExcepcionEncadenadaDemo {
+static void demoproc() {
+// crea una excepción
+NullPointerException e = new NullPointerException("capa superior");
+// añadir una causa
+e.initCause(new ArithmeticException("causa"));
+throw e;
+}
+public static void main(String args[]) {
+try {
+demoproc() ;
+} catch (NullPointerException e) {
+// mostrar la excepción superior
+System.out.println("Atrapada: " + e);
+// mostrar la excepción causante
+System.out.println ("Causa Original: " + e.getCause() );
+}
+}
+}

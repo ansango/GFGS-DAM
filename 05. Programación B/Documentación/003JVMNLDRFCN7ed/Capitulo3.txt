@@ -1,0 +1,287 @@
+Número 1
+// Cálculo de la distancia que recorre la luz usando variables long
+class Luz {
+public static void main (String args[]){
+int velocidad;
+int dias;
+int segundos;
+long distancia;
+//velocidad aproximada de la luz en millas por segundo
+velocidad = 186000;
+dias = 1000; //aquí se especifica el número de días
+segundos = dias * 24 * 60 * 60; // conversión a segundos
+distancia = velocidad * segundos; // cálculo de la distancia
+System.out.print ( "En" + días);
+System.out.print ( "días la luz recorrerá aproximadamente ");
+System.out.print ( distancia + " millas");
+}
+}
+
+Número 2
+// Cálculo del área de un círculo.
+class Area {
+public static void main(String args[]) {
+double pi, r, a;
+r = 10.8; // radio del círculo
+pi = 3.1416; // valor aproximado de pi
+a = pi * r * r; // cálculo del área
+System.out.println("El área del círculo es " + a);
+}
+}
+
+Número 3
+// Ejemplo de datos del tipo char.
+class CharDemo {
+public static void main(String args[]) {
+char chl, ch2;
+chl = 88; // codificación de X
+ch2 = 'Y';
+System.out.print("chl y ch2: ");
+System.out.println(chl + " " + ch2);
+}
+}
+
+Número 4
+// Las variables char se comportan como enteros
+class CharDemo2 {
+public static void main (String args[]) {
+char ch1;
+ch1 = 'X';
+System.out.println ("ch1 contiene " + ch1 );
+ch1 ++; // incremento de ch1
+System.out.println ("ch1 es ahora " + ch1);
+}
+}
+
+Número 5
+// Ejemplo de valores boolean
+class BoolTest {
+public static void main (String args[]) {
+boolean b;
+b = false;
+System.out.println ("b es " + b);
+b = true;
+System.out.println ("b es " + b);
+// un valor booleano puede controlar una sentencia if
+if (b) System.out.println ("Esto se ejecuta");
+b = false;
+if (b) System.out.println ("Esto no se ejecuta");
+// El resultado de una operación relacional es un valor boleano
+System.out.println ("10 > 9 es " + (10 > 9) );
+}
+}
+
+Número 6
+// Ejemplo de inicialización dinámica.
+class DynInit {
+public static void main(String args[]) {
+double a = 3.0, b = 4.0;
+// Se inicializa c dinámicamente
+double c = Math.sqrt(a * a + b * b);
+System.out.println("La hipotenusa es " + c);
+}
+}
+
+Número 7
+// Ejemplo de ámbito de un bloque.
+class Ambito {
+public static void main(String args[]) {
+int x; // conocida para todo el código que está dentro de main
+x =10;
+if(x == 10) { // comienzo de un nuevo ámbito
+int y = 20; // conocida solamente dentro de este bloque
+// aquí, se conocen tanto x como y.
+System.out.println("x e y: " + x + " " + y);
+x = y * 2;
+}
+// y = 100; // Error! Aquí no se conoce y
+// aquí todavía se conoce x.
+System.out.println("x es " + x);
+}
+}
+
+Número 8
+/ / Ejemplo del tiempo de vida de una variable.
+c1ass Duracion {
+public static void main(String args[]) {
+int x;
+for(x = 0; x < 3; x++) {
+int y = -1; // y se inicializa cada vez que se entra en el bloque
+System.out.println("y es: " + y); // siempre se imprime -1
+y = 100;
+System.out.println("y es ahora: " + y);
+}
+}
+}
+
+Número 9
+ // Este programa no se compilará
+class AmbitoErr {
+public static void main(String args[]) {
+int bar = 1;
+{ // se crea un nuevo ámbito
+int bar = 2; // Error de compilación, ¡la variable bar ya está definida!
+}
+}
+}
+
+Número 10
+// Ejemplo de conversiones de tipo explícitas (cast)
+class Conversion {
+public static void main(String args[]) {
+byte b;
+int i = 257;
+double d = 323.142;
+System.out.println("\nConversión de int a byte.");
+b = (byte) i;
+System.out.println("i y b " + i + " " + b);
+System.out.println("\nConversión de double a int.");
+i = (int) d;
+System.out.println("d y i " + d + " " + i);
+System.out.println("\nConversión de double a byte.");
+b = (byte) d;
+System.out.println("d y b " + d + " " + b);
+}
+}
+
+Número 11
+class Promocion {
+public static void main(String args[]) {
+byte b = 42;
+char c='a';
+short s = 1024;
+int i = 50000;
+float f = 5.67f;
+double d = .1234;
+double resultado = (f * b) + (i / e) - (d * s);
+System.out.println((f * b) + " + " + (i / e) + " - " + (d * s));
+System.out.println("resultado = " + resultado);
+}
+}
+
+Número 12
+mes.
+/ / Ejemplo de un arreglo unidimensional.
+class Arreglo {
+public static void main(String args[]) {
+int dias_del_mes [];
+dias_del_mes =new int[12];
+dias_del_mes [0] =31;
+dias_del_mes [1] = 28;
+dias_del_mes [2] = 31;
+dias_del_mes [3] = 30;
+dias_del_mes [4] = 31;
+dias_del_mes [5] = 30;
+dias_del_mes [6] = 31;
+dias_del_mes [7] = 31;
+dias_del_mes [8] = 30;
+dias_del_mes [9] = 31;
+dias_del_mes [10] = 30;
+dias_del_mes [11] = 31;
+System.out.println("Abril tiene" + dias_del_mes [3] + " días.");
+}
+}
+
+Número 13
+// Versión mejorada del programa anterior.
+class AutoArreglo {
+public static void main(String args[]) {
+int dias_del_mes [] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+System.out.println("Abril tiene" + dias_del_mes [3] +" días.");
+}
+}
+
+Número 14
+// Promedia los valores de un arreglo
+class Promedio {
+public static void main(String args[]) {
+doub1e nums[] = {10.1, 11.2, 12.3, 13.4, 14.5};
+double resultado =0;
+int i;
+for(i=0; i<5; i++)
+resultado = resultado + nums[i];
+System.out.println("La media es " + resultado / 5);
+}
+}
+
+Número 15
+// Ejemplo de un arreglo bidimensional.
+class ArregloDosD {
+public static void main(String args[]) {
+int dosD[] []= new int[4] [5];
+int i, j, k = 0;
+for(i=0; i<4; i++)
+for(j=0; j<5; j++) {	
+dosD[i] [j] =k;
+k++;
+}
+for(i=0; i<4; i++) {
+for(j=0; j<5; j++)
+System.out.print(dosD[i] [j] + " ");
+System.out.println();
+}
+}
+}
+
+Número 16
+// Reserva de diferentes tamaños para la segunda dimensión.
+class OtroDosD {
+public static void main(String args[]) {
+int dosD[] [] =new int[4][];.
+dosD [0] = new int[l];
+dosD [1] = new int[2];
+dosD [2] = new int[3];
+dosD [3] = new int[4];
+int i, j, k = 0;
+for(i=0; i<4; i++)
+for(j=0; j<i+l; j++) {
+dosD [i] [j] =k;
+k++;
+}
+for(i=0; i<4; i++) {
+for(j=0; j<i+l; j++)
+System.out.print(dosD [i][j] + " ");
+System.out.println();
+}
+}
+}
+
+Número 17
+// Inicialización de un arreglo bidimensional.
+class Matriz {
+public static void main(String args[]) {
+double m[] [] = {
+{ 0*0, 1*0, 2*0, 3*0 },
+{ 0*1, 1*1, 2*1, 3*1 },
+{ 0*2, 1*2, 2*2, 3*2 },
+{ 0*3, 1*3, 2*3, 3*3 }
+};
+int i, j;
+for(i=0; i<4; i++) {
+for(j=0; j<4; j++)
+System.out.print(m[i][j] + " ");
+System.out.println();
+}
+}
+}
+
+Número 18
+// Ejemplo de un arreglo tridimensional.
+class MatrizTresD {
+public static void main(String args[]) {
+int tresD[] [] [] = new int[3] [4] [5];
+int i, j, k;
+for(i=0; i<3; i++)
+for(j=0; j<4; j++)
+for(k=0; k<5; k++)
+tresD[i] [j] [k] = i * j * k;
+for(i=0; i<3; i++) {
+for(j=0; j<4; j++) {
+for(k=0; k<5; k++) 
+System.out.print(tresD[i][j][k] + " ");
+System.out.println();
+}
+System.out.println();
+}
+}
+}

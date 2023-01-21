@@ -1,0 +1,741 @@
+Número 1
+// Ejemplo de sobrecarga de métodos.
+class OverloadDemo {
+void test() {
+System.out.println("Sin parámetros");
+}
+// Sobrecarga el método test con un parámetro entero.
+void test(int a) {
+System.out.println("a: " + a);
+}
+
+// Sobrecarga el método test con dos parámetros enteros.
+void test(int a, int b) {
+System.out.println("a y b: " + a + " " + b);
+}
+// Sobrecarga el método test con un parámetro doble
+double test(double a) {
+System.out.println("a double: " + a);
+return a*a;
+}
+}
+class Overload {
+public static void main(String args[]) {
+OverloadDemo ob = new OverloadDemo();
+double result;
+// llamada a todas las versiones del método test()
+ob.test();
+ob.test(l0);
+ob.test(l0, 20);
+result = ob.test(123.25);
+System.out.println("Resultado de ob.test(123.25): " + result);
+}
+}
+
+Número 2
+// Aplicación de la conversión automática de tipos en la sobrecarga.
+class OverloadDemo {
+void test () {
+System.out.println("Sin parámetros");
+}
+// Sobrecarga del método test con dos parámetros enteros.
+void test(int a, int b) {
+System.out.println("a y b: " + a + " " + b);
+}
+// Sobrecarga del método test con un parámetro double.
+void test(double a) {
+System.out.println("Dentro de test (double) a: " + a);
+}
+}
+class Overload {
+public static void main(String args[]) {
+OverloadDemo ob =new OverloadDemo();
+int i = 88;
+ob.test ();
+ob.test(l0, 20);
+ob.test(i): // esto llama a test (double)
+ob.test(123.2); // esto llama a test (double)
+}
+}
+
+Número 3
+class Caja {
+double ancho;
+double alto;
+double largo;
+// Este es el constructor para Caja.
+Caja(double w, double h, double d) {
+ancho =w;
+alto =h;
+largo =d;
+}
+// cálculo y devolución del volumen
+double volumen() {
+return ancho * alto * largo;
+}
+}
+
+Número 4
+/* Aquí Caja define tres constructores que inicializan
+las dimensiones de la caja de varias formas.
+*/
+class Caja {
+double ancho;
+double alto;
+double largo;
+// constructor que se utiliza cuando se especifican todas las dimensiones
+Caja(double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// constructor que se utiliza cuando no se especifican dimensiones
+Caja () {
+ancho = -1; // usa -1 para indicar
+alto = -1; //  una caja que no a sido
+largo = -1; // inicializada
+}
+// constructor que se utiliza para crear un cubo
+Caja(double lado) {
+ancho = alto = largo = lado;
+}
+// calcula y devuelve el volumen
+double volumen() {
+return ancho * alto * largo;
+}
+}
+class OverloadCons {
+public static void main(String args[]) {
+// crea cajas utilizando los distintos constructores
+Caja miCaja1 = new Caja(10, 20, 15);
+Caja miCaja2 = new Caja();
+Caja miCubo = new Caja(7);
+double vol;
+// se obtiene el volumen de la primera caja
+vol = miCaja1.volumen();
+System.out.println("El volumen de miCaja1 es " + vol);
+// se obtiene el volumen de la segunda caja
+vol =miCaja2.volumen();
+System.out.println("El volumen de miCaja2 es " + vol);
+// se obtiene el volumen del cubo
+vol = miCubo.volumen();
+System.out.println("El volumen de miCubo es " + vol);
+}
+}
+
+Número 5
+// Ejemplo de paso de objetos a los métodos.
+class Test {
+int a, b;
+Test(int i, int j) {
+a = i;
+b = j;
+}
+// devuelve el valor verdadero si "o" es igual que el objeto que llama al método
+boolean equals(Test o) {
+if(o.a == a && o.b == b) return true;
+else return false;
+}
+}
+class PassOb {
+public static void main(String args[]) {
+Test ob1 =new Test(100, 22);
+Test ob2 = new Test(100, 22);
+Test ob3 = new Test(-1, -1);
+System.out.println("ob1 == ob2: " + ob1.equals(ob2));
+System.out.println("ob1 == ob3: " + ob1.equals(ob3));
+}
+}
+
+Número 6
+// Este ejemplo muestra como un objeto se utiliza para inicializar a otro.
+class Caja {
+double ancho;
+double alto;
+double largo;
+// Observe que este constructor recibe como parámetro un objeto de tipo Caja
+Caja(Caja ob) { // se pasa el objeto al constructor
+ancho = ob. ancho;
+alto = ob.alto;
+largo =ob.largo;
+}
+// constructor que se utiliza cuando se especifican todas las dimensiones
+Caja(double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// constructor que se utiliza cuando no se especifican dimensiones
+Caja () {
+ancho = -1; // usa -1 para indicar
+alto = -1; //  una caja que no a sido
+largo = -1; // inicializada
+}
+// constructor que se utiliza para crear un cubo
+Caja(double lado) {
+ancho = alto = largo = lado;
+}
+// cálculo y devolución del volumen
+double volumen() {
+return ancho * alto * largo;
+}
+}
+class OverloadCons2 {
+public static void main(String args[]) {
+// se crean cajas usando los diferentes constructores
+Caja miCaja1 = new Caja(10, 20, 15);
+Caja miCaja2 = new Caja();
+Caja miCubo = new Caja(7);
+Caja miClon = new Caja(miCaja1); // crea una copia del objeto miCaja1
+double vol;
+// se obtiene el volumen de la primera caja
+vol = miCaja1.volumen();
+System.out.println("El volumen de miCaja1 es " + vol);
+// se obtiene el volumen de la segunda caja
+vol = miCaja2.volumen();
+System.out.println("El volumen de miCaja2 es " + vol);
+/ / se obtiene el volumen del cubo
+vol =miCubo.volumen();
+System.out.println("El volumen del cubo es " + vol);
+// se obtiene el volumen del clon
+vol =miClon.volumen();
+System.out.println("El volume del clon es " + vol);
+}
+}
+
+Número 7
+// Los tipos simples se pasan por valor.
+class Test {
+void meth(int i, int j) {
+i *= 2;
+j /= 2;
+}
+}
+class LlamadaPorValor {
+public static void main(String args[]) {
+Test ob = new Test();
+int a = 15, b = 20;
+System.out.println("a y b antes de la llamada: " + a + " " + b);
+ob.meth(a, b);
+System.out.println("a y b después de la llamada: " + a + " " + b);
+}
+}
+
+ Número 8
+ // Los objetos se pasan por referencia.
+class Test {
+int a, b;
+Test(int i, int j) {
+a = i;
+b = j;
+}
+// paso del objeto
+void meth(Test o) {
+o.a *= 2;
+o.b /= 2;
+}
+}
+class LlamadaPorReferencia {
+public static void main(String args[]) {
+Test ob = new Test(15, 20);
+System.out.println("ob.a y ob.b antes de la llamada: " + ob.a + " " + ob.b);
+ob.meth(ob) ;
+System.out.println("ob.a y ob.b después de la llamada: " + ob. a + " " + ob.b);
+}
+}
+
+Número 9
+// Devolución de un objeto.
+c1ass Test {
+int a;
+Test(int i) {
+a = i;
+}
+Test increnDiez() {
+Test temp = new Test(a+10);
+return temp;
+}
+}
+c1ass RetOb {
+public static void main(String args[]) {
+Test obl = new Test(2);
+Test ob2;
+ob2 = obl. increnDiez ();
+System.out.println("obl.a: " + obl.a);
+System.out.println("ob2.a: " + ob2.a);
+ob2 = ob2.increnDiez();
+System.out.println("ob2.a después del segundo incremento: " + ob2.a);
+}
+}
+
+Número 10
+// Un ejemplo sencillo de recursividad.
+class Factorial {
+// este es el método recursivo
+int fact(int n) {
+int result;
+if(n==1) return 1;
+result = fact(n-1) * n;
+return result;
+}
+}
+class Recursividad {
+public static void main(String args[]) {
+Factorial f = new Factorial();
+System.out.println("Factorial de 3 es " + f.fact(3));
+System.out.println("Factorial de 4 es " + f.fact(4));
+System.out.println("Factorial de 5 es " + f.fact(5));
+}
+}
+
+Número 11
+// Otro ejemplo que utiliza la recursividad.
+class RecTest {
+int values [];
+RecTest(int i) {
+values = new int[i];
+}
+// muestra los valores del arreglo - recursivamente
+void printArray(int i) {
+if(i==0) return;
+else printArray(i-l);
+System.out.println("[" + (i-l) + "] " + values[i-l]);
+}
+}
+class Recursividad2 {
+public static void main(String args[]) {
+RecTest ob = new RecTest(l0) ;
+int i;
+for(i=0; i<l0; i++) ob.values[i] =i;
+ob.printArray(l0);
+}
+}
+
+Número 12
+/* Este programa muestra la diferencia entre acceso público y privado.
+*/
+class Test {
+int a; // acceso por omisión
+public int b; // acceso público
+private int c; // acceso privado
+/ / métodos para acceder a c
+void setc(int i) { // establece el valor de c
+c =i;
+}
+int getc() { // se obtiene el valor de c
+return c;
+}
+}
+class TestAcceso {
+public static void main(String args[]) {
+Test ob = new Test();
+// Esto es correcto y se puede acceder directamente a a y b
+ob.a =10;
+ob.b =20;
+// Esto no es correcto y causará un error
+// ob.c = 100; // error
+// Se debe acceder a c a través de sus métodos
+ob.setc(100); // correcto
+System.out.println("a, b y c: " + ob.a + " " + ob.b + " " + ob.getc());
+}
+}
+
+Número 13
+// Esta clase define una pila de enteros que puede contener 10 valores.
+class Stack {
+/* Ahora, las variables stck y tos son privadas. 
+Esto significa que no pueden ser modificadas de forma accidental o intencionada, 
+con lo que evitamos resultados perjudiciales para la pila.
+*/
+private int stck[] = new int[l0];
+private int tos;
+// Inicialización de la posición superior de la pila
+Stack () {
+tos =-1;
+}
+// Se introduce un dato en la pila
+void push (int item) {
+if(tos==9)
+System.out.println("La pila está llena.");
+else
+stck[++tos] = item;
+}
+// Se retira un dato de la pila
+int pop() {
+if(tos < 0) {
+System.out.println("La pila está agotada.");
+return 0;
+}
+else
+return stck[tos-];
+}
+}
+
+Número 14
+class TestStack {
+public static void main(String args[]) {
+Stack miPila1 = new Stack();
+Stack mipila2 = new Stack();
+// se introducen algunos números en la pila
+for(int i=0; i<l0; i++) miPila1.push(i);
+for(int i=l0; i<20; i++) miPila2.push(i);
+// se recuperan números de la pila
+System.out.println("Contenido de miPila1:");
+for(int i=0; i<l0; i++)
+System.out.println(miPila1.pop());
+System.out.println("Contenido de miPila2:"):
+for(int i=0; i<l0;i++)
+System.out.println(miPila2.pop()):
+// estas sentencias no son válidas
+// miPilal.tos = -2:
+// miPila2.stck[3] = 100:
+}
+}
+
+Número 15
+// Ejemplo de variables, métodos y bloques static.
+class UsoStatic {
+static int a = 3;
+static int b;
+static void metodo(int x) {
+System.out.println("x = " + x);
+System.out.println("a = " + a);
+System.out.println("b = " + b);
+}
+static {
+System.out.println("Inicialización del bloque static.");
+b = a * 4;
+}
+public static void main(String args[]) {
+metodo (42) ;
+}
+}
+
+Número 16
+class StaticDemo {
+static int a = 42;
+static int b = 99;
+static void llamame() {
+System.out.println("a = " + a);
+}
+}
+class StaticporNombre {
+public static void main(String args[]) {
+StaticDemo.llamame();
+System.out.println("b = " + StaticDemo.b);
+}
+}
+
+Número 17
+final int NUEVO_ARCHIVO = 1;
+final int ABRIR_ARCHIVO = 2;
+final int GUARDAR_ARCHIVO = 3;
+final int GUARDAR_ARCHIVO_COMO = 4;
+final int ABANDONAR_ARCHIVO = 5;
+
+Número 18
+// Este programa muestra como conocer el tamaño de un arreglo utilizando la variable length
+c1ass Length {
+public static void main(String args[]) {
+int al[] = new int[l0];
+int a2[] = {3, 5, 7, 1, 8, 99, 44, -l0};
+int a3 [] = {4, 3, 2, l};
+System.out.println("La longitud de al es " + al.length);
+System.out.println("La longitud de a2 es " + a2.length);
+System.out.println("La longitud de a3 es " + a3.length);
+}
+}
+
+Número 19
+// Versión mejorada de la clase Stack que valida la longitud del arreglo 
+c1ass Stack {
+private int stck[];
+private int tos;
+// asignación de memoria e inicialización de la pila
+Stack(int tamaño) {
+stck = new int[tamaño];
+tos= -1;
+}
+// Introduce un dato en la pila
+void push(int item) {
+if(tos==stck.length-1) // aquí se utiliza la variable length del arreglo
+System.out.print1n("La pila está llena");
+else
+stck[++tos] = item;
+}
+// Retira un dato de la pila
+int pop () {
+if (tos < 0) {
+System.out.println("La pila está vacía.") ;
+return 0;
+}
+else
+return stck[tos-];
+}
+}
+class TestStack2 {
+public static void main(String args[]) {
+Stack miPila1 = new Stack(5);
+Stack miPi1a2 = new Stack(8);
+// Introduce algunos números en la pila
+for(int i=0; i<5; i++) miPila1.push(i);
+for(int i=0; i<8; i++) miPila2.push(i);
+// Retira esos números de la pila
+System.out.print1n("Contenido de miPi1a1:");
+for(int i=0; i<5; i++)
+System.out.println(miPila1.pop());
+System.out.println("Contenido de miPila2:");
+for(int i=0; i<8; i++)
+System.out.println(miPila2.pop());
+}
+}
+
+Número 20
+// Ejemplo de una clase interior.
+class Exterior {
+int x_exterior = 100;
+void test() {
+Interior interior = new Interior();
+interior.display();
+}
+// ésta es una clase interior
+class Interior {
+void display() {
+System.out.println("imprime: x_exterior = " + x_exterior);
+}
+}
+}
+class ClaselnteriorDemo {
+public static void main(String args[]) {
+Exterior exterior = new Exterior();
+exterior.test () ;
+}
+}
+
+Número 21
+// Este programa no se compilará.
+class Exterior {
+int x_exterior = 100;
+void test() { 
+Interior interior = new Interior();
+interior.display();
+}
+// Esta es una clase interior
+class Interior {
+int y = l0; // y es local para Interior
+void display() {
+System.out.println("presenta: x_exterior = " + x_exterior);
+}
+}
+void muestray () {
+System.out.println(y); // error, y es desconocido aquí!
+}
+}
+class ClaseInteriorDemo {
+public static void main(String args[]) {
+Exterior exterior = new Exterior();
+exterior. test ();
+}
+}
+
+Número 22
+// Definición de una clase interior dentro de un bucle for
+class Exterior {
+int x_exterior = 100;
+void test() {
+for(int i=0; i<10; i++) {
+class Interior {
+void display() {
+System.out.println("muestra: x_exterior = " + x_exterior);
+}
+}
+Interior interior = new Interior();
+interior.display();
+}
+}
+}
+class ClaseInteriorDemo {
+public static void main(String args[]) {
+Exterior exterior =new Exterior();
+exterior. test ( ) ;
+}
+}
+
+Número 23
+// Ejemplo de cadenas de caracteres.
+class StringDemo {
+public static void main(String args[]) {
+String strObl = "Primera cadena";
+String strOb2 = "Segunda cadena";
+String strOb3 = strObl + " y " + strOb2;
+System.out.println(strObl);
+System.out.println(strOb2) ;
+System.out.println(strOb3);
+}
+}
+
+Número 24
+/ / Ejemplo de algunos métodos de String
+class StringDemo2 {
+public static void main(String args[]) {
+String strObl="Primera cadena";
+String strOb2 ="Segunda cadena";
+String strOb3 =strObl;
+System.out.println("Longitud de strObl:" + strObl.length());
+System.out.println("El carácter en la posición 3 de strObl: " + strObl.charAt(3));
+if(strObl.equals(strOb2))
+System.out.println("strObl == strOb2");
+else
+System.out.println("strObl != strOb2");
+if(strObl.equals(strOb3))
+System.out.println("strObl == strOb3");
+else
+System.out.println("strObl != strOb3");
+}
+}
+
+Número 25
+// Ejemplo de arreglos de cadenas de caracteres.
+class StringDemo3 {
+public static void main(String args[]) {
+String str [] ={ "uno", "dos", "tres" };
+for(int i=0; i < str.length; i++)
+System.out.println("str[" + i + "]: " + str[i] ) ;
+}
+}
+
+Número 26
+// Este ejemplo despliega los argumentos que recibe desde la línea de órdenes.
+class LineaDeOrdenes {
+public static void main(String args[]) {
+for(int i=0; i<args.length; i++)
+System.out.println("args[" + i + "]: " + args[i]);
+}
+}
+
+Número 27
+// Uso de un arreglo para pasar un numero variable de argumentos
+// a un método. Este es el estilo antiguo de resolver el problema
+// de argumentos de tamaño variable
+class PassArray {
+static void vaPrueba(int v[]) {
+System.out.print("Número de argumentos: "+ v.length  + "Contenido: ");
+for (int x : v)
+System.out.print(x + " ");
+System.out.println();
+}
+public static void main(String args[])
+{
+// Observe como un arreglo de ser creado para 
+// almacenar los argumentos
+int n1[] = { 10 };
+int n2 [] = { 1, 2, 3 };
+int n3 [] = { };
+vaPrueba(n1); // 1 argumento
+vaPrueba (n2); // 3 argumentos
+vaPrueba (n3); // sin argumentos
+}
+}
+
+Número 28
+// Ejemplo de argumentos de tamaño variable
+class VarArgs {
+// vaPrueba() ahora utilizando vararg
+static void vaPrueba(int ... v) {
+System.out.print("Número de argumentos: " + v.length + " Contenido: ");
+for (int x : v)
+System.out.print(x + " ");
+System.out.println() ;
+}
+public static void main(String args[])
+{
+// Observe como vaPrueba() puede ser llamado con
+// un número variable de argumentos
+vaTest(l0); // 1 argumento
+vaTest(l, 2, 3); // 3 argumentos
+vaTest(); // sin argumentos
+}
+}
+
+Número 29
+// Uso de varargs y argumentos estándares en el mismo metodo
+class VarArgs2 {
+// msg es un parámetro normal y v es un
+// parámetro varargs
+static void vaPrueba(String msg, int ... v) {
+System.out.print(msg + v.length + " Contenido: ");
+for(int x : v)
+System.out.print(x+ " ");
+System.out.println();
+}
+public static void main(String args[])
+{
+vaPrueba ("Un varargs: ", 10);
+vaPrueba("Tres varargs: ", 1, 2, 3);
+vaPrueba ("Sin varargs: ");
+}
+}
+
+Número 30
+// varargs y sobrecarga
+class VarArgs3 {
+static void vaPrueba(int ... v) {
+System.out.print ("vaPrueba (int ...): " + 
+"Número de argumentos: " + v.length +
+" Contenido: ");
+for (int x : v)
+System.out.print(x + " ");
+System.out.println();
+}
+static void vaPrueba(boolean ... v) {
+System.out.print ("vaPrueba (boolean ...) " +
+"Número de argumentos: " + v.length +
+" Contenido: ");
+for(boolean x : v)
+System.out.print(x + " ");
+System.out.println();
+}
+static void vaPrueba(String msg, int ... v) {
+System.out.print ("vaPrueba (String, int …): "+
+msg + v.length +
+" Contenido: ");
+for(boolean x : v)
+System.out.print(x + " ");
+System.out.println() ;
+}
+public static void main(String args[])
+{
+vaPrueba(l, 2, 3);
+vaPrueba("Probando: ", 10, 20);
+vaPrueba(true, false, false);
+}
+}
+
+Número 31
+// varargs, sobrecarga, y ambigüedad
+//
+// Este programa contiene un error y
+// no compilara
+class VarArgs4 {
+static void vaPrueba(int ... v) {
+System.out.print("vaPrueba(int ...): " +
+"Número de argumentos: " + v.length +
+" Contenido: ");
+for (int x : v)
+System.out.print(x + " ");
+System.out.println() ;
+}
+static void vaPrueba(boolean ... v) {
+System.out.print("vaPrueba(boolean ...) " +
+"Número de argumentos: " + v.length +
+" Contenido: ");
+for (int x : v)
+System.out.print(x + " ");
+System.out.println() ;
+}
+public static void main(String args[]){
+vaPrueba(l, 2, 3); // correcto
+vaPrueba(true, false, false); // correcto
+vaPrueba(); // esto genera un error de ambigüedad
+}
+}

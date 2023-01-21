@@ -1,0 +1,499 @@
+Número 1
+// Ejemplo de sentencias if-e1se-if.
+c1ass IfElse {
+pub1ic static void main (String args[]) {
+int mes = 4;  // Abril
+String estacion;
+if (mes == 12 || mes == 1 || mes == 2)
+estacion = "Invierno";
+e1se if (mes == 3 || mes == 4 || mes == 5)
+estacion = "Primavera";
+e1se if (mes == 6 || mes == 7 || mes == 8)
+estacion = "Verano.;
+e1se if (mes == 9 || mes == 10 || mes == 11)
+estacion = "Otoño.;
+else
+estacion = "Mes desconocido";
+System.out.println ("Abril está en " + estación + ".");
+}
+}
+
+Número 2
+// Un ejemplo sencillo de switch.
+class EjemploSwitch {
+public static void main (String args[]) {
+for (int i=0; i<6; i++)
+switch (i) {
+case 0:
+System.out.println ("i es cero.");
+break;
+case 1:
+System.out.println ("i es uno.");
+break;
+case 2:
+System.out.println ("i es dos.");
+break;
+case 3:
+System.out.println ("i es tres");
+break;
+default:
+System.out.println ("i es mayor que 3.");
+}
+}
+}
+
+Número 3
+// En un switch, las sentencias break son opcionales.
+class BreakAusente {
+public static void main (String args[]) {
+for (int i=0; i<12; i++)
+switch (i) {
+case 0:
+case 1:
+case 2:
+case 3:
+case 4:
+System.out.println ("i es menor que 5");
+break;
+case 5:
+case 6:
+case 7:
+case 8:
+case 9:
+System.out.println ("i es menor que 10");
+break;
+default:
+System.out.println ("i es 10 o mayor");
+}
+}
+}
+
+Número 4
+// Una versión mejorada del programa de las estaciones.
+class Switch {
+public static void main (String args[]) {
+int mes = 4;
+String estacion;
+switch (mes) {
+case 12:
+case 1:
+case 2:
+estacion = "Invierno";
+break;
+case 3:
+case 4:
+case 5:
+estacion = "Primavera";
+break;
+case 6:
+case 7:
+case 8:
+estacion = "Verano";
+break;
+case 9:
+case 10:
+case 11:
+estacion = "Otoño";
+break;
+default:
+estacion = "Mes desconocido";
+}
+System.out.println ("Abri1 está en " + estacion + ".");
+}
+}
+
+Número 5
+// Ejemplo de un ciclo while.
+c1ass While {
+public static void main (String args[]) {
+int n = 10;
+while (n > 0) {
+System.out.println ("tick " + n);
+n--;
+}
+}
+}
+
+Número 6
+// El cuerpo de un ciclo puede estar vacío.
+class SinCuerpo {
+public static void main (String args[]) {
+int i, j;
+i = 100;
+j = 200;
+// Para localizar el punto medio entre i y j
+while (++i < --j); // no existe el cuerpo en este ciclo
+System.out.println ("El punto medio es " + i);
+}
+}
+
+Número 7
+// Ejemplo del ciclo do-while.
+c1ass DoWhile {
+public static void main (String args[]) {
+int n = 10;
+do {
+System.out.println ("tick " + n);
+n--;
+} while (n > 0);
+}
+}
+
+Número 8
+// Uso de un ciclo do-while para procesar un menú de selección
+c1ass Menu {
+public static void main (String args[]) throws java.io.IOException {
+char eleccion;
+do {
+System.out.println ("Ayuda para:");
+System.out.println (" 1. if");
+System.out.println (" 2. switch");
+System.out.println (" 3. while");
+System.out.println (" 4. do-while");
+System.out.println (" 5. for\n");
+System.out.println ("Elige una opción:");
+eleccion = (char) System.in.read();
+} while (eleccion < '1' || eleccion > '5');
+System.out.println ("\n");
+switch (eleccion) {
+case '1':
+System.out.println ("La sentencia if:\n");
+System.out.println ("if (condición) sentencia;");
+System.out.println ("else sentencia;");
+break;
+case '2':
+System.out.println ("La sentencia switch:\n");
+System.out.println ("switch (expresion) {");
+System.out.println (" case constante:");
+System.out.println (" conjunto de sentencias");
+System.out.println (" break;");
+System.out.println (" // ...");
+System.out.println ("}");
+break;
+case '3':
+System.out.println ("La sentencia while:\n");
+System.out.println ("while (condición) sentencia;");
+break;
+case '4':
+System.out.println ("La sentencia do-while:\n");
+System.out.println ("do {");
+System.out.println ("sentencia;");
+System.out.println ("} while (condición);");
+break;
+case '5':
+System.out.println ("La sentencia for:\n");
+System.out.print ("for (inicialización; condición; iteración)");
+System.out.println (" sentencia;");
+break;
+}
+}
+}
+
+Número 9
+// Ejemplo del ciclo for
+class ForTick {
+public static void main (String args[]) {
+int n;
+for (n=l0; n>0; n--)
+System.out.println ("tick " + n);
+}
+}
+
+Número 10
+// Declaración de la variable de control del ciclo dentro del for
+class ForTick {
+public static void main (String args[]) {
+// aquí se declara n dentro del ciclo for
+for (int n=l0; n>0; n--)
+System.out.println ("tick " + n);
+}
+}
+
+Número 11
+// Prueba de números primos 
+class NumeroPrimo {
+public static void main (String args[]) {
+int num;
+boolean esPrimo = true;
+num = 14;
+for (int i=2; i <= num/i; i++) {
+if ((num % i) == 0) {
+esPrimo = false;
+break;
+}
+}
+if (esPrimo) System.out.println ("El número es primo");
+else System.out.println ("El número no es primo");
+}
+}
+
+Número 12
+class Ejemplo {
+public static void main (String args[]) {
+int a, b;
+b = 4; 
+for (a=l; a<b; a++) {
+System.out.println ("a = " + a);
+System.out.println ("b = " + b);
+b--;
+}
+}
+}
+
+Número 13
+/ / Utilización de la coma.
+class Coma {
+public static void main (String args[]) {
+int a, b;
+for (a=l, b=4; a<b; a++, b--) {
+System.out.println ("a = " + a);
+System.out.println ("b = " + b);
+}
+}
+}
+
+Número 14
+// Algunas partes del ciclo for pueden estar vacías.
+c1ass ForVar {
+public static void main (String args[]) {
+int i;
+boolean done = false;
+i = 0;
+for ( ; !done; ) { .
+System.out.println ("i es " + i);
+if (i == 10) done = true;
+i++;
+}
+}
+}
+
+Número 15
+// Ejemplo del ciclo estilo for-each.
+class ForEach {
+public static void main(String args[]) {
+int nums[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+int sum = 0;
+// Uso del ciclo estilo for-each para mostrar y sumar valores
+for(int x : nums) {
+System.out.println("El valor es: " + x);
+sum += x;
+}
+System.out.println("La suma de los valores es: " + sum);
+}
+}
+
+Número 16
+// Utilizando break dentro de un ciclo estilo for-each
+class ForEach2 {
+public static void main(String args[]) {
+int sum = 0;
+int nums[] = { 1,2,3,4,5,6,7,8,9,10 };
+// Se utiliza el ciclo estilo for-each para mostrar y sumar los valores
+for(int x : nums) {
+System.out.println ("El valor es: " + x);
+sum += x;
+if(x == 5) break; // detener el ciclo en el quinto elemento del arreglo
+}
+System.out.println("La suma de los cinco primeros valores es: " + sum);
+}
+}
+
+Número 17
+// La variable de iteración el ciclo for-each es esencialmente de sólo lectura.
+class SinCambios {
+public static void main(String args[]) {
+int nums [] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+for(int x : nums) {
+System.out.print(x + " ");
+x = x * 10; // no tiene efecto en la suma
+System.out.println() ;
+for(int x : nums)
+System.out.print(x + " ");
+System.out.println() ;
+}
+}
+}
+
+Número 18
+// Utilizando un ciclo estilo for-each con un arreglo bidimensional
+class ForEach3 {
+public static void main(String args[]) {
+int sum = 0; 
+int nums [] [] = new int [3] [5] ;
+// Introduce algunos valores en el arreglo nums
+for(int i = 0; i < 3; i++)
+for(int j=0; j < 5; j++)
+nums[i] [j] = (i+1)*(j+1);
+// uso del ciclo estilo for-each para mostrar en pantalla la suma de los valores
+for(int x[] : nums) {
+for(int y : x) {
+System.out.println("El valor es: " + y);
+sum += y;
+}
+}
+System.out.println("El suma de los valores es: " + y);
+}
+}
+
+Número 19
+// Ejemplo de búsqueda en un arreglo utilizando un ciclo estilo for-each
+class Search {
+public static void main(String args[]) { 
+int nums[] = { 6, 8, 3, 7, 5, 6, 1, 4 };
+int val = 5;
+boolean found = false;
+// Utiliza el ciclo estilo for-each para buscar val en el arreglo nums.
+for(int x : nums) {
+if (x == val) {
+found = true;
+break;
+}
+}
+if (found)
+System.out.println("Valor encontrado");
+}
+}
+
+Número 20
+// Ejemplo de ciclos anidados.
+class Anidados {
+public static void main (String args[]) {
+int i. j;
+for(i=0; i<l0; i++) {
+for(j=i; j<l0; j++)
+System.out.print (".");
+System.out.println ();
+}
+}
+}
+
+Número 21
+// Uso de break para salir de un ciclo.
+class BreakLoop {
+public static void main (String args[]) {
+for (int i=0; i<100; i++) {
+if (i == 10) break; // el ciclo finaliza si i es igual a 10
+System.out.println ("i: " + i);
+}
+System.out.println ("Ciclo completado.");
+}
+}
+
+Número 22
+// Uso de break para salir de un ciclo while.
+class BreakLoop2 {
+public static void main (String args[]) {
+int i =0;
+while (i < 100) {
+if (i == 10) break; // El ciclo se termina si i es igual a 10
+System.out.println ("i: " + i);
+i++;
+}
+System.out.println ("Ciclo completado.");
+}
+}
+
+Número 23
+// Uso del break con ciclos anidados.
+class BreakLoop3 {
+public static void main (String args[]) {
+for (int i=0; i<3; i++) {
+System.out.print ("Paso " + i + ": ");
+for (int j=0; j<l00; j++) {
+if (j == 10) break; // el ciclo finaliza si i es igual a 10
+System.out.print (j + " ");
+}
+System.out.println ();
+}
+System.out.println ("Ciclo completado.");
+}
+}
+
+Número 24
+// Uso de la sentencia break como forma civilizada de goto.
+class Break {
+public static void main (String args[]) {
+boolean t = true;
+primero: {
+segundo: {
+tercero: {
+System.out.println ("Antes del break.");
+if (t) break segundo; // sale fuera del bloque "segundo"
+System.out.println ("Esto no se ejecutará");
+}
+System.out.println ("Esto no se ejecutará ");
+}
+System.out.println("Esto va después del segundo bloque.");
+}
+}
+}
+
+Número 25
+// Uso de la sentencia break para salir de ciclos anidados.
+class BreakLoop4 {
+public static void main (String args[]) {
+exterior: for(int i=0; i<3; i++) {
+System.out.print ("Paso " + i + ": ");
+for (int j=0; j<100; j++) {
+if (j == 10) break exterior; // sale de ambos ciclos
+System.out.print (j + " ");
+}
+System.out.println ("Esto no se imprimirá");
+}
+System.out.println ("Ciclos completados.");
+}
+}
+
+Número 26
+// Este programa contiene un error.
+class BreakError {
+public static void main(String args[]) {
+uno: for (int i=0; i<3; i++) {
+System.out.print ("Paso " + i + ":" );
+}
+for (int j=0; j<l00; j++) {
+If (j == 10) break uno; // ERROR
+System.out.print (j + " ");
+}
+}
+}
+
+Número 27
+// Ejemplo de la sentencia continue.
+class Continue {
+public static void main (String args[]) {
+for(int i=0; i<l0; i++) {
+System.out.print (i + " ");
+if (i%2 == 0) continue;
+System.out.println ("");
+}
+}
+}
+
+Número 28
+// Utilización de la sentencia continue con una etiqueta.
+class ContinueLabel {
+public static void main(String args[]) {
+exterior: for (int i=0; i<l0; i++) {
+for (int j=0; j<10; j++) {
+if (j > i) {
+System.out.println ();
+continue exterior;
+}
+System.out.print (" " + (i * j));
+}
+}
+System.out.println ();
+}
+}
+
+Número 29
+// Ejemplo de la sentencia return.
+class Return {
+public static void main (String args[]) {
+boolean t =true;
+System.out.println ("Antes de return.");
+If (t) return; // vuelve al método llamante
+System.out.println ("Esto no se ejecutará.");
+}
+}

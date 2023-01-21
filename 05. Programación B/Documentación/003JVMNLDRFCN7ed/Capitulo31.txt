@@ -1,0 +1,208 @@
+Número 1
+import java.io.*;
+import javax.servlet.*;
+public class HelloServlet extends GenericServlet {
+public void service(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.print("<B>Hola");
+pw.close( );
+}
+}
+
+Número 2
+<html>
+<body>
+<center>
+<form name="Form1"
+method="post"
+action = "http://localhost:8080/servlets-examples/servlet/PostParametersServlet">
+<table>
+<tr>
+<td><B>Empleado</td>
+<td><input type=textbox name="e" size="25" value=""></td>
+</tr>
+<tr>
+<td><B>Tel&eacute;fono</td>
+<td><input type=textbox name="p" size="25" value=""></td>
+</tr>
+</table>
+</center>
+<input type=submit value="Submit">
+</body>
+</html>
+
+Número 3
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+public class PostParametersServlet extends GenericServlet {
+public void service(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+// obtener el flujo de salida
+PrintWriter pw = response.getWriter( );
+// obtener la enumeración de parámetros
+Enumeration e = request.getParameterNames( );
+// visualizar nombres y valores de los parámetros
+while (e.hasMoreElements( )) {
+String pname = (String) e.nextElement( );
+pw.print(pname + " = ");
+String pvalue = (String) request.getParameter(pname);
+pw.println(pvalue);
+}
+pw.close( );
+}
+}
+
+Número 4
+<html>
+<body>
+<center>
+<form name="Form1"
+action = "http://localhost:8080/servlets-examples/servlet/ColorGetServlet">
+<B>Color:</B>
+<select name="color" size="1">
+<option value="Rojo">Rojo</option>
+<option value="Verde">Verde</option>
+<option value="Azul">Azul</option>
+</select>
+<br><br>
+<input type=submit value="Enviar">
+</form>
+</body>
+</html>
+
+Número 5
+import java.io.*;
+import java.servlet.*;
+import javax.servlet.http.*;
+public class ColorGetServlet extends HttpServlet {
+public void doGet(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+String color = request.getParameter("color");
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.println( "<B>El color seleccionado fue: ");
+pw.println(color);
+pw.close( );
+}
+}
+
+Número 6
+<html>
+<body>
+<center>
+<form name="Form1"
+method="post"
+action = "http://localhost:8080/servlets-examples/servlet/ColorPostServlet">
+<B>Color:</B>
+<select name="color" size="1">
+<option value="Rojo">Rojo</option>
+<option value="Verde">Verde</option>
+<option value="Azul">Azul</option>
+</select>
+<br><br>
+<input type=submit value="Enviar">
+</form>
+</body>
+</html>
+
+Número 7
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class ColorPostServlet extends HttpServlet {
+public void doPost(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+String color = request.getParameter("color");
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.println( "<B>El color seleccionado fue: ");
+pw.println(color);
+pw.close( );
+}
+}
+
+Número 8
+<html>
+<body>
+<center>
+<form name="Form1"
+method="post"
+action = "http://localhost:8080/servlets-examples/servlet/AddCookieServlet">
+<B>Escriba el valor a almacenar en MiCookie:</B>
+<input type=textbox name="data" size=25 value="">
+<input type=submit value="Enviar">
+</form>
+</body>
+</html>
+
+Número 9
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class AddCookieServlet extends HttpServlet {
+public void doPost(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+// obtiene el parámetro de la petición HTTP
+String data = request.getParameter("data");
+// crea la cookie
+Cookie cookie = new Cookie("MiCookie", data);
+// añade la cookie al encabezado de la respuesta HTTP
+response.addCookie(cookie);
+// escribe la salida al navegador
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.println( "<B>El valor: " + data + "ha sido asignado a MiCookie");
+pw.close( );
+}
+}
+
+Número 10
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class GetCookiesServlet extends HttpServlet {
+public void doGet(ServletRequest request, ServletResponse response)
+throws ServletException, IOException {
+// obtiene las cookies presentes en el encabezado de la petición http
+Cookie[] cookies = request.getCookies( );
+// muestra las cookies
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.println("<B>");
+for (int i = 0; i < cookies.length; i++) {
+String name = cookies[i].getName( );
+String value = cookies[i].getValue( );
+pw.println( "nombre: " + name + "; valor = " + value);
+}
+pw.close( );
+}
+}
+
+Número 11
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class DateServlet extends HttpServlet {
+public void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+// Obtiene la sesión
+HttpSession hs = request.getSession(true);
+// Obtiene al flujo de salida
+response.setContentType("text/html");
+PrintWriter pw = response.getWriter( );
+pw.print("<B>");
+// Muestra la fecha y hora del último acceso
+Date date = (Date)hs.getAttribute("date");
+if (date != null) {
+pw.print("Último acceso: " + date + "<BR>");
+}
+// Muestra la hora y fecha actual
+date = new Date( );
+hs.setAttribute("date", date);
+pw.println("Fecha actual:" + date);
+}
+}

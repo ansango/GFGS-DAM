@@ -1,0 +1,185 @@
+Número 1
+// Ejemplo con InetAddress.
+import java.net.*;
+class InetAddressTest
+{
+public static void main (String args[]) throws UnknownHostException {
+InetAddress Address = InetAddress.getLocalHost();
+System.out.println(Address);
+Address = InetAddress.getByName ("osborne.com");
+System.out.println(Address);
+InetAddress SW [] = InetAddress.getAllByName ("www.nba.com");
+for (int i=0; i<SW.length; i++)
+System.out.println(SW[i]);
+}
+}
+
+Número 2
+//Ejemplo con Sockets.
+import java.net.*;
+import java.io.*;
+class Whois {
+public static void main (String args []) throws Exception {
+int c;
+// Crea un socket y lo conecta a internic.net, puerto 43
+Socket s = new Socket("internic.net", 43);
+// Obtiene flujos de entrada y salida
+InputStream in = s.getInputStream();
+OutputStream out = s.getOutputStream();
+// Construye una cadena para la solicitud
+String str = (args.length == 0 ? "osbome.com" : args[0]) + "\n";
+// Convierte a bytes
+byte buf[] = str.getBytes();
+// Envía la solicitud
+out.write(buf);
+// Lee y muestra la respuesta
+while ((c = in.read () ) != -1) {
+System.out.print((char) c);
+}
+s.close ();
+}
+}
+
+Número 3
+// Ejemplo de URL.
+import java.net.*;
+class URLDemo {
+public static void main(String args[]) throws MalformedURLException {
+URL hp = new URL("http://www.osbome.com/download");
+System.out.println( "Protocolo: " + hp.getProtocol ()) ;
+System.out.println("Puerto: " + hp.getport());
+System.out.println("Nodo: " + hp.getHost());
+System.out.println("Archivo: " + hp.getFile());
+System.out.println("Extensión: " + hp.toExtemalForm());
+}
+}
+
+Número 4
+// Ejemplo de URLConnection.
+import java.net.*;
+import java.io.*;
+import java.util.Date;
+class UCDemo
+{
+public static void main(String args[]) throws Exception {
+int c;
+URL hp = new URL ("http://www.internic.net");
+URLConnection hpCon =hp.openConnection();
+// Obtiene fecha
+long d = hpCon.getDate();
+if (d == 0)
+System.out.println ("No hay información de la fecha ");
+else
+System.out.println ("Fecha: " + new Date(d));
+// Obtiene tipo de contenido
+System.out.println ("Tipo del contenido: " + hpCon.getContentType());
+// Obtiene fecha de expiración
+d = hpCon.getExpiration();
+if (d == 0)
+System.out.println ("No hay información de expiración disponible");
+else
+System.out.println ("Expira: " + new Date(d));
+//Obtiene la fecha de última modificación
+d = hpCon.getLastModified();
+if (d == 0)
+System.out.println ("No hay información de última modificación disponible");
+else
+System.out.println ("Última modificación: " + new Date(d));
+//Obtiene el tamaño del contenido
+int len = hpCon.getContentLength();
+if (len == -1)
+System.out.println("Longitud del contenido no disponible");
+else
+System.out.println("Longitud del contenido: " + len);
+if (len != 0) {
+System.out.println("= = = Contenido = = =");
+InputStream input = hpCon.getInputStream();
+int i = len;
+while (((c = input.read()) != -1)) { //&& (--i > 0)) {
+System.out.print ((char) c);
+}
+input.close ();
+}else {
+System.out.println ("No hay contenido disponible");
+}
+}
+}
+
+Número 5
+// Ejemplo de HttpURLConnection.
+import java.net.*;
+import java.io.*;
+import java.util.*;
+class HttpURLDemo
+{
+public static void main(String args[]) throws Exception {
+URL hp = new URL("http://www.google.com");
+HttpURLConnection hpCon = (HttpURLConnection) hp.openConnection();
+// Muestra el método solicitante
+System.out.println("El método solicitante es: " + 
+hpCon.getRequestMethod());
+// Muestra el código de respuesta
+System.out.println("El código de respuesta es: " + 
+hpCon.getResponseCode()) ;
+// Muestra el mensaje de respuesta.
+System.out.println("El mensaje de respuesta es: "+ 
+hpCon.getResponseMessage()) ;
+// Obtiene una lista de encabezados y 
+// fija los encabezados clave
+Map<String, List<String>> hdrMap = hpCon.getHeaderFields();
+Set<String> hdrField = hdrMap.keySet();
+System.out.println("\n Aquí está el encabezado:");
+// Muestra todos los encabezados clave y sus valores.
+for(String k : hdrField) {
+System.out.println ("Clave: " + k + 
+"Valor: " + hdrMap.get (k));
+}
+}
+}
+
+Número 6
+// Ejemplo de los datagramas.
+import java.net.*;
+class WriteServer {
+public static int serverPort = 998;
+public static int clientPort = 999;
+public static int buffer_size =1024;
+public static DatagramSocket ds;
+public static byte buffer[] =new byte[buffer_size];
+public static void TheServer() throws Exception {
+int pos=0;
+while (true) {
+int c = System.in.read();
+switch (c) {
+case -1:
+System.out.println("El servidor termina.");
+return;
+case '\r':
+break;
+case '\n':
+ds.send(new.DatagramPacket(buffer, pos, 
+InetAddress.getLocalHost(),clientPort));
+pos=0;
+break;
+default:
+buffer [pos++] = (byte) c;
+}
+}
+}
+public static void TheClient() throws Exception {
+while (true) {
+DatagramPacket p = new DatagramPacket(buffer, buffer.length);
+ds.receive(p);
+System.out.println(new String(p.getData(), 0, p.getLength()));
+}
+}
+public static void main(String args[]) throws Exception {
+if (args.length = = 1) {
+ds = new DatagramSocket(serverPort);
+TheServer();
+}else {
+ds = new DatagramSocket(clientPort);
+TheClient() ;
+}
+}
+}

@@ -1,0 +1,370 @@
+Número 1
+class DoubleDemo {
+public static void main(String args[]) {
+Double d1 = new Double(3.14159);
+Double d2 =new Double("314159E-5");
+System.out.println(dl + " = " + d2 + " -> " + dl.equals(d2));
+}
+}
+
+Número 2
+// Ejemplo con isInfinite() e isNaN()
+class InfNaN {
+public static void main(String args[]) {
+Double d1 = new Double(1/0.);
+Double d2 = new Double(0/0.);
+System.out.println(dl + ": " + dl.isInfinite() + ", " + dl.isNaN());
+System.out.println(d2 + ": " + d2.islnfinite() + ", " + d2.isNaN());
+}
+}
+
+Número 3
+/* Este programa suma una lista de números introducidos
+por el usuario. Convierte la representación como cadena
+de cada número en un entero utilizando el método parseInt().
+*/
+import java.io.*;
+class ParseDemo {
+public static void main(String args[]) throws IOException {
+// crear un BufferedReader utilizando System.in
+BufferedReader br = new BufferedReader(new InputStrearnReader(System.in));
+String str;
+int i;
+int sum=0;
+System.out.println("Introduzca números y 0 para salir.");
+do {
+str = br.readLine( );
+try {
+i = Integer.parseInt(str);
+} catch (NumberFormatException e) {
+System.out.println("Formato no válido");
+i = 0;
+}
+sum += i;
+System.out.println("La suma actual es: " + sum);
+} while(i != 0);
+}
+}
+
+Número 4
+/* Convertir un entero en binario, hexadecimal
+y octal.
+*/
+class StringConversions {
+public static void main(String args[]) {
+int num = 19648;
+System.out.println(num + " en binario: " + Integer.toBinaryString(num));
+System.out.println(num + " en octal: " + Integer.toOctalString(num));
+System.out.println(num + " en hexadecimal: " + Integer.toHexString(num));
+}
+}
+
+Número 5
+// Ejemplo con varios métodos Is...
+class IsDemo {
+public static void main(String args[]) {
+char a[] = {'a' , 'b' , '5' , '?', 'A', ' '};
+for(int i=0; i<a.length; i++) {
+if(Character.isDigit(a[i]))
+System.out.println(a[i] + " es un dígito.");
+if(Character.isLetter(a[i]))
+System.out.println(a[i] + " es una letra.");
+if(Character.isWhitespace(a[i]))
+System.out.println(a[i] + " es un espacio en blanco.");
+if(Character.isUpperCase(a[i]))
+System.out.println(a[i] + " es mayúscula.");
+if(Character.isLowerCase(a[i]))
+System.out.println(a[i] + " es minúscula.");
+}
+}
+}
+
+Número 6
+/ / Ejemplo con totalMemory( ), freeMemory() y gc( )
+class MemoriaDemo{
+public static void main(String args[]) {
+Runtime r = Runtime.getRuntime();
+long meml, mem2;
+Integer algunosenteros[] = new Integer[l000];
+System.out.println("Memoria total: " + r.totalMemory());
+meml = r.freeMemory();
+System.out.println("Memoria libre inicial: " + meml);
+r.gc();
+meml = r.freeMemory();
+System.out.println("Memoria libre tras la recolección de basura: " + meml);
+for(int i=0; i<l000; i++)
+algunosenteros[i] = new Integer(i); // asignar enteros
+mem2 = r. freeMemory( ) ;
+System.out.println("Memoria libre tras la asignación: " + mem2);
+System.out.println("Memoria utilizada por la asignación: " + (meml-mem2));
+// descartar enteros
+for(int i=0; i<1000; i++) algunosenteros[i] = null;
+r.gc(); //solicitar recolección de basura
+mem2 = r.freeMemory() ;
+System.out.println("Memoria libre tras recoger" + " enteros descartados: " + mem2);
+}
+}
+
+Número 7
+// Ejemplo con el método exec().
+class ExecDemo{
+public static void main(String args[]) {
+Runtime r = Runtime.getRuntime();
+Process p = null;
+try {
+p = r.exec("notepad");
+} catch (Exception e) {
+System.out.println("Error al ejecutar notepad.");
+}
+}
+}
+
+Número 8
+// Esperar hasta que notepad termine.
+class ExecDemoFini {
+public static void main(String args[]) {
+Runtime r = Runtime.getRuntime( );
+Process p = null;
+try {
+p = r.exec("notepad");
+p.waitFor( );
+} catch (Exception e) {
+System.out.println("Error ejecutando notepad.");
+}
+System.out.println("Notepad ha devuelto" + p.exitValue());
+}
+}
+
+Número 9
+class PBDemo {
+public static void main (String args[]) {
+try {
+ProcessBuilder proc = new ProcessBuilder("notepad.exe", "archivoPrueba");
+proc.start();
+} catch (Exception e){
+System.out.println("Error ejecutando notepad");
+}
+}
+}
+
+Número 10
+// Cronometrando la ejecución de un programa.
+class Elapsed {
+public static void main(String args[]) {
+long inicio, fin;
+System.out.println("Cronometrando un ciclo de 0 a 1,000,000");
+// tiempo transcurrido en un ciclo de 0 a 1,000,000
+inicio = System.currentTimeMillis(); // tiempo inicial
+for(int i=0; i < 1000000; i++) ;
+fin = System.currentTimeMillis(); // tiempo final
+System.out.println("Tiempo en milisegundos: " + (fin-inicio));
+}
+}
+
+Número 11
+// Ejemplo con arraycopy().
+class ACDemo {
+static byte a[] = { 65, 66, 67, 68, 69, 70, 71, 72, 73, 74 };
+static byte b[] = { 77, 77, 77, 77, 77, 77, 77, 77, 77, 77 };
+public static void main(String args[]) {
+System.out.println("a = " + new String(a));
+System.out.println("b = " + new String(b));
+System.arraycopy(a, 0, b, 0, a.length);
+System.out.println("a = " + new String(a));
+System. out .println ("b = " + new String (b));
+System.arraycopy(a, 0, a, 1, a.length - 1);
+System.arraycopy(b, 1, b, 0, b.length - 1);
+System.out.println("a = " + new String(a));
+System.out.println("b = " + new String(b));
+}
+}
+
+Número 12
+class ShowUserDir {
+public static void main(String args[]) {
+System.out.println(System.getProperty("user.dir"));
+}
+}
+
+Número 13
+// Ejemplo con el método clone( )
+class TestClone implements Cloneable {
+int a;
+double b;
+// Este método llama a clone ( ) de Object.
+TestClone cloneTest( ) {
+try {
+// llama a clone en Object.
+return (TestClone) super.clone();
+} catch(CloneNotSupportedException e) {
+System.out.println("Clonación no permitida.");
+return this;
+}
+}
+}
+class CloneDemo {
+public static void main(String args[]) {
+TestClone xl = new TestClone();
+TestClone x2;
+x1.a =10;
+x1.b = 20.98;
+x2 =xl.cloneTest(); // clonación de xl
+System.out.println("xl: " + xl.a + " " + x1.b);
+System.out.println("x2: " + x2.a + " " + x2.b);
+}
+}
+
+Número 14
+// Sobrescribe el método clone().
+class TestClone implements Cloneable {
+int a;
+double b;
+// clone() está ahora sobrescrito y es público.
+public Object clone() {
+try{
+// llama a clone en Object.
+return super.clone();
+} catch(CloneNotSupportedException e) {
+System.out.println("Clonación no permitida.");
+return this;
+}
+}
+}
+class CloneDemo2 {
+public static void main(String args[]) {
+TestClone xl = new TestClone();
+TestClone x2;
+x1.a =10;
+x1.b = 20.98;
+// aquí se llama a clone() directamente.
+x2 = (TestClone) xl.clone();
+System.out.println("xl: " + xl.a + " " + xl.b);
+System.out.println("x2: " + x2.a + " " + x2.b);
+}
+}
+
+Número 15
+// Ejemplo con información en tiempo de ejecución.
+c1ass X {
+int a;
+float b;
+}
+class Y extends X {
+double c;
+}
+c1ass RTTI {
+public static void main(String args[]) {
+X x = new X();
+Y y = new y();
+Class <?>clObj;
+clObj = x.getClass(); //obtiene la clase
+System.out.println("x es un objeto del tipo: " + clObj.getName());
+clObj = y.getClass(); //obtiene la clase
+System.out.println("y es un objeto del tipo: " + clObj.getName());
+clObj = clObj.getSuperclass();
+System.out.println("la superclase de y es: " + clObj.getName());
+}
+}
+
+Número 16
+// Ejemplo de los métodos toDegrees() y toRadians().
+class Angles {
+public static void main(String args[]) {
+double theta = 120.0;
+System.out.println(theta + " grados son" + Math.toRadians(theta) + " radianes.");
+theta =1.312;
+System.out.println(theta + " radianes son " + Math.toDegrees(theta) + " grados.");
+}
+}
+
+Número 17
+// Uso de grupos de hilos.
+class NewThread extends Thread {
+boolean suspendBandera;
+NewThread(String nomHilo, ThreadGroup tgOb){
+super (tgOb, nomHilo);
+System.out.println("Nuevo hilo: " + this);
+suspendBandera = false;
+start( ); // Iniciar el hilo
+}
+// Este es el punto de entrada al hilo.
+public void run( ) {
+try {
+for (int i = 5; i > 0; i--) {
+System.out.println(getName( ) + ": " + i);
+Thread.sleep(l000);
+synchronized(this) {
+while(suspendBandera) {
+wait ( );
+}
+}
+}
+} catch (Exception e) {
+System.out.println("Excepción en " + getName());
+}
+System.out.println(getName() + " saliendo.");
+}
+void mysuspend( ) {
+suspendBandera = true;
+}
+synchronized void myresume( ) {
+suspendBandera = false;
+notify ( );
+}
+}
+class ThreadGroupDemo {
+public static void main(String args[]) {
+ThreadGroup groupA = new ThreadGroup ("Grupo A");
+ThreadGroup groupB = new ThreadGroup ("Grupo B");
+NewThread ob1 = new NewThread ("Uno", groupA);
+NewThread ob2 = new NewThread ("Dos", groupA);
+NewThread ob3 = new NewThread ("Tres", groupB);
+NewThread ob4 = new NewThread ("Cuatro", groupB);
+System.out.println (" \nÉsta es la salida de list () : ") ;
+groupA.list ( );
+groupB.list ( );
+System.out.println();
+System.out.print1n("Suspendiendo Grupo A");
+Thread tga[] = new Thread[groupA.activeCount()];
+groupA.enumerate(tga); 	// obtener los hilos en el grupo
+for(int i = 0; i < tga.length; i++) {
+((NewThread) tga[i]).mysuspend(); 	// suspender cada hilo
+}
+try {
+Thread.sleep(4000);
+} catch (InterruptedException e) {
+System.out.println("Hilo principal interrumpido.");
+}
+System.out.println("Reanudando Grupo A");
+for(int i = 0; i < tga.length; i++) {
+((NewThread)tga[i]).myresume(); // reanudar hilos en el grupo
+}
+// Esperar a que los hilos terminen
+try {
+System.out.print1n("Esperando a que los hilos terminen.");
+obl.join ( );
+ob2.join ( );
+ob3.join ( );
+ob4.join ( );
+} catch (Exception e) {
+System.out.println("Excepción en el hilo principal"); 
+}
+System.out.println("Hilo principal saliendo.");
+}
+}
+
+Número 18
+// Ejemplo de la clase Package
+class PkgTest {
+public static void main(String args[]) {
+Package pkgs [ ];
+pkgs = Package.getPackages( );
+for(int i=0; i < pkgs.length; i++)
+System.out.println(
+pkgs[i].getName() +" "+
+pkgs[i].getImplementationTitle() + " " +
+pkgs[i].getImplementationVendor() + " " +
+pkgs[i].getlmplementationVersion()
+);
+}
+}

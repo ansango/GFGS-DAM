@@ -1,0 +1,296 @@
+Número 1
+// Construir un String a partir de otro.
+class MakeString {
+public static void main(String args[] ) {
+char c[] = {'J', 'a', 'v', 'a'};
+String s1 = new String(c);
+String s2 = new String(s1);
+System.out.println(sl);
+System.out.println(s2);
+}
+}
+
+Número 2
+/ / Construcción de una cadena a partir de un arreglo de caracteres.
+class SubStringCons {
+public static void main(String args[]) {
+byte ascii[] ={65, 66, 67, 68, 69, 70 };
+String s1 = new String(ascii);
+System.out.println(s1);
+String s2 = new String(ascii, 2, 3);
+System.out.println(s2);
+}
+}
+
+Número 3
+// Uso de la concatenación para evitar líneas largas.
+class ConCat {
+public static void main(String args[]) {
+String longStr = "Ésta podría haber sido " +
+"una línea muy larga que habría saltado " +
+"a las siguientes líneas. Pero la " +
+"concatenación de cadenas lo evita.";
+System.out.println(longStr);
+}
+}
+
+Número 4
+// Sobrescribir toString() para la claseBox.
+class Box {
+double anchura;
+double altura;
+double profundidad;
+Box(double w, double h, double d) {
+anchura = w;
+altura=h;
+profundidad =d;
+}
+public String toString() {
+return "Las dimensiones son " + anchura + " por " +
+profundidad + " por " + altura + ".";
+}
+}
+class toStringDemo {
+public static void main(String args[]) {
+Box b = new Box(10, 12, 14);
+String s = "Box b: " + b; // concatena al objeto Box
+System.out.println(b); // convierte Box a cadena
+System.out.println(s);
+}
+}
+
+Número 5
+class getCharsDemo {
+pub1ic static void main(String args[]) {
+String s = "Ésta es una demo del método getChars.";
+int start = 12;
+int end = 16;
+char buf[] =new char[end - start];
+s.getChars(start, end, buf, 0);
+System.out.print1n(buf);
+}
+}
+
+Número 6
+// Ejemplo con equals() y equalsIgnoreCase().
+class equalsDemo {
+public static void main(String args[]) {
+String sl = "Hola";
+String s2 = "Hola";
+String s3 = "Adiós";
+String s4 = "HOLA";
+System.out.println(sl + " equals " + s2 + " -> " + sl.equals(s2));
+System.out.println(sl + " equals " + s3 + " -> " + sl.equals(s3));
+System.out.println(sl + " equals " + s4 + " -> " + sl.equals(s4));
+System.out.println(sl + " equalsIgnoreCase " + s4 + " -> " + sl.equalsIgnoreCase(s4));
+}
+}
+
+Número 7
+// comparando equals() con el operador ==
+class EqualsNotEqualTo {
+public static void main(String args[]) {
+String s1 = "Hola";
+String s2 = new String (s1);
+System.out.println(s1 + " equals " + s2 + "->" +
+s1.equals(s2));
+System.out.println(s1 + "==" + s2 + "->" + (s1 == s2));
+}
+}
+
+Número 8
+ / / Ordenación de cadenas por el método burbuja.
+class SortString {
+static String arr[] = {
+"Ahora", "es", "el", "momento", "de", "que", "todos", "los",
+"hombres", "buenos", "vengan", "a", "ayudar", "a", "su", "país"
+};
+public static void main(String args[]) {
+for(int j = 0; j < arr.length; j++) {
+for(int i = j + 1; i < arr.length; i++) {
+if(arr[i].compareTo(arr[j]) < 0) {
+String t =arr[j];
+arr[j] = arr[i] ;
+arr[i] =t;
+}
+}
+System.out.println(arr[j]);
+}
+}
+}
+
+Número 9
+// Ejemplo del uso de indexOf() y lastIndexOf().
+class indexOfDemo {
+public static void main(String args[]) {
+String s = "Ahora es el momento de que todos los " +
+"hombres buenos vengan a ayudar a su país.";
+System.out.println(s);
+System.out.println("indexOf(e) = " + s. indexOf ( 'e' ) ) ;
+System.out.println("lastIndexOf(e) = " + s.lastIndexOf('e'));
+System.out.println("indexOf(es) = " + s.indexOf("es")) ;
+System.out.println("lastIndexOf(es) = " + s.lastIndexOf("es"));
+System.out.println("indexOf(e, 10) = " + s.indexOf('e' , 10));
+System.out.println("lastIndexOf(e, 50) = " + s.lastIndexOf('e', 50));
+System.out.println("indexOf(es, 10) = " + s. indexOf ("es", 10));
+System.out.println("lastIndexOf(es, 50) = " + s.lastIndexOf ("es", 50));
+}
+}
+
+Número 10
+// Reemplazo de subcadenas.
+class StringReplace {
+public static void main(String args[]) {
+String org = "This is a test. This is, too.";
+String search = "is";
+String sub = "was";
+String result = "";
+int i;
+do {  // remplazar subcadenas
+System.out.println(org);
+i = org.indexOf(search);
+if(i != -1) {
+result = org.substring(O, i);
+result = result + sub;
+result = result + org.substring(i + search.length());
+org = result;
+}
+while(i != -1);
+}
+}
+}
+
+Número 11
+// Ejemplo del método de trim().
+import java.io.*;
+c1ass UseTrim {
+public static void main(String args[])
+throws IOException
+{
+// crear un objeto BufferedReader con System.in
+BufferedReader br = new
+BufferedReader(new InputStreamReader(System.in));
+String str;
+System.out.println("Escriba 'fin' para terminar.");
+System.out.println("Escriba País: ");
+do {
+str = br.readLine();
+str = str.trim(); // quitar espacios en blanco
+if(str.equals("México"))
+System.out.println("La capital es Ciudad de México");
+else if (str .equals ("Argentina"))
+System.out.println("La capital es Buenos Aires.");
+else if(str.equals("España"))
+System.out.println("La capital es Madrid.");
+else if(str.equals("El Salvador"))
+System.out.println("La capital es San Salvador.");
+// ...
+} while(!str.equals("fin"));
+}
+}
+
+Número 12
+/ / Uso de toUpperCase () y toLowerCase () .
+class ChangeCase {
+public static void main(String args[])
+{
+String s = "Esto es una prueba.";
+System.out.println("Original: " + s);
+String mayúsculas = s.toUpperCase();
+String minúsculas =s.toLowerCase();
+System.out.println("En mayúsculas: " + mayúsculas);
+System.out.println("En minúsculas: " + minúsculas);
+}
+}
+
+Número 13
+// Longitud y capacidad de un StringBuffer.
+class StringBufferDemo {
+public static void main(String args[]) {
+StringBuffer sb =new StringBuffer("Hola");
+System.out.println("valor =" + sb);
+System.out.println("longitud = " + sb.length());
+System.out.println("capacidad = " + sb.capacity());
+}
+}	
+
+Número 14
+// Uso de charAt () y setCharAt ( ).
+class setCharAtDemo {
+public static void main{String args[]) {
+StringBuffer sb =new StringBuffer{"Hola.");
+System.out.println{"StringBuffer antes = " + sb);
+System.out.println("charAt(l) antes =" + sb.charAt{l));
+sb.setCharAt{l, 'i');
+sb.setLength(2) ;
+System.out.println{"StringBuffer después = " + sb);
+System.out.println("charAt(l) después = " + sb.charAt(l));
+}
+}
+
+Número 15
+// Ejemplo con append().
+class appendDemo {
+public static void main(String args[]) {
+String s;
+int a = 42;
+StringBuffer sb = new StringBuffer(40);
+s = sb.append("a = ") .append(a) .append("!") .toString();
+System.out.println(s);
+}
+}
+
+Número 16
+// Ejemplo con insert().
+class insertDemo {
+public static void main(String args[]) {
+StringBuffer sb =new StringBuffer(" ¡Yo Java!");
+sb.insert(4, "trabajo con ");
+System.out.println(sb) ;
+}
+}
+
+Número 17
+// Utilizando de reverse() para invertir un StringBuffer.
+class ReverseDemo {
+public static void main(String args[]) {
+StringBuffer s = new StringBuffer("abcdef");
+System.out.println(s);
+s.reverse () ;
+System.out.println(s);
+}
+}
+
+Número 18
+// Ejemplo con delete()y deleteCharAt()
+class deleteDemo {
+public static void main(String args[]) {
+StringBuffer sb = new StringBuffer("Esto es una prueba.");
+sb.delete(4, 7);
+System.out.println("Después de delete: " + sb);
+sb.deleteCharAt(0);
+System.out.println("Después de deleteCharAt: " + sb);
+}
+}
+
+Número 19
+// Ejemplo con replace()
+class replaceDemo {
+public static void main(String args[)) {
+StringBuffer sb = new StringBuffer("Esto es una prueba.");
+sb.replace(5, 7, "era");
+System.out.println("Después de replace: " + sb);
+}
+}
+
+Número 20
+class IndexOfDemo {
+public static void main(String args[]) {
+StringBuffer sb = new StringBuffer("uno dos uno") ;
+int i;
+i.sb.indexOf ( "uno") ;
+System.out.println("Primer índice: " + i);
+i = sb.lastIndexOf("uno");
+System.out.println("Último índice: " + i);
+}
+}

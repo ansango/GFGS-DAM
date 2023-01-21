@@ -1,0 +1,740 @@
+Número 1
+// Ejemplo con ArrayList.
+import java.util.*;
+class ArrayListDemo {
+public static void main(String args[]) {
+// crea un ArrayList
+ArrayList al = new ArrayList<String>( );
+System.out.println("Tamaño inicial de al: " + al. size ( ) ) ;
+// añadir elementos al ArrayList
+al.add("C");
+al.add("A");
+al.add("E");
+al.add("B");
+al.add ("D");
+al.add("F");
+al.add(l, "A2");
+System.out.println("Tamaño de a1 después de las adiciones: " + al.size ( ));
+// mostrar el ArrayList
+System.out.println("Contenido de al: " + al);
+// quitar elementos del ArrayList
+al.remove ("F");
+al.remove (2);
+System.out.println("Tamaño de a1 después de quitar elementos: " + al.size( ));
+System.out.println("Contenido de al: " + al);
+}
+}
+
+Número 2
+// Convertir una ArrayList en un arreglo.
+import java.util.*;
+class ArrayListToArreglo{
+public static void main(String args[]) {
+// Crear un ArrayList
+ArrayList al = new ArrayList( );
+// Añadir elementos 
+al.add(l);
+al.add(2);
+al.add(3);
+al.add(4);
+System.out.println("Contenido de al: " + al);
+// Obtener el arreglo
+Integer ia[] = new Integer [al.size( )];
+ia = a1.toArray(ia);
+int sum = 0;
+// Sumar el arreglo
+for(int i : ia) sum += i;
+System.out.println("La suma es: " + sum);
+}
+}
+
+Número 3
+// Ejemplo con LinkedList.
+import java.util.*;
+class LinkedListDemo {
+public static void main(String args[]) {
+// crear una lista enlazada
+LinkedList l1 = new LinkedList<String>( );
+// añadir elementos a la lista vinculada
+l1.add("F") ;
+l1.add("B") ;
+l1.add("D") ;
+l1.add("E") ;
+l1.add("C") ;
+l1.addLast("Z");
+l1.addFirst("A");
+l1.add(l, "A2");
+System.out.println("Contenido original de l1: " + l1);
+// quitar elementos de la lista enlazada
+l1.remove("F");
+l1.remove(2);
+System.out.println("Contenido de l1 tras quitar elementos: + l1);
+// quitar los elementos primero y último
+l1.removeFirst( );
+l1.removeLast( );
+System.out.println("l1 tras quitar el primero y el último: + l1);
+// obtener y asignar un valor
+String val = l1.get(2);
+l1.set(2, val + " cambiado");
+System.out.println("l1 tras el cambio: " + l1);
+}
+}
+
+Número 4
+// Ejemplo con HashSet.
+import java.util.*;
+class HashSetDemo {
+public static void main(String args[]) {
+// crear un conjunto de dispersión
+HashSet<String> hs = new HashSet<String>( );
+// añadir elementos al conjunto de dispersión
+hs.add("B") ;
+hs.add("A") ;
+hs.add("D") ;
+hs.add("E") ;
+hs.add("C") ;
+hs.add("F") ;
+System.out.println(hs);
+}
+}
+
+Número 5
+Aquí hay un ejemplo que muestra el uso de un TreeSet:
+// Ejemplo con TreeSet.
+import java.util.*;
+class TreeSetDemo {
+public static void main(String args[]) {
+/ / Crear un conjunto en árbol
+TreeSet<String> ts = new TreeSet<String>( );
+/ / Añadir elementos al árbol
+ts.add("C") ;
+ts.add("A") ;
+ts.add("B") ;
+ts.add("E") ;
+ts.add("F") ;
+ts.add("D");
+System.out.println(ts);
+}
+}
+
+Número 6
+// Ejemplo con ArrayDequeue.
+import java.util.*;
+class ArrayDequeueDemo {
+public static void main(String args[]) {
+/ / Crear un ArrayDequeue
+ArrayDequeue<String> adq = new ArrayDequeue<String>( );
+/ / Usar el ArrayDequeue como pila
+adq.push("A") ;
+adq.push ("B") ;
+adq.push ("D") ;
+adq.push ("E") ;
+adq.push ("F") ;
+System.out.print("Sacando elementos de la pila: ");
+while(adq.peek( ) != null)
+System.out.println(adq.pop( ) + " ");
+System.out.println( );
+}
+}
+
+Número 7
+// Ejemplo con iteradores.
+import java.util.*;
+class IteratorDemo {
+public static void main(String args[]) {
+// crear una lista de arreglos
+ArrayList<String> al = new ArrayList<String>( );
+// añadir elementos al ArrayList
+al.add("C");
+al.add("A");
+al.add("E");
+al.add("B");
+al.add("D");
+a1.add ("F");
+// usar el iterador para mostrar los contenidos de al
+System.out.print("Contenidos originales de al: ");
+Iterator<String> itr =al.iterator( );
+while(itr.hasNext( )) {
+String element = itr.next( );
+System.out.print(element + " ");
+}
+System.out.println( );
+// modificar los objetos iterados
+ListIterator litr = al.listIterator( );
+while(litr.hasNext( )) {
+String element = litr.next( );
+litr.set(element + "+");
+}
+System.out.print("Contenidos de al modificados: ");
+itr = al.iterator( );
+while(itr.hasNext( )) {
+String element = itr.next( );
+System.out.print(element + " ");
+}
+System.out.println( );
+// ahora, mostrar la lista en orden inverso
+System.out.print("Lista modificada en orden inverso: ");
+while(litr.hasPrevious( )) {
+String element =litr.previous( );
+System.out.print(element + " ");
+}
+System.out.println( );
+}
+}
+
+Número 8
+// Ejemplo de recorrido de colecciones con ciclos for-each
+import java.util.*;
+class ForEachDemo {
+public static void main(String args[]) {
+// crear un ArrayList de enteros
+ArrayList<Integer> vals = new ArrayList<Integer>( );
+// añadir elementos al ArrayList
+vals.add(1);
+vals.add(2);
+vals.add(3);
+vals.add(4);
+vals.add(5);
+// usar un ciclo for para mostrar los elementos
+System.out.print("Contenidos originales de vals: ");
+for (int v: vals)
+System.out.print(v + " ");
+System.out.println( );
+// Ahora se suman los valores con otro ciclo
+int sum = 0;
+for (int v: vals)
+sum += v;
+System.out.println("La suma de los valores es: " + sum );
+}
+}
+
+Número 9
+// Un ejemplo sencillo de lista de direcciones postales.
+import java.util.*;
+class Address {
+private String nombre;
+private String calle;
+private String ciudad;
+private String estado;
+private String codigo;
+Address(String n, String s, String c, String st, String cd) {
+nombre = n;
+calle = s;
+ciudad = c;
+estado = st;
+codigo = cd;
+}
+public String toString( ) {
+return nombre + "\n" + calle + "\n" +
+ciudad + " " + estado + " " + código;
+}
+}
+class MailList {
+public static void main(String args[]) {
+LinkedList<Address> m1 = new LinkedList<Address> ( );
+// añadir elementos a la lista enlazada
+ml.add(new Address("Javier González" , "Reforma 1410", "Guadalajara", "JAL", "61801"));
+ml.add(new Address("Rosana Ramos", "Insurgentes 75", "Monterrey", "NL", "61853"));
+ml.add(new Address("María Elena Chávez", "Av. Acueducto 1604", "Zapopan", "JAL", "61820"));
+// desplegar la lista de direcciones
+For (Address elemento: m1)
+System.out.println(elemento + "\n");
+System.out.println( );
+}
+}
+
+Número 10
+import java.util.*;
+class HashMapDemo {
+public static void main(String args[]) {
+/ / Crear un mapa de dispersión
+HashMap<String, Double> hm = new HashMap<String, Double> ( );
+// Poner elementos en el mapa
+hm.put("Ken Bauer" , new Double(3434.34));
+hm.put ("Tom Smith" , new Double(123 .22));
+hm.put("Jane Baker" , new Double(1378.00));
+hm.put("Todd Hall", new Double(99.22));
+hm.put("Ralph Smith", new Double(-19.08));"
+// Obtener un conjunto con las entradas
+Set <Map.Entry <String, Double>> set = hm.entrySet( );
+// Mostrar el conjunto
+for (Map.Entry<String, Double> me : set) {
+System.out.print(me.getKey( ) + ": ");
+System.out.println(me.getValue( ));
+}
+System.out.println( );
+// Depositar 1000 en la cuenta de Ken Bauer
+double balance = hm.get("Ken Bauer");
+hm.put("Ken Bauer", balance + 1000);
+System.out.println("Saldo actualizado de Ken Bauer: " + hm.get("Ken Bauer"));
+}
+}
+
+Número 11
+import java.util.*;
+class TreeMapDemo {
+public static void main(String args[]) {
+// Crear un mapa en árbol
+TreeMap<String, Double> tm = new TreeMap<String, Double> ( ) ;
+// Poner elementos en el mapa
+tm.put ("Ken Bauer" , new Double (3434.34) ) ;
+tm.put("Tom Smith" , new Double(123.22));
+tm.put("Jane Baker" , new Double(1378.00));
+tm.put("Todd Hall", new Double(99.22));
+tm.put("Ralph Smith", new Double(-19.08));
+// Obtener un conjunto con las entradas
+Set <Map.Entry <String, Double>> set = tm.entrySet( );
+// Mostrar los elementos
+for (Map.Entry<String, Double> me : set) {
+System.out.print(me.getKey( ) + ": ");
+System.out.println(me.getValue());
+}
+System.out.println( );
+// Ingresar 1000 en la cuenta de Ken Bauer
+double balance = tm.get("Ken Bauer");
+tm.put("Ken Bauer" , balance + 1000);
+System.out.println("Nuevo saldo de Ken Bauer: " + tm.get ("Ken Bauer"));
+}
+}
+
+Número 12
+// Uso de un comparador personalizado
+import java.util.*;
+// Un comparador invertido para cadenas.
+class MyComp implements Comparator<String> {
+public int compare(Object a, Object b)
+String aStr, bStr;
+aStr = a;
+bStr = b;
+// invertir la comparación
+return bStr.compareTo(aStr);
+}
+// en caso de igualdad no hace falta sobrescribir
+}
+class CompDemo{
+public static void main(String args[]) {
+// Crear un TreeSet
+TreeSet<String> ts = new TreeSet<String>(new MyComp( ));
+// Añadir elementos al árbol
+ts.add("C");
+ts.add("A");
+ts.add("B");
+ts.add("E");
+ts.add("F");
+ts.add("D");
+// Mostrar los elementos
+for (String elemento : ts) {
+System.out.print(elemento + " ");
+System.out.println( );
+}
+}
+}
+
+Número 13
+// Uso de un comparador para ordenar las cuentas por apellido.
+import java.util.*;
+// Compara las últimas palabras completas de dos cadenas.
+class TComp implements Comparator<String> {
+public int compare(Object a, Object b) {
+int i, j, k;
+String aStr, bStr;
+aStr = a;
+bStr = b;
+// encontrar el índice del comienzo del apellido
+i = aStr.lastIndexOf(' ');
+j = bStr.lastIndexOf(' ');
+k = aStr.substring(i) .compareTo(bStr.substring(j));
+if(k==0) // si los apellidos coinciden, comprobar el nombre entero
+return aStr.compareTo(bStr);
+else
+return k;
+}
+// no es necesario sobrescribir el método equals
+}
+c1ass TreeMapDemo2 {
+public static void main(String args[]) {
+/ / Crear un mapa nuevo
+TreeMap<String, Double> tm = new TreeMapp<String, Double> (new TComp( ));
+// Poner elementos en el mapa
+tm.put("Ken Bauer", new Double(3434.34));
+tm.put("Tom Smith", new Double(123.22));
+tm.put("Jane Baker" , new Double(1378.00));
+tm.put("Todd Hall", new Double(99.22));
+tm.put("Ralph Smith", new Double(-19.08));
+/ / Obtener un conjunto con las entradas
+Set>Map.Entry<String, Double>> set = tm.entrySet( );
+// Mostrar los elementos
+for (Map.Entry<String, Double> me : set ) {
+System.out.print(me.getKey( ) + ": ");
+System.out.println(me.getValue( ));
+}
+System.out.println( );
+// Ingresar 1000 en la cuenta de Ken Bauer
+double balance = tm.get ("Ken Bauer');
+tm.put("Ken Bauer', balance + 1000);
+System.out.println("Nuevo saldo en la cuenta de Ken Bauer: " + tm.get("Ken Bauer"));
+}
+}
+
+Número 14
+// Ejemplo de varios algoritmos.
+import java.util.*;
+class AlgorithmsDemo{
+public static void main(String args[]) {
+// Crear e inicializar una lista enlazada
+LinkedList<Integer> l1 =new LinkedList<Integer>( );
+l1.add(-8);
+l1.add(20);
+l1.add(-20);
+l1.add(8);
+// Crear un comparador de orden inverso
+Comparator<Integer> r = Collections.reverseOrder( );
+// Ordenar la lista utilizando el comparador
+Collections.sort(l1, r):
+System.out.print("Lista en orden inverso: "):
+for (int i : l1) 
+System.out.print(i + " ");
+System.out.println( );
+// Mezclar la lista
+Collections.shuffle(l1);
+// Mostrar la lista mezclada aleatoriamente
+System.out.print("Lista mezclada al azar: "):
+for (int i : l1) 
+System.out.print(i + " "):
+System.out.println( );
+System.out.println("Mínimo: " + Collections.min(l1));
+System.out.println("Máximo: "+ Collections.max(l1));
+}
+}
+
+Número 15
+// Ejemplo con Arrays
+import java.util.*;
+class ArraysDemo {
+public static void main(String args[]) {
+// asignar memoria e inicializar arreglo
+int arreglo[] = new int[10];
+for(int i = 0; i < 10; i++)
+arreglo[i] = -3 * i;
+// mostrar, ordenar y mostrar nuevamente
+System.out.print("Contenidos originales: ");
+display(arreglo);
+Arrays.sort(arreglo);
+System.out.print("Ordenados: ");
+display(arreglo);
+// llenar y mostrar
+Arrays.fill(arreglo, 2, 6, -1);
+System.out.print("Tras llenar con fill( ): ");
+display (arreglo);
+// ordenar y mostrar
+Arrays.sort (arreglo);
+System.out.print("Tras volver a ordenar: ");
+display(arreglo) ;
+// búsqueda binaria de -9
+System.out.print ("El valor -9 está en la posición ");
+int index = Arrays.binarySearch(arreglo, -9);
+System.out.println (index) ;
+}
+static void display(int arreglo[]) {
+for(int i : arreglo)
+System.out.print(i + " ");
+System.out.println( );
+}
+}
+
+Número 16
+almacena una lista de cadenas en un ArrayList y luego despliega el contenido de la lista:
+// Ejemplo de código sin tipos parametrizados
+import java.util.*;
+class OldStyle {
+public static void main(String args[]) {
+ArrayList lista = new ArrayList( );
+// Estas líneas almacenan cadenas, pero cualquier tipo de objetos pueden
+// ser almacenados. En el código sin tipos parametrizados, no existe
+// una forma cómoda para restringir el tipo de objetos a almacenar
+// en la colección.
+lista.add("uno");
+lista.add("dos");
+lista.add("tres");
+lista.add("cuatro");
+Iterator itr = lista.iterator( );
+while (itr.hasNext( )) {
+// Para recuperar un elemento, se requiere una conversión explicita de tipos
+// debido a que la colección almacena elementos de tipo Object.
+String str = (String) itr.next( ); // una conversión explícita de tipos se requiere aquí.
+System.out.println(str + " tiene " + str.length( ) + "caracteres de largo.");
+}
+}
+}
+
+Número 17
+// Ejemplo de código con tipos parametrizados
+import java.util.*;
+class NewStyle {
+public static void main(String args[]) {
+// Ahora la lista contiene referencias de tipo String
+ArrayList<String> lista = new ArrayList<String>( );
+lista.add("uno");
+lista.add("dos");
+lista.add("tres");
+lista.add("cuatro");
+// Observe que el iterador utiliza también tipos parametrizados
+Iterator<String> itr = lista.iterator( );
+// la siguiente sentencia causaría un error de compilación
+Iterator<Integer> itr = lista.iterator( ); // error
+while (itr.hasNext( )) {
+String str = itr.next( ); // no se requiere una conversión explícita de tipos 
+// Ahora bien, la siguiente línea causa un error en tiempo de compilación
+// ya no en tiempo de ejecución.
+// Integer i = itr.next( ); // esto no compila
+System.out.println(str + " tiene " + str.length( ) + "caracteres de largo.");
+}
+}
+}
+
+Número 18
+// Ejemplo de operaciones con Vector.
+import java.util.*;
+class VectorDemo {
+public static void main(String args[]) {
+// el tamaño inicial es 3, el incremento es 2
+Vector<Integer> v = new Vector<Integer>(3, 2);
+System.out.println ("Tamaño inicial: " + v. size ( ));
+System.out.println("Capacidad inicial: " + v.capacity( )) ;
+v.addElement (l);
+v.addElement (2);
+v.addElement(3);
+v.addElement(4);
+System.out.println("Capacidad tras cuatro adiciones: " + v.capacity( )) ;
+v.addElement(5);
+System.out.println("Capacidad actual: " + v.capacity( ));
+v.addElement(6);
+v.addElement(7);
+System.out.println("Capacidad actual: " + v.capacity( ));
+v.addElement(9);
+v.addElement(l0);
+System.out.println("Capacidad actual: " + v.capacity( ));
+v.addElement(11);
+v.addElement(12);
+System.out.println("Primer elemento: " + v.firstElement( ));
+System.out.println("Último elemento: " + v.lastElement( ));
+if(v.contains(3))
+System.out.println("El vector contiene el número 3.");
+// enumerar los elementos del vector.
+Enumeration vEnum =v.elements( );
+System.out.println("\nElementos del vector:");
+while(vEnum.hasMoreElements( ))
+System.out.print(vEnum.nextElement( ) + " ");
+System.out.println( );
+}
+}
+
+Número 19
+// utilizar un iterador para mostrar los contenidos
+Iterator<Integer> vItr =v.iterator( );
+System.out.println("\nElementos del vector:");
+while(vItr.hasNext())
+System.out.print (vItr.next ( ) + " ");
+System.out.println();
+
+Número 20
+// utilizar un ciclo for-each para mostrar los contenidos
+System.out.println("\nElementos del vector:");
+For (int i : v)
+System.out.print (i + " ");
+System.out.println( );
+
+Número 21
+// Ejemplo con la clase Stack
+import java.util.*;
+class StackDemo {
+static void showpush(Stack<Integer> st, int a) {
+st.push(a);
+System.out.println("push(" + a + ")");
+System.out.println("pila: " + st);
+}
+static void showpop(Stack<Integer> st) {
+System.out.print("pop -> ");
+Integer a = st.pop( );
+System.out.println(a);
+System.out.println("pila: " + st);
+}
+public static void main(String args[]) {
+Stack<Integer> st = new Stack<Integer>( );
+System.out.println("pila: " + st);
+showpush(st, 42);
+showpush(st, 66);
+showpush(st, 99);
+showpop (st) ;
+showpop(st) ;
+showpop(st) ;
+try{
+showpop(st) ;
+} catch (EmptyStackException e) {
+System.out.println("pila vacía");
+}
+}
+}
+
+Número 22
+// Ejemplo de Hashtable
+import java.util.*;
+class HTDemo {
+public static void main(String args[]) {
+Hashtable<String, Double> balance =new Hashtable<String, Double> ( );
+Enumeration<String> names;
+String str;
+double bal;
+balance.put("Ken Bauer", 3434.34);
+balance.put("Tom Smith", 123.22);
+balance.put("Jane Baker", 1378.00);
+balance.put("Todd Hall", 99.22);
+balance.put("Ralph Smith", -19.08);
+// Mostrar todos los saldos en la tabla de dispersión.
+names = balance.keys ( );
+while(names.hasMoreElements( )) {
+str = names.nextElement( );
+System.out.println(str + ": " + balance.get(str));
+}
+System.out.println( );
+// Ingresar 1,000 en la cuenta de Ken Bauer
+bal = balance.get("Ken Bauer");
+balance.put("Ken Bauer", bal+1000);
+System.out.println("Nuevo saldo de Ken Bauer: " + balance.get("Ken Bauer"));
+}
+}
+
+Número 23
+// Uso de iteradores con una tabla de dispersión.
+import java.util.*;
+class HTDemo2 {
+public static void main(String args[]) {
+Hashtable<String, Double> balance = new Hashtable<String, Double> ( );
+String str;
+double bal;
+balance.put("Ken Bauer " , 3434.34);
+balance.put("Tom Smith" , 123.22);
+balance.put("Jane Baker" , 1378.00);
+balance.put("Todd Hall", 99.22);
+balance.put("Ralph Smith" , -19.08);
+// Mostrar todos los saldos en la tabla de dispersión
+// Primero, se obtiene una vista en conjunto de las claves
+Set<String> set = balance.keySet( ); 
+// obtener iterador
+Iterator<String> itr = set.iterator( );
+while(itr.hasNext( )) {
+str = itr.next( );
+System.out.println(str + ": " +
+balance.get(str));
+}
+System.out.println( );
+// Ingresar 1,000 en la cuenta de Ken Bauer
+bal = balance.get("Ken Bauer");
+balance.put ("Ken Bauer", bal+1000);
+System.out.println ("Nuevo saldo de Ken Bauer: " + balance.get("Ken Bauer"));
+}
+}
+
+Número 24
+// Ejemplo para ilustrar una lista de propiedades.
+import java.util.*;
+class PropDemo {
+public static void main(String args[]) {
+Properties capitals = new Properties( );
+capitals.put ("España", "Madrid");
+capitals.put("Argentina", "Buenos Aires");
+capitals.put("México", "Ciudad de México");
+capitals.put("El Salvador", "San Salvador");
+capitals.put("Colombia", "Bogotá");
+// Obtener una vista de conjunto para las claves
+Set paises = capitals.keySet( );
+// Mostrar todos los países y capitales.
+for (Object name : paises) 
+System.out.println("La capital de " + name + " es " + capitals.getProperty((String)name) + ".");
+System.out.println( );
+// Busca un país que no está en la lista y especifica un valor por omisión
+String str = capitals.getProperty("Francia", "No Encontrada");
+System.out.println("La capital de Francia es: + str + ".");
+}
+}
+
+Número 25
+// Uso de una lista de propiedades por omisión.
+import java.util.*;
+class PropDemoDef {
+public static void main(String args[]) {
+Properties defList = new Properties( );
+defList.put("Francia" , "París");
+defList.put("Portugal" , "Lisboa");
+Properties capitals =new Properties(defList);
+capitals.put ("España" , "Madrid");
+capitals.put("Argentina", "Buenos Aires");
+capitals.put ("México" , "Ciudad de México");
+capitals.put("El Salvador", "San Salvador");
+capitals.put("Colombia", "Bogotá");
+// Obtener una vista de conjunto para las claves
+Set paises = capitals.keySet( );
+// Mostrar todos los países y capitales.
+for (Object name : paises) 
+System.out.println("La capital de " + name + " es " + capitals.getProperty((String)name) + ".");
+System.out.println( );
+// Francia será encontrada en la lista por omisión
+String str = capitals.getProperty("Francia");	
+System.out.println("La capital de Francia es: + str + ".");
+}
+}
+
+Número 26
+/* Una sencilla base de datos con números telefónicos
+que utiliza una lista de propiedades. */
+import java.io.*;
+import java.util.*;
+class Phonebook {
+public static void main(String args[]) throws IOException {
+Properties ht = new Properties( );
+BufferedReader br = new BufferedReader(new InputStrearnReader(System.in));
+String nombre, numero;
+FileInputStream fin = null;
+boolean cambiado =false;
+// Intentar abrir el archivo listatelef.dat
+try {
+fin = new FileInputStream ("listatelef.dat");
+} catch(FileNotFoundException e) {
+// ignora el error de archivo inexistente
+}
+/* Si el archivo listatelef ya e existe,
+cargar los números de teléfono existentes. */
+try {
+if (fin !=null) {
+ht.load(fin);
+fin.close( );
+}
+} catch(IOException e) {
+System.out.println("Error leyendo archivo.");
+}
+// dejar que el usuario introduzca nuevos nombres y números.
+do{
+System.out.println("Introducir nuevo nombre" + " (escriba 'fin' para terminar): ");
+nombre = br.readLine( );
+if(nombre.equals("fin")) continue;
+System.out.println("Introducir número: ");
+número =br.readLine( );
+ht.put(nombre, número);
+cambiado =true;
+} while( !nombre.equals("fin"));
+// si la lista telefónica ha cambiado, guardarla.
+if(cambiado) {
+FileOutputStream fout =new FileOutputStream ("listatelef. dat") ;
+ht.store(fout, "Lista Telefónica");
+fout. close ( ) ;
+}
+// buscar números dado un nombre.
+do {
+System.out.println("Introducir nombre a encontrar" + " ('fin' para terminar): ");
+nombre = br.readLine( );
+if(nombre.equals("fin")) continue;
+número = (String) ht.get(nombre);
+System.out.println(número) ;
+} while ( !nombre. equals ("fin") ) ;
+}
+}

@@ -1,0 +1,687 @@
+Número 1
+// Ejemplo de la clase File.
+import java.io.File;
+class FileDemo {
+static void p (String s) {
+System.out.println(s);
+}
+public static void main(String args[]) {
+File fl = new File ("/java/COPYRIGHT");
+p ("Nombre del archivo: " + fl.getName());
+p ("Directorio: " + fl.getPath());
+p ("Directorio absoluto: " + fl.getAbsolutePath());
+p ("Padre: " + fl.getParent());
+p (fl.exists() ? "existe" : "no existe");
+p (fl.canWrite() ? "se puede escribir" : "no se puede escribir");
+p (fl.canRead() ? "se puede leer" : "no se puede leer");
+p ( (fl.isDirectory () ? "" : "no" + " es un directorio"));
+p (fl.isFile () ? "es un archivo normal" : "podría ser un enlace");
+p (fl.isAbsolute() ? "es absoluto" : "no es absoluto");
+p ("Última modificación: " + fl.lastModified());
+p ("Tamaño del archivo: " + fl.length() + " Bytes");
+}
+}
+
+Número 2
+// Uso de directorios.
+import java.io.File;
+class DirLista {
+public static void main(String args[]) {
+String nomdir = "/java";
+File fl = new File (nomdir);
+if (fl.isDirectory()) {
+System.out.println ("Directorio de " + nomdir);
+String s[] = fl.list();
+for (int i = 0; i<s.length; i++) {
+File f = new File (nomdir + "/" + s[i]);
+if (f.isDirectory()) {
+System.out.println (s[i] + " es un directorio");
+}else {
+System.out.println(s[i] + " es un archivo");
+}
+}
+}else {
+System.out.println (nomdir + " no es un directorio");
+}
+}
+}
+
+Número 3
+import java.io.*;
+public class OnlyExt implements FilenameFilter {
+String ext;
+public OnlyExt(String ext) {
+this.ext = "."+ ext;
+}
+public boolean accept(File dir, String nombre) {
+return name.endsWith(ext);
+}
+}
+
+Número 4
+// Directorio de archivos .HTML
+import java.io.*;
+class DirListOnly {
+public static void main (String args[]) {
+String nomdir = "/java";
+File fl = new File (nomdir);
+FilenameFilter only = new OnlyExt("html");
+String s[] = fl.list(only);
+for (int i=0; i < s.length; i++) {
+System.out.println(s[i]);
+}
+}
+}
+
+Número 5
+// Ejemplo de FileInputStream.
+import java.io.*;
+class FileInputStreamDemo {
+public static void main (String args[]) throws Exception {
+int size;
+InputStream f = new FileInputStream ("FileInputStreamDemo.java");
+System.out.println("Total de bytes disponibles: " + 
+(size = f.available()));
+int n = size/40;
+System.out.println ("Los primeros" + n + 
+" bytes del archivo se leen en una operación read()");
+for (int i=0; i < n; i++) {
+System.out.print ((char) f.read());
+}
+System.out.println("\nTotal disponible todavía: " + f.available());
+System.out.println("Leyendo los siguientes" + n + 
+" bytes con una llamada a read (b[])");
+byte b [] = new byte [n] ;
+if (f.read (b) != n) {
+System.err.println ( "No se pueden leer " + n + " bytes.");
+}
+System.out.println(new String(b, 0, n));
+System.out.println("\nTotal disponible todavía: " + (size = f.available()));
+System.out.println("Omite la mitad de los bytes restantes con skip()");
+f.skip (size/2) ;
+System.out.println ("Total disponible todavía: " + f.available ());
+System.out.println("Leyendo " + n/2 + " bytes del final del arreglo");
+if (f.read(b, n/2, n/2) != n/2) {
+System.err.println ("No se pueden leer " + n/2 + " bytes.");
+}
+System.out.println(new String(b, 0, b.length));
+System.out.println("\nTotal disponible aún: " + f.available());
+f.close () ;
+}
+}
+
+Número 6
+// Ejemplo de FileOutputStream.
+import java.io.*;
+class FileOutputStreamDemo {
+public static void main(String args[]) throws Exception {
+String source = "Ahora es el momento de que los hombres buenos\n"
++ " vengan a ayudar a su país\n"
++ " y paguen sus impuestos.";
+byte buf[] = source.getBytes();
+OutputStream f0 = new FileOutputStream("filel.txt");
+for (int i=0; i < buf.length; i += 2) {
+f0.write(buf[i]);
+}
+f0 .close () ;
+OutputStream fl = new FileOutputStream("file2.txt");
+f1.write(buf) ;
+f1. close () ;
+OutputStream f2 = new FileOutputStream("file3.txt");
+f2.write(buf, buf.length-buf.length/4,buf.length/4);
+f2.close();
+}
+}
+
+Número 7
+// Ejemplo con ByteArrayInputStream.
+import java.io.*;
+class ByteArrayInputStreamDemo {
+public static void main (String args[]) throws IOException {
+String tmp = "abcdefghijklmnñopqrstuvwxyz" ;
+byte b[] = tmp.getBytes();
+ByteArrayInputStream entrada1 = new ByteArrayInputStream(b);
+ByteArrayInputStream entrada2 = new ByteArrayInputStream(b, 0,3);
+}
+}
+
+Número 8
+import java.io.*;
+class ByteArrayInputStreamReset {
+public static void main(String args[]) throws IOExeeption {
+String tmp = "abc";
+byte b[] = tmp.getBytes ();
+ByteArrayInputStream in = new ByteArrayInputStream(b);
+for (int i=0; i<2; i++) {
+int c;
+while ((c = in.read()) != -1){
+if (i == 0) {
+System.out.print((char) c);
+}else {
+System.out.print(Character.toUpperCase((char) c));
+}
+}
+System.out.println();
+in.reset();
+}
+}
+}
+
+Número 9
+// Ejemplo de ByteArrayOutputStream.
+import java.io.*;
+class ByteArrayOutputStreamDemo {
+public static void main(String args[]) throws IOExeeption {
+ByteArrayOutputStream f = new ByteArrayOutputStream();
+String s = "Esto debería terminar en el arreglo";
+byte buf [] = s.getBytes();
+f.write(buf) ;
+System.out.println("Búfer como cadena");
+System.out.println(f.toString());
+System.out.println("Al arreglo");
+byte b [] = f.toByteArray();
+for (int i=0; i<b.length; i++) {
+System.out.print ((char) b[i]);
+}
+System.out.println("\n A un OutputStream()");
+OutputStream f2 = new FileOutputStream("test.txt");
+f.writeTo (f2);
+f2.close ();
+System.out.println("Reinicializando");
+f.reset ( ) ;
+for (int i=0, i<3, i++)
+f.write('X');
+System.out.println(f.toString());
+}
+}
+
+Número 10
+// Uso de una entrada con búfer.
+import java.io.*;
+class BufferedInputStreamDemo {
+public static void main(String args[]) throws IOExeeption {
+String s = "Esto &copy; es un símbolo de copyright " +
+"pero esto &copy no lo es.\n";
+byte buf[] =s.getBytes();
+ByteArrayInputStream in = new ByteArrayInputStream(buf);
+BufferedInputStream f = new BufferedInputStream(in);
+int c;
+boolean marcado = false;
+while ((c = f.read()) != -1) {
+switch (c) {
+case '&':
+if (!marcado){
+f.mark(32) ;
+marcado = true;
+}else {
+marcado = false;
+}
+break;
+case ';':
+if (marcado) {
+marcado = false;
+System.out.print("(c)");
+}else
+System.out.print((char) c);
+break;
+case' ':
+if (marcado) {
+marcado = false;
+f .reset ();
+System.out.print("&");
+}else
+System.out.print((char) c);
+break;
+default:
+if (!marcado)
+System.out.print( (char) c);
+break;
+}
+}
+}
+}
+
+Número 11
+// Ejemplo de unread().
+import java.io.*;
+class PushbackInputStreamDemo {
+public static void main(String args[]) throws IOExeeption {
+String s = "if (a = = 4) a = 0 ; \n";
+byte buf[] = s.getBytes();
+ByteArrayInputStream in = new ByteArrayInputStream(buf);
+PushbackInputStream f = new PushbackInputStream(in);
+int c;
+while ((c = f.read()) != -1) {
+switch(c) {
+case '=':
+if ((c = f.read()) == '=')
+System.out.print(".eq.");
+else {
+System.out.print("<-");
+f.unread(c) ;
+}
+break;
+default:
+System.out.print((char) c);
+break;
+}
+}
+}
+}
+
+Número 12
+// Ejemplo de entrada secuencial.
+import java.io.*;
+import java.util.*;
+class InputStreamEnumerator implements Enumeration <FileInputStream>{
+private Enumeration <String> files;
+public InputStreamEnumerator(Vector <String> files) {
+this.files = files.elements();
+}
+public boolean hasMoreElements() {
+return files.hasMoreElements();
+}
+public Object nextElement() {
+try{
+return new FileInputStream(files.nextElement().toString());
+}catch (IOException e) {
+return null;
+}
+}
+}
+class SequenceInputStreamDemo {
+public static void main(String args[]) 
+throws IOException {
+int c;
+Vector <String> files = new Vector<String>();
+files.addElement("/autoexec.bat");
+files.addElement("/config.sys");
+InputStreamEnumerator e = new InputStreamEnumerator(files);
+InputStream input = new SequenceInputStream(e);
+while ((c = input. read () ) != -1) {
+System.out.print((char) c);
+}
+input.close () ;
+}
+}
+
+Número 13
+// Ejemplo de printf()
+class PrintfDemo {
+public static void main(String args[]) {
+System.out.println ("Aquí se encuentran algunos valores numéricos " +
+"en diferentes formatos.\n");
+System.out.printf("Varios formatos de enteros: ");
+System.out.printf("%d %(d %+d %05d\n", 3, -3, 3, 3);
+System.out.println();
+System.out.printf("Formato por omisión para punto flotante: %f\n", 1234567.123);
+System.out.printf("Punto Flotante con comas: %,f\n", 1234567.123);
+System.out.printf("Punto Flotante negativo: %,f\n", -1234567.123);
+System.out.printf("Opción de punto flotante negativo: %, (f\n", -1234567.123);
+System.out.println();
+System.out.printf("Alineando valores positivos y negativos:\n");
+System.out.printf("% , .2f\n% , .2f\n",1234567.123, -1234567.123);
+}
+}
+
+Número 14
+import java.io.*;
+c1ass DataIODemo {
+pub1ic static void main(String args[]) 
+throws IOException {
+FileOutputStream fout = new Fi1eOutputStream("Test.dat");
+DataOutputStream out = new DataOutputStream(fout) ;
+out.writeDouble(98.6) ;
+out.writeInt(l000) ;
+out.writeBoolean(true) ;
+out.c1ose() ;
+Fi1eInputStream fin = new Fi1eInputStream("Prueba.dat");
+DataInputStream in = new DataInputStream(fin);
+doub1e d = in.readDoub1e();
+int i = in.readInt();
+boo1ean b = in.readBoo1ean();
+System.out.println("A continuación se muestran los valores: "+ d + " " + i + " " + b) ;
+in.c1ose () ;
+}
+}
+
+Número 15
+// Ejemplo de FileReader.
+import java.io.*;
+class FileReaderDemo {
+public static void main(String args[]) throws Exception {
+FileReader fr = new FileReader ( "FileReaderDemo.java");
+BufferedReader br = new BufferedReader(fr);
+String s;
+while((s = br.readLine()) != null) {
+System.out.println(s);
+}
+fr. close () ;
+}
+}
+
+Número 16
+// Ejemplo de FileWriter.
+import java.io.*;
+class FileWriterDemo {
+public static void main String args[]) throws IOExeeption {
+String source = "Ahora es el momento de que los hombres buenos\n"
++ " vengan a ayudar a su país\n"
++ " y paguen sus impuestos.";
+char buffer[] = new char[source.length()];
+source.getChars(0, source.length(), buffer, 0);
+FileWriter f0 = new FileWriter("filel.txt");
+for (int i=0; i < buffer.length; i += 2) {
+f0.write(buffer[i]);
+}
+f0. close () ;
+FileWriter f1 = new FileWriter ("file2. txt");
+fl.write(buffer);
+fl. close ();
+FileWriter f2 = new FileWriter("file3.txt");
+f2.write(buffer,buffer.length-buffer.length/4,buffer.length/4);
+f2 .close ();
+}
+}
+
+Número 17
+// Ejemplo de CharArrayReader.
+import java.io.*;
+public class CharArrayReaderDemo {
+public static void main(String args[]) throws IOExeeption {
+String tmp = "abcdefghijklmnopqrstuvwxyz";
+int length = tmp.length();
+char c[] = new char[length];
+tmp.getChars(0, length, c, 0);
+CharArrayReader entradal = new CharArrayReader(c);
+CharArrayReader entrada2 = new CharArrayReader(c, 0, 5);
+int i;
+System.out.println("entradal es:");
+while((i = entrada1.read()) != -1) {
+System.out.print((char)i);
+}
+System.out.println();
+System.out.println("entrada2 es:");
+while ((i = entrada2 .read()) != -1) {
+System.out.print((char)i);
+}
+System.out.println();
+}
+}
+
+Número 18
+// Ejemplo de CharArrayWriter.
+import java.io.*;
+class CharArrayWriterDemo {
+public static void main(String args[]) throws IOException {
+CharArrayWriter f = new CharArrayWriter ();
+String s = "Esto debería terminar en el arreglo";
+char buf[] = new char [s. length() ];
+s.getChars(0, s.length(), buf, 0);
+f.write(buf);
+System.out.println("Búfer como cadena");
+System.out.println(f.toString());
+System.out.println("Al arreglo");
+char c [] = f. toCharArray () ;
+for (int i=0; i<c.length; i++) {
+System.out.print(c[i]);
+}
+System.out.println("\n A un FileWriter()");
+FileWriter f2 = new FileWriter("test.txt");
+f.writeTo (f2);
+f2.close ();
+System.out.println ("Reinicializando");
+f.reset ();
+for (int i=0; i<3; i++)
+f.write('X');
+System.out.println(f.toString());
+}
+}
+
+Número 19
+// Uso de entrada con búfer.
+import java.io.*;
+class BufferedReaderDemo {
+public static void main(String args[]) throws IOExeeption {
+String s = "Esto &copy; es un símbolo de copyright " +
+"pero esto &copy no lo es.\n";
+char buf[] = new char[s.length()];
+s.getChars(0, s.length(), buf, 0);
+CharArrayReader in = new CharArrayReader(buf);
+BufferedReader f = new BufferedReader(in);
+int c;
+boolean marcado = false;
+while ((c = f.read()) != -1) {
+switch (c) {
+case '&':
+if (!marcado) {
+f.mark(32);
+marcado = true;
+}else {
+marcado = false;
+}
+break;
+case ';':
+if (marcado) {
+marcado = false;
+System.out.print("(c)");
+} else
+System.out.print((char) c);
+break;
+case ' ':
+if (marcado) {
+marcado = false;
+f.reset();
+System.out.print("&");
+} else
+System.out.print((char) c);
+break;
+default:
+if (!marcado)
+System.out.print((char) c);
+break;
+}
+}
+}
+}
+
+Número 20
+// Ejemplo de unread().
+import java.io.*;
+class PushbackReaderDemo {
+public static void main(String args[]) throws IOExeeption {
+String s = "if (a = = 4) a = 0;\n";
+char buf [] = new char [s.length() ];
+s.getChars(0, s.length(), buf, 0);
+CharArrayReader in = new CharArrayReader(buf);
+PushbackReader f = new PushbackReader(in);
+int c;
+while ((c = f.read()) != -1) {
+switch (c) {
+case '=':
+if ((e = f.read()) == '=')
+System.out.print(".eq.");.
+else {
+System.out.print("<-");
+f.unread(c);
+}
+break;
+default:
+System.out.print((char) c);
+break;
+}
+}
+}
+}
+
+Número 21
+// Ejemplo de la clase Console.
+import java.io.*;
+class ConsoleDemo {
+public static void main(String args[]) {
+String str;
+Console con;
+// Obtiene una referencia a la consola.
+con = System.console();
+// Si no hay consola disponible, salir
+if (con = = null) return;
+// Lee una cadena y luego la imprime.
+str = con.readLine("Ingresar una cadena: ");
+con.printf("Aquí está tú cadena: %s\n", str);
+}
+}
+
+Número 22
+// Un programa para contar palabras.
+import java.io.*;
+class ContarPalabra {
+public static int palabras = 0;
+public static int lineas = 0;
+public static int caracteres =0;
+public static void wc(InputStreamReader isr)
+throws IOException {
+int c = 0;
+boolean ultimoBlanco = true;
+String espacioBlanco = " \t\n\r";
+while ((c = isr.read()) != -1) {
+// Contar caracteres
+caracteres++;
+// Contar líneas
+if (c = = '\n') {
+líneas++ ;
+}
+// Contar palabras detectando el comienzo de una palabra
+int index = espacioBlanco.indexOf(c);
+if (index = = -1) {
+if (ultimoBlanco = = true) {
+++palabras;
+}
+ultimoBlanco = false;
+} 
+else {
+ultimoBlanco = true;
+}
+}
+if(caracteres != 0) {
+++ lineas;
+}
+}
+public static void main(String args[]) {
+FileReader fr;
+try {
+if (args.length = = 0) { // Trabajando con entrada estándar stdin
+wc (new InputStreamReader(System.in));
+}
+else { // Trabajando con una lista de archivos
+for (int i = 0; i < args.length; i++) {
+fr = new FileReader(args[i]);
+wc(fr);
+}
+}
+}
+catch (IOException e) {
+return;
+}
+System.out.println(lineas + " " + palabras + " " + caracteres);
+}
+}
+
+Número 23
+// Programa mejorado para contar palabras que utiliza StreamTokenizer 
+import java.io.*;
+class ContarPalabra {
+public static int palabras=0;
+public static int lineas=0;
+public static int caracteres=0;
+public static void wc(Reader r) throws IOException {
+StreamTokenizer tok = new StreamTokenizer(r);
+tok.resetSyntax();
+tok.wordChars(33, 255);
+tok.whitespaceChars(0, ' ');
+tok.eolIsSignificant(true);
+while (tok.nextToken() != tok.TT_EOF) {
+switch (tok.ttype) {
+case StreamTokenizer.TT_EOL:
+lineas++;
+caracteres++;
+break;
+case StreamTokenizer.TT_WORD:
+palabras++;
+default: // por omisión 
+caracteres += tok.sval.length():
+break;
+}
+}
+}
+public static void main(String args[]) {
+if (args.length = = 0) { // Trabajando con entrada estándar stdin
+try {
+wc (new InputStreamReader(System.in));
+System.out.println(lineas + " " + palabras + " " + caracteres);
+} catch (IOException e) {};
+}else { // Trabajando con una lista de archivos
+int tpalabras = 0, tcaracteres = 0, tlineas = 0:
+for (int i=0; i<args.length: i++) {
+try {
+palabras = caracteres = lineas = 0;
+wc(new FileReader(args[i]));
+tpalabras += palabras:
+tcaracteres += caracteres:
+tlineas += lineas:
+System.out.println(args[i] + ": " +
+lineas + " " + palabras + " " + caracteres);
+catch (IOException e) {
+System.out.println(args[i] + ": error.");
+}
+}
+System.out.println("total: " + tlineas + " " + tpalabras + " " + tcaracteres);
+}
+}
+}
+
+Número 24
+import java.io.*;
+public class SerializationDemo {
+public static void main(String args[]) {
+// Serialización de objeto
+try {
+MiClase objetol = new MiClase ("Hola", -7, 2.7el0);
+System.out.println("objetol: " + objetol);
+FileOutputStream fos = new FileOutputStream("serial");
+ObjectOUtputStream oos =new ObjectOUtputStream(fos);
+oos.writeObject(objetol);
+oos.flush ();
+oos.close ();
+}
+catch(Exception e) {
+System.out.println("Excepción durante la serialización: " + e);
+System.exit(0);
+}
+// Deserialización de objeto
+try {
+MiClase objet02;
+FileInputStream fis = new FileInputStream("serial");
+ObjectInputStream ois = new ObjectInputStream(fis);
+objet02 = (MiClase)ois.readObject();
+ois.close () ;
+System.out.println("objet02: " + objet02);
+}
+catch(Exception e) {
+System.out.println("Excepción durante la serialización: " + e);
+System.exit(0);
+}
+}
+}
+class MiClase implements Serializable {
+String s;
+int i;
+double d;
+public MiClase(String s, int i, double d) {
+this.s = s;
+this.i = i;
+this.d = d;
+}
+public String toString() {
+return "s=" + s + "; i=" + i + "; d=" + d;
+}
+}

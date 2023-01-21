@@ -1,0 +1,666 @@
+Número 1
+// Un ejemplo simple de herencia.
+// Creación de la superclase A.
+class A {
+int i, j;
+void mostrarij () {
+System.out.println ("i y j: " + i + " " + j);
+}
+}
+// Creación de la subclase B por extensión de la clase A
+class B extends A {
+int k;
+void mostrark () {
+System.out.println ("k: " + k);
+}
+void suma () {
+System.out.println ("i + j + k : " + (i+j+k));
+}
+}
+class HerenciaSimple {
+public static void main (String args[]) {
+A superOb = new A() ;
+B subOb = new B();
+// Se puede utilizar la superclase independientemente de sus subclases
+superOb.i = 10;
+superOb.j = 20;
+System.out.println ("Contenido de superOb: ");
+superOb.mostrarij ();
+System.out.println ();
+/* La subclase accede a todos los miembros públicos de 
+su superclase. */
+subOb.i = 7;
+subOb.j = 8;
+subOb.k = 9;
+System.out.println ("Contenido de subOb: ");
+subOb.mostrarij ();
+subOb.mostrark ();
+System.out.println ();
+System.out.println ("Suma de i, j y k en subOb:");
+subOb.suma ();
+}
+}
+
+Número 2
+/* En una jerarquía de clases, los miembros privados permanecen 
+como privados para su clase.
+Este programa contiene un error y no compilará.
+*/
+// Crear una superclase.
+class A {
+int i; 	// público por defecto
+private int j; 	// privado para A
+void setij (int x, int y) {
+i = x;
+j = y;
+}
+}
+/ / Aquí no se puede acceder a la variable j de A.
+class B extends A {
+int total;
+void suma () {
+total = i + j; 	// ERROR, aquí no se puede acceder a j
+}
+}
+class Access {
+public static void main (String args[]) {
+B subOb = new B();
+subOb. setij (10, 12);
+subOb.suma ();
+System.out.println ("Total es igual a " + subOb. total);
+}
+}
+
+Número 3
+// Este programa utiliza la herencia para extender el programa Caja
+class Caja {
+double ancho;
+double alto;
+double largo;
+// constructor para duplicados de un objeto
+Caja (Caja ob) {	// paso del objeto al constructor
+ancho = ob.ancho;
+alto = ob.alto;
+largo = ob.largo;
+}
+// constructor que se utiliza cuando se especifican todas las dimensiones
+Caja (double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// constructor que se utiliza cuando no se especifican dimensiones
+Caja () {
+ancho = -1; // usa -1 paran indicar
+alto = -1; // que una caja no está
+largo = -1; // inicializada
+}
+// constructor que se utiliza para crear un cubo
+Caja (double len) {
+ancho = alto = largo = len;
+}
+// cálculo y devolución del volumen
+double volumen () {
+return ancho * alto * largo;
+}
+}
+// Aquí, se extiende Caja para incluir el peso.
+class PesoCaja extends Caja {
+double peso; 	// peso de la caja
+// constructor para PesoCaja
+PesoCaja (double w, double h, double d, double m) {
+ancho = w;
+alto = h;
+largo = d;
+peso = m;
+}
+}
+class DemoPesoCaja {
+public static void main (String args[]) {
+PesoCaja miCaja1 = new PesoCaja (10, 20, 15, 34.3);
+PesoCaja miCaja2 = new PesoCaja (2, 3, 4, 0.076);
+double vol;
+vol = miCaja1.volumen();
+System.out.println ("El volumen de miCaja1 es " + vol);
+System.out.println ("El peso de miCaja1 es " + miCajal.peso);
+System.out.println ();
+vol = miCaja2.volumen () ;
+System.out.println ("El volumen de miCaja2 es " + vol);
+System.out.println ("El peso de miCaja2 es " + miCaja2.peso);
+}
+}
+
+Número 4
+// En este ejemplo se extiende Caja para incluir el color.
+class ColorCaja extends Caja {
+int color; 	// color de la caja
+ColorCaja (double w, double h, double d, int c) {
+Ancho = w;
+alto = h;
+largo =d;
+color = c;
+}
+}
+
+Número 5
+class RefDemo {
+public static void main (String args[]) {
+PesoCaja pesoCaja = new PesoCaja (3, 5, 7, 8.37);
+Caja cajaSencilla = new Caja ();
+double vol;
+vol = pesoCaja.volumen ();
+System.out.println ("El volumen de pesoCaja es " + vol);
+System.out.println ("El peso de pesoCaja es " + pesoCaja.peso);
+System.out.println ();
+// se asigna una referencia de PesoCaja a una referencia de Caja
+cajaSencilla = pesoCaja;
+vol = cajaSencilla.volumen(); // Es correcto, ya que volumen() está definido en Caja
+System.out.println ("El volumen de cajaSencilla es " + vol);
+/* La siguiente sentencia no es válida ya que 
+cajaSencilla no define como miembro a peso. */
+// System.out.println ("El peso de cajaSencilla es " + cajaSencilla.peso);
+}
+}
+
+Número 6
+// PesoCaja utiliza ahora super para inicializar los atributos de Caja.
+class PesoCaja extends Caja {
+double peso; // peso de la caja
+// Inicialización de ancho, largo y alto usando super()
+PesoCaja (double w, double h, double d, double m) {
+super (w, h, d); // llamada al constructor de la superclase
+peso = m;
+}
+}
+
+Número 7
+// Implementación completa de PesoCaja.
+class Caja {
+private double ancho;
+private double alto;
+private double largo;
+// constructor para duplicados de un objeto
+Caja (Caja ob) {  // se pasa el objeto al constructor
+ancho = ob.ancho;
+alto = ob.alto;
+largo = ob.largo;
+}
+// constructor usado cuando se especifican todas las dimensiones
+Caja (double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// constructor usado cuando no se especifican dimensiones
+Caja () {
+ancho = -1; 	// usa -1 para indicar que
+alto = -1; 	// la caja no está
+largo = -1; 	// inicializada
+}
+/ / constructor usado cuando se crea un cubo
+Caja (double len) {
+ancho = alto = largo = len;
+}
+// se calcula y devuelve el volumen
+double volumen () {
+return ancho * alto * largo;
+}
+}
+// PesoCaja ahora implementa completamente todos los constructores.
+class PesoCaja extends Caja {
+double peso; 	// peso de la caja
+/ / constructor para duplicados de un objeto
+PesoCaja (PesoCaja ob) {	 // se pasa el objeto al constructor
+super (ob);
+peso = ob.peso;
+}
+// constructor que se utiliza cuando se especifican todos los parámetros
+PesoCaja(double w, double h, double d, double m) {
+super (w, h, d);  // llamada al constructor de la superclase
+peso =m;
+}
+// constructor por defecto
+PesoCaja () {
+super ();
+peso = -1;
+}
+// constructor que se utiliza cuando se crea un cubo
+PesoCaja (double len, double m) {
+super (len) ;
+peso = m;
+}
+}
+class DemoSuper {
+public static void main (String args[]) {
+PesoCaja miCaja1 = new PesoCaja (10, 20, 15, 34.3);
+PesoCaja miCaja2 = new PesoCaja (2, 3, 4, 0.076);
+PesoCaja miCaja3 = new PesoCaja ();	 // por omisión
+PesoCaja miCubo = new PesoCaja (3, 2);
+PesoCaja miDup1icado = new PesoCaja (miCaja1);
+double vol;
+vol = miCajal.volumen();
+System.out.println ("El volumen de miCajal es " + vol);
+System.out.println ("El peso de miCajal es " + miCajal.peso);
+System.out.println ();
+vol = miCaja2.volumen();
+System.out.println ("El volumen de miCaja2 es " + vol);
+System.out.println ("El peso de miCaja2 es " + miCaja2.peso);
+System.out.println ();
+vol = miCaja3.volumen();
+System.out.println ("El volumen de miCaja3 es " + vol);
+System.out.println ("El peso de miCaja3 es " + miCaja3.peso);
+System.out.println ();
+vol = miDuplicado.volumen();
+System.out.println ("El volumen de miDuplicado es " + vol);
+System.out.println ("El peso de miDuplicado es " + miDuplicado.peso);
+System.out.println ();
+vol = miCubo.volumen();
+System.out.println ("El volumen de miCubo es " + vol);
+System.out.println ("El peso de miCubo es " + miCubo.peso);
+System.out.println ();
+}
+}
+
+Número 8
+// se construye un duplicado de un objeto
+PesoCaja (PesoCaja ob) { 	// se pasa el objeto al constructor
+super (ob);
+peso = ob.peso;
+}
+
+
+Número 9
+// Uso de super para evitar el ocultamiento de nombres.
+class A {
+int i;
+}
+// Se crea una subclase extendiendo la clase A.
+class B extends A {
+int i; 	//esta variable i oculta la variable i de A
+B (int a, int b) {
+super.i = a;	// i de A
+i = b;	 // i de B
+}
+void show() {
+System.out.println ("i en la superclase: " + super.i);
+System.out.println ("i en la subclase: " + i);
+}
+}
+class UsaSuper {
+public static void main (String args[]) {
+B subOb = new B (l, 2);
+subOb.show ();
+}
+}
+
+Número 10
+// Se extiende PesoCaja para incluir el costo del envío.
+// Comienzo con Caja.
+class Caja {
+private double ancho;
+private double alto;
+private double largo;
+// construye un duplicado de un objeto
+Caja (Caja ob) { 	// se pasa el objeto al constructor
+ancho = ob.ancho;
+alto = ob.alto;
+largo = ob.largo;
+}
+// constructor usado cuando se especifican todas las dimensiones
+Caja (double w, double h, double d) {
+ancho = w;
+alto = h;
+largo = d;
+}
+// constructor usado cuando no se especifican dimensiones
+Caja () {
+ancho = -1; 	// usa -1 para indicar
+alto = -1; 	// que la caja no está
+largo = -1; 	// inicializada
+}
+// constructor usado cuando se crea un cubo
+Caja (double lon) {
+ancho = alto = largo = lon;
+}
+// se calcula y devuelve el volumen
+double volumen () {
+return ancho * alto * largo;
+}
+}
+// Se añade el peso.
+c1ass pesoCaja extends Caja {
+double peso; 	// peso de la caja
+// se construye una copia de un objeto
+PesoCaja (PesoCaja ob) { 	// se pasa el objeto al constructor
+super (ob) ;
+peso = ob.peso;
+}
+// constructor que se utiliza cuando se especifican todos los parámetros
+PesoCaja (double w, double h, double d, double m) {
+super (w, h, d); 	// llamada al constructor de la superclase
+peso = m;
+}
+// constructor por omisión
+PesoCaja () {
+super ();
+peso =-1;
+}
+// constructor usado cuando se crea un cubo
+PesoCaja (double lon, double m) {
+super (lon);
+peso =m;
+}
+}
+// Se añaden los costos del envío
+class Envio extends PesoCaja {
+double costo;
+/ / construye un duplicado de un objeto
+Envio (Envio ob) {	 // se pasa el objeto al constructor
+super (ob) ;
+costo = ob.costo;
+}
+// constructor cuando se especifican todos los parámetros
+Envio (double w, double h, double d, double m, double c) {
+super (w, h, d, m); 	// llamada al constructor de la superclase
+costo = c;
+}
+// constructor por omisión
+Envio () {
+super ();
+costo = -1;
+}
+// constructor que se utiliza cuando se crea un cubo
+Envio (double lon, double m, double c) {
+super (lon, m);
+costo = c;
+}
+}
+class DemoEnvio {
+public static void main (String args[]) {
+Envio envio1 = new Envio (10, 20, 15, 10, 3.41);
+Envio envio2 = new Envio (2, 3, 4, 0.76, 1.28);
+double vol;
+vol = envio1.volumen ();
+System.out.println ("EI volumen del envio1 es " + vol);
+System.out.println ("EI peso del envio1 es " + envio1.peso);
+System.out.println ("Costo del envío1 es: $ " + envio1.costo);
+System.out.println ();
+vol = envio2.volumen();
+System.out.println ("EI volumen del envio2 es " + vol);
+System.out.println ("EI peso del envio2 es " + envio2. peso) ;
+System.out.println ("Costo del envio2 es: $ " + envio2.costo);
+}
+}
+
+Número 11
+// Demuestra cuándo se ejecutan los constructores.
+// Se crea una superclase.
+class A {
+A () {
+System.out.println ("Dentro del constructor de A.");
+}
+}
+// Se crea una subclase extendiendo la clase A.
+class B extends A {
+B () {
+System.out.println ("Dentro del constructor de B.");
+}
+}
+// Se crea otra subclase C extendiendo B.
+class C extends B {
+C () {
+System.out.println ("Dentro del constructor de C.");
+}
+}
+class LlamandoCons {
+public static void main (String args[]) {
+C c = new C();
+}
+}
+
+Número 12
+// Sobreescritura de métodos.
+class A {
+int i, j;
+A (int a, int b) {
+i = a;
+j = b;
+}
+// se imprimen i y j
+void show() {
+System.out.println ("i y j: " + i + " " + j);
+}
+}
+class B extends A {
+int k;
+B (int a, int b, int c) {
+super (a, b);
+k = c;
+}
+// se imprime k - sobrescribiendo el método show() en A
+void show() {
+System.out.println ("k: " + k);
+}
+}
+class Sobreescribe {
+public static void main (String args[]) {
+B subOb = new B(l, 2, 3);
+subOb.show();  // llamada a show() en B
+}
+}
+
+Número 13
+class B extends A {
+int k:
+B (int a, int b, int c) {
+super (a, b);
+k = c;
+}
+void show() {
+super.show();	// llamada al método show() de A.
+System.out.println ("k: " + k):
+}
+}
+
+Número 14
+// Los métodos con diferentes tipos se sobrecargan, no se sobrescriben.
+class A {
+int i, j;
+A (int a, int b) {
+i = a;
+j = b;
+}
+// se imprime i y j
+void show () {
+System.out.println ("i y j: " + i + " " + j);
+}
+}
+// Creación de una subclase extendiendo la clase A.
+class B extends A {
+int k;
+B (int a, int b, int c) {
+super (a, b);
+k = c;
+}
+// sobrecarga de show ()
+void show (String msg) {
+System.out.println (msg + k);
+}
+}
+class Sobreescribe {
+public static void main (String args[]) {
+B subOb = new B(l, 2, 3);
+subOb.show ("Esto es k: "); // llamada a show() de B
+subOb.show (); // llamada a show () de A
+}
+}
+
+Número 15
+// Selección dinámica de métodos.
+class A {
+void callme () {
+System.out.println ("Llama al método callme, dentro de A");
+}
+}
+class B extends A {
+// sobrescribe callme ()
+void callme () {
+System.out.println ("Llama al método callme, dentro de B");
+}
+}
+class C extends A {
+// sobrescribe callme ()
+void callme () {
+System.out.println ("Llama al método callme, dentro de C");
+}
+}
+class Dispatch {
+public static void main (String args[]) {
+A a = new A(); // objeto del tipo A
+B b = new B(); // objeto del tipo B.
+C c = new C(); // objeto del tipo C
+A r; // una referencia del tipo A
+r = a; 	// r se refiere a un objeto A
+r.callme (); 	// llamada a la versión de callme en A
+r = b 	// r se refiere a un objeto B
+r.callme (); 	// llamada a la versión de callme en B
+r = c	// r se refiere a un objeto e
+r.callme (); 	// llamada a la versión de callme en C
+}
+}
+
+Número 16
+// Usando polimorfismo en tiempo de ejecución.
+class Figura {
+double dim1;
+double dim2;
+Figura (double a, double b) {
+diml = a;
+dim2 = b;
+}
+double area () {
+System.out.println ("El área de la figura no está definida.");
+return ();
+}
+}
+class Rectangulo extends Figura {
+Rectangulo (double a, double b) {
+super (a, b);
+}
+// sobrescribe el método área para un rectángulo
+double area () {
+System.out.println ( "Dentro del método área para un objeto rectángulo.");
+return diml* dim2;
+}
+class Triangulo extends Figura {
+Triangulo (double a, double b) {
+super (a, b);
+}
+//sobrescribe el método área para un triángulo rectángulo
+double area () {
+System.out.println ("Dentro del método área para un objeto triángulo.");
+return dim1 * dim2 / 2;
+}
+}
+class CalculoAreas {
+public static void main (String args[]) {
+Figura f = new Figura (10, 10);
+Rectangulo r = new Rectangulo (9, 5);
+Triangulo t = new Triangulo (10, 8);
+Figura figref;
+figref = r;
+System.out.println ("El área es " + figref.area());
+figref = t;
+System.out.println ("El área es " + figref.area());
+figref = f;
+System.out.println ("El área es " + figref.area());
+}
+}
+
+Número 17
+// Un ejemplo sencillo de una clase abstracta.
+abstract class A {
+abstract void callme ();
+// en las clases abstractas se permiten métodos concretos
+void callmetoo() {
+System.out.println ("Esto es un método concreto.");
+}
+}
+class B extends A {
+void callme () {
+System.out.println ("Implementación del método callme en B.");
+}
+}
+class AbstractDemo {
+public static void main(String args[]) {
+B b = new B();
+b.callme();
+b.callmetoo();
+}
+}
+
+Número 18
+// Uso de métodos y clases abstractas.
+abstract class Figura {
+double diml;
+double dim2;
+Figura (double a, double b) {
+diml = a;
+dim2 = b;
+}
+// área es ahora un método abstracto
+abstract double area();
+}
+class Rectangulo extends Figura {
+Rectangulo (double a, double b) {
+super (a, b);
+}
+// se sobrescribe área para un rectángulo
+double area() {
+System.out.println ("Dentro del método área par un objeto rectángulo.");
+return dim1 * dim2;
+}
+}
+class Triangulo extends Figura {
+Triangulo (double a, double b) {
+super (a, b);
+}
+//se sobrescribe área para un triángulo
+double area() {
+System.out.println ("Dentro del método área par un objeto triángulo.");
+return diml * dim2 / 2;
+}
+}
+class AbstractAreas {
+public static void main(String args[]) {
+// Figura f = new Figura (10, 10); // ahora esto ya no es correcto
+Rectangulo r = new Rectangulo (9, 5);
+Triangulo t = new Triangulo (10, 8);
+Figura figref; 	//esto es correcto, no se crea ningún objeto
+figref = r;
+System.out.println ("El área es " + figref.area());
+figref = t;
+System.out.println ("El área es " + figref.area());
+}
+}
+
+Número 19
+class A {
+final void meth () {
+System.out.println ("Este es un método final.");
+}
+}
+class B extends A {
+void meth() { 	// ERROR! No está permitida la sobrescritura.
+System.out.println ("No es correcto!");
+}
+}
+
+Número 20
+final class A {
+// ...
+}
+// La siguiente clase no es válida.
+class B extends A { 	// ¡ERROR!, no puede haber subclases de A
+// ...
+}

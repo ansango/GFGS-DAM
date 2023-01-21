@@ -1,0 +1,288 @@
+Número 1
+// Estructura de un applet.
+import java.awt.*;
+import java.applet.*;
+/*
+<appletcode="EsqueletoDeApplet" width=300 height=100>
+</applet>
+*/
+public class EsqueletoDeApplet extends Applet {
+// Este es el método que se llama en primer lugar.
+public void init() {
+// código de inicialización
+}
+/* Este método es llamado en segundo lugar después de init(). 
+También es llamado siempre que se reanuda el applet. */
+public void start() {
+// código que comienza o reanuda la ejecución
+}
+// Este método se ejecuta cuando se detiene el applet.
+public void stop() {
+// código que detiene la ejecución
+}
+/* Este método se ejecuta cuando termina el applet. 
+Es el último método que se ejecuta*/
+public void destroy() {
+// código para la finalización definitiva
+}
+// Este método es llamado cuando se restaura la ventana del applet.
+public void paint(Graphics g) {
+// código para dibujar el contenido de la ventana
+}
+}
+
+Número 2
+/* Un applet que establece los colores de fondo y frente
+y muestra una cadena en la pantalla. */
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Ejemplo" width=300 height=50>
+</applet>
+*/
+public class Ejemplo extends Applet{
+String msg ;
+// Establece los colores de frente y fondo.
+public void init() {
+setBackground(Color.cyan);
+setForeground(Color.red);
+msg = "En el interior de init( ) -";
+}
+// Inicializa el texto que va a ser mostrado.
+public void start() {
+msg += "En el interior de start( ) -";
+}
+// Muestra msg en la ventana del applet.
+public void paint(Graphics g) {
+msg += " En el interior de paint( ). ";
+g.drawString(msg, 10, 30);
+}
+}
+
+Número 3
+/* Un applet sencillo.
+Este applet crea un hilo que desplaza
+el mensaje contenido en la variable msg de derecha a izquierda
+en la ventana del applet.
+*/
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="AppletDesplazarFrase" width=300height=50>
+</applet>
+*/
+public class AppletDesplazarFrase extends Applet implements Runnable {
+String msg = " Una frase desplazándose.";
+Thread t = null;
+int state;
+boolean stopFlag;
+// Establece el color e inicializa el hilo.
+public void init() {
+setBackground(Color.cyan);
+setForeground(Color.red);
+}
+// Comienza el hilo
+public void start() {
+t = new Thread(this) ;
+stopFlag =false;
+t.start();
+}
+// Punto de entrada del hilo que desplaza la frase.
+public void run() {
+char ch;
+// Muestra la frase
+for( ; ; ) {
+try {
+repaint();
+Thread.sleep(250);
+ch =msg.charAt(0);
+msg =msg.substring(l, msg.length());
+msg += ch;
+if(stopFlag)
+break;
+} catch(InterruptedException e) {}
+}
+}
+// Detiene el desplazamiento de la frase.
+public void stop () {
+stopFlag = true;
+t =null;
+}
+// Muestra en pantalla la frase.
+public void paint(Graphics g) {
+g.draWString(msg, 50, 30);
+}
+}
+
+Número 4
+// Usando la barra de estado.
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="BarraDeEstado" width=300 height=50>
+</applet>
+*/
+public class BarraDeEstado extends Applet {
+public void init() {
+setBackground(Color.cyan);
+}
+// Muestra msg en la ventana del applet.
+public void paint(Graphics g) {
+g.drawString("Esto está en la ventana del applet.", 10, 20);
+showStatus("Esto se enseña en la barra de estado.");
+}
+}
+
+Número 5
+// Uso de parámetros
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="ParamDemo" width=300 height=80>
+<param name=nombreFuente value=Courier>
+<param name=tamañoFuente value=l4>
+<param name=separacion value=2>
+<param name=accountEnabled value=true>
+</applet>
+*/
+public class ParamDemo extends Applet{
+String nombreFuente;
+int tamañoFuente;
+float separacion;
+boolean active;
+// Inicializa el String que se va a visualizar.
+public void start() {
+String param;
+nombreFuente = getParameter("nombreFuente");
+if (nombreFuente == null)
+nombreFuente = "No encontrada";
+param = getParameter("tamañoFuente");
+try {
+if(param != null) // si se ha encontrado
+tamañoFuente= Integer.parseInt (param);
+else
+tamañoFuente= 0;
+} catch(NumberFormatException e) {
+tamañoFuente= -1;
+}
+param = getParameter("separacion");
+try {
+if(param != null) // si se ha encontrado
+separacion= Float.valueOf(param).floatValue();
+else
+separacion= 0;
+} catch(NumberFormatException e) {
+separacion= -1;
+}
+param = getParameter("accountEnabled");
+if(param != null)
+active = Boolean.valueOf(param).booleanValue();
+}
+// Mostrar los parámetros
+public void paint(Graphics g) {
+g.drawString ("Nombre de la fuente: " + nombreFuente, 0, 10);
+g.drawString ("Tamaño de la fuente: " + tamañoFuente, 0, 26);
+g.drawString("Separación: " + separación, 0, 42);
+g.drawString("Activo: " + active, 0, 58);
+}
+}
+
+Número 6
+// Un applet con parámetros
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="paramFrase" width=300 height=50>
+<param name= mensaje value ="¡Java permite el movimiento en la Web!">
+</applet>
+*/
+public class ParamFrase extends Applet inplements Runnable {
+String mensaje;
+Thread t = null;
+int estado;
+boolean stopFlag;
+// Establece colores e inicializa el hilo.
+public void init() {
+setBackground(Color.cyan);
+setForeground(Color.red);
+}
+// Comienza el hilo
+public void start() {
+mensaje = getParameter("mensaje");
+if(mensaje == null) mensaje = "Mensaje no encontrado";
+mensaje = " " + mensaje;
+t = new Thread(this);
+stopFlag = false;
+t.start();
+}
+// Punto de entrada del hilo que desplaza la frase.
+public void run() {
+char ch;
+// Visualiza la frase
+for( ; ; ) {
+try{
+repaint();
+Thread.sleep(250);
+ch =mensaje.charAt(0);
+mensaje = mensaje.substring(l, mensaje.length());
+mensaje += ch;
+if(stopF1ag)
+break;
+} catch(InterruptedException e) {}
+}
+}
+// Pausa en el desplazamiento de la frase.
+public void stop() {
+stopF1ag = true;
+t =null;
+}
+// Visualiza la frase.
+public void paint(Graphics g) {
+g.drawString(mensaje, 50, 30);
+}
+}
+
+Número 7
+// Muestra los directorios base de documento y código.
+import java.awt.*;
+import java.applet.*;
+import java.net.*;
+/*
+<applet code="Bases" width=300 height=50>
+</applet>
+*/
+public class Bases extends Applet{
+// Muestra los directorios base de documento y código.
+public void paint(Graphics g) {
+String msg;
+URL url = getCodeBase(); // obtiene la base de código
+msg = "Base de código: " + url. toString ();
+g.drawString(msg, 10, 20);
+url = getDocumentBase(); // obtiene la base de documento
+msg = "Base de documento: " + url. toString();
+g.drawString(msg, 10, 40);
+}
+}
+
+Número 8
+/* Utilizando un contexto de applet, getCodeBase()
+y showDocument() para visualizar un archivo HTML.
+*/
+import java.awt.*;
+import java.applet.*;
+import java.net.*;
+/*
+<applet code="ACDemo" width=300 height=50>
+</applet>
+*/
+public class ACDemo extends Applet{
+public void start() {
+AppletContext ac = getAppletContext();
+URL url = getCodeBase(); // obtiene el url de este applet
+try {
+ac.showDocument(new URL(url+"Test.html"));
+} catch{MalformedURLException e) {
+showStatus ("URL no encontrado");
+}
+}
+}

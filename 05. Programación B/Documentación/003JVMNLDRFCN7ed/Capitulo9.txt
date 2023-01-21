@@ -1,0 +1,455 @@
+Número 1
+// Un paquete sencillo
+package Mipaquete;
+class Balance {
+String nombre;
+double bal;
+Balance(String n, double b) {
+nombre = n;
+bal = b;
+}
+void show() {
+if (bal<0)
+System.out.print("--> ");
+System.out.println(nombre + ": $" + bal);
+}
+}
+class CuentaBalance {
+public static void main(String args[]) {
+Balance actual[] =new Balance[3];
+actual [0] = new Balance("K. J. Fielding", 123.23);
+actual [1] = new Balance("Will Tell", 157.02);
+actual [2] = new Balance("Tom Jackson", -12.33);
+for(int i=0; i<3; i++) actual[i].show();
+}
+}
+
+Número 2
+package p1;
+public class Proteccion {
+int n = 1;
+private int n_pri = 2;
+protected int n_pro = 3;
+public int n_pub =4;
+public Proteccion() {
+System.out.println("Constructor base");
+System.out.println("n = " + n);
+System.out.println("n_pri = " + n_pri);
+System.out.println("n_pro = " + n_pro);
+System.out.println("n_pub = " + n_pub);
+}
+}
+class Derivada extends Proteccion {
+Derivada () {
+System.out.println("Constructor de la clase Derivada");
+System.out.println("n = " + n);
+// Sólo para su clase
+// System.out.println("n_pri =" + n_pri);
+System.out.println("n_pro = " + n_pro);
+System.out.println("n_pub = " + n_pub);
+}
+}
+class MismoPaquete {
+MismoPaquete () {
+Proteccion p =new Proteccion();
+System.out.println("Constructor de la clase MismoPaquete");
+System.out.println("n = " + p.n);
+// Sólo para su clase
+// System.out.println("n_pri = " + p.n_pri);
+System.out.println("n_pro = " + p.n_pro);
+System.out.println("n_pub = " + p.n_pub);
+}
+}
+
+Número 3
+package p2;
+class Proteccion2 extends p1.Proteccion {
+Proteccion2() {
+System.out.println("Constructor de clase con herencia en paquetes distintos");
+// Sólo para su clase o paquete
+// System.out.println("n = " + n);
+// Sólo para su clase
+// System.out.println("n _pri = " + n_pri);
+System.out.println("n_pro = " + n_pro);
+System.out.println("n_pub = " + n_pub);
+}
+}
+package p2;
+c1ass OtroPaquete {
+OtroPaquete () {
+p1.Proteccion p = new p1.Proteccion();
+System.out.println(<<Constructor de la clase OtroPaquete");
+// Sólo para su clase o paquete
+/ / System.out.println("n = " + p.n);
+// Sólo para su clase
+// System.out.println("n_pri = " + p.n_pri);
+// Sólo para su clase, subc1ase o paquete
+// System.out.println("n_ro = "+ p.n_pro);
+System.out.print1n("n_pub = " + p.n_pub);
+}
+}
+
+Número 4
+/ / Demo paquete p1.	
+package p1;
+// Crea instancias de las distintas clases del paquete p1.
+public c1ass Demo {
+pub1ic static void main(String args[]){
+Proteccion ob1 = new Proteccion();
+Derivada ob2 = new Derivada ();
+MismoPaquete ob3 = new MismoPaquete ();
+}
+}
+
+Número 5
+// Ejemplo del paquete p2.
+package p2;
+// Crea instancias de las distintas clases del paquete p2.
+public c1ass Demo {
+pub1ic static void main(String args[]) {
+Proteccion2 ob1 = new Proteccion2();
+OtroPaquete ob2 = new OtroPaquete ();
+}
+}
+
+Número 6
+import java.util.*;
+class MiFecha extends Date {
+}
+
+Número 7
+class MiFecha extends java.util.Date {
+}
+
+Número 8
+/* Ahora, la clase Balance, su constructor, y su método
+show() son públicos. Esto significa que pueden ser utilizados
+por código que no sea una subclase y esté fuera de su paquete.
+*/
+public class Balance {
+String nombre;
+double bal;
+public Balance(String n, double b) {
+nombre = n;
+bal = b;
+}
+public void show() {
+if (bal<0)
+System.out.print(" - - > ");
+System.out.println(nombre + ": $" + bal);
+}
+}
+Número 9
+import MiPaquete.*;
+class TestBalance {
+public static void main(String args[]) {
+/* Como Balance es pública, se puede usar la clase Balance
+y llamar a su constructor. */
+Balance test =new Balance("J. J. Jaspers", 99.88);
+test.show(); // también se puede llamar a show()
+}
+}
+
+Número 10
+interface Callback {
+void callback(int param);
+}
+
+Número 11
+class Cliente implements Callback {
+// Implementa la interfaz Callback
+public void callback(int p) {
+System.out.println("callback llamado con" + p);
+}
+}
+
+Número 12
+class Cliente implements Callback {
+// Implementa la interfaz Callback
+public void callback(int p) {
+System.out.println("callback llamado con" + p);
+}
+void nonIfaceMeth() {
+System.out.println("Las clases que implementan interfaces " +
+"pueden definir también otros miembros.");
+}
+}
+
+Número 13
+class TestIface {
+public static void main(String args[]) {
+Callback c =new Cliente();
+c. callback (42) ;
+}
+}
+
+Número 14
+// Otra implementación de Callback.
+class OtroCliente implements Callback {
+// Implementa la interfaz de Callback
+public void callback(int p) (
+System.out.println("Otra versión de callback");
+System.out.println("El cuadrado de p es . + (p*p));
+}
+}
+
+Número 15
+class TestIface2 {
+public static void main(String args[]) {
+Callback c = new Cliente();
+OtroCliente ob = new OtroCliente();
+c.callback(42);
+c = ob; // c ahora es una referencia a un objeto de la clase OtroCliente
+c.callback(42);
+}
+}
+
+Número 16
+abstract class Incomplete implements Callback {
+int a, b;
+void show() {
+System.out.println(a + " " + b);
+}
+/ / ...
+}
+
+Número 17
+// Ejemplo de interfaces anidadas
+// Esta clase contiene una interface anidada
+class A {
+// ésta es la interfaz anidada
+public interface NestedIF {
+boolean isNotNegative(int x);
+}
+}
+// B implementa la interfaz anidada
+class B implements A.NestedIF {
+public boolean isNotNegative(int x) {
+return x < 0 ? false : true;
+}
+}
+class NestedIFDemo {
+public static void main(String args[]) {
+// Utiliza una referencia a una interfaz anidada
+A.NestedIF nif = new B();
+if(nif.isNotNegative(l0))
+System.out.println("10 es un número no negativo");
+if(nif.isNotNegative(-12))
+System.out.println("Esto no aparecerá en pantalla");
+}
+}
+
+Número 18
+// Definición de la interfaz de una pila de enteros.
+interfaz IntStack {
+void push(int item); // almacena un elemento
+int pop(); // recupera un elemento
+}
+
+Número 19
+// Esta implementación de IntStack utiliza almacenamiento fijo.
+class FixedStack implements IntStack {
+private int stck[];
+private int tos;
+// Reserva espacio e inicializa la pila
+FixedStack(int size) {
+stck = new int[size];
+tos= -1;
+}
+// Coloca un elemento en la pila
+public void push(int item) {
+if(tos==stck.length-l) // se utiliza la variable miembro length para conocer el tamaño del arreglo
+System.out.println("La pila está llena.");
+else
+stck[++tos] = item;
+}
+// Retira un elemento de la pila
+public int pop() {
+if(tos < 0) {
+System.out.println("La pila está vacía .");
+return 0;
+}
+else
+return stck[tos--];
+}
+}
+class IFTest {
+public static void main(String args[]) {
+FixedStack miPilal = new FixedStack(5);
+FixedStack miPila2 = new FixedStack(8) ;
+// Se almacenan algunos números en la pila
+for(int i=0; i<5; i++) miPilal.push(i);
+for(int i=0; i<8; i++) miPila2.push(i);
+// Se retiran esos números de la pila
+System.out.println ("Contenido de miPilal:");
+for(int i=0; i<5; i++)
+System.out.println(miPilal.pop());
+System.out.println( "Contenido de miPila2:") ;
+for(int i=0; i<8; i++)
+System.out.println(miPila2.pop());
+}
+}
+
+Número 20
+// Implementación de una pila de tamaño "creciente".
+class DynStack implements IntStack {
+private int stck[];
+private int tos;
+// Se reserva espacio y se inicializa la pila
+DynStack(int size) {
+stck = new int[size];
+tos = -1;
+}
+// Se almacena un elemento en la pila
+public void push(int item) {
+// Si la pila está llena, se reserva espacio para una pila mayor
+if(tos==stck.length-1) {
+int temp[] =new int[stck.length * 2]: // Se duplica el tamaño
+for(int i=0; i<stck.length; i++) temp[i] = stck[i];
+stck = temp:
+stck[++tos] = item;
+}
+else
+stck[++tos] = item;
+}
+// Se retira un elemento de la pila
+public int pop() {
+if (tos < 0) {
+System.out.println("La pila está vacía."):
+return 0:
+}
+else
+return stck[tos-];
+}
+}
+class IFTest2 {
+public static void main(String args[]) {
+DynStack miPila1 =new DynStack(5);
+DynStack mipila2 =new DynStack(8);
+// Estos ciclos hacen que crezca el tamaño de cada pila
+for(int i=0; i<12; i++) miPila1.push(i);
+for(int i=0; i<20; i++) miPila2.push(i);
+System.out.println("Contenido de miPila1:");
+for(int i=0; i<12; i++)
+System.out.println(miPila1.pop());
+System.out.println("Contenido de miPila2:");
+for(int i=0; i<20; i++)
+System.out.println(miPila2.pop());
+}
+}
+
+Número 21
+/* Se crea una variable de tipo interfaz y
+se accede a la pila a través de ella.
+*/
+class IFTest3{
+public static void main(String args[]) {
+IntStack miPila; // Se crea una variable de referencia a la interfaz
+DynStack ds = new DynStack(5);
+FixedStack fs = new FixedStack(8);
+miPila = ds; // Se carga la pila dinámica
+// Se coloca algunos números en la pila
+for(int i=0; i<12; i++) miPila.push(i);
+miPila = fs; // Se carga la pila de tamaño fijo
+for(int i=0; i<8; i++) miPila.push(i);
+miPila = ds;
+System.out.println("Valores de la pila dinámica:");
+for(int i=0; i<12; i++)
+System.out.println(miPila.pop());
+miPila = fs;
+System.out.println("Valores de la pila de tamaño fijo:");
+for(int i=0; i<8; i++)
+System.out.println(miPila.pop());
+}
+}
+
+Número 22
+import java.util.Random;
+interface ConstantesCompartidas {
+int NO = 0;
+int YES = 1;
+int MAYBE= 2;
+int LATER= 3;
+int SOON = 4;
+int NEVER = 5;
+}
+class Pregunta implements ConstantesCompartidas {
+Random rand =new Random ();
+int preguntar() {
+int prob = (int) (100 * rand.nextDouble () ) ;
+if (prob < 30)
+return NO; // 30%
+else if (prob < 60)
+return YES; // 30%
+else if (prob < 75)
+return LATER; // 15%
+el se if (prob < 98)
+return SOON; // 13%
+else
+return NEVER; // 2%
+class Preguntame implements ConstantesCompartidas {
+static void respuesta(int result) {
+switch (result) {
+case NO: 
+System.out.println("No");
+break;
+case YES:
+System.out.println("Si");
+break;
+case MAYBE:
+System.out.println("Puede ser");
+break;
+case LATER:
+System.out.println ("Más tarde");
+break;
+case SOON:
+System.out.println("Pronto");
+break;
+case NEVER:
+System.out.println("Nunca");
+break;
+}
+}
+}
+public static void main(String args[]) {
+Pregunta q =new Pregunta();
+respuesta(q.preguntar());
+respuesta (q.preguntar());
+respuesta (q.preguntar());
+respuesta (q.preguntar());
+}
+}
+}
+
+Número 23
+// Una interfaz puede extender otra.
+interface A {
+void methl ( ) ;
+void meth2 () ;
+}
+// B ahora incluye los métodos methl() y meth2() y añade meth3().
+interface B extends A {
+void meth3();
+}
+// Esta clase debe implementar todos los métodos de A y B
+class MiClase implements B {
+public void methl() {
+System.out.println("Implementa methl() .");
+}
+public void meth2() {
+System.out.println("Implementa meth2() .");
+}
+public void meth3() {
+System.out.println("Implementa meth3() .");
+}
+}
+class IFExtend {
+public static void main(String arg[]) {
+MiClase ob = new MiClase();
+ob.methl ();
+ob.meth2 ();
+ob.meth3 ();
+}
+}
+
+Número 24

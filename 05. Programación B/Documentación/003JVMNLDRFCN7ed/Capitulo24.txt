@@ -1,0 +1,1176 @@
+Número 1
+// Ejemplo con etiquetas
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="LabelDemo" width=300 height=200>
+</applet>
+*/
+public class LabelDemo extends Applet {
+public void init( ) {
+Label primera = new Label("Uno");
+Label segunda = new Label("Dos");
+Label tercera = new Label("Tres");
+// añade las etiquetas a la ventana del applet
+add(primera);
+add(segunda);
+add(tercera);
+}
+}
+
+Número 2
+// Ejemplo con botones
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="DemoBoton" width=250 height=150>
+</applet>
+*/
+public class DemoBoton extends Applet implements ActionListener {
+String msg = "";
+Button si, no, quiza;
+public void init( ) {
+si = new Button("Si");
+no = new Button("No");
+quiza = new Button("Sin decidir");
+add(si) ;
+add(no) ;
+add(quiza) ;
+si.addActionListener(this);
+no.addActionListener(this) ;
+quiza.addActionListener(this);
+}
+public void actionPerformed(ActionEvent ae) {
+String str = ae.getActionCommand( );
+if (str.equals ("Si")) {
+msg = "Has dado clic en Si.";
+} else if(str.equals("No"))
+msg = "Has dado clic en No.";
+} else {
+msg = "Has dado clic en Sin decidir.";
+}
+repaint( );
+public void paint(Graphics g) {
+g.drawString(msg, 6, 100);
+}
+}
+
+Número 3
+// Reconocimiento de objetos de tipo Button.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="ListaBotones" width=250 height=150>
+</applet>
+*/
+pub1ic c1ass ListaBotones extends Applet imp1ements ActionListener {
+String msg = "";
+Button bList[] = new Button[3]:
+pub1ic void init( ) {
+Button si = new Button("Si");
+Button no = new Button("No");
+Button quiza = new Button{"Sin decidir");
+// se guardan las referencias a los botones conforme se añaden
+bList[0] = (Button) add(si);
+bList[l] = (Button) add(no);
+bList[2] = (Button) add(quiza);
+// se registran para recibir eventos de acción
+for (int i = 0; i < 3; i++) {
+bList[i].addActionListener(this);
+}
+}
+pub1ic void actionPerformed(ActionEvent ae) {
+for (int i = 0; i < 3; i++) {
+if (ae.getSource( ) = = bList[i]) {
+msg = "Ha presionado " + bList [i].getLabel( );
+}
+}
+repaint( ):
+}
+public void paint(Graphics g} {
+g.drawString(msg, 6, 100);
+}
+}
+
+Número 4
+// Ejemplo con checkbox.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="CheckboxDemo" width=250 height=200>
+</applet>
+*/
+public class CheckboxDemo extends Applet implements ItemListener {
+String msg = "";
+Checkbox WinXP, WinVista, solaris, mac;
+public void init( ) {
+WinXP = new Checkbox ("Windows XP", null, true);
+WinVista = new Checkbox("Windows Vista");
+solaris = new Checkbox("Solaris");
+mac = new Checkbox("MacOS");
+add(WinXP);
+add (WinVista);
+add(solaris);
+add(mac);
+WinXP.addItemListener(this);
+WinVista.addItemListener(this);
+solaris.addItemListener(this);
+mac.addItemListener(this);
+}
+public void itemStateChanged(ItemEvent ie) {
+repaint ( );
+}
+// muestra el estado actual de los checkbox
+public void paint(Graphics g) {
+msg = "Estado actual: ";
+g.drawString (msg, 6, 80);
+msg =" Windows XP: " + WinXP.getState( );
+g.drawString(msg, 6, 100);
+msg =" Windows Vista: " + WinVista.getState( );
+g.drawString(msg, 6, 120);
+msg =" Solaris:" + solaris.getState( );
+g.drawString(msg, 6, 140);
+msg =" MacOS: " + mac.getState( );
+g.drawString(msg, 6, 160);
+}
+}
+
+Número 5
+// Ejemplo de grupos de checkbox
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="CBGroup" width=250 height=200>
+</applet>
+*/
+public class CBGroup extends Applet implements ItemListener {
+String msg = "";
+Checkbox WinXP, WinVista, solaris, mac;
+CheckboxGroup cbg;
+public void init( ) {
+cbg = new CheckboxGroup( );
+WinXP = new Checkbox ("Windows XP", cbg, true);
+WinVista = new Checkbox("Windows Vista", cbg, false);
+solaris = new Checkbox("Solaris",cbg, false);
+mac = new Checkbox("MacOS", cbg, false);
+add(WinXP);
+add (WinVista);
+add(solaris);
+add(mac);
+WinXP.addItemListener(this);
+WinVista.addItemListener(this);
+solaris.addItemListener(this);
+mac.addItemListener(this);
+}
+public void itemStateChanged(ItemEvent ie) {
+repaint ( );
+}
+// Se muestra el estado actual de los checkbox.
+public void paint(Graphics g) {
+msg = "Estado actual: ";
+msg += cbg.getSelectedCheckbox( ).getLabel( );
+g.drawString(msg, 6, 100);
+}
+}
+
+Número 6
+//Ejemplo del control Choice.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="ChoiceDemo" width=300 height=180>
+</applet>
+*/
+public class ChoiceDemo extends Applet implements ItemListener {
+Choice os, browser;
+String msg = "";
+public void init( ) {
+os = new Choice( );
+browser = new Choice( );
+// se añaden elementos a la lista del sistema operativo
+os.add("Windows XP");
+os.add("Windows Vista");
+os.add("Solaris");
+os.add ("MacOS");
+// se añaden elementos a la lista del navegador
+browser.add("Internet Explorer");
+browser.add("Firefox");
+browser.select("Opera");
+// se añaden las listas a la ventana
+add(os);
+add(browser);
+// se registran para recibir eventos
+os.addItemListener(this);
+browser.addItemListener(this);
+}
+public void itemStateChanged(ItemEvent ie) {
+repaint ( );
+}
+// Se visualizan las selecciones actuales.
+public void paint(Graphics g) {
+msg = "Actual OS: ";
+msg += os.getSelectedItem( );
+g.drawString(msg, 6, 120);
+msg = "Navegador actual: ";
+msg += browser.getSelectedItem( );
+g.drawString(msg, 6, 140);
+}
+}
+
+Número 7
+// Ejemplo del componente List
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="ListDemo" width=300 height=180>
+</applet>
+*/
+public class ListDemo extends Applet implements ActionListener {
+List so, navegador;
+String msg = "";
+public void init( ) {
+so = new List(4, true);
+navegador = new List(4, false);
+// se añaden elementos a la lista de sistemas operativos
+so.add("Windows XP");
+so.add("Windows Vista");
+so.add("Solaris");
+so.add("MacOS");
+// se añaden elementos a la lista del navegador
+navegador.add("Internet Explorer ");
+navegador.add("Firefox");
+navegador.add("Opera");
+navegador.select(l);
+// se añaden las listas a la ventana
+add(so);
+add(navegador);
+// se registran para recibir eventos de acción
+so.addActionListener(this);
+navegador.addActionListener(this);
+}
+public void actionPerformed(ActionEvent ae) {
+repaint( );
+}
+// muestra las selecciones actuales.
+public void paint(Graphics g) {
+int idx[];
+msg = "Sistema operativo actual: ";
+idx = so.getSelectedIndexes( );
+for(int i=0; i<idx.length; i++)
+msg += so.getItem(idx[i]) + " ";
+g.drawString (msg, 6, 120);
+msg = " Navegador actual: ";
+msg += navegador.getSelectedItem( );
+g.drawString(msg, 6, 140);
+}
+}
+
+Número 8
+// Ejemplo de barras de desplazamiento.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="SBDemo" width=300 height=200>
+</applet>
+*/
+public class SBDemo extends Applet
+implements AdjustmentListener, MouseMotionListener {
+String msg = "";
+Scrollbar vertSB, horzSB;
+public void init( ) {
+int width = Integer.parseInt(getParameter("width"));
+int height = Integer.parseInt(getParameter("height"));
+vertSB = new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, height);
+horzSB = new Scrollbar(Scrollbar.HORIZONTAL, 0, 1, 0, width);
+add(vertSB);
+add(horzSB);
+// se registran para recibir eventos de ajuste
+vertSB.addAdjustmentListener(this);
+horzSB.addAdjustmentListener(this);
+addMouseMotionListener(this);
+}
+public void adjustmentValueChanged(AdjustmentEvent ae) {
+repaint ( );
+}
+// Se actualizan las barras de desplazamiento para mostrar el arrastre del ratón.
+public void mouseDragged(MouseEvent me) {
+int x = me.getX( );
+int y =me.getY( );
+vertSB.setValue(y);
+horzSB.setValue(x);
+repaint( );
+}
+// Necesario para MouseMotionListener
+public void mouseMoved(MouseEvent me) {
+}
+// Se muestran los valores actuales de las barras de desplazamiento.
+public void paint(Graphics g) {
+msg = "Vertical: " + vertSB.getValue( );
+msg +=", Horizontal:" + horzSB.getValue( );
+g.drawString (msg, 6, 160);
+// se muestra la posición actual del ratón
+g.drawString("*", horzSB.getValue( ), vertSB.getValue( ));
+}
+}
+
+Número 9
+// Ejemplo con campos de texto.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="TextFieldDemo" width=380 height=l50>
+</applet>
+*/
+public class TextFieldDemo extends Applet implements ActionListener {
+TextField name, pass;
+public void init( ) {
+Label namep = new Label ("Nombre: ", Label. RIGHT);
+Label passp = new Label ("password: ", Label.RIGHT);
+name = new TextField(12);
+pass = new TextField(8);
+pass.setEchoChar('?');
+add(namep);
+add(name);
+add(passp);
+add(pass);
+// se registran para recibir los eventos de acción
+name.addActionListener(this);
+pass.addActionListener(this) ;
+}
+// El usuario presiona Enter.
+public void actionPerformed(ActionEvent ae) {
+repaint( );
+}
+public void paint(Graphics g) {
+g.drawString("Nombre: " + name.getText( ), 6, 60);
+g.drawString("Texto seleccionado en Nombre: " + name.getSelectedText( ), 6, 80);
+g.drawString("Clave: " + pass.getText( ), 6, 100);
+}
+}
+
+Número 10
+// Ejemplo de TextArea.
+import java.awt.*:
+import java.applet.*;
+/*
+<applet code="TextAreaDemo" width=300 height=250>
+</applet>
+*/
+public class TextAreaDemo extends Applet {
+public void init ( ) {
+String val = 
+"Java SE 6 es la última versión del lenguaje de programación más \n" +
+"ampliamente utilizado para programar en Internet. \n" +
+"Sobre la base de un rico patrimonio, Java ha desarrollado tanto\n" +
+"el arte como la ciencia detrás del diseño de lenguajes computacionales.\n" +
+"Una de las razones por las que Java es un continuo éxito, es debido a \n" +
+"su constante y firme evolución. Java nunca ha parado. \n" +
+"En lugar de eso, Java se ha adaptado constantemente a los \n" +
+"rápidos cambios en el panorama del mundo de las redes. \n" +
+"Más aún, Java ha conducido con frecuencia las formas, trazando \n" +
+"el camino para ser seguido por otros."
+TextArea text = new TextArea(val, 10, 30);
+add(text);
+}
+}
+
+Número 11
+// FlowLayout con alineación a la izquierda.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="FlowLayoutDemo" width=250 height=200>
+</applet>
+*/
+public class FlowLayoutDemo extends Applet
+implements ItemListener {
+String msg = "";
+Checkbox WinXP, WinVista, solaris, mac;
+public void init( ) {
+// se establece la alineación a la izquierda
+setLayout(new FlowLayout(FlowLayout.LEFT));
+WinXP = new Checkbox("Windows XP", null, true);
+WinVista = new Checkbox("Windows Vista");
+solaris = new Checkbox("Solaris");
+mac = new Checkbox("MacOS");
+add(WinXP) ;
+add(WinVista) ;
+add(solaris) ;
+add (mac) ;
+// se registran para recibir eventos 
+WinXP.addItemListener(this);
+WinVista.addItemListener(this);
+solaris.addItemListener(this);
+mac.addItemListener(this);
+}
+// Se vuelve a pintar cuando cambia el estado de un checkbox.
+public void itemStateChanged(ItemEvent ie) {
+repaint( );
+}
+// Muestra el estado actual de los checkbox.
+public void paint(Graphics g) {
+msg = "Estado actual: ";
+g.drawString(msg, 6, 80);
+msg =" Windows XP: " + WinXP.getState( );
+g.drawString (msg, 6, 100);
+msg =" Windows Vista: " + WinVista.getState( );
+g.drawString(msg, 6, 120);
+msg =" Solaris: " + solaris.getState( );
+g.drawString(msg, 6, 140);
+msg =" Mac: " + mac.getState( );
+g.drawString(msg, 6, 160);
+}
+}
+
+Número 12
+// Ejemplo de BorderLayout.
+import java.awt.*;
+import java.applet.*;
+import java.util.*;
+/*
+<applet code="BorderLayoutDemo" width=400 height=200>
+</applet>
+*/
+public class BorderLayoutDemo extends Applet {
+public void init( ) {
+setLayout(new BorderLayout( ));
+add(new Button("Esto está en la parte superior."), BorderLayout.NORTH);
+add(new Label("El mensaje de pie de página podría ir aquí."), BorderLayout.SOUTH);
+add(new Button("Derecha"), BorderLayout.EAST);
+add(new Button("Izquierda") , BorderLayout.WEST):
+String msg = "El hombre razonable se adapta " + 
+"al mundo; \n" +
+"el hombre no razonable intenta que " +
+"el mundo se adapte a él.\n" +
+"Por tanto todo el progreso depende " +
+"del hombre no razonable.\n\n" +
+"- George Bernard Shaw\n\n";
+add(new TextArea(msg), BorderLayout.CENTER);
+}
+}
+
+Número 13
+// Ejemplo de BorderLayout con márgenes.
+import java.awt.*;
+import java.applet.*;
+import java.util.*;
+/*
+<applet code="InsetsDemo" width=400 height=200>
+</applet>
+*/
+public class InsetsDemo extends Applet {
+public void init( ) {
+// se establece el color de fondo para que se vean fácilmente los márgenes
+setBackground(Color.cyan);
+setLayout(new BorderLayout( ));
+add(new Button("Esto está en la parte superior."), BorderLayout.NORTH);
+add(new Label("El mensaje de pie de página podría ir aquí."), BorderLayout.SOUTH);
+add(new Button("Derecha"), BorderLayout.EAST);
+add(new Button("Izquierda"), BorderLayout.WEST);
+String msg = "El hombre razonable se adapta " +
+"al mundo; \n" +
+"el hombre no razonable intenta que " +
+"el mundo se adapte a él. \n" +
+"Por tanto todo el progreso depende " +
+"del hombre no razonable.\n\n" +
+"- George Bernard Shaw\n\n";
+add(new TextArea(msg), BorderLayout.CENTER),
+}
+// añade insets
+public Insets getInsets( ) {
+return new Insets(10, 10, 10, 10);
+}
+}
+
+Número 14
+// Ejemplo de GridLayout
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="GridLayoutDemo" width=300 height=200>
+</applet>
+*/
+public class GridLayoutDemo extends Applet {
+static final int n = 4;
+public void init( ) {
+setLayout(new GridLayout(n, n));
+setFont(new Font("SansSerif", Font.BOLD, 24));
+for(int i = 0; i < n; i++) {
+for(int j = 0; j < n; j++) {
+int k = i * n + j;
+if(k > 0)
+add(new Button("" + k));
+}
+}
+}
+}
+
+Número 15
+// Ejemplo de CardLayout.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="CardLayoutDemo" width=300 height=100>
+</applet>
+*/
+public class CardLayoutDemo extends Applet 
+implements ActionListener, MouseListener {
+Checkbox WinXP , WinVista, solaris, mac;
+Panel osCards;
+CardLayout cardLO;
+Button Win, Otro;
+public void init( ) {
+Win = new Button("Windows");
+Otro = new Button("Otro");
+add (Win);
+add(Otro) ;
+cardLO = new CardLayout( );
+osCards = new panel( );
+osCards.setLayout(cardLO); // establece la organización del panel
+WinXP = new Checkbox("Windows XP", null, true);
+WinVista = new Checkbox("Windows Vista");
+solaris = new Checkbox("Solaris");
+mac = new Checkbox("MacOS");
+// añade los checkbox de Windows a un panel
+Panel winpan = new Panel( );
+winPan.add(WinXP);
+winPan.add(WinVista);
+// Añade los checkbox de otros sistemas a un panel
+Panel otherpan = new Panel( );
+otherPan.add(solaris);
+otherPan.add(mac);
+// añade los paneles al panel de las carta
+osCards.add(winPan, "Windows");
+osCards.add(otherPan, " Otro");
+// añade las cartas al panel principal del applet
+add (osCards);
+// registra eventos de acción
+Win.addActionListener(this);
+Otro.addActionListener(this);
+// registra los eventos de ratón
+addMouseListener(this);
+}
+// Para moverse a través de los paneles.
+public void mousePressed(MouseEvent me) {
+cardLO.next(osCards);
+}
+// Implementaciones vacías para los otros métodos de MouseListener.
+public void mouseClicked(MouseEvent me) {
+}
+public void mouseEntered(MouseEvent me) {
+}
+public void mouseExited(MouseEvent me) {
+}
+public void mouseReleased{MouseEvent me) {
+}
+public void actionPerformed(ActionEvent ae) {
+if(ae.getSource( ) == Win) {
+cardLO.show(osCards, "Windows");
+} else {
+cardLO.show(osCards, "Otro ");
+}
+}
+}
+
+Número 16
+// Ejemplo de GridBagLayout.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="GridBagDemo" width=250 height=200>
+</applet>
+*/
+public class GridBagDemo extends Applet implements ItemListener {
+String msg = " ";
+Checkbox WinXP, WinVista, solaris, mac;
+public void init( ) {
+GridBagLayout gbag = new GridBagLayout( );
+GridBagConstraints gbc = new GridBagConstraints( );
+setLayout(gbag);
+// Crea los checkbox
+winXP = new Checkbox("Windows XP", null, true);
+winVista = new Checkbox("Windows Vista");
+solaris = new Checkbox("Solaris");
+mac = new Checkbox("MacOS");
+// Crea el GridBagLayout
+// Usa por omisión el peso 0 para la primera fila
+gbc.weightx = 1.0;	//usa el ancho de columna de 1
+gbc.ipadx = 200;	// relleno de 200 unidades
+gbc.insets = new Insets (4, 4, 0, 0);
+gbc.anchor = GridBagConstraints.NORTHEAST;
+gbc.gridwidth = GridBagConstraints.RELATIVE;
+gbag.setConstraints (winXP, gbc);
+gbc.gridwidth = GridBagConstraints.REMAINDER;
+gbag.setConstraints (winVista, gbc);
+// Para la segunda fila se da un peso de 1.
+gbc.weighty = 1.0;
+gbc.gridwidth = GridBagConstraints.RELATIVE;
+gbag.setConstraints (solaris, gbc);
+gbc.gridwidth = GridBagConstraints.REMAINDER;
+gbag.setConstraints (mac, gbc);
+//Agrega los componentes
+add(winXP);
+add(winVista);
+add(solaris);
+add(mac);
+//Registra los eventos de cada elemento registrado
+winXP.addItemListener(this);
+winVista.addItemListener(this);
+solaris.addItemListener(this);
+mac.addItemListener(this);
+}
+//Repinta cuando el estado de un checkbox cambia
+public void itemStateChanged(ItemEvent ie){
+repaint ( );
+}
+// Muestra el estado actual de los checkbox
+public void paint (Graphics g) {
+msg = "Estado actual: ";
+g.drawString(msg, 6, 80);
+msg = "Windows XP: " +winXP.getState( );
+g.drawString(msg, 6, 100);
+msg = "Windows Vista: " +winVista.getState( );
+g.drawString(msg, 6, 120);
+msg = "Solaris: " +solaris.getState( );
+g.drawString(msg, 6, 140);
+msg = "Mac:" +mac.getState( );
+g.drawString(msg, 6, 160);
+}
+}
+
+Número 17
+// Ejemplo de menús.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="MenuDemo" width=250 height=250>
+</applet>
+*/
+// Se crea una subclase de Frame
+class MenuFrame extends Frame {
+String msg = "";
+CheckboxMenuItem debug, test;
+MenuFrame(String title) {
+super (title);
+// se crea una barra de menú y se añade a la ventana
+MenuBar mbar = new MenuBar( );
+setMenuBar(mbar);
+// se crean los elementos de menú
+Menu file = new Menu("Archivo");
+MenuItem iteml, item2, item3, item4, item5;
+file.add(iteml = new MenuItem("Nuevo..."));
+file.add(item2 = new MenuItem("Abrir..."));
+file.add(item3 = new MenuItem("Cerrar"));
+file.add(item4 = new MenuItem("-"));
+file.add(item5 = new MenuItem("Salir..."));
+mbar.add(file);
+Menu edit = new Menu("Edición");
+MenuItem item6, item7, item8, item9;
+edit.add(item6 = new MenuItem ( "Cortar" ) ) ;
+edit.add(item7 = new MenuItem("Copiar"));
+edit.add(item8 = new MenuItem("Pegar"));
+edit.add(item9 = new MenuItem("-"));
+Menu sub = new Menu("Especial");
+MenuItem iteml0, itemll. item12;
+sub.add(item10 = new MenuItem("Primero"));
+sub.add (itemll = new MenuItem("Segundo"));
+sub.add(item12 = new MenuItem("Tercero"));
+edit.add(sub);
+// estos son los elementos de menú que se pueden seleccionar
+debug = new CheckboxMenuItem("Depurar");
+edit.add(debug);
+test = new CheckboxMenuItem("Prueba");
+edit.add(test);
+mbar.add(edit);
+// se crea un objeto para gestionar eventos 
+MyMenuHandler handler = new MyMenuHandler(this);
+// se registra para recibir esos eventos
+item1.addActionListener(handler);
+item2.addActionListener(handler);
+item3.addActionListener(handler);
+item4.addActionListener(handler);
+item5.addActionListener(hand1er);
+item6.addActionListener(handler);
+item7.addActionListener(handler);
+item8.addActionListener(handler);
+item9.addActionListener(handler);
+item10.addActionListener(handler);
+item11.addActionListener(handler);
+item12.addActionListener(handler);
+debug.addItemListener(handler);
+test.addItemListener(handler);
+// se crea un objeto para gestionar eventos de la ventana
+MyWindowAdapter adapter = new MyWindowAdapter(this);
+// se registra para recibir esos eventos
+addWindowListener(adapter);
+}
+public void paint(Graphics g) {
+g.drawString(msg, 10, 200);
+if(debug.getState( ))
+g.drawString("Depuración activada.", 10, 220);
+else
+g.drawString ("Depuración desactivada.", 10, 220);
+if(test.getState( ))
+g.drawString("Prueba activada.", 10, 240);
+else
+g.drawString("Prueba desactivada.", 10, 240);
+}
+}
+class MyWindowAdapter extends WindowAdapter {
+MenuFrame menuFrame;
+public MyWindowAdapter(MenuFrame menuFrame) {
+this.menuFrame = menuFrame;
+}
+public void windowClosing(WindowEvent we) {
+menuFrame.setVisible(false);
+}
+}
+class MyMenuHandler implements ActionListener, ItemListener {
+MenuFrame menuFrame;
+public MyMenuHandler(MenuFrame menuFrame) {
+this.menuFrame = menuFrame;
+}
+// Gestión de eventos de acción
+public void actionPerformed(ActionEvent ae) {
+String msg = "Usted ha seleccionado";
+String arg = (String)ae.getActionCornmand( );
+if(arg.equals("Nuevo..."))
+msg += "Nuevo.";
+else if(arg.equals("Abrir …"))
+msg += "Abrir. ";
+else if (arg.equals ("Cerrar"))
+msg += "Cerrar.";
+else if(arg.equals("Salir…"))
+msg += "Salir. ";
+else if(arg.equals("Edición"))
+msg += "Edición.";
+else if(arg.equals("Cortar"))
+msg += "Cortar. ";
+else if(arg.equals("Copiar"))
+msg += "Copiar.";
+else if(arg.equals("Pegar"))
+msg += "Pegar. ";
+else if(arg.equals("Primero"))
+msg += "Primero.";
+else if(arg.equals("Segundo'))
+msg += "Segundo. ";
+else if(arg.equals("Tercero"))
+msg += "Tercero.";
+else if(arg.equals("Depurar "))
+msg += "Depurar. ";
+else if(arg.equals("Prueba"))
+msg += "Prueba. ";
+menuFrame.msg = msg;
+menuFrame.repaint( );
+}
+// Gestión de eventos de los elementos
+public void itemStateChanged(ItemEvent ie) {
+menuFrame.repaint( );
+}
+}
+// Se crea la ventana.
+public class MenuDemo extends Applet {
+Frame f;
+public void init( ) {
+f = new MenuFrame("Menu Demo");
+int width = Integer.parseInt(getParameter("width"));
+int height = Integer.parseInt(getParameter("height"));
+setSize(new Dimension(width, height));
+f.setSize(width, height);
+f.setVisible(true);
+}
+public void start( ) {
+f.setVisible(true);
+}
+public void stop( ) {
+f.setVisible(false);
+}
+}
+
+Número 18
+// Ejemplo de cuadros de diálogo.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="DialogDemo" width=250 height=250>
+</applet>
+*/
+// Se crea una subclase de Dialog.
+class SampleDialog extends Dialog implements ActionListener {
+SampleDialog(Frame parent, String title) {
+super (parent, title, false);
+setLayout(new FlowLayout( ));
+setSize(300, 200);
+add(new Label("Presione este botón:"));
+Button b;
+add{b = new Button("Cancelar"));
+b.addActionListener(this);
+}
+public void actionPerformed(ActionEvent ae) {
+dispose( );
+}
+public void paint(Graphics g) {
+g.drawString("Esto está en el cuadro de diálogo", 10, 70);
+}
+}
+// Se crea una subclase de Frame.
+class MenuFrame extends Frame {
+String msg = "";
+CheckboxMenuItem debug, test;
+MenuFrame(String title) {
+super (title) ;
+// se crea una barra de menú y se añade a la ventana
+MenuBar mbar = new MenuBar( );
+setMenuBar(mbar);
+// se crean los elementos de menú
+Menu file = new Menu("Archivo');
+MenuItem item1, item2, item3, item4;
+file.add(item1 = new MenuItem("Nuevo..."));
+file.add(item2 = new MenuItem("Abrir..."));
+file.add(item3 = new MenuItem("Cerrar"));
+file.add(new MenuItem("-"));
+file.add(item4 = new MenuItem("Salir…" ));
+mbar.add(file);
+Menu edit = new Menu("Edición");
+MenuItem item5, item6, item7;
+edit.add(item5 = new MenuItem("Cortar"));
+edit.add(item6 = new MenuItem("Copiar"));
+edit.add(item7 = new MenuItem("Pegar"));
+edit.add(new MenuItem("-'));
+Menu sub = new Menu("Especial", true);
+MenuItem item8, item9, item10;
+sub.add(item8 = new MenuItem("Primero"));
+sub.add(item9 = new MenuItem("Segundo"));
+sub.add(item10 = new MenuItem("Tercero"));
+edit.add(sub);
+// estos son los elementos de menú que se pueden seleccionar
+debug = new CheckboxMenuItem("Depurar");
+edit.add(debug);
+test = new CheckboxMenuItem("Prueba');
+edit.add(test);
+mbar.add(edit) ;
+// se crea un objeto para gestionar eventos 
+MyMenuHandler handler = new MyMenuHandler(this);
+// se registra para recibir esos eventos
+item1.addActionListener(handler);
+item2.addActionListener(handler);
+item3.addActionListener(handler);
+item4.addActionListener(handler);
+item5.addActionListener(handler);
+item6.addActionListener(handler) ;
+item7.addActionListener(handler) ;
+item8.addActionListener(hand1er) ;
+item9.addActionListener(handler);
+item10.addActionListener(hand1er) ;
+debug.addItemListener(handler);
+test. addItemListener (handler) ;
+// se crea un objeto para gestionar eventos de ventana
+MyWindowAdapter adapter = new MyWindowAdapter(this);
+// se registra para recibir esos eventos
+addWindowListener(adapter);
+}
+public void paint(Graphics g) {
+g.drawString(msg, 10, 200);
+if(debug.getState( ))
+g.drawString("Depuración activada.", 10, 220);
+else
+g.drawString("Depuración desactivada.", 10, 220);
+if(test.getState( ))
+g.drawString ("Prueba activada.", 10, 240);
+else
+g.drawString("Prueba desactivada.", 10, 240);
+}
+}
+class MyWindowAdapter extends WindowAdapter {
+MenuFrame menuFrame;
+pub1ic MyWindowAdapter(MenuFrame menuFrame) {
+this.menuFrame = menuFrame;
+}
+public void windowClosing(WindowEvent we) {
+menuFrame.dispose( );
+}
+}
+class MyMenuHand1er implements ActionListener, ItemListener {
+MenuFrame menuFrame;
+public MyMenuHand1er(MenuFrame menuFrame) {
+this.menuFrame = menuFrame;
+}
+// Gestiona los eventos de acción
+public void actionPerformed(ActionEvent ae) {
+String msg = "Usted ha seleccionado ";
+String arg = (String)ae.getActionCornmand( );
+// Activa un cuadro de diálogo cuando se selecciona Nuevo.
+if (arg.equals ("Nuevo...")) {
+msg += "Nuevo.";
+SampleDialog d = new SampleDialog, (menuFrame "Nueva caja de diálogo");
+d.setVisible(true);
+}
+// Intente definir otros cuadros de diálogo para estas opciones.
+else if (arg .equals ("Abrir..."))
+rnsg+= "Abrir.";
+else if(arg.equals("Cerrar"))
+msg += "Cerrar.";
+el se if(arg.equals("Salir..."))
+msg += "Salir.";
+else if(arg.equals("Edición"))
+msg += "Edición.";
+else if(arg.equals("Cortar"))
+msg+= "Cortar";
+else if(arg.equals("Copiar"))
+msg += "Copiar";
+else if (arg. equals ("Pegar") )
+msg += "Pegar.";
+else if(arg.equals("Primero"))
+msg += "Primero.";
+else if (arg.equals ("Segundo") )
+msg += "Segundo.";
+else if(arg.equals("Tercero"))
+msg += "Tercero.";
+else if(arg.equals("Depurar"))
+msg += "Depurar.";
+else if(arg .equals ("Prueba"))
+msg += "Prueba.";
+menuFrame.msg = msg;
+menuFrame.repaint( ) ;
+}
+public void itemStateChanged(ItemEvent ie) {
+menuFrame.repaint( );
+}
+}
+// Crea la ventana del marco.
+public class DialogDemo extends Applet {
+Frame f;
+public void init( ) {
+f = new MenuFrame("Menu Demo");
+int width = Integer.parseInt(getParameter("width"));
+int height = Integer.parseInt(getParameter("height"));
+setSize(width, height);
+f.setSize(width, height);
+f.setVisible(true);
+}
+public void start( ) {
+f.setVisible(true);
+}
+public void stop( ) {
+f.setVisible(false);
+}
+}
+
+Número 19
+/* Ejemplo de FileDialog.
+Esto no es un applet, sino una aplicación.
+*/
+import java.awt.*;
+import java.awt.event.*;
+// Crea una subclase de Frame
+class SampleFrame extends Frame {
+SampleFrame(String title) {
+super(title);
+//remueve la ventana cuando se cierra
+addWindowListener (new WindowAdapter( ) {
+public void windowClosing (WindowEvent we) {
+System.exit(0);
+}
+});
+}
+}
+// Crea la ventana 
+class FileDialogDemo {
+public static void main(String args[]) {
+//Crea una ventana que poseerá el cuadro de diálogo
+Frame f = new SampleFrame ("Ejemplo de cuadro de diálogo para selección de archivos ");
+f.setVisible(true);
+f.setSize (100, 100);
+FileDialog fd = new FileDialog(f, "Selección de archivos");
+fd.setVisible(true);
+}
+}
+
+Número 20
+/*
+* <applet code=ButtonDemo2 width=200 height=100>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class ButtonDemo2 extends Applet {
+MyButton myButton;
+static int i = 0;
+public void init( ) {
+myButton = new MyButton("Botón de Prueba");
+add(myButton);
+}
+class MyButton extends Button {
+public MyButton(String etiqueta) {
+super(etiqueta);
+enableEvents(AWTEvent.ACTION_EVENT_MASK);
+}
+protected void processActionEvent(ActionEvent ae) {
+showStatus ("evento de acción: " + i++) ;
+super.processActionEvent(ae);
+}
+}
+}
+
+Número 21
+/*
+* <applet code=CheckboxDemo2 width=300 height=100>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class CheckboxDemo2 extends Applet {
+MyCheckbox myCheckbox1, myCheckbox2, myCheckbox3;
+public void init( ) {
+myCheckbox1 = new MyCheckbox("Elemento 1");
+add(myCheckbox1);
+myCheckbox2 = new MyCheckbox("Elemento 2");
+add(myCheckbox2);
+myCheckbox3 = new MyCheckbox("Elemento 3");
+add(myCheckbox3);
+}
+class MyCheckbox extends Checkbox {
+public MyCheckbox(String etiqueta) {
+super(etiqueta); .
+enableEvents(AWTEvent.ITEM_EVENT_MASK);
+} 
+protected void processItemEvent(ItemEvent ie) {
+showStatus("Nombre/Estado del checkbox: " + getLabel( ) + "/" + getState( ));
+super.processItemEvent(ie);
+}
+}
+}
+
+Número 22
+/*
+* <applet code=CheckboxGroupDemo2 width=300 height=100>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class CheckboxGroupDemo2 extends Applet {
+CheckboxGroup cbg;
+MyCheckbox myCheckboxl, myCheckbox2, myCheckbox3;
+public void init ( ) {
+cbg = new CheckboxGroup( );
+myCheckboxl = new MyCheckbox("Elemento 1");
+add(myCheckboxl);
+myCheckbox2 = new MyCheckbox("Elemento 2");
+add(myCheckbox2);
+myCheckbox3 = new MyCheckbox("Elemento 3");
+add(myCheckbox3);
+}
+class MyCheckbox extends Checkbox {
+public MyCheckbox(String etiqueta, CheckboxGroup cbg, boolean flag) {
+super (etiqueta, cbg, flag);
+enableEvents(AWTEvent.ITEM_EVENT_MASK);
+}
+protected void processItemEvent(ItemEvent ie) {
+showStatus("Nombre/Estado del checkbox: " + getLabel( ) + "/" + getState( ));
+super.processItemEvent(ie);
+}
+}
+}
+
+Número 23
+/*
+* <applet code=ChoiceDemo2 width=300 height=l00>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class ChoiceDemo2 extends Applet {
+MyChoice choice;
+public void init( ) {
+choice = new MyChoice( );
+choice.add("Rojo");
+choice.add("Verde");
+choice.add("Azul") ;
+add(choice);
+}
+class MyChoice extends Choice {
+public MyChoice( ) {
+enableEvents(AWTEvent.ITEM_EVENT_MASK) ;
+}
+protected void processItemEvent(ItemEvent ie) {
+showStatus("Opción elegida: " + getSelectedItem( ));
+super.processItemEvent(ie);
+}
+}
+}
+
+Número 24
+/*
+* <applet code=ListDemo2 width=300 height=l00>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class ListDemo2 extends Applet {
+MyList list;
+public void init( ) {
+list = new MyList( );
+list.add("Rojo");
+list.add("Verde");
+list.add("Azul") ;
+add(list) ;
+}
+class MyList extends List {
+public MyList ( ) {
+enableEvents(AWTEvent.ITEM_EVENT_MASK | AWTEvent.ACTION_EVENT_MASK);
+}
+protected void processActionEvent(ActionEvent ae) {
+showStatus("Evento de acción: " + ae.getActionCommand( ));
+super.processActionEvent(ae);
+}
+protected void processItemEvent(ItemEvent ie) {
+showStatus("Evento de elemento: " + getSelectedItem( ));
+super.processItemEvent(ie);
+}
+}
+}
+
+Número 25
+/*
+* <applet code=ScrollbarDemo2 width=300 height=100>
+* </applet>
+*/
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class ScrollbarDemo2 extends Applet {
+MyScrollbar myScrollbar;
+public void init( ) {
+myScrollbar = new MyScrollbar(Scrollbar.HORIZONTAL, 0, 1, 0, 100);
+add(myScrollbar);
+}
+class MyScrollbar extends Scrollbar {
+public MyScrollbar(int style, int initial, int thumb, int min, int max) {
+super (style, initial, thumb, min, max);
+enableEvents(AWTEvent.ADJUSTMENT_EVENT_MASK);
+}
+protected void processAdjustmentEvent(AdjustmentEvent ae) {
+showStatus("Evento de ajuste: " + ae.getValue( ));
+setValue(getValue( ));
+super.processAdjustmentEvent(ae);
+}
+}
+}

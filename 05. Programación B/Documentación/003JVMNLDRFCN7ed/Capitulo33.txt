@@ -1,0 +1,519 @@
+Número 1
+import java.io.*;
+import java.net.*;
+import java.util.*;
+// Esta clase descarga un archivo desde una dirección URL.
+class Download extends Observable implements Runnable {
+// tamaño máximo del bufer de descarga
+private static final int MAX_BUFFER_SIZE = 1024;
+// Estos son los nombres para los estados posibles
+public static final String STATUSES[] = {"Downloading",
+"Paused", "Complete", "Cancelled", "Error"};
+// Estos son los códigos de estado
+public static final int DOWNLOADING = 0;
+public static final int PAUSED = 1;
+public static final int COMPLETE = 2;
+public static final int CANCELLED = 3;
+public static final int ERROR = 4;
+private URL url; // URL donde se localiza el archivo
+private int size; // tamaño del archivo en bytes
+private int downloaded; // número de bytes descargados
+private int status; // estado actual de la descarga
+// Constructor de la clase Download.
+public Download(URL url) {
+this.url = url;
+size = -1;
+downloaded = 0;
+status = DOWNLOADING;
+// Comenzar la descarga
+download() ;
+}
+// Obtener el valor del campo URL
+public String getUrl() {
+return url.toString();
+}
+// Obtener el valor del campo size
+public int getSize() {
+return size;
+}
+// Obtener el valor del campo progress
+public float getProgress() {
+return ((float) downloaded / size) * 100;
+}
+// Obtener el valor del campo status.
+public int getStatus() {
+return status;
+}
+// Generar una pausa en la descarga
+public void pause() {
+status = PAUSED;
+stateChanged();
+}
+// Reiniciar la descarga del archivo
+public void resume() {
+status = DOWNLOADING;
+stateChanged() ;
+download() ;
+}
+// Cancelar la descarga
+public void cancel() {
+status = CANCELLED;
+stateChanged();
+}
+// Indicar que la descarga actual tiene problemas
+private void error() {
+status = ERROR;
+stateChanged ();
+}
+// Iniciar o reiniciar una descarga
+private void download() {
+Thread thread = new Thread(this);
+thread.start() ;
+}
+// Obtener el nombre del archivo a partir de su URL
+private String getFileName(URL url)
+String fileName = url.getFile();
+return fileName.substring(fileName.lastlndexOf('/') + 1);
+}
+// Descargar el archivo
+public void run() {
+RandomAccessFile file = null;
+InputStream stream = null;
+try {
+// Abrir una conexión al URL
+HttpURLConnection connection (HttpURLConnection) url.openConnection();
+// Especificar la porción del archivo a descargar
+connection.setRequestProperty ("Range", "bytes=" + downloaded + "-");
+// Conexión con el servidor
+connection.connect();
+// Asegurarse de que el servidor responda con un código 200
+if (connection.getResponseCode() / 100 != 2) {
+error() ;
+}
+// Revisar que el tamaño del archivo sea válido
+int contentLength = connection.getContentLength();
+if (contentLength < 1) {
+error();
+}
+/* Establecer el tamaño para la descarga 
+en caso de que no se haya establecido con anterioridad */
+if (size == -1) {
+size = contentLength;
+stateChanged() ;
+}
+// Abrir el archivo y colocar el apuntador de archivo al final del mismo
+file = new RandomAccessFile(getFileName(url), "rw");
+file.seek(downloaded);
+stream = connection.getInputStream();
+while (status == DOWNLOADING) {
+/* Definir el tamaño del bufer 
+acorde con la porción de archivo que falta por descargar */
+byte buffer[];
+if (size - downloaded > MAX_BUFFER_SIZE) {
+buffer = new byte[MAX BUFFER SIZE];
+} else { 
+buffer = new byte [size - downloaded];
+}
+// Leer datos del servidor en bufer
+int read = stream.read(buffer);
+if (read == -1)
+break;
+// Escribir el bufer en el archivo
+file.write(buffer, 0, read);
+downloaded += read;
+stateChanged();
+}
+/* Cambia el estado de la transferencia a COMPLETE */
+if (status == DOWNLOADING) {
+status = COMPLETE;
+stateChanged() ;
+}
+}catch (Exception e) {
+error() ;
+} finally {
+// Cerrar el archivo
+if (file != null)
+try {
+file.close();
+} catch (Exception e) {}
+}
+// Cerrar la conexión con el servidor
+if (stream != null) {
+try {
+stream.close() ;
+} catch (Exception e) {}
+}
+}
+}
+// Notifica a los observadores que ha cambiado el estado de esta descarga
+Private void stateChanged() {
+setChanged();
+notifyObservers();
+}
+}
+
+Número 2
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+// La clase Download Manager
+public class DownloadManager extends JFrame
+implements Observer
+{
+// Añade un campo de texto
+private JTextField addTextField;
+// Objeto que gestiona los datos de la tabla
+private DownloadsTableModel tableModel;
+// Tabla
+private JTable table;
+// Botones para indicar acciones sobre las descargas
+private JButton pauseButton, resumeButton;
+private JButton cancelButton, clearButton;
+// Renglón actual
+private Download selectedDownload;
+// Bandera para indicar que el renglón seleccionado esta siendo eliminado
+private boolean clearing;
+// Constructor de la clase
+public DownloadManager() {
+// Asigna un título a la aplicación
+setTitle("Download Manager");
+// Establece el tamaño de la ventana
+setSize(640, 480);
+// Maneja el evento de cierre de la ventana
+addWindowListener(new WindowAdapter() {
+public void windowClosing(WindowEvent e) {
+actionExit();
+}
+}) ;
+// Colocar el menú de archivo
+JMenuBar menuBar = new JMenuBar() ;
+JMenu fileMenu = new JMenu("Archivo") ;
+fileMenu.setMnemonic(KeyEvent.VK_F) ;
+JMenultem fileExitMenultem = new JMenultem("Salir", KeyEvent. VK_X);
+fileExitMenultem.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionExit ();
+}
+});
+fileMenu.add (fileExitMenultem);
+menuBar.add(fileMenu);
+setJMenuBar(menuBar);
+// Colocar un panel
+JPanel addPanel = new JPanel();
+addTextField = new JTextField(30);
+addPanel.add(addTextField) ;
+JButton addButton = new JButton("Añadir Descarga") ;
+addButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionAdd() ;
+}
+});
+addPanel.add(addButton) ;
+// Formar la tabla de descargas
+tableModel = new DownloadsTableModel();
+table = new JTable(tableModel);
+table.getSelectionModel() .addListSelectionListener(new
+ListSelectionListener() {
+public void valueChanged(ListSelectionEvent e) {
+tableSelectionChanged() ;
+}
+});
+// Sólo permite seleccionar un renglón a la vez
+table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+// Define a ProgressBar como el responsable de dibujar los elementos de la columna Progress
+ProgressRenderer renderer = new ProgressRenderer(0, 100);
+renderer.setStringPainted(true); // muestra el avance
+table.setDefaultRenderer(JProgressBar.class, renderer);
+// Establece el alto del renglón para que el componente JProgressBar se ajuste
+table.setRowHeight(
+(int) renderer.getPreferredSize().getHeight());
+// Colocar un panel
+JPanel downloadsPanel = new JPanel();
+downloadsPanel.setBorder(
+BorderFactory.createTitledBorder("Descargas"));
+downloadsPanel.setLayout(new BorderLayout());
+downloadspanel.add(new JScrollPane(table),
+BorderLayout.CENTER);
+// Colocar el panel con los botones
+JPanel buttonsPanel = new JPanel();
+pauseButton = new JButton("Pausa");
+pauseButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionpause() ;
+}
+});
+pauseButton.setEnabled(false);
+buttonsPanel.add(pauseButton);
+resumeButton = new JButton("Resume") ;
+resumeButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionResume();
+}
+});
+resumeButton.setEnabled (false);
+buttonsPanel.add(resumeButton);
+cancelButton = new JButton("Cancelar");
+cancelButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionCancel ();
+}
+});
+cancelButton.setEnabled(false);
+buttonsPanel.add(cancelButton);
+clearButton = new JButton ("Limpiar");
+clearButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+actionClear();
+}
+});
+clearButton.setEnabled(false);
+buttonsPanel.add(clearButton);
+// Añadir los panel a pantalla
+getContentPane().setLayout(new BorderLayout());
+getContentPane().add(addPanel, BorderLayout.NORTH);
+getContentPane().add(downloadsPanel, BorderLayout.CENTER);
+getContentPane().add (buttonsPanel, BorderLayout.SOUTH);
+}
+// Salir del programa
+private void actionExit()
+System.exit(0);
+}
+// Añadir una nueva descarga
+private void actionAdd() {
+URL verifiedUrl = verifyUrl(addTextField.getText());
+if (verifiedUrl != null) {
+tableModel.addDownload(new Download(verifiedUrl));
+addTextField.setText(""); // limpia el campo de texto
+}else {
+JOptionPane.showMessageDialog(this,
+"URL no válido", "Error",
+JOptionPane.ERROR_MESSAGE);
+}
+}
+// Verificar dirección URL del archivo a descargar
+private URL verifyUrl(String url) {
+// Sólo permite URL con HTTP
+if (! url.toLowerCase().startsWith ("http://") )
+return null;
+// Verifica el formato del URL
+URL verifiedUrl = null;
+try {
+verifiedUrl = new URL(url);
+}catch (Exception e) {
+return null;
+}
+// Revisa que el URL haga referencia a un archivo
+if (verifiedUrl.getFile().length() < 2)
+return null;
+return verifiedUrl;
+}
+// Este método es invocado cuando cambia el renglón seleccionado
+private void tableSelectionChanged() {
+/* Expresar que ya no nos interesan las notificaciones de eventos
+del renglón anterior */
+if (selectedDownload != null)
+selectedDownload.deleteObserver(DownloadManager.this);
+/* Si no se está eliminando un renglón 
+establecer un nuevo renglón como seleccionado y expresar interés por
+sus eventos. */
+if (!clearing && table.getSelectedRow() > -1)
+selectedDownload =
+tableModel.getDownload(table.getSelectedRow());
+selectedDownload.addObserver(DownloadManager.this);
+updateButtons() ;
+}
+}
+// Hacer una pausa en la descarga asociada al renglón seleccionado
+private void actionPause() {
+selectedDownload.pause() ;
+updateButtons ();
+}
+// Continuar con la descarga asociada al renglón seleccionado
+private void actionResume() {
+selectedDownload.resume() ;
+updateButtons ();
+}
+// Cancelar la descarga asociada al renglón seleccionado
+private void actionCancel() {
+selectedDownload.cancel();
+updateButtons ();
+}
+// Borrar la descarga asociada al renglón seleccionado
+private void actionClear() {
+clearing = true;
+tableModel.clearDownload(table.getSelectedRow()) ;
+clearing = false;
+selectedDownload = null;
+updateButtons();
+}
+/* Actualiza el estado de cada botón acorde con el 
+estado de la descarga seleccionada */
+private void updateButtons() {
+if (selectedDownload != null) {
+int status = selectedDownload.getStatus();
+switch (status) {
+case Download.DOWNLOADING:
+pauseButton.setEnabled(true) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(true) ;
+clearButton.setEnabled (false);
+break;
+case Download.PAUSED:
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(true);
+cancelButton.setEnabled(true) ;
+clearButton.setEnabled(false) ;
+break;
+case Download.ERROR:
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(true) ;
+cancelButton.setEnabled(false) ;
+clearButton.setEnabled (true);
+break;
+default: // COMPLETE o CANCELLED
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(false) ;
+clearButton.setEnabled(true) ;
+}
+}else {
+// Ningún renglón está seleccionado en la tabla
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(false);
+clearButton.setEnabled(false) ;
+}
+}
+/* El método update se ejecuta cuando un objeto Download notifica
+a sus observadores de algún cambio */
+public void update(Observable o, Object arg) {
+// actualizar los botones acorde a los cambios
+if (selectedDownload != null && selectedDownload.equals(o))
+updateButtons() ;
+}
+// Ejecutar la aplicación
+public static void main(String[] args) {
+SwingUtilities.invokerLater(new Runnable() {
+public void run() {
+DownloadManager manager = new DownloadManager();
+manager.setVisible(true);
+}
+});
+}
+}
+
+Número 3
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+// Esta clase administra la tabla de datos de las descargas
+class DownloadsTableModel extends AbstractTableModel 
+implements Observer {
+// Estos son los nombres para las columnas de la tabla
+private static final String[] columnNames = {"URL", "Tamaño", "Progreso", "Estado"};
+// Estas son las clases de cada valor de columna
+private static final Class[] columnClasses = {String.class, 
+String.class, JProgressBar.class, String.class};
+// Aquí se almacena la lista de descargas
+private ArrayList<Download> downloadList new ArrayList<Download>();
+// Añade una nueva descarga a la tabla
+public void addDownload(Download download) {
+// Se registra para ser notificado cuando se presente algún cambio en la descarga.
+download.addObserver(this) ;
+downloadList.add(download);
+// Dispara una notificación de inserción de datos en la tabla
+fireTableRowslnserted(getRowCount() - 1, getRowCount() - 1);
+}
+// Devuelve un objeto tipo Download para el renglón especificado
+public Download getDownload(int row) {
+return downloadList.get(row);
+}
+// Elimina una descarga de la lista
+public void clearDownload(int row) {
+downloadList.remove(row) ;
+// Dispara una notificación de borrado de datos en la tabla
+fireTableRowsDeleted(row, row);
+}
+// Devuelve la cantidad de columnas en la tabla
+public int getColumnCount() {
+return columnNames.length;
+}
+// Devuelve el nombre de una columna
+public String getColumnName(int col) {
+return columnNames[col];
+}
+// Devuelve la clase de los datos en una columna
+public Class getColumnClass(int col) {
+return columnClasses[col];
+}
+// Devuelve la cantidad de renglones en la tabla
+public int getRowCount() {
+return downloadList.size();
+}
+// Obtiene el valor de una celda
+public Object getValueAt(int row, int col) {
+Download download = downloadList.get(row);
+switch (col) {
+case 0: // URL
+return download.getUrl();
+case 1: // Size
+int size = download.getSize();
+return (size == -1) ? "" : Integer.toString(size);
+case 2: // Progress
+return new Float(download.getProgress());
+case 3: // Status
+return Download.STATUSES[download.getStatus()];
+}
+return "";
+}
+/* El método update es invocado cuando un objeto Download
+notifica a sus observadores de algún cambio */
+public void update(Observable o, Object arg) {
+int index = downloadList.indexOf(o);
+// Dispara una notificación de actualización de datos en la tabla
+fireTableRowsUpdated(index, index);
+}
+}
+
+Número 4
+/* Actualiza el estado de cada botón acorde con el 
+estado de la descarga seleccionada */
+private void updateButtons() {
+if (selectedDownload != null) {
+int status = selectedDownload.getStatus();
+switch (status) {
+case Download.DOWNLOADING:
+pauseButton.setEnabled(true) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(true) ;
+clearButton.setEnabled (false);
+break;
+case Download.PAUSED:
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(true);
+cancelButton.setEnabled(true) ;
+clearButton.setEnabled(false) ;
+break;
+case Download.ERROR:
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(true) ;
+cancelButton.setEnabled(false) ;
+clearButton.setEnabled (true);
+break;
+default: // COMPLETE o CANCELLED
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(false) ;
+clearButton.setEnabled(true) ;
+}
+}else {
+// Ningún renglón está seleccionado en la tabla
+pauseButton.setEnabled(false) ;
+resumeButton.setEnabled(false) ;
+cancelButton.setEnabled(false);
+clearButton.setEnabled(false) ;
+}
+}

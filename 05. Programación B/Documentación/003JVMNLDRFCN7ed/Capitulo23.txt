@@ -1,0 +1,790 @@
+Número 1
+/ / Crear una ventana tipo Frame hija dentro de un applet.
+import java.awt .*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="AppletFrame" width=300 height=50>
+</applet>
+*/
+// Crea una subclase de Frame.
+class EjemploFrame extends Frame {
+EjemploFrame(String titulo) {
+super(titulo);
+// crea un objeto para tratar los eventos de la ventana
+MiVentanaAuditora unAuditor =new MiVentanaAuditora(this);
+// lo registra para recibir dichos eventos
+addWindowListener(unAuditor);
+}
+public void paint(Graphics g) {
+g.drawString("Esto es una ventana de tipo Frame" , 10, 40);
+}
+}
+class MiVentanaAuditora extends WindowAdapter {
+EjemploFrame ejemploFrame;
+public MiVentanaAuditora(EjemploFrame ejemploFrame) {
+this.ejemploFrame = ejemploFrame;
+}
+public void windowClosing(WindowEvent we) {
+ejemploFrame.setVisible(false);
+}
+}
+// Crea una ventana de tipo Frame 
+public class AppletFrame extends Applet {
+Frame f;
+public void init() {
+f = new EjemploFrame("Una ventana Frame");
+f.setSize(250, 250);
+f.setVisible(true);
+}
+public void start() {
+f.setVisible(true);
+}
+public void stop() {
+f.setVisible(false);
+}
+public void paint(Graphics g) {
+g.drawString("Esto esta en la ventana del applet", 10, 20);
+}
+}
+
+Número 2
+// Gestión de eventos de ratón tanto en la ventana hija como en la ventana applet.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="VentanaEventos" width=300 height=50>
+</applet>
+*/
+// Crea una subclase de Frame.
+class EjemploFrame extends Frame
+implements MouseListener, MouseMotionListener {
+String msg = "";
+int ratonX=10, ratonY=40;
+int movX=0, movY=0;
+EjemploFrame(String titulo) {
+super(titulo);
+// registra este objeto para recibir sus propios eventos de ratón
+addMouseListener(this);
+addMouseMotionListener(this);
+// crea un objeto para manejar los eventos de la ventana
+MiVentanaAuditora unAuditor =new MiVentanaAuditora (this);
+// lo registra para recibir esos eventos
+addWindowListener(unAuditor);
+}
+// Gestiona el evento mouseClicked, que produce el botón del ratón al ser pulsado
+public void mouseClicked(MouseEvent yo) {
+}
+// Gestiona el evento mouseEntered, que se produce si el apuntador del ratón entra en la ventana
+public void mouseEntered(MouseEvent evtObj) {
+/ / guarda las coordenadas
+ratonX = 10;
+ratonY =54;
+msg = "El ratón acaba de entrar en la ventana hija.";
+repaint();
+}
+// Gestiona el evento mouseExited que se produce si el apuntador del ratón sale de la ventana
+public void mouseExited(MouseEvent evtObj) {
+// guarda las coordenadas
+ratonX = 10;
+ratonY = 54;
+msg = "El ratón acaba de salir de la ventana hija.";
+repaint();
+}
+// Gestiona el evento mousePressed, que se produce si se presiona el botón del ratón.
+public void mousePressed(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY =yo.getY();
+msg = "Abajo";
+repaint();
+}
+// Gestiona el evento mouseReleased, que se produce si se libera el botón del ratón.
+public void mouseReleased(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY =yo.getY();
+msg = "Arriba";
+repaint();
+}
+// Gestiona el evento mouseDragged, que se produce si se arrastra el ratón con el botón presionado
+public void mouseDragged(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY =yo.getY();
+movX = yo.getX();
+movY = yo.getY();
+msg = "*";
+repaint() ;
+}
+// Gestiona el evento mouseMoved, que se produce si se mueve el ratón.
+public void mouseMoved(MouseEvent yo) {
+// guarda las coordenadas
+movX =yo.getX();
+movY = yo.getY();
+repaint(0,0, 100, 60);
+}
+public void paint(Graphics g) {
+g.drawString(msg, ratonX, ratonY);
+g.drawString("El ratón está en la posición" + movX + ", " + movY, 10, 40);
+}
+}
+class MiVentanaAuditora extends WindowAdapter {
+EjemploFrame ejemploFrame;
+public MiVentanaAuditora (EjemploFrame ejemploFrame) {
+this.ejemploFrame = ejemploFrame;
+}
+public void windowClosing(WindowEvent we) {
+ejemploFrame.setVisible(false);
+}
+}
+// Ventana del applet
+public class VentanaEventos extends Applet
+implements MouseListener, MouseMotionListener {
+EjemploFrame f;
+String msg = "";
+int ratonX=0, ratonY=l0;
+int movX=0,movY=0;
+// Crea una ventana tipo Frame
+public void init() {
+f =new EjemploFrame ("Gestiona los eventos del ratón");
+f.setSize(300, 200);
+f.setVisible(true);
+// Registra este objeto para que reciba sus propios eventos de ratón.
+addMouseListener(this);
+addMouseMotionListener(this);
+}
+// Elimina la ventana tipo Frame cuando el applet se detiene
+public void stop() {
+f.setVisible(false);
+}
+// Muestra la ventana tipo Frame cuando comienza el applet.
+public void start() {
+f.setVisible(true);
+}
+// Gestiona el evento mouseClicked.
+public void mouseClicked(MouseEvent yo) {
+}
+// Trata el evento mouseEntered.
+public void mouseEntered(MouseEvent yo) {
+// guarda las coordenadas
+ratonX = 0;
+ratonY = 24;
+msg = "El ratón acaba de introducirse en la ventana del applet.";
+repaint();
+}
+// Gestiona el evento mouseExited.
+public void mouseExited(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =0;
+ratonY = 24;
+msg = " El ratón acaba de salir de la ventana del applet.";
+repaint();
+}
+// Gestiona el evento mousePressed.
+public void mousePressed(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY =yo.getY();
+msg = "Abajo";
+repaint();
+}
+// Gestiona el evento mouseReleased.
+public void mouseReleased(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY = yo.getY();
+msg = "Arriba";
+repaint() ;
+}
+// Gestiona el evento mouseDragged.
+public void mouseDragged(MouseEvent yo) {
+// guarda las coordenadas
+ratonX =yo.getX();
+ratonY =yo.getY();
+movX =yo.getX();
+movY = yo.getY();
+msg = "*";
+repaint();
+}
+// Gestiona el evento mouseMoved.
+public void mouseMoved(MouseEvent yo) {
+// guarda las coordenadas
+movX = yo.getX () ;
+movY = yo.getY();
+repaint(0,0, 100, 20);
+}
+/ / Muestra msg en la ventana del applet.
+public void paint(Graphics g) {
+g.drawString(msg, ratonX, ratonY);
+g.drawString("Ratón en la posición " + movX + ", " + movY, 0, 10);
+}
+}
+
+Número 3
+// Crear una aplicación basada en AWT.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+// Crea una ventana
+public class MiAplicacionVentana extends Frame {
+String keyMensaje = "Esto es una prueba.";
+String mouseMensaje = "";
+int ratonX=30, ratonY=30;
+public MiAplicacionVentana() {
+addKeyListener(new MiKeyAdapter(this));
+addMouseListener(new MiMouseAdapter(this));
+addWindowListener(new MiVentanaAuditora ( ));
+}
+public void paint(Graphics g) {
+g.drawString(keyMensaje, 10, 40);
+g.drawString(mouseMensaje, ratonX, ratonY);
+}
+// Crea la ventana.
+public static void main(String args[]) {
+MiAplicacionVentana unaAplicacionVentana =new MiAplicacionVentana();
+unaAplicacionVentana.setSize(new Dimension(300, 200));
+unaAplicacionVentana.setTitle("Una aplicación basada en el AWT");
+unaAplicacionVentana.setVisible(true);
+}
+}
+class MiKeyAdapter extends KeyAdapter {
+MiAplicacionVentana appVentana;
+public MiKeyAdapter(MiAplicacionVentana appVentana) {
+this.appVentana =appVentana;
+}
+public void keyTyped(KeyEvent ke) {
+appVentana.keyMensaje += ke.getKeyChar();
+appVentana.repaint();
+};
+}
+class MiMouseAdapter extends MouseAdapter {
+MiAplicacionVentana appVentana;
+public MiMouseAdapter(MiAplicacionVentana appVentana) {
+this.appVentana = appVentana;
+}
+public void mousePressed(MouseEvent yo) {
+appVentana.ratonX =yo.getX();
+appVentana.ratonY = yo.getY();
+appVentana.mouseMensaje = "Posición del ratón en la posición"+ appVentana.ratonX + ", " + appVentana.ratonY;
+appVentana.repaint();
+}
+}
+class MiVentanaAuditora extends WindowAdapter {
+public void windowClosing(WindowEvent we) {
+System.exit(0);
+}
+}
+
+Número 4
+// Dibujar líneas
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Lineas" width=300 height=200>
+</applet>
+*/
+public class Lineas extends Applet {
+public void paint(Graphics g) {
+g.drawLine(0, 0, 100, 100);
+g.drawLine(0, 100, 100, 0);
+g.drawLine(40, 25, 250, 180);
+g.drawLine(79, 90, 400, 400);
+g.drawLine(20, l50, 400, 40);
+g.drawLine(5, 290, 80, 19);
+}
+}
+
+Número 5
+// Dibujar rectángulos
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Rectangulos" width=300 height=200>
+</applet>
+*/
+public class Rectangulos extends Applet {
+public void paint(Graphics g) {
+g.drawRect(l0, 10, 60, 50);
+g.fillRect(100, 10, 60, 50);
+g.drawRoundRect(190, 10, 60, 50, 15, 15);
+g.fi1lRoundRect(70, 90, 140, 100, 30, 40);
+}
+}
+
+Número 6
+// Dibujar elipses
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Elipses" width=300 height=200>
+</applet>
+*/
+public class Elipses extends Applet {
+public void paint(Graphics g) {
+g.drawOval(10, 10, 50, 50);
+g.tillOval(100, 10, 75, 50);
+g.drawOval(190, 10, 90, 30);
+g. fillOval (70, 90, 140, 100);
+}
+}
+
+Número 7
+// Dibujar arcos
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Arcos" width=300 height=200>
+</applet>
+*/
+public class Arcos extends Applet {
+public void paint(Graphics g) {
+g.drawArc(10, 40, 70, 70, 0, 75);
+g.fillArc(100, 40, 70, 70, 0, 75);
+g.drawArc(10, 100, 70, 80, 0, 175);
+g.fillArc(100, 100, 70, 90, 0, 270);
+g.drawArc(200, 80, 80, 80, 0, 180);
+}
+}
+
+Número 8
+// Dibujar un polígono
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code="Reloj" width=230 height=210>
+</applet>
+*/
+public class Reloj extends Applet {
+public void paint(Graphics g) {
+int xPuntos [] = {30, 200, 30, 200, 30};
+int yPuntos [] = {30, 30, 200, 200, 30};
+int num=5;
+g.drawPolygon, (xPuntos yPuntos, num);
+}
+}
+
+Número 9
+// Ajustar la salida al tamaño actual de la ventana.
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+<applet code="MiApplet" width=200 height=200>
+</applet>
+*/
+public class MiApplet extends Applet {
+final int inc =25;
+int max = 500;
+int min = 200;
+Dimension d;
+public MiApplet() {
+addMouseListener(new MouseAdapter() {
+public void mouseReleased(MouseEvent yo) {
+int w = (d.width + inc) > max?min :(d.width + inc);
+int h = (d.height + inc) > max?min :(d.height + inc);
+setSize(new Dimension(w, h));
+}
+});
+}
+public void paint(Graphics g) {
+d = getSize ();
+g.drawLine(0, 0, d.width - 1, d.height - l);
+g.drawLine(0, d.height - l, d.width - l, 0);
+g.drawRect(0, 0, d.width - l, d.height - l);
+}
+}
+
+Número 10
+// Ejemplo con colores.
+import java.awt.* ;
+import java.applet.*;
+/*
+<applet code="ColorDemo" width=300 height=200>
+</applet>
+*/
+public class ColorDemo extends Applet {
+// dibujo de líneas
+public void paint(Graphics g) {
+Color cl = new Color(255, 100, 100);
+Color c2 = new Color(l00, 255, 100);
+Color c3 = new Color(l00, 100, 255);
+g.setColor (cl) ;
+g.drawLine(0, 0, 100, 100);
+g.drawLine(0, 100, 100, 0);
+g.setColor(c2);
+g.drawLine(40, 25, 250, 180);
+g.drawLine(75, 90, 400, 400);
+g.setColor(c3);
+g.drawLine(20, 150, 400, 40);
+g.drawLine(5, 290, 80, 19);
+g.setColor(Color.red);
+g.drawOval(10, 10, 50, 50);
+g.fillOval(70, 90, 140, 100);
+g.setColor(Color.blue);
+g.drawOval(190, 10, 90, 30);
+g.drawRect(10, 10, 60, 50);
+g.setColor(Color.cyan);
+g.fillRect(100, 10, 60, 50);
+g.drawRoundRect(190, 10, 60, 50, 15, 15);
+}
+}
+
+Número 11
+// Ejemplo del modo XOR.
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="XOR" width=400 height=200>
+</applet>
+*/
+public class XOR extends Applet {
+int chsX=l00, chsY=l00;
+public XOR() {
+addMouseMotionListener(new MouseMotionAdapter() {
+public void mouseMoved(MouseEvent yo) {
+int x = yo.getX();
+int y = yo.getY();
+chsX = x-l0;
+chsY = y-l0;
+repaint ();
+}
+});
+}
+public void paint(Graphics g) {
+g.drawLine(0, 0, 100, 100);
+g.drawLine(0, 100, 100, 0);
+g.setColor(Color.blue);
+g.drawLine(40, 25, 250, 180);
+g.drawLine(75, 90, 400, 400);
+g.setColor(Color.green);
+g.drawRect(l0, 10, 60, 50);
+g.fillRect(l00, 10, 60, 50);
+g.setColor(Color.red);
+g.drawRoundRect(190, 10, 60, 50, 15, 15);
+g.fillRoundRect(70, 90, 140, 100, 30, 40);
+g.setColor(Color.cyan) ;
+g.drawLine(20, 150, 400, 40);
+g.drawLine(5, 290, 80, 19);
+// apuntador en modo xor
+g.setXORMode(Color.black);
+g.drawLine,(chsX-10 chsY, chsX+10, chsY);
+g.drawLine(chsX, chsY-10, chsX, chsY+10);
+g.setPaintMode();
+}
+}
+
+Número 12
+// Ver los tipos de letra disponibles
+/*
+<applet code="ShowFonts" width=550 height=60>
+</applet>
+*/
+import java.applet.*;
+import java.awt.*;
+public class ShowFonts extends Applet {
+public void paint(Graphics g) {
+String msg = "";
+String FontList[];
+GraphicsEnvironment ge =
+GraphicsEnvironment.getLocalGraphicsEnvironment();
+FontList =ge.getAvailableFontFamilyNames();
+for(int i = 0; i < FontList.length; i++)
+msg += FontList[i] + " ";
+g.drawString(msg, 4, 16);
+}
+}
+
+Número 13
+// Mostrar los tipos de letra.
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+<applet code="EjemploFonts" width=200 height=100>
+</applet>
+*/
+public class EjemploFonts extends Applet {
+int next = 0;
+Font f;
+String msg;
+public void init() {
+f =new Font ("Dialog", Font. PLAIN, 12);
+msg = "Dialog";
+setFont(f);
+addMouseListener(new MiMouseAdapter(this));
+}
+public void paint(Graphics g) {
+g. drawString (msg, 4, 20);
+}
+}
+class MiMouseAdapter extends MouseAdapter {
+EjemploFonts ejemploFonts;
+public MiMouseAdapter (EjemploFonts ejemploFonts) {
+this.ejemploFonts = ejemploFonts;
+}
+public void mousePressed(MouseEvent yo) {
+// cambia el tipo de letra en cada clic del ratón
+ejemp1oFonts.next++;
+switch(ejemploFonts.next) {
+case 0:
+ejemp1oFonts.f =new Font("Dia1og", Font.PLAIN, 12);
+ejemp1oFonts.msg = "Dia1og";
+break;
+case 1:
+ejemploFonts. f =new Font ("Dia1ogInput", Font.PLAIN, 12);
+ejemp1oFonts.msg = "Dia1ogInput";
+break;
+case 2:
+ejemploFonts.f =new Font("SansSerif", Font.PLAIN, 12);
+ejemp1oFonts.msg ="SansSerif";
+break;
+case 3:
+ejemp1oFonts.f =new Font("Serif", Font.PLAIN, 12);
+ejemp1oFonts.msg = "Serif";
+break;
+case 4:
+ejemp1oFonts.f =new Font("Monospaced", Font.PLAIN, 12);
+ejemploFonts.msg = "Monospaced";
+break;
+}
+if(ejemp1oFonts.next == 4) ejemp1oFonts.next =-1;
+ejemp1oFonts.setFont(ejemp1oFonts.f);
+ejemploFonts.repaint();
+}
+}
+
+Número 14
+// Visualizar información del tipo de letra.
+import java.applet.*;
+import java.awt.*;
+/*
+<applet code="FontInfo" width=350 height=60>
+</applet>
+*/
+public class FontInfo extends Applet {
+public void paint(Graphics g) {
+Font f =g.getFont();
+String fontName=f.getName();
+String fontFamily = f.getFamily();
+int fontSize = f.getSize();
+int fontStyle = f.getStyle();
+String msg = "Familia: " + fontName;
+msg += ", Tipo de letra: " + fontFamily;
+msg += ", Tamaño: " + fontSize + ", Estilo: ";
+if((fontStyle & Font.BOLD) == Font.BOLD)
+msg += "Bold ";
+if((fontStyle & Font.ITALIC) == Font.ITALIC)
+msg += "Italic ";
+if((fontStyle & Font.PLAIN) == Font.PLAIN)
+msg += "Plain ";
+g.drawString (msg, 4, 16);
+}
+}
+
+Número 15
+// Escribir texto en varias líneas.
+import java.app1et.*;
+import java.awt.*;
+/*
+<app1et code="Mu1tiLinea" width=300 height=100>
+</app1et>
+*/
+public c1ass Mu1tiLinea extends App1et {
+int curX=0, curY=0; // posición actual
+pub1ic void init() {
+Font f =new Font("SansSerif", Font.PLAIN, 12);
+setFont(f);
+}
+pub1ic void paint(Graphics g) {
+FontMetrics fm = g.getFontMetrics();
+nextLine("Ésta es la línea uno.", g);
+nextLine ("Ésta es la línea dos.", g);
+sameLine ("Ésta es la misma línea.", g);
+sameLine(" Ésta, también.", g);
+nextLine("Ésta es la línea tres.", g);
+}
+// Avanzar a otra línea.
+void nextLine(String s, Graphics g) {
+FontMetrics fm = g.getFontMetrics();
+curY +=fm.getHeight(); // avanzar a la siguiente línea
+curX =0;
+g.drawString(s, curX, curY);
+curX = fm.stringWidth(s); // avanzar al final de la línea
+}
+// Mostrar la misma línea.
+void sameLine(String s, Graphics g) {
+FontMetrics fm =g.getFontMetrics();
+g.drawString(s, curX, curY);
+curX += fm.stringWidth(s); / / avanzar al final de la línea
+}
+}
+
+Número 16
+// Centrar texto.
+import java.applet.*;
+import java.awt.*;
+/*
+<applet code="TextoCentrado" width=200 height=l00>
+</applet>
+*/
+public class TextoCentrado extends Applet {
+final Font f =new Font("SansSerif", Font.BOLD, 18);
+public void paint(Graphics g) {
+Dimension d = this.getSize();
+g.setColor(Color.white);
+g.fillRect(0, 0, d.width, d.height);
+g.setColor(Color.black);
+g.setFont(f);
+dibujarStringCentrado("Esto está centrado.", d.width, d.height, g);
+g.drawRect(0, 0, d.width-l, d.height-l);
+}
+public void dibujarStringCentrado(String s, int w, int h, 
+Graphics g) {
+FontMetrics fm =g.getFontMetrics();
+int x = (w - fm.stringWidth(s)) / 2;
+int y = (fm.getAscent() + (h - (fm.getAscent()
++ fm.getDescent()))/2);
+g.drawString(s, x, y);
+}
+}
+
+Número 17
+// Mostrar texto alineado.
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+/* <title>Text Layout</title>
+<applet code="TextLayout" width=200 height=200>
+<param name="text" value="Sacar algo a una ventana Java es realmente fácil.
+Como se ha visto, el AWT proporciona los medios necesarios
+para trabajar con tipos de letra, colores, texto, y gráficos. <P> Por supuesto,
+si se quieren obtener resultados profesionales,
+se deben dominar estos elementos.">
+<param name="fontname" value="Serif">
+<param name="fontSize" value="14">
+</applet>
+*/
+public class TextLayout extends Applet {
+final int LEFT = 0;
+final int RIGHT = 1;
+final int CENTER = 2;
+final int LEFTRIGHT =3;
+int align;
+Dimension d;
+Font f;
+FontMetrics fm;
+int fontSize;
+int fh, bl;
+int space;
+String text;
+public void init() {
+setBackground(Color.white);
+text =getParameter("text");
+try {
+fontSize = Integer.parseInt(getParameter("fontSize"));
+} catch (NumberFormatException e) {
+fontSize=14;
+}
+align =LEFT;
+addMouseListener(new MiMouseAdapter(this));
+}
+public void paint(Graphics g) {
+update(g) ;
+}
+public void update(Graphics g) {
+d = getSize();
+g.setColor(getBackground());
+g.fillRect(0, 0, d.width, d.height);
+if(f==null) f = new Font(getParameter("fontname"),
+Font.PLAIN, fontSize);
+g. setFont (f);
+if(fm == null) {
+fm = g.getFontMetrics();
+bl =fm.getAscent();
+fh = bl + fm.getDescent () ;
+space= fm.stringWidth(" ");
+}
+g.setColor(Color.black);
+StringTokenizer st = new StringTokenizer(text);
+int x =0;
+int nextx;
+int y =0;
+String word, sp;
+int wordCount = 0;
+String line = "";
+while (st.hasMoreTokens () ) {
+word = st.nextToken();
+if(word.equals("<P>")) {
+drawString(g, line, wordCount,
+fm.stringWidth(line), y+bl);
+line = "";
+wordCount= 0;
+x = 0;
+y=y+ (fh*2);
+}
+else {
+int w = fm.stringWidth(word);
+if(( nextx = (x+space+w)) > d.width ) {
+drawString(g, line, wordCount,
+fm.stringWidth(line), y+bl);
+line = "";
+wordCount=0
+x = 0;
+y =y + fh;
+}
+if(x!=0) {sp = " ";} else {sp = "";}
+line = line + sp + word;
+x = x + space + w;
+wordCount++;
+}
+}
+drawString(g, line, wordCount, fm.stringWidth(line), y+bl);
+}
+public void drawString(Graphics g, String line,
+int wc, int lineW, int y) {
+switch (align) {
+case LEFT: g.drawString(line, 0 y);
+break;
+case RIGHT: g.drawString(line, d.width-lineW, y);
+break;
+case CENTER: g.drawString(line, (d.width-lineW)/2, y);
+break;
+case LEFTRIGHT:
+if(lineW < (int) (d.width*.75)) {
+g.drawString(line, 0, y);
+}
+else {
+int toFill = (int) (d.width - lineW)/wc;
+int nudge = d.width - lineW - (toFill*wc);
+int s = fm.stringWidth(" ");
+StringTokenizer st = new StringTokenizer(line);
+int x =0
+while(st.hasMoreTokens()) {
+String word = st.nextToken();
+g.drawString(word, x, y);
+if(nudge>0) {
+x =x + fm.stringWidth(word) + space + toFill + 1;
+nudge--;
+}else {
+x = x + fm.stringWidth(word) + space + toFill;
+}
+}
+}
+break;
+}
+}
+}
+class MiMouseAdapterextends MouseAdapter {
+TextLayout t1;
+public MiMouseAdapter(TextLayout t1) {
+this.t1 = t1;
+}
+public void mouseClicked(MouseEvent yo) {
+tl.align = (tl.align + 1) %4;
+t1.repaint () ;
+}
+}
