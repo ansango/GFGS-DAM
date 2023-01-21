@@ -1,0 +1,23 @@
+﻿<Window x:Name="Selector_de_viajes" x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="Selector de viajes" Height="350" Width="525">
+    <Grid Background="PapayaWhip">
+        <Canvas HorizontalAlignment="Left" Height="299" Margin="11,10,0,0" VerticalAlignment="Top" Width="248">
+            <Label Content="Seleccione tipo de vuelo:" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5" Canvas.Left="35" Canvas.Top="30"/>
+            <RadioButton Content="Bussiness" Canvas.Left="90" Canvas.Top="90" FontSize="13"/>
+            <RadioButton Content="Turista" Canvas.Left="90" Canvas.Top="110" FontSize="13"/>
+            <RadioButton Content="Chárter" Canvas.Left="90" Canvas.Top="130" FontSize="13"/>
+        </Canvas>
+        <Canvas HorizontalAlignment="Right" Height="299" Margin="0,10,10,0" VerticalAlignment="Top" Width="248">
+            <Label Content="Seleccione el tipo de extra:" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5" Canvas.Left="30" Canvas.Top="30"/>
+            <CheckBox Content="Servicio de taxi: + 50 €" FontSize="13" Canvas.Left="50" Canvas.Top="90"/>
+            <CheckBox Content="Alojamiento VIP: + 200 €" FontSize="13" Canvas.Left="50" Canvas.Top="110"/>
+            <CheckBox Content="Pensión completa: + 140 €" FontSize="13" Canvas.Left="50" Canvas.Top="130"/>
+        </Canvas>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Principal" Height="372.234" Width="542.213" WindowStartupLocation="Manual" WindowStyle="ThreeDBorderWindow">
+    <Grid Background="#FF94D6D3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="233*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="WeekDays" Margin="2,38,82,267" SelectionChanged="WeekDays_SelectionChanged" MaxDropDownHeight="358" Background="Black" Grid.Column="1">
+            <ComboBoxItem Tag="Lunes" Height="30">Lunes</ComboBoxItem>
+            <ComboBoxItem Tag="Martes" Height="30">Martes</ComboBoxItem>
+            <ComboBoxItem Tag="Miercoles" Height="30">Miercoles</ComboBoxItem>
+            <ComboBoxItem Tag="Jueves" Height="30">Jueves</ComboBoxItem>
+            <ComboBoxItem Tag="Viernes" Height="30">Viernes</ComboBoxItem>
+            <ComboBoxItem Tag="Sabado" Height="30" Selected="ComboBoxItem_Selected">Sábado</ComboBoxItem>
+            <ComboBoxItem Tag="Domingo" Height="30">Domingo</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Window>

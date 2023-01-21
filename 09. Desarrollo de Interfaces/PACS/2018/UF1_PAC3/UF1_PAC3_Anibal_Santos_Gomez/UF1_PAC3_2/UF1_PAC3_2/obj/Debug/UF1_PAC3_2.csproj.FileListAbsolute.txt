@@ -1,0 +1,14 @@
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\bin\Debug\UF1_PAC3_2.exe.config
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\bin\Debug\UF1_PAC3_2.exe
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\bin\Debug\UF1_PAC3_2.pdb
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.csprojResolveAssemblyReference.cache
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\MainWindow.g.cs
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\App.g.cs
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2_MarkupCompile.cache
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2_MarkupCompile.lref
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\MainWindow.baml
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.g.resources
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.Properties.Resources.resources
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.csproj.GenerateResource.Cache
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.exe
+c:\users\ansan\documents\visual studio 2015\Projects\UF1_PAC3_2\UF1_PAC3_2\obj\Debug\UF1_PAC3_2.pdb
