@@ -1,0 +1,6 @@
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\bin\Debug\TrabajoConFicheros.exe.config
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\bin\Debug\TrabajoConFicheros.exe
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\bin\Debug\TrabajoConFicheros.pdb
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\obj\Debug\TrabajoConFicheros.exe
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\obj\Debug\TrabajoConFicheros.pdb
+c:\users\marc\documents\visual studio 2013\Projects\TrabajoConFicheros\TrabajoConFicheros\bin\Debug\ejemplo.txt

@@ -1,0 +1,5 @@
+C:\DAW\prog\Ilerna\Tema7\examen\Repaso31_3_2\bin\Debug\Repaso31_3_2.exe.config
+C:\DAW\prog\Ilerna\Tema7\examen\Repaso31_3_2\bin\Debug\Repaso31_3_2.exe
+C:\DAW\prog\Ilerna\Tema7\examen\Repaso31_3_2\bin\Debug\Repaso31_3_2.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\Repaso31_3_2\obj\Debug\Repaso31_3_2.exe
+C:\DAW\prog\Ilerna\Tema7\examen\Repaso31_3_2\obj\Debug\Repaso31_3_2.pdb

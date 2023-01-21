@@ -1,0 +1,6 @@
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\bin\Debug\RepasoPrueba31_3.exe.config
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\bin\Debug\RepasoPrueba31_3.exe
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\bin\Debug\RepasoPrueba31_3.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\obj\Debug\RepasoPrueba31_3.exe
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\obj\Debug\RepasoPrueba31_3.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\RepasoPrueba31_3\obj\Debug\RepasoPrueba31_3.csprojResolveAssemblyReference.cache

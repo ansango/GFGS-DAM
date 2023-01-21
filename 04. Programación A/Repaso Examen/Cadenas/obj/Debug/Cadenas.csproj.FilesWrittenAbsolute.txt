@@ -1,0 +1,6 @@
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.exe.config
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.pdb
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.exe
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.exe
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.pdb

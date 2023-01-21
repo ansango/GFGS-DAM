@@ -1,0 +1,6 @@
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\bin\Debug\RepasarCadenas.exe.config
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\bin\Debug\RepasarCadenas.exe
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\bin\Debug\RepasarCadenas.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\obj\Debug\RepasarCadenas.csprojResolveAssemblyReference.cache
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\obj\Debug\RepasarCadenas.exe
+C:\DAW\prog\Ilerna\Tema7\examen\RepasarCadenas\obj\Debug\RepasarCadenas.pdb

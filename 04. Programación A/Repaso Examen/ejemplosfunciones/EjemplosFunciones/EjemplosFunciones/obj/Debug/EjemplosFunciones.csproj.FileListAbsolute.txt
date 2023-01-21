@@ -1,0 +1,6 @@
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\bin\Debug\EjemplosFunciones.exe.config
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\bin\Debug\EjemplosFunciones.exe
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\bin\Debug\EjemplosFunciones.pdb
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\obj\Debug\EjemplosFunciones.csprojResolveAssemblyReference.cache
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\obj\Debug\EjemplosFunciones.exe
+c:\users\casan_000\documents\visual studio 2013\Projects\EjemplosFunciones\EjemplosFunciones\obj\Debug\EjemplosFunciones.pdb

@@ -1,0 +1,6 @@
+C:\DAW\prog\Ilerna\Tema7\examen\examen\bin\Debug\examen.exe.config
+C:\DAW\prog\Ilerna\Tema7\examen\examen\bin\Debug\examen.exe
+C:\DAW\prog\Ilerna\Tema7\examen\examen\bin\Debug\examen.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\examen\obj\Debug\examen.csprojResolveAssemblyReference.cache
+C:\DAW\prog\Ilerna\Tema7\examen\examen\obj\Debug\examen.exe
+C:\DAW\prog\Ilerna\Tema7\examen\examen\obj\Debug\examen.pdb

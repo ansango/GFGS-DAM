@@ -1,0 +1,13 @@
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/bin/Debug/Cadenas.exe.config
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/bin/Debug/Cadenas.exe
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/bin/Debug/Cadenas.pdb
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/obj/Debug/Cadenas.csprojResolveAssemblyReference.cache
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/obj/Debug/Cadenas.exe
+C:/DAW/prog/Ilerna/Tema7/examen/Cadenas/obj/Debug/Cadenas.pdb
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.exe.config
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.exe
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/bin/Debug/Cadenas.pdb
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.csprojResolveAssemblyReference.cache
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.csproj.CoreCompileInputs.cache
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.exe
+/Users/ansan/Google Drive/Clases/Programacion A (C#)/Exámenes 2017/examen/Cadenas/obj/Debug/Cadenas.pdb

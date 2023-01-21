@@ -1,0 +1,6 @@
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\bin\Debug\repaso_3_1_4_3_4.exe.config
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\bin\Debug\repaso_3_1_4_3_4.exe
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\bin\Debug\repaso_3_1_4_3_4.pdb
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\obj\Debug\repaso_3_1_4_3_4.csprojResolveAssemblyReference.cache
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\obj\Debug\repaso_3_1_4_3_4.exe
+C:\DAW\prog\Ilerna\Tema7\examen\repaso_3_1_4_3_4\obj\Debug\repaso_3_1_4_3_4.pdb
